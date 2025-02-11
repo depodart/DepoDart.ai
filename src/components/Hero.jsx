@@ -1,41 +1,46 @@
-import React, { useEffect, useRef } from "react";
+import React, 
+{ 
+  // useEffect, 
+  // useRef 
+} 
+from "react";
 import { motion } from "framer-motion";
 import { styles } from "../styles";
 import Typewriter from "typewriter-effect";
-import Globe from 'globe.gl';
+// import Globe from 'globe.gl';
 
 const typewriterStrings = ["Precise Mineral Exploration", "Reduced Exploration Costs", "Advanced Resource Detection", "Geological Surveying", "Deposit Identification", "Subsurface Mapping", "Formation Analysis", "Ore Body Detection", "Mineral Assessment", "Resource Estimation", "Geophysical Prospecting"];
 const Hero = () => {
 
-  const globeRef = useRef();
+  // const globeRef = useRef();
 
-  useEffect(() => {
-    // Initialize globe
-    const globe = Globe()
-      .globeImageUrl('//unpkg.com/three-globe/example/img/earth-dark.jpg')
-      .backgroundColor('rgba(0,0,0,0)')
-      .width(window.innerWidth)
-      .height(window.innerHeight)
-      (globeRef.current);
+  // useEffect(() => {
+  //   // Initialize globe
+  //   const globe = Globe()
+  //     .globeImageUrl('//unpkg.com/three-globe/example/img/earth-dark.jpg')
+  //     .backgroundColor('rgba(0,0,0,0)')
+  //     .width(window.innerWidth)
+  //     .height(window.innerHeight)
+  //     (globeRef.current);
 
-    // Add resize handler
-    const handleResize = () => {
-      globe
-        .width(window.innerWidth)
-        .height(window.innerHeight);
-    };
-    window.addEventListener('resize', handleResize);
+  //   // Add resize handler
+  //   const handleResize = () => {
+  //     globe
+  //       .width(window.innerWidth)
+  //       .height(window.innerHeight);
+  //   };
+  //   window.addEventListener('resize', handleResize);
 
-    // Cleanup
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
+  //   // Cleanup
+  //   return () => {
+  //     window.removeEventListener('resize', handleResize);
+  //   };
+  // }, []);
 
   return (
     <section className="relative w-full h-screen mx-auto">
       {/* Globe container */}
-      <div ref={globeRef} className="absolute inset-0 z-0" />
+      {/* <div ref={globeRef} className="absolute inset-0 z-0" /> */}
       
       {/* Existing hero content with higher z-index */}
       <div className="relative z-10">
