@@ -17,7 +17,7 @@ import mhft from "./projects/mhft.png";
 import sketcher from "./projects/mhft.png";
 import CompileVortex from "./projects/mhft.png";
 // Import common assets
-import logo from "./favicon.png";
+import logo from "./favicon1.png";
 import github from "./github.png";
 import menu from "./menu.svg";
 import close from "./close.svg";
