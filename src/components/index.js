@@ -18,7 +18,7 @@ export {
   Experience,
   Works,
   Contact,
+  Footer,
   EarthCanvas,
   StarsCanvas,
-  Footer,
 };
