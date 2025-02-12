@@ -12,7 +12,7 @@ import { About,
 
 const App = () => {
   return (
-    <BrowserRouter
+    <BrowserRouter basename="/DepoDart.ai"
       future={{
         v7_startTransition: true,
         v7_relativeSplatPath: true,
