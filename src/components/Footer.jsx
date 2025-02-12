@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { SectionWrapper } from '../hoc';
 const Footer = () => {
 
   return (
@@ -39,4 +39,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default SectionWrapper(Footer, "");
