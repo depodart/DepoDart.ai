@@ -8,12 +8,15 @@ import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
 import "../index.css";
 
-const EMAIL_SERVICE_ID = import.meta.env.VITE_EMAIL_SERVICE_ID;
-const EMAIL_TEMPLATE_ID = import.meta.env.VITE_EMAIL_TEMPLATE_ID;
-const EMAIL_PUBLIC_KEY = import.meta.env.VITE_EMAIL_PUBLIC_KEY;
-const EMAIL_RECIPIENT = import.meta.env.VITE_EMAIL_RECIPIENT;
-const EMAIL_RECIPIENT_NAME = import.meta.env.VITE_EMAIL_RECIPIENT_NAME;
-const EMAIL_REGEX = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+const EMAIL_SERVICE_ID = import.meta.env.VITE_EMAIL_SERVICE_ID || "default_service_id";
+const EMAIL_TEMPLATE_ID = import.meta.env.VITE_EMAIL_TEMPLATE_ID || "default_template_id";
+const EMAIL_PUBLIC_KEY = import.meta.env.VITE_EMAIL_PUBLIC_KEY || "default_public_key";
+const EMAIL_RECIPIENT = import.meta.env.VITE_EMAIL_RECIPIENT || "default@example.com";
+const EMAIL_RECIPIENT_NAME = import.meta.env.VITE_EMAIL_RECIPIENT_NAME || "Default Name";
+
+// Improved email regex
+const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
 
 const TEXT = {
   sectionSubText: "Get in touch",
