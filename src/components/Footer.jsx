@@ -9,7 +9,7 @@ const FOOTER_TEXT = {
   },
   phone: import.meta.env.VITE_PHONE || "",
   email: import.meta.env.VITE_EMAIL_RECIPIENT || "",
-  copyright: `© ${new Date().getFullYear()} ${import.meta.env.VITE_COMPANY_NAME}. All rights reserved.`
+  copyright: `© ${new Date().getFullYear()} ${import.meta.env.VITE_EMAIL_RECIPIENT_NAME || ""}. All rights reserved.`
 };
 
 const Footer = () => {
