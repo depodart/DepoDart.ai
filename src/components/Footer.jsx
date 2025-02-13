@@ -8,7 +8,7 @@ const FOOTER_TEXT = {
     city: import.meta.env.VITE_ADDRESS_CITY || ""
   },
   phone: import.meta.env.VITE_PHONE || "",
-  email: import.meta.env.VITE_EMAIL || "",
+  email: import.meta.env.VITE_EMAIL_RECIPIENT || "",
   copyright: `© ${new Date().getFullYear()} ${import.meta.env.VITE_COMPANY_NAME}. All rights reserved.`
 };
 
