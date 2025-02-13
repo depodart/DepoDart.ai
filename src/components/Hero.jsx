@@ -4,9 +4,26 @@ import { styles } from "../styles";
 import Typewriter from "typewriter-effect";
 import { GlobeComponent } from "./canvas/GlobeComponent";
 
-const typewriterStrings = ["Precise Mineral Exploration", "Reduced Exploration Costs", "Advanced Resource Detection", "Geological Surveying", "Deposit Identification", "Subsurface Mapping", "Formation Analysis", "Ore Body Detection", "Mineral Assessment", "Resource Estimation", "Geophysical Prospecting"];
-
-
+const HERO_TEXT = {
+  miningCapabilities: [
+    import.meta.env.VITE_MINING_CAPABILITY_1,
+    import.meta.env.VITE_MINING_CAPABILITY_2,
+    import.meta.env.VITE_MINING_CAPABILITY_3,
+    import.meta.env.VITE_MINING_CAPABILITY_4,
+    import.meta.env.VITE_MINING_CAPABILITY_5,
+    import.meta.env.VITE_MINING_CAPABILITY_6,
+    import.meta.env.VITE_MINING_CAPABILITY_7,
+    import.meta.env.VITE_MINING_CAPABILITY_8,
+    import.meta.env.VITE_MINING_CAPABILITY_9,
+    import.meta.env.VITE_MINING_CAPABILITY_10,
+    import.meta.env.VITE_MINING_CAPABILITY_11
+  ],
+  brandName: {
+    first: import.meta.env.VITE_HERO_TEXT_BRAND_NAME_FIRST,
+    second: import.meta.env.VITE_HERO_TEXT_BRAND_NAME_SECOND
+  },
+  tagline: import.meta.env.VITE_HERO_TEXT_TAGLINE
+};
 
 const Hero = () => {
   return (
@@ -23,13 +40,13 @@ const Hero = () => {
           </div>
           <div>
             <h1 className={`${styles.heroHeadText} text-white`}>
-            Depo<span className="text-[#915EFF]">Dart</span>
+              {HERO_TEXT.brandName.first}<span className="text-[#915EFF]">{HERO_TEXT.brandName.second}</span>
             </h1>
             <div className={`${styles.heroSubText} mt-2 text-white-100`}>
-            AI-Powered Automation for Every Mineral Mining Exploration
+              {HERO_TEXT.tagline}
               <Typewriter
                 options={{
-                  strings: typewriterStrings,
+                  strings: HERO_TEXT.miningCapabilities,
                   autoStart: true,
                   loop: true,
                   loopCount: Infinity,
