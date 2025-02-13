@@ -36,7 +36,7 @@ export const experiences = [
     iconBg: "#161329",
     date: "",
     points: [
-      "Built predictive models for mineral resource estimation using machine learning techniques.",
+      "Built predictive models for mineral deposit estimation using machine learning techniques.",
       "Applied deep learning for geophysical data interpretation and subsurface mapping.",
       "Developed novel algorithms for processing and analyzing geological big data.",
     ],
