@@ -8,11 +8,11 @@ import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
 import "../index.css";
 
-const EMAIL_SERVICE_ID = "service_XXXXXXX";
-const EMAIL_TEMPLATE_ID = "template_XXXXXXX";
-const EMAIL_PUBLIC_KEY = "p-XXXXXXX-";
-const EMAIL_RECIPIENT = "depodart@gmail.com";
-const EMAIL_RECIPIENT_NAME = "DepoDart";
+const EMAIL_SERVICE_ID = import.meta.env.VITE_EMAIL_SERVICE_ID;
+const EMAIL_TEMPLATE_ID = import.meta.env.VITE_EMAIL_TEMPLATE_ID;
+const EMAIL_PUBLIC_KEY = import.meta.env.VITE_EMAIL_PUBLIC_KEY;
+const EMAIL_RECIPIENT = import.meta.env.VITE_EMAIL_RECIPIENT;
+const EMAIL_RECIPIENT_NAME = import.meta.env.VITE_EMAIL_RECIPIENT_NAME;
 const EMAIL_REGEX = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
 const TEXT = {
@@ -28,7 +28,7 @@ const TEXT = {
   sendingButton: "Sending...",
   nameError: "Name is required.",
   emailError: "Please enter a valid email address.",
-  successMessage: "Thank you! I will get back to you as soon as possible.",
+  successMessage: "Thank you for your message. Our team will review and respond to your inquiry within 1-2 business days.",
   errorMessage: "Something went wrong. Please try again. :/"
 };
 
