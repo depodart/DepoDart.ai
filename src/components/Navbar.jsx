@@ -71,9 +71,9 @@ const Navbar = () => {
               window.scrollTo(0, 0);
             }}
           >
-            <img src={logo} alt="logo" className="w-9 h-9 object-contain" />
+            {/* <img src={logo} alt="logo" className="w-9 h-9 object-contain" /> */}
             <p className="text-white text-[20px] font-bold cursor-pointer flex">
-              Depot&nbsp;
+              Depo&nbsp;
               <span className="sm:block hidden">Dart</span>
             </p>
           </Link>

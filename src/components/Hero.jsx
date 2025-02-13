@@ -51,10 +51,10 @@ const Hero = () => {
           </div>
           <div>
             <h1 className={`${styles.heroHeadText} text-white`}>
-            Depot<span className="text-[#915EFF]">Dart</span>
+            Depo<span className="text-[#915EFF]">Dart</span>
             </h1>
             <div className={`${styles.heroSubText} mt-2 text-white-100`}>
-            AI-Powered Solutions for 
+            AI-Powered Automation for Every Mineral Mining Exploration
               <Typewriter
                 options={{
                   strings: typewriterStrings,
