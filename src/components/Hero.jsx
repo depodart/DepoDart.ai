@@ -6,17 +6,17 @@ import { GlobeComponent } from "./canvas/GlobeComponent";
 
 const HERO_TEXT = {
   miningCapabilities: [
-    import.meta.env.VITE_MINING_CAPABILITY_1,
-    import.meta.env.VITE_MINING_CAPABILITY_2,
-    import.meta.env.VITE_MINING_CAPABILITY_3,
-    import.meta.env.VITE_MINING_CAPABILITY_4,
-    import.meta.env.VITE_MINING_CAPABILITY_5,
-    import.meta.env.VITE_MINING_CAPABILITY_6,
-    import.meta.env.VITE_MINING_CAPABILITY_7,
-    import.meta.env.VITE_MINING_CAPABILITY_8,
-    import.meta.env.VITE_MINING_CAPABILITY_9,
-    import.meta.env.VITE_MINING_CAPABILITY_10,
-    import.meta.env.VITE_MINING_CAPABILITY_11
+    "Precise Mineral Exploration",
+    "Reduced Exploration Costs",
+    "Advanced Resource Detection",
+    "Geological Surveying",
+    "Deposit Identification",
+    "Subsurface Mapping",
+    "Formation Analysis",
+    "Ore Body Detection",
+    "Mineral Assessment",
+    "Resource Estimation",
+    "Geophysical Prospecting"
   ],
   brandName: {
     first: import.meta.env.VITE_HERO_TEXT_BRAND_NAME_FIRST,
