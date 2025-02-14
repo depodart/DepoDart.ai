@@ -56,18 +56,7 @@ export const projects = [
     image: mhft,
     source_code_link: "https://github.com/",
   },
-  {
-    name: "Resource Estimation AI",
-    description:
-      "AI model that uses regression techniques to estimate mineral resources and predict deposit.",
-    tags: [
-      { name: "Machine Learning", color: "blue-text-gradient" },
-      { name: "Predictive Analytics", color: "green-text-gradient" },
-      { name: "Geological Modeling", color: "pink-text-gradient" },
-    ],
-    image: mhft,
-    source_code_link: "https://github.com/",
-  },
+ 
   {
     name: "Resource Estimation AI",
     description:
