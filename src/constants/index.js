@@ -1,10 +1,15 @@
 import {
   mathwork,
-
   python,
-
   mhft,
 } from "../assets";
+import { 
+  BeakerIcon,
+  CpuChipIcon,
+  ClockIcon, 
+  ServerIcon 
+} from '@heroicons/react/24/outline'
+
 
 export const navLinks = [
   {
@@ -22,9 +27,25 @@ export const navLinks = [
 ];
 
 export const services = [
-  { title: "Machine Learning", 
-    icon: python,
+  { 
+    title: "Machine Learning",
+    IconComponent: CpuChipIcon,
     description: "Tailored Mapping Solutions"
+  },
+  { 
+    title: "Reduced operational time",
+    IconComponent: ClockIcon,
+    description: "Intuitive ML workflow building that significantly decreases processing time and delivers fast and accurate prediction results"
+  },
+  { 
+    title: "Apply your knowledge",
+    IconComponent: BeakerIcon,
+    description: "Intelligent ML Workflow Customisation aimed at retaining your competences and experience"
+  },
+  { 
+    title: "Advanced hybrid neural network",
+    IconComponent: ServerIcon,
+    description: "Robust prediction of the most complex geological features based on varying seismic quality and complexity of geological strata"
   },
 ];
 

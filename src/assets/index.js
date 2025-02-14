@@ -3,6 +3,7 @@ import mathwork from "./company/mathwork.png";
 
 // Import tech stack images
 import python from "./overview-icons/python.png";
+
 // Import project images
 import mhft from "./projects/mhft.png";
 

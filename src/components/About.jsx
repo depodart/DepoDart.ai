@@ -6,28 +6,42 @@ import { SectionWrapper } from '../hoc';
 import { styles } from '../styles';
 import { fadeIn, textVariant } from '../utils/motion';
 
-const ServiceCard = ({ index, title, description, icon }) => (
-  <Tilt className="xs:w-[250px] w-full">
-    <motion.div
-      variants={fadeIn('right', 'spring', index * 0.5, 0.75)}
-      className="w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card"
-    >
-      <div
-        options={{
-          max: 45,
-          scale: 1,
-          speed: 450,
-        }}
-        className="bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col"
-      >
-        <img src={icon} alt="web-development" className="w-16 h-16 object-contain" loading="lazy" />
+const ServiceCard = ({ index, title, description, icon, IconComponent }) => {
+  const [isHovered, setIsHovered] = React.useState(false);
 
-        <h3 className="text-white text-[20px] font-bold text-center">{title}</h3>
-        <p className="mt-2 text-white text-[16px] text-center">{description}</p>
-      </div>
-    </motion.div>
-  </Tilt>
-);
+  return (
+    <Tilt className="xs:w-[250px] w-full">
+      <motion.div
+        variants={fadeIn('right', 'spring', index * 0.5, 0.75)}
+        className="w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        <div
+          options={{
+            max: 45,
+            scale: 1,
+            speed: 450,
+          }}
+          className="bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col"
+        >
+          {/* {icon && ( <img src={icon} alt="web-development" className="w-16 h-16 object-contain" loading="lazy" /> )} */}
+          {/* {IconComponent && <IconComponent className="w-10 h-10 text-blue-500" />} */}
+          {IconComponent && (
+            <IconComponent 
+              className={`w-10 h-10 transition-all duration-300 ${
+                isHovered ? 'text-[#00cea8]' : 'text-[#915EFF]'
+              }`}
+            />
+          )}
+    
+          <h3 className="text-white text-[20px] font-bold text-center">{title}</h3>
+          <p className="mt-2 text-white text-[16px] text-center">{description}</p>
+        </div>
+      </motion.div>
+    </Tilt>
+  );
+};
 
 const About = () => {
   return (
