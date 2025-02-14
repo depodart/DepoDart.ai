@@ -71,6 +71,7 @@ export const GlobeComponent = () => {
           // Auto-rotate
           globeInstance.controls().autoRotate = true;
           globeInstance.controls().autoRotateSpeed = 0.5;
+          
 
           // Update heat data every 2 seconds
           const heatInterval = setInterval(() => {
