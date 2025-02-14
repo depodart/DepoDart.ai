@@ -45,15 +45,15 @@ const ServiceCard = ({ index, title, description, icon, IconComponent }) => {
           <h3 className={`text-[18px] font-bold text-center transition-all duration-300 ${
             isHovered 
               ? 'text-[#915EFF] transform scale-110 tracking-wider' 
-              : 'text-white'
+              : 'text-[#E0E0E0]'
           }`}>
             {title}
           </h3>
           
-          <p className={`mt-2 text-[14px] text-center transition-all duration-300 ${
+          <p className={`mt-2 text-[14px] text-center transition-all duration-300 leading-[1.6] ${
             isHovered
               ? 'text-[#00cea8] transform translate-y-[-5px] leading-relaxed'
-              : 'text-white leading-normal'
+              : 'text-[#B0B0B0]'
           }`}>
             {description}
           </p>
