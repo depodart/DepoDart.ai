@@ -12,6 +12,10 @@ import { experiences } from "../constants";
 import { SectionWrapper } from "../hoc";
 import { textVariant } from "../utils/motion";
 
+const EXPERIENCE_TEXT = {
+  sectionSubText: "Every mapping project is a unique discovery journey",
+  sectionHeadText: "OUR SERVICES"
+};
 const ExperienceCard = ({ experience }) => (
   <VerticalTimelineElement
     contentStyle={{
@@ -22,19 +26,21 @@ const ExperienceCard = ({ experience }) => (
     date={experience.date}
     iconStyle={{ background: experience.iconBg }}
     icon={
-      <div className="flex justify-center items-center w-full h-full">
-        <img
-          src={experience.icon}
-          alt={experience.company_name}
-          className="w-[60%] h-[60%] object-contain"
-        />
-      </div>
+      experience.icon && (
+        <div className="flex justify-center items-center w-full h-full">
+          <img
+            src={experience.icon}
+            alt={experience.sub_title}
+            className="w-[60%] h-[60%] object-contain"
+          />
+        </div>
+      )
     }
   >
     <div>
       <h3 className="text-white text-[24px] font-bold">{experience.title}</h3>
       <p className="text-secondary text-[16px] font-semibold" style={{ margin: 0 }}>
-        {experience.company_name}
+        {experience.sub_title}
       </p>
     </div>
 
@@ -55,9 +61,11 @@ const Experience = () => (
   <>
     <motion.div variants={textVariant()}>
       <p className={`${styles.sectionSubText} text-center`}>
-        Every mapping project is a unique discovery journey
+        {EXPERIENCE_TEXT.sectionSubText}
       </p>
-      <h2 className={`${styles.sectionHeadText} text-center`}>OUR PROJECT HIGHLIGHTS</h2>
+      <h2 className={`${styles.sectionHeadText} text-center`}>
+        {EXPERIENCE_TEXT.sectionHeadText}
+      </h2>
     </motion.div>
 
     <div className="mt-20 flex flex-col">
