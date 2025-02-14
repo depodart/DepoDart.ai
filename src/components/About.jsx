@@ -30,7 +30,7 @@ const ServiceCard = ({ index, title, description, icon, IconComponent }) => {
           {IconComponent && (
             <IconComponent 
               className={`w-10 h-10 transition-all duration-300 ${
-                isHovered ? 'text-[#00cea8]' : 'text-[#915EFF]'
+                isHovered ? 'text-[#915EFF]' : 'text-[#00cea8]'
               }`}
             />
           )}
