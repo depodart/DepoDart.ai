@@ -66,7 +66,7 @@ const Navbar = () => {
         >
           <p className="text-white text-[20px] font-bold cursor-pointer flex">
             Depo&nbsp;
-            <span className="sm:block hidden">Dart</span>
+            <span>Dart</span>
           </p>
         </Link>
 
