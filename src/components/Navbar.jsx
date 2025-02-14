@@ -19,27 +19,23 @@ const Navbar = () => {
     }
   }, [toggle]);
 
-  const renderNavLinks = (isSecondary) => (
-    <ul className={`list-none ${isSecondary ? 'flex sm:hidden' : 'hidden sm:flex'} flex-row gap-6`}>
+  const renderNavLinks = (isMobile) => (
+    <ul className={`list-none ${isMobile ? 'flex flex-col' : 'hidden sm:flex flex-row'} gap-6`}>
       {navLinks.map((link) => (
         <li
           key={link.id}
           className={`${
-            active === link.title ? 'text-white' : isSecondary ? 'text-secondary' : 'text-white'
-          } hover:text-white text-[20px] font-medium cursor-pointer`}
-          onClick={(e) => {
-            e.preventDefault();
-            console.log(`Navigating to: ${link.id}`);
+            active === link.title ? 'text-white' : isMobile ? 'text-secondary' : 'text-white'
+          } hover:text-white text-[18px] font-medium cursor-pointer`}
+          onClick={() => {
             setActive(link.title);
             
             const element = document.getElementById(link.id);
             if (element) {
               element.scrollIntoView({ behavior: 'smooth' });
-            } else {
-              console.warn(`Section with id "${link.id}" not found`);
             }
             
-            if (isSecondary) {
+            if (isMobile) {
               setToggle(false);
             }
           }}
@@ -49,8 +45,8 @@ const Navbar = () => {
       ))}
       <li
         className={`text-${
-          isSecondary ? 'secondary' : 'white'
-        } hover:text-white text-[20px] font-medium cursor-pointer`}
+          isMobile ? 'secondary' : 'white'
+        } hover:text-white text-[18px] font-medium cursor-pointer`}
       >
         <button onClick={toggleResume}>Download info</button>
       </li>
@@ -58,44 +54,40 @@ const Navbar = () => {
   );
 
   return (
-    <>
-      <nav
-        className={`${styles.paddingX} w-full flex items-center py-3 fixed top-0 z-20 bg-primary`}
-      >
-        <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
-          <Link
-            to="/"
-            className="flex items-center gap-2"
-            onClick={() => {
-              setActive('');
-              window.scrollTo(0, 0);
-            }}
-          >
-            {/* <img src={logo} alt="logo" className="w-9 h-9 object-contain" /> */}
-            <p className="text-white text-[20px] font-bold cursor-pointer flex">
-              Depo&nbsp;
-              <span className="sm:block hidden">Dart</span>
-            </p>
-          </Link>
-          {renderNavLinks(false)}
-          <div className="sm:hidden flex flex-1 justify-end items-center">
-            <img
-              src={toggle ? close : menu}
-              alt="menu"
-              className="w-[28px] h-[18px] object-contain cursor-pointer"
-              onClick={() => setToggle(!toggle)}
-            />
-            <div
-              className={`p-4 black-gradient absolute top-14 right-0 mx-2 my-2 min-w-[120px] z-10 rounded-xl foggy-glass ${
-                toggle ? 'flex' : 'hidden'
-              }`}
-            >
-              {renderNavLinks(true)}
-            </div>
+    <nav className={`${styles.paddingX} w-full flex items-center py-5 fixed top-0 z-20 bg-gradient-to-b from-[#050816] via-[#050816] to-transparent backdrop-blur-md`}>
+      <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
+        <Link
+          to="/"
+          className="flex items-center gap-2"
+          onClick={() => {
+            setActive('');
+            window.scrollTo(0, 0);
+          }}
+        >
+          <p className="text-white text-[20px] font-bold cursor-pointer flex">
+            Depo&nbsp;
+            <span className="sm:block hidden">Dart</span>
+          </p>
+        </Link>
+
+        {/* Desktop Navigation */}
+        {renderNavLinks(false)}
+
+        {/* Mobile Navigation */}
+        <div className="sm:hidden flex flex-1 justify-end items-center">
+          <img
+            src={toggle ? close : menu}
+            alt="menu"
+            className="w-[28px] h-[28px] object-contain cursor-pointer"
+            onClick={() => setToggle(!toggle)}
+          />
+
+          <div className={`${!toggle ? 'hidden' : 'flex'} p-6 black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl bg-[#915EFF]`}>
+            {renderNavLinks(true)}
           </div>
         </div>
-      </nav>
-    </>
+      </div>
+    </nav>
   );
 };
 
