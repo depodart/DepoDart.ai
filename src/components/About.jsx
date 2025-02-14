@@ -13,7 +13,16 @@ const ServiceCard = ({ index, title, description, icon, IconComponent }) => {
     <Tilt className="xs:w-[250px] w-full">
       <motion.div
         variants={fadeIn('right', 'spring', index * 0.5, 0.75)}
-        className="w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card"
+        className={`w-full p-[1px] rounded-[20px] shadow-card relative overflow-hidden ${
+          isHovered ? 'animate-border-flow' : ''
+        }`}
+        style={{
+          background: `linear-gradient(${isHovered ? '90deg' : '0deg'}, 
+            #00cea8 0%, 
+            #915eff 50%,
+            #ff6b6b 100%
+          )`
+        }}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
@@ -23,10 +32,8 @@ const ServiceCard = ({ index, title, description, icon, IconComponent }) => {
             scale: 1,
             speed: 450,
           }}
-          className="bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col"
+          className="bg-tertiary rounded-[20px] py-5 px-8 h-[280px] flex justify-evenly items-center flex-col"
         >
-          {/* {icon && ( <img src={icon} alt="web-development" className="w-16 h-16 object-contain" loading="lazy" /> )} */}
-          {/* {IconComponent && <IconComponent className="w-10 h-10 text-blue-500" />} */}
           {IconComponent && (
             <IconComponent 
               className={`w-10 h-10 transition-all duration-300 ${
@@ -35,8 +42,21 @@ const ServiceCard = ({ index, title, description, icon, IconComponent }) => {
             />
           )}
     
-          <h3 className="text-white text-[20px] font-bold text-center">{title}</h3>
-          <p className="mt-2 text-white text-[16px] text-center">{description}</p>
+          <h3 className={`text-[18px] font-bold text-center transition-all duration-300 ${
+            isHovered 
+              ? 'text-[#915EFF] transform scale-110 tracking-wider' 
+              : 'text-white'
+          }`}>
+            {title}
+          </h3>
+          
+          <p className={`mt-2 text-[14px] text-center transition-all duration-300 ${
+            isHovered
+              ? 'text-[#00cea8] transform translate-y-[-5px] leading-relaxed'
+              : 'text-white leading-normal'
+          }`}>
+            {description}
+          </p>
         </div>
       </motion.div>
     </Tilt>
