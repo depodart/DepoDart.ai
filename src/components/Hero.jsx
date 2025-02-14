@@ -1,8 +1,9 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { motion } from "framer-motion";
 import { styles } from "../styles";
 import Typewriter from "typewriter-effect";
-import { GlobeComponent } from "./canvas/GlobeComponent";
+import  GlobeComponentCanvas  from "./canvas/GlobeComponent";
+import CanvasLoader from "./Loader";
 
 const HERO_TEXT = {
   miningCapabilities: [
@@ -28,9 +29,7 @@ const HERO_TEXT = {
 const Hero = () => {
   return (
     <section className="relative w-full h-screen mx-auto">
-      {/* Globe container */}
-      <GlobeComponent />
-      
+
       {/* Existing hero content with higher z-index */}
       <div className="relative z-10">
         <div className={`absolute inset-0 top-[120px] max-w-7xl mx-auto ${styles.paddingX} flex flex-row items-start gap-5`}>
@@ -58,6 +57,11 @@ const Hero = () => {
           </div>
         </div>
       </div>
+      
+        {/* Globe container */}
+        <Suspense fallback={<CanvasLoader />}>
+          <GlobeComponentCanvas />
+        </Suspense>
       
       {/* {myGlobe} */}
       <div className="absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center">
