@@ -59,7 +59,7 @@ export const projects = [
   {
     name: "Resource Estimation AI",
     description:
-      "AI model that uses regression techniques to estimate mineral resources and predict deposit locations.",
+      "AI model that uses regression techniques to estimate mineral resources and predict deposit.",
     tags: [
       { name: "Machine Learning", color: "blue-text-gradient" },
       { name: "Predictive Analytics", color: "green-text-gradient" },
