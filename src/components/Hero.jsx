@@ -6,18 +6,14 @@ import  GlobeComponentCanvas  from "./canvas/GlobeComponent";
 import CanvasLoader from "./Loader";
 
 const HERO_TEXT = {
-  miningCapabilities: [
-    "Precise Mineral Exploration",
-    "Reduced Exploration Costs",
-    "Advanced Resource Detection",
+  miningCapabilities: ["AI-Powered Geological Mapping",
+    "Predictive Mineral Targeting",
+    "Automated Geochemical Analysis",
     "Geological Surveying",
-    "Deposit Identification",
-    "Subsurface Mapping",
-    "Formation Analysis",
-    "Ore Body Detection",
-    "Mineral Assessment",
-    "Resource Estimation",
-    "Geophysical Prospecting"
+    "AI-Optimized Drilling & Core Logging",
+    "Machine Learning for Geophysical Data Interpretation",
+    "Big Data Integration & Decision Support Systems",
+    "AI-Driven Resource Estimation & Feasibility Studies"
   ],
   brandName: {
     first: import.meta.env.VITE_HERO_TEXT_BRAND_NAME_FIRST,
