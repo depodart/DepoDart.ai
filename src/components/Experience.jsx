@@ -4,6 +4,7 @@ import {
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import { motion } from "framer-motion";
+import { navLinks } from "../constants";
 
 import "react-vertical-timeline-component/style.min.css";
 
@@ -78,4 +79,4 @@ const Experience = () => (
   </>
 );
 
-export default SectionWrapper(Experience, "Research");
+export default SectionWrapper(Experience, navLinks[1].id);
