@@ -232,9 +232,12 @@ const ContactSales = () => {
       </motion.div>
 
       {/* Globe Container */}
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[700px] h-[700px] z-0">
+      <motion.div
+        variants={slideIn("right", "tween", 0.2, 1)}
+        className="absolute top-0 right-[-7rem] -translate-y-1/2 z-0"
+      >
         <GlobeElevatedPolygonsCanvas />
-      </div>
+      </motion.div>
     </div>
   );
 };
