@@ -5,7 +5,7 @@ import { services } from '../constants';
 import { SectionWrapper } from '../hoc';
 import { styles } from '../styles';
 import { fadeIn, textVariant } from '../utils/motion';
-
+import { navLinks } from '../constants';
 const ServiceCard = ({ index, title, description, icon, IconComponent }) => {
   const [isHovered, setIsHovered] = React.useState(false);
 
@@ -90,6 +90,6 @@ const About = () => {
   );
 };
 
-const WrappedAbout = SectionWrapper(About, 'about');
+const WrappedAbout = SectionWrapper(About, navLinks[0].id);
 
 export default WrappedAbout;
