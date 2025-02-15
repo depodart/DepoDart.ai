@@ -1,5 +1,7 @@
-import React from 'react';
-import { SectionWrapper } from '../hoc';
+import React from "react";
+import { SectionWrapper } from "../hoc";
+import { styles } from "../styles";
+import { EnvelopeIcon, PhoneIcon, MapPinIcon } from "@heroicons/react/24/outline";
 
 const FOOTER_TEXT = {
   address: {
@@ -12,41 +14,103 @@ const FOOTER_TEXT = {
   copyright: `© ${new Date().getFullYear()} ${import.meta.env.VITE_EMAIL_RECIPIENT_NAME || ""}. All rights reserved.`
 };
 
+const contactSections = [
+  {
+    icon: <EnvelopeIcon className="h-6 w-6" />,
+    title: "EMAIL",
+    content: FOOTER_TEXT.email,
+  },
+  {
+    icon: <PhoneIcon className="h-6 w-6" />,
+    title: "PHONE",
+    content: FOOTER_TEXT.phone
+  },
+  {
+    icon: <MapPinIcon className="h-6 w-6" />,
+    title: "ADDRESS", 
+    content: FOOTER_TEXT.address.city + ", " + FOOTER_TEXT.address.province + ", " + FOOTER_TEXT.address.street
+  },
+  // {
+  //   icon: "",
+  //   title: "SOCIAL",
+  //   content: "Facebook, Twitter, Instagram"
+  // }
+];
+
+const ContactCard = ({ title, content, icon }) => {
+  const [isHovered, setIsHovered] = React.useState(false);
+
+  return (
+    <div 
+      className={`rounded-2xl p-10 transition-all duration-300 ${
+        isHovered ? 'bg-[#1d1836] text-white' : 'bg-tertiary'
+      }`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div className="flex items-center gap-3">
+        <span className={`transition-all duration-300 ${
+          isHovered ? 'text-[#915EFF]' : 'text-[#915EFF]'
+        }`}>
+          {icon}
+        </span>
+        <h3 className={`text-base font-semibold transition-all duration-300 ${
+          isHovered ? 'text-[#915EFF]' : 'text-[#915EFF]'
+        }`}>
+          {title || ""}
+        </h3>
+      </div>
+      <dl className="mt-3 space-y-1 text-sm">
+        <div>
+          <dt className="sr-only">{title}</dt>
+          <dd>
+            <p className={`font-semibold transition-all duration-300 ${
+                isHovered ? 'text-[#00cea8]' : 'text-[#E0E0E0]'
+              }`}
+            >
+              {content || ""}
+            </p>
+          </dd>
+        </div>
+      </dl>
+    </div>
+  );
+};
+
 const Footer = () => {
   return (
-    <footer className="w-full bg-primary text-white py-8">
-    <div className="max-w-full flex flex-col justify-between items-center">
-      <div className="flex gap-8 items-center">
-        <div className="flex gap-4">
-          <div className="flex items-center gap-2">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-            </svg>
-            <p>{FOOTER_TEXT.address.street}<br/>{FOOTER_TEXT.address.city}, {FOOTER_TEXT.address.province}</p>
-          </div>
-          <div className="flex items-center gap-2">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-            </svg>
-            <p>{FOOTER_TEXT.phone}</p>
-          </div>
-          <div className="flex items-center gap-2">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-            </svg>
-            <p>{FOOTER_TEXT.email}</p>
+    <footer className="w-full">
+      {/* Top Section – Contact & Locations */}
+      <div className="bg-primary py-8 sm:py-16">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl divide-y divide-gray-700 lg:mx-0 lg:max-w-none">
+            {/* Contact Information */}
+            <div className="grid grid-cols-1 gap-10 py-16 lg:grid-cols-3">
+              <div>
+                <h2 className={styles.sectionHeadText}>
+                  Contacts
+                </h2>
+                <p className="mt-4 text-base text-[#B0B0B0]">
+                Discover how innovative exploration companies are making breakthrough discoveries with DepoDart.
+               </p>
+              </div>
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:col-span-2 lg:gap-8">
+                {contactSections.map((section, index) => (
+                  <ContactCard key={index} {...section} />
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    
-      <div className="mt-4 text-center">
-        <p className="text-sm text-gray-400">
-          {FOOTER_TEXT.copyright.replace("{year}", new Date().getFullYear())}
-        </p>
-      </div>
-  </footer>
+
+      {/* Bottom Section – Company Info */}
+      <div className="bg-primary text-white py-8">
+          <div className="mt-4 text-center">
+            <p className="text-sm text-gray-400">{FOOTER_TEXT.copyright}</p>
+          </div>
+        </div>
+    </footer>
   );
 };
 
