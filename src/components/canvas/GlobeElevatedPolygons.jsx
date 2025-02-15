@@ -6,6 +6,7 @@ const GlobeElevatedPolygons = () => {
   const globeRef = useRef();
   const containerRef = useRef();
   const [dimensions, setDimensions] = useState({ width: 800, height: 600 });
+  const [isRotating, setIsRotating] = useState(true);
 
   // Create globe material with transparency enabled
   const globeMaterial = useMemo(() => {
@@ -17,8 +18,27 @@ const GlobeElevatedPolygons = () => {
     return material;
   }, []);
 
+  // Rotation control setup
   useEffect(() => {
-    // Load texture and update material properties
+    if (!globeRef.current || !isRotating) return;
+    
+    const controls = globeRef.current.controls();
+    controls.autoRotate = true;
+    controls.autoRotateSpeed = 0.5;
+    controls.enableZoom = false;
+
+    let animationFrameId;
+    const animate = () => {
+      controls.update();
+      animationFrameId = requestAnimationFrame(animate);
+    };
+    animate();
+
+    return () => cancelAnimationFrame(animationFrameId);
+  }, [isRotating]);
+
+  // Load texture and update material properties
+  useEffect(() => {
     new THREE.TextureLoader().load(
       "//unpkg.com/three-globe/example/img/earth-water.png",
       (texture) => {
@@ -45,7 +65,7 @@ const GlobeElevatedPolygons = () => {
     return () => window.removeEventListener("resize", updateDimensions);
   }, []);
 
-  // Adjust directional light position once available
+  // Adjust directional light position
   useEffect(() => {
     if (!globeRef.current) return;
     const lights = globeRef.current.lights && globeRef.current.lights();
@@ -59,14 +79,14 @@ const GlobeElevatedPolygons = () => {
     }
   }, []);
 
-  // Scale down the globe by traversing the scene to find the mesh that uses globeMaterial
+  // Scale down the globe
   useEffect(() => {
     if (!globeRef.current) return;
     const scene = globeRef.current.scene();
     if (scene) {
       scene.traverse((obj) => {
         if (obj.isMesh && obj.material === globeMaterial) {
-          obj.scale.set(0.5, 0.5, 0.5); // Adjust scale factor as needed
+          obj.scale.set(0.5, 0.5, 0.5);
         }
       });
     }
@@ -84,8 +104,6 @@ const GlobeElevatedPolygons = () => {
         globeMaterial={globeMaterial}
         globeImageUrl="//unpkg.com/three-globe/example/img/earth-blue-marble.jpg"
         backgroundColor="rgba(0,0,0,0)"
-        autoRotate
-        autoRotateSpeed={0.5} // Adjust the rotation speed as needed
       />
     </div>
   );
