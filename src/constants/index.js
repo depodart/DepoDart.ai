@@ -158,15 +158,19 @@ export const experiences = [
 //! Text content for Works component
 export const WORKS_TEXT = {
   sectionHeading: "Why DepoDart?",
-  description: "Our science and geology team developed a neural network utilizing advanced deep learning, achieving 98.5% accuracy in mineral deposit prediction. The AI integrates ensemble learning, custom attention mechanisms, and active learning to process complex geological data with precision, delivering reliable and innovative exploration results."
+  description: "Our model leverages autoencoders and semi-supervised learning to estimate\
+   the concentrations of dozens of minerals simultaneously. For rare minerals like gold, \
+   cobalt, and silver in Abitibi region, for example, we achieve approximately 25% accuracy in high-concentration ranges—meaning \
+   one in four predictions is correct. The algorithm operates at a 50-meter resolution, \
+   with predicted high-concentration zones typically spanning 200 to 1000 meters in diameter."
 };
 
 
 export const projects = [
   {
-    name: "Resource Estimation AI",
+    name: "Geochemical maps",
     description:
-      "AI model that uses regression techniques to estimate mineral resources and predict deposit locations.",
+      "Predicted areas of high-concentration zones for gold, cobalt, and silver in Abitibi region.",
     tags: [
       { name: "Machine Learning", color: "blue-text-gradient" },
       { name: "Predictive Analytics", color: "green-text-gradient" },

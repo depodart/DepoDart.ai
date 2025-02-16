@@ -78,9 +78,9 @@ const Navbar = () => {
           }}
         >
           <p className={navbarStyles(currentTheme).logoText}>
+            <img src={logo} alt="Logo" className="w-8 h-8 object-contain mr-2" />
             Depo&nbsp;
             <span>Dart</span>
-            <img src={logo} alt="Logo" className="w-8 h-8 object-contain mr-2" />
           </p>
         </Link>
 
