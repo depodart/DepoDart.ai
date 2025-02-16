@@ -32,8 +32,8 @@ const Navbar = () => {
           onClick={toggleTheme}
           className={`ml-4 px-4 py-2 rounded-full transition-colors duration-300 flex items-center gap-2 ${
             isDark 
-              ? 'bg-yellow-400 text-gray-900 hover:bg-yellow-300' 
-              : 'bg-transparent border border-black text-black hover:bg-gray-200'
+            ? 'bg-transparent border border-primary-dark text-white hover:bg-gray-500'
+            : 'bg-yellow-400 text-gray-900 hover:bg-yellow-500' 
           }`}
         >
           {isDark ? (
