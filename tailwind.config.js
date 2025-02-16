@@ -1,6 +1,7 @@
 module.exports = {
   content: ['./src/**/*.{js,jsx}'],
   mode: 'jit',
+  darkMode: 'class',
   // The safelist ensures that Tailwind generates these classes even though they’re dynamically constructed in your code.
   safelist: [
     // Dark theme dynamic classes

@@ -1,3 +1,5 @@
+// src/style.js
+
 import classNames from 'classnames';
 
 //! Theme Configuration
@@ -119,42 +121,102 @@ export const initialTheme = window.matchMedia && window.matchMedia('(prefers-col
 // ? themes.light
 // : themes.dark;
 
-//! App Styles
-export const appStyles= (theme) => ({
+
+/* --------------------------------------------------------------------------
+   Colors
+-------------------------------------------------------------------------- */
+export const colors = {
+  // Light mode background colors
+  lightBg: {
+    primary: "#FFFFFF",     // Pure white
+    secondary: "#F1F1F1",   // Very light gray
+    tertiary: "#E5E7EB",    // Light gray with slight blue tint
+  },
+
+  // Dark mode background colors  
+  darkBg: {
+    primary: "#050816",     // Very dark blue/black
+    secondary: "#1d1836",   // Dark blue-gray
+    tertiary: "#232631",    // Dark gray-blue
+  },
+
+  // Text colors
+  text: {
+    light: {
+      primary: "#1d1836",   // Dark blue-gray
+      secondary: "#374151", // Medium gray
+      tertiary: "#4B5563",  // Gray
+      quaternary: "#dfd9ff" // Light purple/lavender
+    },
+    dark: {
+      primary: "#FFFFFF",   // Pure white
+      secondary: "#F1F1F1", // Very light gray
+      tertiary: "#dfd9ff"   // Light purple/lavender
+    }
+  },
+
+  // Accent colors
+  accent: {
+    indigo: {
+      light: "#6366F1",     // Bright indigo
+      medium: "#4F46E5",    // Deep indigo  
+      dark: "#4338CA"       // Darker indigo
+    },
+    purple: "#915EFF",      // Bright purple
+    pink: "#EC4899",        // Bright pink
+    lavender: "#A855F7",    // Bright purple/lavender
+    green: "#00cea8",       // Bright green
+    red: "#ff6b6b",         // Bright red
+    blue: "#007bff",        // Bright blue
+    yellow: "#ffc107",      // Bright yellow
+    orange: "#fd7e14"       // Bright orange
+  }
+};
+
+/* --------------------------------------------------------------------------
+   App Styles
+-------------------------------------------------------------------------- */
+export const appStyles = {
   container: classNames(
     'relative',
     'z-0',
-    `bg-[${theme.colors.background.primary}]`
+    `bg-white dark:bg-[${colors.darkBg.primary}]`
   ),
   heroSection: classNames(
     'bg-hero-pattern',
     'bg-cover',
-    'bg-no-repeat', 
+    'bg-no-repeat',
     'bg-center'
   ),
   contactSection: classNames(
     'relative',
     'z-0'
   )
-});
-
-//! Loader Styles
-export const loaderContainerStyle = {
-  display: classNames("flex"),
-  justifyContent: classNames("center"),
-  alignItems: classNames("center"),
-  flexDirection: classNames("column"),
 };
 
-export const loaderProgressTextStyle = (theme) => ({
-  fontSize: classNames(14),
-  color: classNames(theme.colors.text.secondary),
-  fontWeight: classNames(800),
-  marginTop: classNames(40),
-});
+/* --------------------------------------------------------------------------
+   Loader Styles
+-------------------------------------------------------------------------- */
+export const loaderContainerStyle = {
+  display: classNames('flex'),
+  justifyContent: classNames('center'),
+  alignItems: classNames('center'),
+  flexDirection: classNames('column'),
+};
 
-//! Navbar Styles
-export const navbarStyles = (theme) => ({
+export const loaderProgressTextStyle = {
+  className: classNames(
+    'text-sm',
+    `text-[${colors.text.light.secondary}] dark:text-[${colors.text.dark.secondary}]`,
+    'font-extrabold',
+    'mt-10'
+  )
+};
+
+/* --------------------------------------------------------------------------
+   Navbar Styles
+-------------------------------------------------------------------------- */
+export const navbarStyles = {
   nav: classNames(
     'w-full',
     'flex',
@@ -163,10 +225,8 @@ export const navbarStyles = (theme) => ({
     'fixed',
     'top-0',
     'z-20',
-    // 'bg-gradient-to-b',
-    `from-[${theme.colors.background.primary}]`,
-    `via-[${theme.colors.background.primary}]`,
-    'to-transparent',
+    // Background gradient: light uses white; dark uses the dark primary color.
+    `bg-gradient-to-b from-white via-white dark:from-[${colors.darkBg.primary}] dark:via-[${colors.darkBg.primary}] to-transparent`,
     'backdrop-blur-md'
   ),
   container: classNames(
@@ -183,11 +243,11 @@ export const navbarStyles = (theme) => ({
     'gap-2'
   ),
   logoText: classNames(
-    `text-[${theme.colors.text.primary}]`,
     'text-[20px]',
     'font-bold',
     'cursor-pointer',
-    'flex'
+    'flex',
+    `text-[${colors.text.light.primary}] dark:text-white`
   ),
   desktopNav: classNames(
     'list-none',
@@ -208,13 +268,13 @@ export const navbarStyles = (theme) => ({
     'cursor-pointer'
   ),
   activeLink: classNames(
-    `text-[${theme.colors.text.primary}]`
+    `text-[${colors.text.light.primary}] dark:text-white`
   ),
   inactiveDesktopLink: classNames(
-    `text-[${theme.colors.text.tertiary}]`
+    `text-[${colors.text.light.tertiary}] dark:text-[${colors.text.dark.tertiary}]`
   ),
   inactiveMobileLink: classNames(
-    `text-[${theme.colors.text.secondary}]`
+    `text-[${colors.text.light.secondary}] dark:text-[${colors.text.dark.secondary}]`
   ),
   mobileMenuContainer: classNames(
     'sm:hidden',
@@ -231,7 +291,7 @@ export const navbarStyles = (theme) => ({
   ),
   mobileMenuDropdown: classNames(
     'p-6',
-    'black-gradient',
+    'black-gradient', // custom class (if needed)
     'absolute',
     'top-20',
     'right-0',
@@ -240,12 +300,15 @@ export const navbarStyles = (theme) => ({
     'min-w-[140px]',
     'z-10',
     'rounded-xl',
-    `bg-[${theme.colors.accent.primary}]`
+    // For accent.primary: light uses one color, dark uses another.
+    `bg-[${colors.accent.indigo.light}] dark:bg-[${colors.accent.purple}]`
   )
-});
+};
 
-//! About Styles
-export const aboutStyles = (theme) => ({
+/* --------------------------------------------------------------------------
+   About Styles
+-------------------------------------------------------------------------- */
+export const aboutStyles = {
   serviceCard: classNames(
     'xs:w-[250px]',
     'w-full'
@@ -259,12 +322,13 @@ export const aboutStyles = (theme) => ({
     'overflow-hidden'
   ),
   serviceCardInnerColors: {
-    start: classNames(`${theme.colors.special.green}`),
-    middle: classNames(`${theme.colors.special.blue}`),
-    end: classNames(`${theme.colors.special.red}`)
+    start: classNames(`text-[${colors.accent.green}]`),
+    middle: classNames(`text-[${colors.accent.blue}]`),
+    end: classNames(`text-[${colors.accent.red}]`)
   },
   serviceCardContent: classNames(
-    `bg-[${theme.colors.background.tertiary}]`,
+    // background.tertiary: light vs. dark
+    `bg-[${colors.lightBg.tertiary}] dark:bg-[${colors.darkBg.tertiary}]`,
     'rounded-[20px]',
     'py-5',
     'px-8',
@@ -281,8 +345,9 @@ export const aboutStyles = (theme) => ({
       'transition-all',
       'duration-300'
     ),
-    hovered: classNames(`text-[${theme.colors.accent.primary}]`),
-    default: classNames(`text-[${theme.colors.accent.tertiary}]`)
+    // On hover, light uses one accent and dark another.
+    hovered: classNames(`text-[${colors.accent.purple}] dark:text-[${colors.accent.indigo.light}]`),
+    default: classNames(`text-[${colors.accent.indigo.light}] dark:text-[${colors.accent.indigo.dark}]`)
   },
   title: {
     base: classNames(
@@ -293,12 +358,12 @@ export const aboutStyles = (theme) => ({
       'duration-300'
     ),
     hovered: classNames(
-      `text-[${theme.colors.accent.primary}]`,
       'transform',
       'scale-110',
-      'tracking-wider'
+      'tracking-wider',
+      `text-[${colors.accent.purple}] dark:text-[${colors.accent.indigo.light}]`
     ),
-    default: classNames(`text-[${theme.colors.text.primary}]`)
+    default: classNames(`text-[${colors.text.light.primary}] dark:text-white`)
   },
   description: {
     base: classNames(
@@ -310,19 +375,19 @@ export const aboutStyles = (theme) => ({
       'leading-[1.6]'
     ),
     hovered: classNames(
-      `text-[${theme.colors.accent.tertiary}]`,
       'transform',
-      'translate-y-[-5px]',
-      'leading-relaxed'
+      '-translate-y-1',
+      'leading-relaxed',
+      `text-[${colors.accent.indigo.light}] dark:text-[${colors.accent.indigo.dark}]`
     ),
-    default: classNames(`text-[${theme.colors.text.secondary}]`)
+    default: classNames(`text-[${colors.text.light.secondary}] dark:text-[${colors.text.dark.secondary}]`)
   },
   overview: classNames(
     'mt-4',
-    `text-[${theme.colors.text.secondary}]`,
     'text-[17px]',
     'max-w-3xl',
-    'leading-[30px]'
+    'leading-[30px]',
+    `text-[${colors.text.light.secondary}] dark:text-[${colors.text.dark.secondary}]`
   ),
   servicesContainer: classNames(
     'mt-20',
@@ -330,10 +395,12 @@ export const aboutStyles = (theme) => ({
     'flex-wrap',
     'gap-10'
   )
-});
+};
 
-//! Hero Styles
-export const heroStyles = (theme) => ({
+/* --------------------------------------------------------------------------
+   Hero Styles
+-------------------------------------------------------------------------- */
+export const heroStyles = {
   section: classNames(
     'relative',
     'w-full',
@@ -367,7 +434,8 @@ export const heroStyles = (theme) => ({
       'w-5',
       'h-5',
       'rounded-full',
-      `bg-[${theme.colors.accent.primary}]`
+      // Uses accent.primary: light vs. dark
+      `bg-[${colors.accent.purple}] dark:bg-[${colors.accent.indigo.light}]`
     ),
     line: classNames(
       'w-1',
@@ -377,10 +445,10 @@ export const heroStyles = (theme) => ({
     )
   },
   textContent: {
-    brandHighlight: classNames(`text-[${theme.colors.accent.primary}]`),
+    brandHighlight: classNames(`text-[${colors.accent.purple}] dark:text-[${colors.accent.indigo.light}]`),
     subtextContainer: classNames(
       'mt-2',
-      'text-white-100'
+      'text-white'
     )
   },
   scrollIndicator: {
@@ -398,7 +466,7 @@ export const heroStyles = (theme) => ({
       'h-[64px]',
       'rounded-3xl',
       'border-4',
-      `border-[${theme.colors.text.secondary}]`,
+      `border-[${colors.text.light.secondary}] dark:border-[${colors.text.dark.secondary}]`,
       'flex',
       'justify-center',
       'items-start',
@@ -408,21 +476,27 @@ export const heroStyles = (theme) => ({
       'w-3',
       'h-3',
       'rounded-full',
-      'bg-[white]',
+      'bg-white',
       'mb-1'
     )
   },
-  heroHeadText: classNames(`text-[${theme.colors.text.primary}]`)
-});
+  heroHeadText: classNames(
+    `text-[${colors.text.light.primary}] dark:text-white`
+  )
+};
 
-//! Experience Styles
-export const experienceStyles = (theme) => ({
+/* --------------------------------------------------------------------------
+   Experience Styles
+-------------------------------------------------------------------------- */
+export const experienceStyles = {
   timelineElementContent: {
-    background: classNames(`${theme.colors.background.secondary}`),
-    color: classNames(`${theme.colors.text.primary}`)
+    background: classNames(`bg-[${colors.lightBg.secondary}] dark:bg-[${colors.darkBg.secondary}]`),
+    color: classNames(`text-[${colors.text.light.primary}] dark:text-white`)
   },
+  // For the arrow you may need to use inline styles or a custom utility;
+  // here we just note the intended colors.
   timelineElementArrow: {
-    borderRight: classNames(`7px solid ${theme.colors.background.tertiary}`)
+    borderRight: `7px solid ${colors.lightBg.tertiary}` // adjust as needed in your CSS
   },
   iconContainer: classNames(
     'flex',
@@ -437,16 +511,16 @@ export const experienceStyles = (theme) => ({
     'object-contain'
   ),
   cardTitle: classNames(
-    `text-[${theme.colors.text.primary}]`,
     'text-[24px]',
-    'font-bold'
+    'font-bold',
+    `text-[${colors.text.light.primary}] dark:text-white`
   ),
   cardSubtitle: {
-    margin: classNames('0'),
+    margin: '0',
     className: classNames(
-      `text-[${theme.colors.text.secondary}]`,
       'text-[16px]',
-      'font-semibold'
+      'font-semibold',
+      `text-[${colors.text.light.secondary}] dark:text-[${colors.text.dark.secondary}]`
     )
   },
   pointsList: classNames(
@@ -456,27 +530,30 @@ export const experienceStyles = (theme) => ({
     'space-y-2'
   ),
   pointItem: classNames(
-    `text-[${theme.colors.text.tertiary}]`,
     'text-[14px]',
     'pl-1',
-    'tracking-wider'
+    'tracking-wider',
+    `text-[${colors.text.light.tertiary}] dark:text-[${colors.text.dark.tertiary}]`
   ),
   timelineContainer: classNames(
     'mt-20',
     'flex',
     'flex-col'
   )
-});
+};
 
-//! Works Styles
-export const worksStyles = (theme) => ({
+/* --------------------------------------------------------------------------
+   Works Styles
+-------------------------------------------------------------------------- */
+export const worksStyles = {
   projectCard: {
     wrapper: classNames(
-      `bg-[${theme.colors.background.secondary}]`,
       'p-5',
       'rounded-2xl',
       'sm:w-[360px]',
-      'w-full'
+      'w-full',
+      // background.secondary: light vs. dark
+      `bg-[${colors.lightBg.secondary}] dark:bg-[${colors.darkBg.secondary}]`
     ),
     imageContainer: classNames(
       'relative',
@@ -505,14 +582,14 @@ export const worksStyles = (theme) => ({
       'object-contain'
     ),
     title: classNames(
-      `text-[${theme.colors.text.primary}]`,
       'font-bold',
-      'text-[24px]'
+      'text-[24px]',
+      `text-[${colors.text.light.primary}] dark:text-white`
     ),
     description: classNames(
       'mt-2',
-      `text-[${theme.colors.text.secondary}]`,
-      'text-[14px]'
+      'text-[14px]',
+      `text-[${colors.text.light.secondary}] dark:text-[${colors.text.dark.secondary}]`
     ),
     tagsContainer: classNames(
       'mt-4',
@@ -525,10 +602,10 @@ export const worksStyles = (theme) => ({
   mainContent: {
     description: classNames(
       'mt-3',
-      `text-[${theme.colors.text.secondary}]`,
       'text-[17px]',
       'max-w-3xl',
-      'leading-[30px]'
+      'leading-[30px]',
+      `text-[${colors.text.light.secondary}] dark:text-[${colors.text.dark.secondary}]`
     ),
     projectsGrid: classNames(
       'mt-20',
@@ -537,27 +614,31 @@ export const worksStyles = (theme) => ({
       'gap-7'
     )
   }
-});
+};
 
-//! Contact Styles
-export const contactStyles = (theme) => ({
+/* --------------------------------------------------------------------------
+   Contact Styles
+-------------------------------------------------------------------------- */
+export const contactStyles = {
   formInput: classNames(
     'block',
     'w-full',
     'rounded-md',
-    `bg-[${theme.colors.background.primary}]`,
-    // `bg-[${theme.colors.common.primary}]`,
+    // `bg-white dark:bg-[${colors.darkBg.primary}]`,
+    `bg-white dark:bg-[transparent]`,
+    'border',
+    'border-white',
     'px-3.5',
     'py-2',
     'text-base',
-    `text-[${theme.colors.text.primary}]`,
-    `placeholder:text-[${theme.colors.text.secondary}]`
+    `text-[${colors.text.light.primary}] dark:text-white`,
+    `placeholder:text-[${colors.text.light.secondary}] dark:placeholder:text-[${colors.text.dark.secondary}]`
   ),
   formLabel: classNames(
     'block',
     'text-sm',
     'font-semibold',
-    `text-[${theme.colors.text.primary}]`
+    `text-[${colors.text.light.primary}] dark:text-white`
   ),
   contactContainer: classNames(
     'relative',
@@ -566,7 +647,7 @@ export const contactStyles = (theme) => ({
     'flex-col-reverse',
     'md:flex-row',
     'gap-10',
-    'overflow-hidden',
+    'overflow-hidden'
   ),
   backgroundGradientContainer: classNames(
     'absolute',
@@ -586,18 +667,18 @@ export const contactStyles = (theme) => ({
     '-translate-x-1/2',
     'rotate-[30deg]',
     'bg-gradient-to-tr',
-    `from-[${theme.colors.special.hotPink}]`,
-    `to-[${theme.colors.special.lavender}]`,
+    `from-[${colors.accent.pink}]`,
+    `to-[${colors.accent.lavender}]`,
     'opacity-30',
     'sm:w-[72.1875rem]'
   ),
   contactFormContainer: classNames(
     'flex-1',
-    `bg-[${theme.colors.background.secondary}]`,
     'p-8',
     'rounded-2xl',
     'relative',
-    'z-10'
+    'z-10',
+    `bg-[${colors.lightBg.secondary}] dark:bg-[${colors.darkBg.secondary}]`
   ),
   contactForm: classNames(
     'mx-auto',
@@ -616,15 +697,15 @@ export const contactStyles = (theme) => ({
     'block',
     'w-full',
     'rounded-md',
-    `bg-[${theme.colors.accent.secondary}]`,
+    `bg-[${colors.accent.indigo.medium}] dark:bg-[${colors.accent.indigo.medium}]`,
     'px-3.5',
     'py-2.5',
     'text-center',
     'text-sm',
     'font-semibold',
-    `text-[${theme.colors.text.primary}]`,
+    `text-[${colors.text.light.primary}] dark:text-white`,
     'shadow-sm',
-    `hover:bg-[${theme.colors.accent.tertiary}]`,
+    `hover:bg-[${colors.accent.indigo.light}] dark:hover:bg-[${colors.accent.indigo.dark}]`,
     'disabled:opacity-50'
   ),
   successMessage: classNames(
@@ -648,18 +729,20 @@ export const contactStyles = (theme) => ({
     'text-red-500',
     'text-sm'
   )
-});
+};
 
-//! Footer Styles
-export const footerStyles = (theme) => ({
+/* --------------------------------------------------------------------------
+   Footer Styles
+-------------------------------------------------------------------------- */
+export const footerStyles = {
   container: classNames(
     'w-full',
-    `bg-[${theme.colors.background.primary}]`
+    `bg-white dark:bg-[${colors.darkBg.primary}]`
   ),
   topSection: classNames(
-    `bg-[${theme.colors.background.primary}]`,
     'py-8',
-    'sm:py-16'
+    'sm:py-16',
+    `bg-white dark:bg-[${colors.darkBg.primary}]`
   ),
   innerWrapper: classNames(
     'mx-auto',
@@ -671,9 +754,9 @@ export const footerStyles = (theme) => ({
     'mx-auto',
     'max-w-2xl',
     'divide-y',
-    `divide-[${theme.colors.text.tertiary}]`,
     'lg:mx-0',
-    'lg:max-w-none'
+    'lg:max-w-none',
+    `divide-[${colors.text.light.tertiary}] dark:divide-[${colors.text.dark.tertiary}]`
   ),
   gridLayout: classNames(
     'grid',
@@ -685,7 +768,7 @@ export const footerStyles = (theme) => ({
   description: classNames(
     'mt-4',
     'text-base',
-    `text-[${theme.colors.text.secondary}]`
+    `text-[${colors.text.light.secondary}] dark:text-[${colors.text.dark.secondary}]`
   ),
   cardsGrid: classNames(
     'grid',
@@ -696,9 +779,9 @@ export const footerStyles = (theme) => ({
     'lg:gap-8'
   ),
   bottomSection: classNames(
-    `bg-[${theme.colors.background.primary}]`,
-    `text-[${theme.colors.text.primary}]`,
-    'py-8'
+    'py-8',
+    `bg-white dark:bg-[${colors.darkBg.primary}]`,
+    `text-[${colors.text.light.primary}] dark:text-white`
   ),
   copyrightWrapper: classNames(
     'mt-4',
@@ -706,22 +789,26 @@ export const footerStyles = (theme) => ({
   ),
   copyrightText: classNames(
     'text-sm',
-    `text-[${theme.colors.text.tertiary}]`
+    `text-[${colors.text.light.tertiary}] dark:text-[${colors.text.dark.tertiary}]`
   ),
   contactCard: {
     container: classNames(
-      `bg-[${theme.colors.background.primary}]`,
-      `text-[${theme.colors.text.primary}]`,
       'rounded-2xl',
       'p-10',
       'transition-all',
-      'duration-300'
+      'duration-300',
+      `bg-white dark:bg-[${colors.darkBg.primary}]`,
+      `text-[${colors.text.light.primary}] dark:text-white`
     ),
     hovered: classNames(
-      `bg-[${theme.colors.background.secondary}]`,
-      `text-[${theme.colors.text.primary}]`
+      'transition-all',
+      'duration-300',
+      `bg-[${colors.lightBg.secondary}] dark:bg-[${colors.darkBg.secondary}]`,
+      `text-[${colors.text.light.primary}] dark:text-white`
     ),
-    default: classNames(`bg-[${theme.colors.background.tertiary}]`),
+    default: classNames(
+      `bg-[${colors.lightBg.tertiary}] dark:bg-[${colors.darkBg.tertiary}]`
+    ),
     header: classNames(
       'flex',
       'items-center',
@@ -730,16 +817,14 @@ export const footerStyles = (theme) => ({
     icon: classNames(
       'transition-all',
       'duration-300',
-      `bg-[${theme.colors.background.secondary}]`,
-      `text-[${theme.colors.accent.primary}]`
+      `text-[${colors.accent.indigo.light}] dark:text-[${colors.accent.indigo.dark}]`
     ),
     title: classNames(
       'text-base',
       'font-semibold',
       'transition-all',
       'duration-300',
-      `bg-[${theme.colors.background.secondary}]`,
-      `text-[${theme.colors.accent.primary}]`
+      `text-[${colors.accent.indigo.light}] dark:text-[${colors.accent.indigo.dark}]`
     ),
     contentList: classNames(
       'mt-3',
@@ -751,12 +836,15 @@ export const footerStyles = (theme) => ({
       'transition-all',
       'duration-300'
     ),
-    contentHovered: classNames(`text-[${theme.colors.accent.secondary}]`),
-    contentDefault: classNames(`text-[${theme.colors.text.primary}]`)
+    contentHovered: classNames(`text-[${colors.accent.indigo.medium}] dark:text-[${colors.accent.purple}]`),
+    contentDefault: classNames(`text-[${colors.text.light.primary}] dark:text-white`)
   }
-});
+};
 
-export const sectionStyles = (theme) => ({
+/* --------------------------------------------------------------------------
+   Section & Default Section Styles
+-------------------------------------------------------------------------- */
+export const sectionStyles = {
   section: classNames(
     'max-w-7xl',
     'mx-auto',
@@ -764,9 +852,9 @@ export const sectionStyles = (theme) => ({
     'z-0'
   ),
   hashSpan: classNames('hash-span')
-});
+};
 
-export const defaultSectionStyles = (theme) => ({
+export const defaultSectionStyles = {
   paddingX: classNames(
     'sm:px-16',
     'px-6'
@@ -783,8 +871,7 @@ export const defaultSectionStyles = (theme) => ({
   ),
   heroHeadText: classNames(
     'font-black',
-    // `bg-[${theme.colors.background.secondary}]`,
-    `text-[${theme.colors.text.primary}]`,
+    `text-[${colors.text.light.primary}] dark:text-white`,
     'lg:text-[80px]',
     'sm:text-[60px]',
     'xs:text-[50px]',
@@ -793,8 +880,7 @@ export const defaultSectionStyles = (theme) => ({
     'mt-2'
   ),
   heroSubText: classNames(
-    // `bg-[${theme.colors.background.secondary}]`,
-    `text-[${theme.colors.text.tertiary}]`,
+    `text-[${colors.text.light.secondary}] dark:text-[${colors.text.dark.secondary}]`,
     'font-medium',
     'lg:text-[30px]',
     'sm:text-[26px]',
@@ -803,7 +889,7 @@ export const defaultSectionStyles = (theme) => ({
     'lg:leading-[40px]'
   ),
   sectionHeadText: classNames(
-    `text-[${theme.colors.text.primary}]`,
+    `text-[${colors.text.light.primary}] dark:text-white`,
     'font-black',
     'md:text-[60px]',
     'sm:text-[50px]',
@@ -813,9 +899,8 @@ export const defaultSectionStyles = (theme) => ({
   sectionSubText: classNames(
     'sm:text-[18px]',
     'text-[14px]',
-    // `bg-[${theme.colors.background.secondary}]`,
-    `text-[${theme.colors.text.secondary}]`,
+    `text-[${colors.text.light.secondary}] dark:text-[${colors.text.dark.secondary}]`,
     'uppercase',
     'tracking-wider'
   )
-});
+};
