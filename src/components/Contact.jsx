@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import GlobeElevatedPolygonsCanvas from "./canvas/GlobeElevatedPolygons";
@@ -7,6 +7,7 @@ import { slideIn } from "../utils/motion";
 import "../index.css";
 import { CONTACT_TEXT, INITIAL_FORM_STATE, navLinks } from "../constants";
 import { contactStyles, defaultSectionStyles } from "../style";
+import { isMobile } from "../utils/screensize";
 
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
@@ -34,6 +35,16 @@ const Contact = () => {
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
   const [confirmation, setConfirmation] = useState("");
+  const [showGlobe, setShowGlobe] = useState(!isMobile());
+
+  useEffect(() => {
+    const handleResize = () => {
+      setShowGlobe(!isMobile());
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -47,6 +58,7 @@ const Contact = () => {
     if (!form.agreed) newErrors.agreed = CONTACT_TEXT.agreementError;
     return newErrors;
   };
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -171,12 +183,14 @@ const Contact = () => {
       </motion.div>
 
       {/* Globe Visualization */}
-      <motion.div
-        variants={slideIn("right", "tween", 0.2, 1)}
-        className={contactStyles.globeVisualizationContainer}
-      >
-        <GlobeElevatedPolygonsCanvas />
-      </motion.div>
+      {showGlobe && (
+        <motion.div
+          variants={slideIn("right", "tween", 0.2, 1)}
+          className={contactStyles.globeVisualizationContainer}
+        >
+          <GlobeElevatedPolygonsCanvas />
+        </motion.div>
+      )}
     </div>
   );
 };
