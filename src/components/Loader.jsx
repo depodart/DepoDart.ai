@@ -1,8 +1,10 @@
+import React, { useContext } from 'react';
 import { Html, useProgress } from "@react-three/drei";
-import { loaderContainerStyle, loaderProgressTextStyle, initialTheme } from "../style";
+import { loaderContainerStyle, loaderProgressTextStyle } from "../style";
+import { ThemeContext } from '../context/ThemeContext';
 
 const CanvasLoader = () => {
-  const [currentTheme] = useState(initialTheme);
+  const { currentTheme } = useContext(ThemeContext);
   const { progress } = useProgress();
 
   return (

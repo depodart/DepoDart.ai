@@ -119,6 +119,25 @@ export const initialTheme = window.matchMedia && window.matchMedia('(prefers-col
 ? themes.light
 : themes.dark;
 
+//! App Styles
+export const appStyles= (theme) => ({
+  container: classNames(
+    'relative',
+    'z-0',
+    `bg-[${theme.colors.background.primary}]`
+  ),
+  heroSection: classNames(
+    'bg-hero-pattern',
+    'bg-cover',
+    'bg-no-repeat', 
+    'bg-center'
+  ),
+  contactSection: classNames(
+    'relative',
+    'z-0'
+  )
+});
+
 //! Loader Styles
 export const loaderContainerStyle = {
   display: classNames("flex"),

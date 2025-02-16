@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { motion } from 'framer-motion';
 import { Tilt } from 'react-tilt';
 import { services } from '../constants';
@@ -6,12 +6,12 @@ import { SectionWrapper } from '../hoc';
 import { fadeIn, textVariant } from '../utils/motion';
 import { navLinks } from '../constants';
 import { ABOUT_TEXT } from '../constants';
-import { styles, initialTheme, aboutStyles } from '../style';
-
+import { styles, aboutStyles } from '../style';
+import { ThemeContext } from '../context/ThemeContext';
 
 const ServiceCard = ({ index, title, description, icon, IconComponent }) => {
-  const [currentTheme] = useState(initialTheme);
-  const [isHovered, setIsHovered] = React.useState(false);
+  const { currentTheme } = useContext(ThemeContext);
+  const [isHovered, setIsHovered] = useState(false);
   
   return (
     <Tilt className={aboutStyles(currentTheme).serviceCard}>
@@ -56,7 +56,7 @@ const ServiceCard = ({ index, title, description, icon, IconComponent }) => {
 };
 
 const About = () => {
-  const [currentTheme] = useState(initialTheme);
+  const { currentTheme } = useContext(ThemeContext);
 
   return (
     <>

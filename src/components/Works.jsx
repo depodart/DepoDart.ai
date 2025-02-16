@@ -1,16 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Tilt } from "react-tilt";
 import { motion } from "framer-motion";
 import { github } from "../assets";
 import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
-import { worksStyles, styles, initialTheme } from "../style";
+import { worksStyles, styles } from "../style";
+import { ThemeContext } from '../context/ThemeContext';
 import { WORKS_TEXT } from "../constants";
 
 
 const ProjectCard = ({ name, description, tags, image, source_code_link }) => {
-  const [currentTheme] = useState(initialTheme);
+  const { currentTheme } = useContext(ThemeContext);
 
   return (
     <motion.div variants={fadeIn("up", "spring")}>
@@ -54,7 +55,7 @@ const ProjectCard = ({ name, description, tags, image, source_code_link }) => {
 };
 
   const Works = () => {
-  const [currentTheme] = useState(initialTheme);
+  const { currentTheme } = useContext(ThemeContext);
 
   return (
     <>

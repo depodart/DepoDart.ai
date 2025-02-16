@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { SectionWrapper } from "../hoc";
 import { FOOTER_TEXT } from "../constants";
 import { EnvelopeIcon, PhoneIcon, MapPinIcon } from "@heroicons/react/24/outline";
-import { styles, initialTheme, footerStyles } from "../style";
-
+import { styles, footerStyles } from "../style";
+import { ThemeContext } from '../context/ThemeContext';
 
 
 export const FOOTER_CONTACT_SECTIONS = [
@@ -25,7 +25,7 @@ export const FOOTER_CONTACT_SECTIONS = [
 ];
 
 const ContactCard = ({ title, content, icon }) => {
-  const [currentTheme] = useState(initialTheme);
+  const { currentTheme } = useContext(ThemeContext);
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -62,7 +62,7 @@ const ContactCard = ({ title, content, icon }) => {
 };
 
 const Footer = () => {
-  const [currentTheme] = useState(initialTheme);
+  const { currentTheme } = useContext(ThemeContext);
 
   return (
     <footer className={footerStyles(currentTheme).container}>

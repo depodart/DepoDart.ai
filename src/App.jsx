@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { About, 
   Contact, 
@@ -9,29 +9,32 @@ import { About,
   Works, 
   Footer 
   } from './components';
-
+import { appStyles } from './style';
+import { ThemeContext } from './context/ThemeContext';
 const App = () => {
+  const { currentTheme } = useContext(ThemeContext);
+
   return (
     <BrowserRouter basename="/DepoDart.ai"
-      future={{
-        v7_startTransition: true,
-        v7_relativeSplatPath: true,
-      }}
+    future={{
+      v7_startTransition: true,
+      v7_relativeSplatPath: true,
+    }}
     >
-      <div className="relative z-0 bg-primary">
-        <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
-          <Navbar />
-          <Hero />
-        </div>
-        <About />
-        <Experience />
-        <Works />
-        <div className="relative z-0">
-          <Contact />
-          <StarsCanvas />
-        </div>
-      <Footer />
-      </div>
+          <div className={appStyles(currentTheme).container}>
+            <div className={appStyles(currentTheme).heroSection}>
+              <Navbar />
+              <Hero />
+            </div>
+            <About />
+            <Experience />
+            <Works />
+            <div className={appStyles(currentTheme).contactSection}>
+              <Contact />
+              <StarsCanvas />
+            </div>
+            <Footer />
+          </div>
     </BrowserRouter>
   );
 };
