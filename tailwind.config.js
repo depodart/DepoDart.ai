@@ -4,6 +4,7 @@ module.exports = {
   // The safelist ensures that Tailwind generates these classes even though they’re dynamically constructed in your code.
   safelist: [
     // Dark theme dynamic classes
+    'bg-[#050816]', // theme.colors.background.primary (dark)
     'bg-[#1d1836]', // theme.colors.background.secondary (dark)
     'bg-[#232631]', // theme.colors.background.tertiary (dark)
     'text-[#FFFFFF]', // theme.colors.text.primary (dark)
@@ -20,6 +21,7 @@ module.exports = {
     'bg-[#ffc107]', // theme.colors.special.yellow
 
     // Light theme dynamic classes
+    'bg-[#FFFFFF]', // theme.colors.background.primary (light)
     'bg-[#F1F1F1]', // theme.colors.background.secondary (light)
     'bg-[#E5E7EB]', // theme.colors.background.tertiary (light)
     'text-[#1d1836]', // theme.colors.text.primary (light)

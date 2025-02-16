@@ -113,11 +113,11 @@ export const themes = {
 
 export const initialTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches 
 // * themes.dark 
-// ? themes.dark 
-// : themes.light;
+? themes.dark 
+: themes.light;
 // * themes.light
-? themes.light
-: themes.dark;
+// ? themes.light
+// : themes.dark;
 
 //! App Styles
 export const appStyles= (theme) => ({
@@ -163,7 +163,7 @@ export const navbarStyles = (theme) => ({
     'fixed',
     'top-0',
     'z-20',
-    'bg-gradient-to-b',
+    // 'bg-gradient-to-b',
     `from-[${theme.colors.background.primary}]`,
     `via-[${theme.colors.background.primary}]`,
     'to-transparent',
