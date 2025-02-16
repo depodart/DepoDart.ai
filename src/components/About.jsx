@@ -1,26 +1,28 @@
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import React from 'react';
 import { Tilt } from 'react-tilt';
 import { services } from '../constants';
 import { SectionWrapper } from '../hoc';
-import { styles } from '../styles';
 import { fadeIn, textVariant } from '../utils/motion';
 import { navLinks } from '../constants';
-const ServiceCard = ({ index, title, description, icon, IconComponent }) => {
-  const [isHovered, setIsHovered] = React.useState(false);
+import { ABOUT_TEXT } from '../constants';
+import { styles, initialTheme, aboutStyles } from '../style';
 
+
+const ServiceCard = ({ index, title, description, icon, IconComponent }) => {
+  const [currentTheme] = useState(initialTheme);
+  const [isHovered, setIsHovered] = React.useState(false);
+  
   return (
-    <Tilt className="xs:w-[250px] w-full">
+    <Tilt className={aboutStyles(currentTheme).serviceCard}>
       <motion.div
         variants={fadeIn('right', 'spring', index * 0.5, 0.75)}
-        className={`w-full p-[1px] rounded-[20px] shadow-card relative overflow-hidden ${
-          isHovered ? 'animate-border-flow' : ''
-        }`}
+        className={`${aboutStyles(currentTheme).serviceCardInner} ${isHovered ? 'animate-border-flow' : ''}`}
         style={{
           background: `linear-gradient(${isHovered ? '90deg' : '0deg'}, 
-            #00cea8 0%, 
-            #915eff 50%,
-            #ff6b6b 100%
+            ${aboutStyles(currentTheme).serviceCardInnerColors.start} 0%, 
+            ${aboutStyles(currentTheme).serviceCardInnerColors.middle} 50%,
+            ${aboutStyles(currentTheme).serviceCardInnerColors.end} 100%
           )`
         }}
         onMouseEnter={() => setIsHovered(true)}
@@ -32,29 +34,19 @@ const ServiceCard = ({ index, title, description, icon, IconComponent }) => {
             scale: 1,
             speed: 450,
           }}
-          className="bg-tertiary rounded-[20px] py-5 px-8 h-[280px] flex justify-evenly items-center flex-col"
+          className={aboutStyles(currentTheme).serviceCardContent}
         >
           {IconComponent && (
             <IconComponent 
-              className={`w-10 h-10 transition-all duration-300 ${
-                isHovered ? 'text-[#915EFF]' : 'text-[#00cea8]'
-              }`}
+              className={`${aboutStyles(currentTheme).icon.base} ${isHovered ? aboutStyles(currentTheme).icon.hovered : aboutStyles(currentTheme).icon.default}`}
             />
           )}
     
-          <h3 className={`text-[18px] font-bold text-center transition-all duration-300 ${
-            isHovered 
-              ? 'text-[#915EFF] transform scale-110 tracking-wider' 
-              : 'text-[#E0E0E0]'
-          }`}>
+          <h3 className={`${aboutStyles(currentTheme).title.base} ${isHovered ? aboutStyles(currentTheme).title.hovered : aboutStyles(currentTheme).title.default}`}>
             {title}
           </h3>
           
-          <p className={`mt-2 text-[14px] text-center transition-all duration-300 leading-[1.6] ${
-            isHovered
-              ? 'text-[#00cea8] transform translate-y-[-5px] leading-relaxed'
-              : 'text-[#B0B0B0]'
-          }`}>
+          <p className={`${aboutStyles(currentTheme).description.base} ${isHovered ? aboutStyles(currentTheme).description.hovered : aboutStyles(currentTheme).description.default}`}>
             {description}
           </p>
         </div>
@@ -64,25 +56,23 @@ const ServiceCard = ({ index, title, description, icon, IconComponent }) => {
 };
 
 const About = () => {
+  const [currentTheme] = useState(initialTheme);
+
   return (
     <>
       <motion.div variants={textVariant()}>
-        <p className={styles.sectionSubText}>Introduction</p>
-        <h2 className={styles.sectionHeadText}>Overview</h2>
+        <p className={`${styles(currentTheme).sectionSubText} text-center`}>{ABOUT_TEXT.sectionSubText}</p>
+        <h2 className={`${styles(currentTheme).sectionHeadText} text-center`}>{ABOUT_TEXT.sectionHeadText}</h2>
       </motion.div>
 
       <motion.p
         variants={fadeIn('', '', 0.1, 1)}
-        className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]"
-      > At DepoDart, we collect and process large geological, geophysical, 
-      remote sensing, satellite and geochemical datasets to identify 
-      rare mineral deposits through specialized AI models. 
-      Our big data-driven model can be continuously retrained, 
-      integrating local data from the area of interest to refine 
-      predictions and adapt to its unique geological characteristics.
+        className={aboutStyles(currentTheme).overview}
+      >
+        {ABOUT_TEXT.overview}
       </motion.p>
 
-      <div className="mt-20 flex flex-wrap gap-10">
+      <div className={aboutStyles(currentTheme).servicesContainer}>
         {services.map((service, index) => (
           <ServiceCard key={service.title} index={index} {...service} />
         ))}

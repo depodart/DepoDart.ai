@@ -7,10 +7,12 @@ import {
   BeakerIcon,
   CpuChipIcon,
   ClockIcon, 
-  ServerIcon 
 } from '@heroicons/react/24/outline'
 
 
+
+
+//! Nav Links
 export const navLinks = [
   {
     id: "about",
@@ -25,6 +27,36 @@ export const navLinks = [
     title: "Contact",
   },
 ];
+
+//! About Text
+export const ABOUT_TEXT = {
+  sectionSubText: "Introduction",
+  sectionHeadText: "Overview",
+  overview: "At DepoDart, we collect and process large geological, geophysical, remote sensing, satellite and geochemical datasets to identify rare mineral deposits through specialized AI models. Our big data-driven model can be continuously retrained, integrating local data from the area of interest to refine predictions and adapt to its unique geological characteristics."
+};
+
+
+//! Hero Text
+export const HERO_TEXT = {
+  miningCapabilities: ["AI-Powered Geological Mapping",
+    "Predictive Mineral Targeting",
+    "Automated Geochemical Analysis",
+    "Geological Surveying",
+    "AI-Optimized Drilling & Core Logging",
+    "Machine Learning for Geophysical Data Interpretation",
+    "Big Data Integration & Decision Support Systems",
+    "AI-Driven Resource Estimation & Feasibility Studies"
+  ],
+  brandName: {
+    first: import.meta.env.VITE_HERO_TEXT_BRAND_NAME_FIRST,
+    second: import.meta.env.VITE_HERO_TEXT_BRAND_NAME_SECOND
+  },
+  tagline: import.meta.env.VITE_HERO_TEXT_TAGLINE
+};
+
+
+
+//! Services
 
 export const services = [
   { 
@@ -52,6 +84,13 @@ export const services = [
     description: ""
   },
 ];
+
+
+//! Experience Text
+export const EXPERIENCE_TEXT = {
+  sectionSubText: "Every mapping project is a unique discovery journey",
+  sectionHeadText: "OUR SERVICES"
+};
 
 export const experiences = [
   {
@@ -116,6 +155,13 @@ export const experiences = [
   },
 ];
 
+//! Text content for Works component
+export const WORKS_TEXT = {
+  sectionHeading: "Why DepoDart?",
+  description: "Our science and geology team developed a neural network utilizing advanced deep learning, achieving 98.5% accuracy in mineral deposit prediction. The AI integrates ensemble learning, custom attention mechanisms, and active learning to process complex geological data with precision, delivering reliable and innovative exploration results."
+};
+
+
 export const projects = [
   {
     name: "Resource Estimation AI",
@@ -155,3 +201,55 @@ export const projects = [
     source_code_link: "https://github.com/",
   }
 ];
+
+export const INITIAL_FORM_STATE = {
+  firstName: "",
+  lastName: "",
+  company: "",
+  email: "",
+  phone: "",
+  message: "",
+  agreed: false
+};
+
+
+export const CONTACT_TEXT = {
+  sectionSubText: "Get in touch",
+  sectionHeadText: "Contact Sales",
+  firstNameLabel: "First Name",
+  lastNameLabel: "Last Name",
+  companyLabel: "Company",
+  emailLabel: "Email Address",
+  phoneLabel: "Phone Number",
+  phonePlaceholder: "123-456-7890",
+  messageLabel: "Message",
+  privacyLabel: "Agree to our privacy policy",
+  sendButton: "Let's talk",
+  sendingButton: "Sending...",
+  firstNameError: "First name is required.",
+  emailError: "Please enter a valid email address.",
+  agreementError: "You must agree to our privacy policy.",
+  successMessage: "Thank you for your message. Our team will review and respond within 1-2 business days.",
+  errorMessage: "Something went wrong. Please try again",
+  EMAIL_SERVICE_ID : import.meta.env.VITE_EMAIL_SERVICE_ID || "default_service_id",
+ EMAIL_TEMPLATE_ID : import.meta.env.VITE_EMAIL_TEMPLATE_ID || "default_templat,id",
+ EMAIL_PUBLIC_KEY : import.meta.env.VITE_EMAIL_PUBLIC_KEY || "default_public_key",
+ EMAIL_RECIPIENT : import.meta.env.VITE_EMAIL_RECIPIENT || "default@example.com",
+ EMAIL_RECIPIENT_NAME : import.meta.env.VITE_EMAIL_RECIPIENT_NAME || "Default Name",
+
+
+};
+
+
+//! Footer Text and Contact Sections
+export const FOOTER_TEXT = {
+  address: {
+    street: import.meta.env.VITE_ADDRESS_STREET || "",
+    province: import.meta.env.VITE_ADDRESS_PROVINCE || "",
+    city: import.meta.env.VITE_ADDRESS_CITY || ""
+  },
+  phone: import.meta.env.VITE_PHONE || "",
+  email: import.meta.env.VITE_EMAIL_RECIPIENT || "",
+  copyright: `© ${new Date().getFullYear()} ${import.meta.env.VITE_EMAIL_RECIPIENT_NAME || ""}. All rights reserved.`
+};
+

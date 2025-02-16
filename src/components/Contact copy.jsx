@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import GlobeElevatedPolygonsCanvas from "./canvas/GlobeElevatedPolygons";
-import { styles } from "../styles";
+import { styles } from "../style";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
 import "../index.css";

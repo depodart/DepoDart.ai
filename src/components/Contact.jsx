@@ -2,56 +2,20 @@ import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import GlobeElevatedPolygonsCanvas from "./canvas/GlobeElevatedPolygons";
-import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
 import "../index.css";
-import { navLinks } from "../constants";
-
-const EMAIL_SERVICE_ID = import.meta.env.VITE_EMAIL_SERVICE_ID || "default_service_id";
-const EMAIL_TEMPLATE_ID = import.meta.env.VITE_EMAIL_TEMPLATE_ID || "default_template_id";
-const EMAIL_PUBLIC_KEY = import.meta.env.VITE_EMAIL_PUBLIC_KEY || "default_public_key";
-const EMAIL_RECIPIENT = import.meta.env.VITE_EMAIL_RECIPIENT || "default@example.com";
-const EMAIL_RECIPIENT_NAME = import.meta.env.VITE_EMAIL_RECIPIENT_NAME || "Default Name";
+import { CONTACT_TEXT, INITIAL_FORM_STATE, navLinks } from "../constants";
+import { contactStyles, styles, initialTheme } from "../style";
 
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-const TEXT = {
-  sectionSubText: "Get in touch",
-  sectionHeadText: "Contact Sales",
-  firstNameLabel: "First Name",
-  lastNameLabel: "Last Name",
-  companyLabel: "Company",
-  emailLabel: "Email Address",
-  phoneLabel: "Phone Number",
-  phonePlaceholder: "123-456-7890",
-  messageLabel: "Message",
-  privacyLabel: "Agree to our privacy policy",
-  sendButton: "Let's talk",
-  sendingButton: "Sending...",
-  firstNameError: "First name is required.",
-  emailError: "Please enter a valid email address.",
-  agreementError: "You must agree to our privacy policy.",
-  successMessage: "Thank you for your message. Our team will review and respond within 1-2 business days.",
-  errorMessage: "Something went wrong. Please try again."
-};
-
-const INITIAL_FORM_STATE = {
-  firstName: "",
-  lastName: "",
-  company: "",
-  email: "",
-  phone: "",
-  message: "",
-  agreed: false
-};
-
 const FormInput = ({ label, id, name, type = "text", value, onChange, error, textarea }) => {
-  const inputClasses = "block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 placeholder:text-gray-400";
-  
+  const [currentTheme] = useState(initialTheme);
+
   return (
     <div className={`${name === "firstName" || name === "lastName" ? "" : "sm:col-span-2"}`}>
-      <label htmlFor={id} className="block text-sm font-semibold text-white">
+      <label htmlFor={id} className={contactStyles(currentTheme).formLabel}>
         {label}
       </label>
       <div className="mt-2.5">
@@ -61,7 +25,7 @@ const FormInput = ({ label, id, name, type = "text", value, onChange, error, tex
             name={name}
             value={value}
             onChange={onChange}
-            className={inputClasses}
+            className={contactStyles(currentTheme).formInput}
             rows={4}
           />
         ) : (
@@ -71,21 +35,22 @@ const FormInput = ({ label, id, name, type = "text", value, onChange, error, tex
             type={type}
             value={value}
             onChange={onChange}
-            className={inputClasses}
+            className={contactStyles(currentTheme).formInput}
           />
         )}
-        {error && <span className="text-red-500 text-sm">{error}</span>}
+        {error && <span className={contactStyles(currentTheme).validationError}>{error}</span>}
       </div>
     </div>
   );
 };
 
-const ContactSales = () => {
+const Contact = () => {
   const formRef = useRef();
   const [form, setForm] = useState(INITIAL_FORM_STATE);
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
   const [confirmation, setConfirmation] = useState("");
+  const [currentTheme] = useState(initialTheme);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -94,9 +59,9 @@ const ContactSales = () => {
 
   const validateForm = () => {
     const newErrors = {};
-    if (!form.firstName.trim()) newErrors.firstName = TEXT.firstNameError;
-    if (!EMAIL_REGEX.test(form.email)) newErrors.email = TEXT.emailError;
-    if (!form.agreed) newErrors.agreed = TEXT.agreementError;
+    if (!form.firstName.trim()) newErrors.firstName = CONTACT_TEXT.firstNameError;
+    if (!EMAIL_REGEX.test(form.email)) newErrors.email = CONTACT_TEXT.emailError;
+    if (!form.agreed) newErrors.agreed = CONTACT_TEXT.agreementError;
     return newErrors;
   };
 
@@ -116,33 +81,33 @@ const ContactSales = () => {
 
     emailjs
       .send(
-        EMAIL_SERVICE_ID,
-        EMAIL_TEMPLATE_ID,
+        CONTACT_TEXT.EMAIL_SERVICE_ID,
+        CONTACT_TEXT.EMAIL_TEMPLATE_ID,
         {
           from_name: fullName,
-          to_name: EMAIL_RECIPIENT_NAME,
+          to_name: CONTACT_TEXT.EMAIL_RECIPIENT_NAME,
           from_email: form.email,
           message: combinedMessage
         },
-        EMAIL_PUBLIC_KEY
+        CONTACT_TEXT.EMAIL_PUBLIC_KEY
       )
       .then(() => {
         setForm(INITIAL_FORM_STATE);
-        setConfirmation(TEXT.successMessage);
+        setConfirmation(CONTACT_TEXT.successMessage);
       })
-      .catch(() => setConfirmation(TEXT.errorMessage))
+      .catch(() => setConfirmation(CONTACT_TEXT.errorMessage))
       .finally(() => setLoading(false));
   };
 
   return (
-    <div className="relative xl:mt-12 flex flex-col-reverse md:flex-row gap-10 overflow-hidden">
+    <div className={contactStyles(currentTheme).contactContainer}>
       {/* Background gradient */}
       <div
         aria-hidden="true"
-        className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"
+        className={contactStyles(currentTheme).backgroundGradientContainer}
       >
         <div
-          className="relative left-1/2 aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-pink-400 to-purple-400 opacity-30 sm:w-[72.1875rem]"
+          className={contactStyles(currentTheme).backgroundGradientElement}
           style={{
             clipPath: "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"
           }}
@@ -150,18 +115,16 @@ const ContactSales = () => {
       </div>
 
       {/* Contact Form */}
-      <motion.div
-        variants={slideIn("left", "tween", 0.2, 1)}
-        className="flex-1 bg-black-100 p-8 rounded-2xl relative z-10"
+      <motion.div variants={slideIn("left", "tween", 0.2, 1)} className={contactStyles(currentTheme).contactFormContainer}
         style={{ maxWidth: '500px' }}
       >
-        <p className={styles.sectionSubText}>{TEXT.sectionSubText}</p>
-        <h3 className={styles.sectionHeadText}>{TEXT.sectionHeadText}</h3>
+        <p className={styles(currentTheme).sectionSubText}>{CONTACT_TEXT.sectionSubText}</p>
+        <h3 className={styles(currentTheme).sectionHeadText}>{CONTACT_TEXT.sectionHeadText}</h3>
         
-        <form ref={formRef} onSubmit={handleSubmit} className="mx-auto mt-12 max-w-4xl">
-          <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+        <form ref={formRef} onSubmit={handleSubmit} className={contactStyles(currentTheme).contactForm}>
+          <div className={contactStyles(currentTheme).formFieldsGrid}>
             <FormInput
-              label={TEXT.firstNameLabel}
+              label={CONTACT_TEXT.firstNameLabel}
               id="first-name"
               name="firstName"
               value={form.firstName}
@@ -170,7 +133,7 @@ const ContactSales = () => {
             />
 
             <FormInput
-              label={TEXT.lastNameLabel}
+              label={CONTACT_TEXT.lastNameLabel}
               id="last-name"
               name="lastName"
               value={form.lastName}
@@ -178,7 +141,7 @@ const ContactSales = () => {
             />
 
             <FormInput
-              label={TEXT.companyLabel}
+              label={CONTACT_TEXT.companyLabel}
               id="company"
               name="company"
               value={form.company}
@@ -186,7 +149,7 @@ const ContactSales = () => {
             />
 
             <FormInput
-              label={TEXT.emailLabel}
+              label={CONTACT_TEXT.emailLabel}
               id="email"
               name="email"
               type="email"
@@ -196,7 +159,7 @@ const ContactSales = () => {
             />
 
             <FormInput
-              label={TEXT.phoneLabel}
+              label={CONTACT_TEXT.phoneLabel}
               id="phone-number"
               name="phone"
               value={form.phone}
@@ -204,7 +167,7 @@ const ContactSales = () => {
             />
 
             <FormInput
-              label={TEXT.messageLabel}
+              label={CONTACT_TEXT.messageLabel}
               id="message"
               name="message"
               value={form.message}
@@ -213,18 +176,18 @@ const ContactSales = () => {
             />
           </div>
 
-          <div className="mt-10">
+          <div className={contactStyles(currentTheme).submitButtonWrapper}>
             <button
               type="submit"
               disabled={loading}
-              className="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 disabled:opacity-50"
+              className={contactStyles(currentTheme).submitButton}
             >
-              {loading ? TEXT.sendingButton : TEXT.sendButton}
+              {loading ? CONTACT_TEXT.sendingButton : CONTACT_TEXT.sendButton}
             </button>
           </div>
           
           {confirmation && (
-            <p className={`mt-4 text-center ${confirmation === TEXT.successMessage ? 'text-green-500' : 'text-red-500'}`}>
+            <p className={confirmation === CONTACT_TEXT.successMessage ? contactStyles(currentTheme).successMessage : contactStyles(currentTheme).errorMessage}>
               {confirmation}
             </p>
           )}
@@ -232,14 +195,11 @@ const ContactSales = () => {
       </motion.div>
 
       {/* Globe Container */}
-      <motion.div
-        variants={slideIn("right", "tween", 0.2, 1)}
-        className="absolute top-0 right-[-7rem] -translate-y-1/2 z-0"
-      >
+      <motion.div variants={slideIn("right", "tween", 0.2, 1)} className={contactStyles(currentTheme).globeVisualizationContainer}>
         <GlobeElevatedPolygonsCanvas />
       </motion.div>
     </div>
   );
 };
 
-export default SectionWrapper(ContactSales, navLinks[2].id);
+export default SectionWrapper(Contact, navLinks[2].id);
