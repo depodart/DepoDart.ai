@@ -2,19 +2,20 @@ import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import GlobeElevatedPolygonsCanvas from "./canvas/GlobeElevatedPolygons";
-import { styles } from "../style";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
 import "../index.css";
-import { CONTACT_TEXT, INITIAL_FORM_STATE , navLinks} from "../constants";
-import { contactStyles } from "../style";
+import { CONTACT_TEXT, INITIAL_FORM_STATE, navLinks } from "../constants";
+import { contactStyles, styles, initialTheme } from "../style";
 
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
 const FormInput = ({ label, id, name, type = "text", value, onChange, error, textarea }) => {
+  const [currentTheme] = useState(initialTheme);
+
   return (
     <div className={`${name === "firstName" || name === "lastName" ? "" : "sm:col-span-2"}`}>
-      <label htmlFor={id} className={contactStyles.formLabel}>
+      <label htmlFor={id} className={contactStyles(currentTheme).formLabel}>
         {label}
       </label>
       <div className="mt-2.5">
@@ -24,7 +25,7 @@ const FormInput = ({ label, id, name, type = "text", value, onChange, error, tex
             name={name}
             value={value}
             onChange={onChange}
-            className={contactStyles.formInput}
+            className={contactStyles(currentTheme).formInput}
             rows={4}
           />
         ) : (
@@ -34,21 +35,22 @@ const FormInput = ({ label, id, name, type = "text", value, onChange, error, tex
             type={type}
             value={value}
             onChange={onChange}
-            className={contactStyles.formInput}
+            className={contactStyles(currentTheme).formInput}
           />
         )}
-        {error && <span className={contactStyles.validationError}>{error}</span>}
+        {error && <span className={contactStyles(currentTheme).validationError}>{error}</span>}
       </div>
     </div>
   );
 };
 
-const ContactSales = () => {
+const Contact = () => {
   const formRef = useRef();
   const [form, setForm] = useState(INITIAL_FORM_STATE);
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
   const [confirmation, setConfirmation] = useState("");
+  const [currentTheme] = useState(initialTheme);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -98,14 +100,14 @@ const ContactSales = () => {
   };
 
   return (
-    <div className={contactStyles.contactContainer}>
+    <div className={contactStyles(currentTheme).contactContainer}>
       {/* Background gradient */}
       <div
         aria-hidden="true"
-        className={contactStyles.backgroundGradientContainer}
+        className={contactStyles(currentTheme).backgroundGradientContainer}
       >
         <div
-          className={contactStyles.backgroundGradientElement}
+          className={contactStyles(currentTheme).backgroundGradientElement}
           style={{
             clipPath: "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"
           }}
@@ -113,14 +115,14 @@ const ContactSales = () => {
       </div>
 
       {/* Contact Form */}
-      <motion.div  variants={slideIn("left", "tween", 0.2, 1)}className={contactStyles.contactFormContainer}
+      <motion.div variants={slideIn("left", "tween", 0.2, 1)} className={contactStyles(currentTheme).contactFormContainer}
         style={{ maxWidth: '500px' }}
       >
-        <p className={styles.sectionSubText}>{CONTACT_TEXT.sectionSubText}</p>
-        <h3 className={styles.sectionHeadText}>{CONTACT_TEXT.sectionHeadText}</h3>
+        <p className={styles(currentTheme).sectionSubText}>{CONTACT_TEXT.sectionSubText}</p>
+        <h3 className={styles(currentTheme).sectionHeadText}>{CONTACT_TEXT.sectionHeadText}</h3>
         
-        <form ref={formRef} onSubmit={handleSubmit} className={contactStyles.contactForm}>
-          <div className={contactStyles.formFieldsGrid}>
+        <form ref={formRef} onSubmit={handleSubmit} className={contactStyles(currentTheme).contactForm}>
+          <div className={contactStyles(currentTheme).formFieldsGrid}>
             <FormInput
               label={CONTACT_TEXT.firstNameLabel}
               id="first-name"
@@ -174,18 +176,18 @@ const ContactSales = () => {
             />
           </div>
 
-          <div className={contactStyles.submitButtonWrapper}>
+          <div className={contactStyles(currentTheme).submitButtonWrapper}>
             <button
               type="submit"
               disabled={loading}
-              className={contactStyles.submitButton}
+              className={contactStyles(currentTheme).submitButton}
             >
               {loading ? CONTACT_TEXT.sendingButton : CONTACT_TEXT.sendButton}
             </button>
           </div>
           
           {confirmation && (
-            <p className={confirmation === CONTACT_TEXT.successMessage ? contactStyles.successMessage : contactStyles.errorMessage}>
+            <p className={confirmation === CONTACT_TEXT.successMessage ? contactStyles(currentTheme).successMessage : contactStyles(currentTheme).errorMessage}>
               {confirmation}
             </p>
           )}
@@ -193,11 +195,11 @@ const ContactSales = () => {
       </motion.div>
 
       {/* Globe Container */}
-      <motion.div  variants={slideIn("right", "tween", 0.2, 1)} className={contactStyles.globeVisualizationContainer}>
+      <motion.div variants={slideIn("right", "tween", 0.2, 1)} className={contactStyles(currentTheme).globeVisualizationContainer}>
         <GlobeElevatedPolygonsCanvas />
       </motion.div>
     </div>
   );
 };
 
-export default SectionWrapper(ContactSales, navLinks[2].id);
+export default SectionWrapper(Contact, navLinks[2].id);

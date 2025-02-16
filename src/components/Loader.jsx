@@ -1,13 +1,14 @@
 import { Html, useProgress } from "@react-three/drei";
-import { loaderContainerStyle, loaderProgressTextStyle } from "../style";
+import { loaderContainerStyle, loaderProgressTextStyle, initialTheme } from "../style";
 
 const CanvasLoader = () => {
+  const [currentTheme] = useState(initialTheme);
   const { progress } = useProgress();
 
   return (
-    <Html as="div" center style={loaderContainerStyle}>
+    <Html as="div" center style={loaderContainerStyle(currentTheme)}>
       <span className="canvas-loader" />
-      <p style={loaderProgressTextStyle}>{progress.toFixed(2)}%</p>
+      <p style={loaderProgressTextStyle(currentTheme)}>{progress.toFixed(2)}%</p>
     </Html>
   );
 };

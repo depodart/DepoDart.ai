@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { Tilt } from "react-tilt";
 import { motion } from "framer-motion";
 import { github } from "../assets";
 import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
-import { worksStyles, styles } from "../style";
+import { worksStyles, styles, initialTheme } from "../style";
 import { WORKS_TEXT } from "../constants";
 
 
 const ProjectCard = ({ name, description, tags, image, source_code_link }) => {
+  const [currentTheme] = useState(initialTheme);
+
   return (
     <motion.div variants={fadeIn("up", "spring")}>
       <Tilt
@@ -18,30 +20,30 @@ const ProjectCard = ({ name, description, tags, image, source_code_link }) => {
           scale: 1,
           speed: 450,
         }}
-        className={worksStyles.projectCard.wrapper}
+        className={worksStyles(currentTheme).projectCard.wrapper}
       >
-        <div className={worksStyles.projectCard.imageContainer}>
+        <div className={worksStyles(currentTheme).projectCard.imageContainer}>
           <img
             src={image}
             alt="project_image"
-            className={worksStyles.projectCard.image}
+            className={worksStyles(currentTheme).projectCard.image}
           />
           <div className="absolute inset-0 flex justify-end m-3 card-img_hover">
             <div
               onClick={() => window.open(source_code_link, "_blank")}
-              className={worksStyles.projectCard.githubButton}
+              className={worksStyles(currentTheme).projectCard.githubButton}
             >
-              <img src={github} alt="source code" className={worksStyles.projectCard.githubIcon} />
+              <img src={github} alt="source code" className={worksStyles(currentTheme).projectCard.githubIcon} />
             </div>
           </div>
         </div>
         <div className="mt-5">
-          <h3 className={worksStyles.projectCard.title}>{name}</h3>
-          <p className={worksStyles.projectCard.description}>{description}</p>
+          <h3 className={worksStyles(currentTheme).projectCard.title}>{name}</h3>
+          <p className={worksStyles(currentTheme).projectCard.description}>{description}</p>
         </div>
-        <div className={worksStyles.projectCard.tagsContainer}>
+        <div className={worksStyles(currentTheme).projectCard.tagsContainer}>
           {tags.map((tag) => (
-            <p key={tag.name} className={`${worksStyles.projectCard.tag} ${tag.color}`}>
+            <p key={tag.name} className={`${worksStyles(currentTheme).projectCard.tag} ${tag.color}`}>
               #{tag.name}
             </p>
           ))}
@@ -51,18 +53,20 @@ const ProjectCard = ({ name, description, tags, image, source_code_link }) => {
   );
 };
 
-const Works = () => {
+  const Works = () => {
+  const [currentTheme] = useState(initialTheme);
+
   return (
     <>
       <motion.div variants={textVariant()}>
-        <h2 className={`${styles.sectionHeadText}`}>{WORKS_TEXT.sectionHeading}</h2>
+        <h2 className={`${styles(currentTheme).sectionHeadText}`}>{WORKS_TEXT.sectionHeading}</h2>
       </motion.div>
       <div className="w-full flex">
-        <motion.p variants={fadeIn("", "", 0.1)} className={worksStyles.mainContent.description}>
+        <motion.p variants={fadeIn("", "", 0.1)} className={worksStyles(currentTheme).mainContent.description}>
           {WORKS_TEXT.description}
         </motion.p>
       </div>
-      <div className={worksStyles.mainContent.projectsGrid}>
+      <div className={worksStyles(currentTheme).mainContent.projectsGrid}>
         {projects.map((project, index) => (
           <ProjectCard key={`project-${index}`} {...project} />
         ))}

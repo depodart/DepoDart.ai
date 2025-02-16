@@ -9,6 +9,9 @@ import {
   ClockIcon, 
 } from '@heroicons/react/24/outline'
 
+
+
+
 //! Nav Links
 export const navLinks = [
   {
@@ -24,6 +27,14 @@ export const navLinks = [
     title: "Contact",
   },
 ];
+
+//! About Text
+export const ABOUT_TEXT = {
+  sectionSubText: "Introduction",
+  sectionHeadText: "Overview",
+  overview: "At DepoDart, we collect and process large geological, geophysical, remote sensing, satellite and geochemical datasets to identify rare mineral deposits through specialized AI models. Our big data-driven model can be continuously retrained, integrating local data from the area of interest to refine predictions and adapt to its unique geological characteristics."
+};
+
 
 //! Hero Text
 export const HERO_TEXT = {

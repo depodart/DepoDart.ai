@@ -2,13 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { close, logo, menu } from '../assets';
 import { navLinks } from '../constants';
-import { navbarStyles, styles } from '../style';
-
-
+import { navbarStyles, styles, initialTheme } from '../style';
 
 const Navbar = () => {
   const [active, setActive] = useState('');
   const [toggle, setToggle] = useState(false);
+  const [currentTheme] = useState(initialTheme);
 
   const toggleResume = () => {
     const resumeUrl = '/example.pdf';
@@ -19,56 +18,58 @@ const Navbar = () => {
     if (toggle) {
       setActive('');
     }
-  }, [toggle]);
+  }, [toggle]);     
 
-  const renderNavLinks = (isMobile) => (
-    <ul className={isMobile ? navbarStyles.mobileNav : navbarStyles.desktopNav}>
-      {navLinks.map((link) => (
+  const renderNavLinks = (isMobile) => {
+    return (
+      <ul className={isMobile ? navbarStyles(currentTheme).mobileNav : navbarStyles(currentTheme).desktopNav}>
+        {navLinks.map((link) => (
+          <li
+            key={link.id}
+            className={`${
+              active === link.title 
+                ? navbarStyles(currentTheme).activeLink 
+                : isMobile 
+                  ? navbarStyles(currentTheme).inactiveMobileLink 
+                  : navbarStyles(currentTheme).inactiveDesktopLink
+            } ${navbarStyles(currentTheme).navLink} hover:text-white`}
+            onClick={() => {
+              setActive(link.title);
+              
+              const element = document.getElementById(link.id);
+              if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+              }
+              
+              if (isMobile) {
+                setToggle(false);
+              }
+            }}
+          >
+            <a href={`#${link.id}`}>{link.title}</a>
+          </li>
+        ))}
         <li
-          key={link.id}
-          className={`${
-            active === link.title 
-              ? navbarStyles.activeLink 
-              : isMobile 
-                ? navbarStyles.inactiveMobileLink 
-                : navbarStyles.inactiveDesktopLink
-          } ${navbarStyles.navLink} hover:text-white`}
-          onClick={() => {
-            setActive(link.title);
-            
-            const element = document.getElementById(link.id);
-            if (element) {
-              element.scrollIntoView({ behavior: 'smooth' });
-            }
-            
-            if (isMobile) {
-              setToggle(false);
-            }
-          }}
+          className={`${isMobile ? navbarStyles(currentTheme).inactiveMobileLink : navbarStyles(currentTheme).inactiveDesktopLink} ${navbarStyles(currentTheme).navLink} hover:text-white`}
         >
-          <a href={`#${link.id}`}>{link.title}</a>
+          <button onClick={toggleResume}>Download info</button>
         </li>
-      ))}
-      <li
-        className={`${isMobile ? navbarStyles.inactiveMobileLink : navbarStyles.inactiveDesktopLink} ${navbarStyles.navLink} hover:text-white`}
-      >
-        <button onClick={toggleResume}>Download info</button>
-      </li>
-    </ul>
-  );
+      </ul>
+    );
+  };
 
   return (
-    <nav className={`${styles.paddingX} ${navbarStyles.nav}`}>
-      <div className={navbarStyles.container}>
+    <nav className={`${styles(currentTheme).paddingX} ${navbarStyles(currentTheme).nav}`}>
+      <div className={navbarStyles(currentTheme).container}>
         <Link
           to="/"
-          className={navbarStyles.logo}
+          className={navbarStyles(currentTheme).logo}
           onClick={() => {
             setActive('');
             window.scrollTo(0, 0);
           }}
         >
-          <p className={navbarStyles.logoText}>
+          <p className={navbarStyles(currentTheme).logoText}>
             Depo&nbsp;
             <span>Dart</span>
           </p>
@@ -78,15 +79,15 @@ const Navbar = () => {
         {renderNavLinks(false)}
 
         {/* Mobile Navigation */}
-        <div className={navbarStyles.mobileMenuContainer}>
+        <div className={navbarStyles(currentTheme).mobileMenuContainer}>
           <img
             src={toggle ? close : menu}
             alt="menu"
-            className={navbarStyles.menuIcon}
+            className={navbarStyles(currentTheme).menuIcon}
             onClick={() => setToggle(!toggle)}
           />
 
-          <div className={`${!toggle ? 'hidden' : 'flex'} ${navbarStyles.mobileMenuDropdown}`}>
+          <div className={`${!toggle ? 'hidden' : 'flex'} ${navbarStyles(currentTheme).mobileMenuDropdown}`}>
             {renderNavLinks(true)}
           </div>
         </div>

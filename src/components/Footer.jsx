@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { SectionWrapper } from "../hoc";
-import { styles } from "../style";
 import { FOOTER_TEXT } from "../constants";
 import { EnvelopeIcon, PhoneIcon, MapPinIcon } from "@heroicons/react/24/outline";
+import { styles, initialTheme } from "../style";
+
 export const FOOTER_CONTACT_SECTIONS = [
   {
     icon: <EnvelopeIcon className="h-6 w-6" />,
@@ -27,7 +28,8 @@ export const FOOTER_CONTACT_SECTIONS = [
 ];
 
 const ContactCard = ({ title, content, icon }) => {
-  const [isHovered, setIsHovered] = React.useState(false);
+  const [currentTheme] = useState(initialTheme);
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div 
@@ -67,7 +69,9 @@ const ContactCard = ({ title, content, icon }) => {
 };
 
 const Footer = () => {
-  return (
+  const [currentTheme] = useState(initialTheme);
+
+      return (
     <footer className="w-full">
       {/* Top Section – Contact & Locations */}
       <div className="bg-primary py-8 sm:py-16">
@@ -76,7 +80,7 @@ const Footer = () => {
             {/* Contact Information */}
             <div className="grid grid-cols-1 gap-10 py-16 lg:grid-cols-3">
               <div>
-                <h2 className={styles.sectionHeadText}>
+                <h2 className={`${styles(currentTheme).sectionHeadText}`}>
                   Contacts
                 </h2>
                 <p className="mt-4 text-base text-[#B0B0B0]">
