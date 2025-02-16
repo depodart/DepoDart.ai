@@ -8,7 +8,8 @@ import python from "./overview-icons/python.png";
 import mhft from "./projects/mhft.png";
 
 // Import common assets
-import logo from "./github.png";
+//import logo from "./github.png";
+import logo from "./company/logo.png";
 import github from "./github.png";
 import menu from "./menu.svg";
 import close from "./close.svg";

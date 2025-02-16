@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { close, logo, menu } from '../assets';
+import Logo from '../assets/Logo.png'
 import { navLinks } from '../constants';
 import { styles } from '../styles';
 
@@ -67,6 +68,7 @@ const Navbar = () => {
           <p className="text-white text-[20px] font-bold cursor-pointer flex">
             Depo&nbsp;
             <span>Dart</span>
+            <img src={Logo} alt="logo" className="w-[28px] h-[28px] object-contain" />
           </p>
         </Link>
 
@@ -75,9 +77,9 @@ const Navbar = () => {
 
         {/* Mobile Navigation */}
         <div className="sm:hidden flex flex-1 justify-end items-center">
-          <img
-            src={toggle ? close : menu}
-            alt="menu"
+          <img  
+            src={toggle ? close : Logo}
+            alt="logo"
             className="w-[28px] h-[28px] object-contain cursor-pointer"
             onClick={() => setToggle(!toggle)}
           />

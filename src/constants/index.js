@@ -40,7 +40,7 @@ export const services = [
     description: ""
   },
   { 
-    title: "Mine Planning & Optimization",
+    title: "Mineral Resource & Reserve Evaluation",
     icon: null,
     IconComponent: BeakerIcon,
     description: ""
@@ -67,28 +67,28 @@ export const experiences = [
       "Rapidly identify your new mineral deposits under human supervision for best accuracy."
     ]
   },
+  // {
+  //   title: "Consulting Powered AI",
+  //   sub_title: "Expert AI Consulting & Geoscience Integration",
+  //   icon: null,
+  //   iconBg: "#B87333", // Copper
+  //   date: "",
+  //   points: [
+  //     "Unlock AI's true potential with consulting that merges deep geoscience expertise with advanced analytics.",
+  //     "Get tailored strategies to implement machine learning that revolutionizes your data interpretation.",
+  //     "Leverage bespoke AI solutions designed to overcome your unique geological challenges and drive success."
+  //   ],
+  // },
   {
-    title: "Consulting Powered AI",
-    sub_title: "Expert AI Consulting & Geoscience Integration",
-    icon: null,
-    iconBg: "#B87333", // Copper
-    date: "",
-    points: [
-      "Unlock AI's true potential with consulting that merges deep geoscience expertise with advanced analytics.",
-      "Get tailored strategies to implement machine learning that revolutionizes your data interpretation.",
-      "Leverage bespoke AI solutions designed to overcome your unique geological challenges and drive success."
-    ],
-  },
-  {
-    title: "Autonomous Solutions",
-    sub_title: "Intelligent Automation & Robotics Division",
+    title: "Autonomous Solution for Deposit Descovery",
+    // sub_title: "Intelligent Automation",
     icon: null,
     iconBg: "#ff6b6b", // Ruby red
     date: "",
     points: [
-      "Experience next-level automation with AI-driven systems that revolutionize data collection in mining.",
-      "Deploy real-time deep learning models for continuous mapping and proactive, smart monitoring.",
-      "Benefit from self-optimizing algorithms that predict maintenance needs and maximize operational efficiency."
+      "Use our AI models yourself by enter your data and generate your predictions.",
+      "Receive automatic assistance in placing your data in the correct format.",
+      "Get a detailed report of your predictions and recommendations for further actions."
     ],
   },
   {
@@ -104,14 +104,14 @@ export const experiences = [
     ],
   },
   {
-    title: "Mineral Resource & Reserve Evaluation",
-    sub_title: "Precision Geological Intelligence Solutions",
+    title: "Mine Planning & Optimization",
+    // sub_title: "Resource Modeling",
     icon: null,
     iconBg: "#4F5555", // Hematite gray
     date: "",
     points: [
-      "Assesses remaining ore reserves to determine economic feasibility.",
-      "resource modeling, grade control, and depletion analysis."
+      "Evaluate remaining ore reserves in mines to determine economic feasibility.",
+      "Createe a 3D digital model of a mineral deposit using geological, geochemical, and geophysical data"
     ],
   },
 ];
