@@ -74,11 +74,12 @@ const About = () => {
       <motion.p
         variants={fadeIn('', '', 0.1, 1)}
         className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]"
-      > At DepoDart, we harness the power of AI to create 
-      precise geochemical maps for the identification 
-      of rare minerals such as gold and copper. 
-      Our innovative solutions streamline 
-      the mineral exploration process and optimize resource discovery.
+      > At DepoDart, we collect and process large geological, geophysical, 
+      remote sensing, satellite and geochemical datasets to identify 
+      rare mineral deposits through specialized AI models. 
+      Our big data-driven model can be continuously retrained, 
+      integrating local data from the area of interest to refine 
+      predictions and adapt to its unique geological characteristics.
       </motion.p>
 
       <div className="mt-20 flex flex-wrap gap-10">

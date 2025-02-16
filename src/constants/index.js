@@ -28,44 +28,43 @@ export const navLinks = [
 
 export const services = [
   { 
-    title: "Machine Learning",
+    title: "Potential Deposits Identification",
     icon: null,
     IconComponent: CpuChipIcon,
-    description: "Tailored Mapping Solutions"
+    description: ""
   },
   { 
-    title: "Reduced operational time",
+    title: "Exploration Cost Reduction",
     icon: null,
     IconComponent: ClockIcon,
-    description: "Intuitive ML workflow building that significantly decreases processing time and delivers fast and accurate prediction results"
+    description: ""
   },
   { 
-    title: "Apply your knowledge",
+    title: "Mine Planning & Optimization",
     icon: null,
     IconComponent: BeakerIcon,
-    description: "Intelligent ML Workflow Customisation aimed at retaining your competences and experience"
+    description: ""
   },
   { 
-    title: "Advanced hybrid neural network",
+    title: "Data Collection & Integration",
     icon: null,
-    IconComponent: ServerIcon,
-    description: "Robust prediction of the most complex geological features based on varying seismic quality and complexity of geological strata"
+    IconComponent: BeakerIcon,
+    description: ""
   },
 ];
 
 export const experiences = [
   {
-    title: "AI-Assisted Mineral Discovery Platform",
-    sub_title: "AI and Machine Learning Geological Solutions",
+    title: "New Deposit Discovery Asisted by AI specialists and geologists",
+    //sub_title: "Data Scientist & Geologist personal assistance",
     icon: null,
     iconBg: "#00cea8", // Gold
     // iconBg: "#FFD700", // Gold
     date: "",
     points: [
-      "Step into the future of exploration with our groundbreaking AI platform—ditch unreliable tools for precision discovery.",
-      "Unlock the hidden power of your data with advanced algorithms that turn raw numbers into game-changing insights.",
-      "Rapidly target high-potential zones and maximize your resource value—no expensive surveys required.",
-      "Built by industry experts to cut bias and supercharge exploration efficiency."
+      "Interact with DepoDart Data Scientists and Geologists to beter understand, process and integrate your data.",
+      "Tune our models to your specific geological context.",
+      "Rapidly identify your new mineral deposits under human supervision for best accuracy."
     ]
   },
   {
@@ -105,15 +104,14 @@ export const experiences = [
     ],
   },
   {
-    title: "Geospatial Mapping & Analysis for Mines",
+    title: "Mineral Resource & Reserve Evaluation",
     sub_title: "Precision Geological Intelligence Solutions",
     icon: null,
     iconBg: "#4F5555", // Hematite gray
     date: "",
     points: [
-      "Harness cutting-edge AI to generate high-precision geospatial maps tailored for mining success.",
-      "Uncover hidden patterns in complex data using advanced machine learning to boost resource discovery.",
-      "Utilize dynamic deep learning tools for fast, accurate site assessments that keep you ahead of the competition."
+      "Assesses remaining ore reserves to determine economic feasibility.",
+      "resource modeling, grade control, and depletion analysis."
     ],
   },
 ];
