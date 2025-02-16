@@ -1,10 +1,11 @@
 // src/components/Navbar.jsx
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { close, logo, menu } from '../assets';
+import { close, logo, menu, Dart_1 } from '../assets';
 import { navLinks } from '../constants';
 import { navbarStyles, defaultSectionStyles, themes } from '../style';
 import { ThemeContext } from '../context/ThemeContext';
+// import Dart1 from '../assets/Dart_1.png';
 
 const Navbar = () => {
   const { currentTheme, toggleTheme } = useContext(ThemeContext);
@@ -78,9 +79,10 @@ const Navbar = () => {
           }}
         >
           <p className={navbarStyles(currentTheme).logoText}>
-            <img src={logo} alt="Logo" className="w-8 h-8 object-contain mr-2" />
-            Depo&nbsp;
-            <span>Dart</span>
+            <img src={Dart_1} alt="Logo" className="w-8 h-8 object-contain mr-2" />
+            DepoDart&nbsp;
+            {/* Depo&nbsp; */}
+            {/* <span>Dart</span> */}
           </p>
         </Link>
 
