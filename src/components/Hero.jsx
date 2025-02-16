@@ -35,7 +35,7 @@ const Hero = () => {
                   loopCount: Infinity,
                   deleteSpeed: 30, // Faster typing speed
                   delay: 30, // Reduced delay between characters
-                  pauseFor: 500, // Shorter pause between loops
+                  pauseFor: 2000, // Shorter pause between loops
                 }}
               />
             </div>

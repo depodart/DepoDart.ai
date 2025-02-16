@@ -150,7 +150,7 @@ export const experiences = [
     date: "",
     points: [
       "Evaluate remaining ore reserves in mines to determine economic feasibility.",
-      "Createe a 3D digital model of a mineral deposit using geological, geochemical, and geophysical data"
+      "Createe a 3D orebody model of a mineral deposit using geological, geochemical, and geophysical data"
     ],
   },
 ];
@@ -168,12 +168,12 @@ export const WORKS_TEXT = {
 
 export const projects = [
   {
-    name: "Geochemical maps",
+    name: "Geochemical 2D maps",
     description:
       "Predicted areas of high-concentration zones for gold, cobalt, and silver in Abitibi region.",
     tags: [
-      { name: "Machine Learning", color: "blue-text-gradient" },
-      { name: "Predictive Analytics", color: "green-text-gradient" },
+      { name: "DepoDart", color: "blue-text-gradient" },
+      { name: "Geochemical maps", color: "green-text-gradient" },
       { name: "Geological Modeling", color: "pink-text-gradient" },
     ],
     image: mhft,
@@ -181,23 +181,23 @@ export const projects = [
   },
  
   {
-    name: "Resource Estimation AI",
+    name: "3D orebody model",
     description:
-      "AI model that uses regression techniques to estimate mineral resources and predict deposit locations.",
+      "Create 3D maps of a mineral deposit using geological, geochemical, and geophysical data",
     tags: [
-      { name: "Machine Learning", color: "blue-text-gradient" },
-      { name: "Predictive Analytics", color: "green-text-gradient" },
+      { name: "DepoDart", color: "blue-text-gradient" },
+      { name: "3D orebody", color: "green-text-gradient" },
       { name: "Geological Modeling", color: "pink-text-gradient" },
     ],
     image: mhft,
     source_code_link: "https://github.com/",
   },
   {
-    name: "Resource Estimation AI",
+    name: "AI Exploration Reports",
     description:
-      "AI model that uses regression techniques to estimate mineral resources and predict deposit locations.",
+      "Get a detailed report of your predictions and recommendations for further actions.",
     tags: [
-      { name: "Machine Learning", color: "blue-text-gradient" },
+      { name: "DepoDart", color: "blue-text-gradient" },
       { name: "Predictive Analytics", color: "green-text-gradient" },
       { name: "Geological Modeling", color: "pink-text-gradient" },
     ],
