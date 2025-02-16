@@ -12,6 +12,7 @@ import mhft from "./projects/mhft.png";
 // Import common assets
 //import logo from "./github.png";
 import logo from "./company/logo.png";
+import Dart_1 from "./company/DART_1.png";
 import github from "./github.png";
 import menu from "./menu.svg";
 import close from "./close.svg";
@@ -26,6 +27,7 @@ export {
   // AG_AU_Cu,
 
   logo,
+  Dart_1,
   github,
   menu,
   close,
