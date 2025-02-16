@@ -85,6 +85,13 @@ export const services = [
   },
 ];
 
+
+//! Experience Text
+export const EXPERIENCE_TEXT = {
+  sectionSubText: "Every mapping project is a unique discovery journey",
+  sectionHeadText: "OUR SERVICES"
+};
+
 export const experiences = [
   {
     title: "New Deposit Discovery Asisted by AI specialists and geologists",

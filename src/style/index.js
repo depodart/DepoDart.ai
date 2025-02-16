@@ -31,6 +31,14 @@ export const themes = {
         hotPink: "#EC4899",
         //* Bright lavender
         lavender: "#A855F7",
+        //* Bright green
+        green: "#00cea8",
+        //* Bright red
+        red: "#ff6b6b",
+        //* Bright blue
+        blue: "#007bff",
+        //* Bright yellow
+        yellow: "#ffc107",
       }
     }
   },
@@ -65,14 +73,29 @@ export const themes = {
         hotPink: "#EC4899",
         //* Bright purple
         lavender: "#A855F7",
+        //* Bright green
+        green: "#00cea8",
+        //* Bright red
+        red: "#ff6b6b",
+        //* Bright blue
+        blue: "#007bff",
+        //* Bright yellow
+        yellow: "#ffc107",
+        //* Bright orange
+        orange: "#fd7e14",
+        
       }
     }
   }
 };
 
 export const initialTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches 
-  ? themes.dark 
-  : themes.light;
+// * themes.dark 
+? themes.dark 
+: themes.light;
+// * themes.light
+// ? themes.light
+// : themes.dark;
 
 //! Loader Styles
 export const loaderContainerStyle = {
@@ -107,28 +130,33 @@ export const navbarStyles = (theme) => ({
 });
 
 //! About Styles
-export const aboutStyles = {
+export const aboutStyles = (theme) => ({
   serviceCard: "xs:w-[250px] w-full",
   serviceCardInner: "w-full p-[1px] rounded-[20px] shadow-card relative overflow-hidden",
-  serviceCardContent: "bg-tertiary rounded-[20px] py-5 px-8 h-[280px] flex justify-evenly items-center flex-col",
+  serviceCardInnerColors: {
+    start: theme.colors.special.green,
+    middle: theme.colors.special.blue,
+    end: theme.colors.special.red
+  },
+  serviceCardContent: `bg-[${theme.colors.background.tertiary}] rounded-[20px] py-5 px-8 h-[280px] flex justify-evenly items-center flex-col`,
   icon: {
     base: "w-10 h-10 transition-all duration-300",
-    hovered: "text-[#915EFF]",
-    default: "text-[#00cea8]"
+    hovered: `text-[${theme.colors.accent.primary}]`,
+    default: `text-[${theme.colors.accent.tertiary}]`
   },
   title: {
     base: "text-[18px] font-bold text-center transition-all duration-300",
-    hovered: "text-[#915EFF] transform scale-110 tracking-wider",
-    default: "text-[#E0E0E0]"
+    hovered: `text-[${theme.colors.accent.primary}] transform scale-110 tracking-wider`,
+    default: `text-[${theme.colors.text.primary}]`
   },
   description: {
     base: "mt-2 text-[14px] text-center transition-all duration-300 leading-[1.6]",
-    hovered: "text-[#00cea8] transform translate-y-[-5px] leading-relaxed",
-    default: "text-[#B0B0B0]"
+    hovered: `text-[${theme.colors.accent.tertiary}] transform translate-y-[-5px] leading-relaxed`,
+    default: `text-[${theme.colors.text.secondary}]`
   },
-  overview: "mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]",
+  overview: `mt-4 text-[${theme.colors.text.secondary}] text-[17px] max-w-3xl leading-[30px]`,
   servicesContainer: "mt-20 flex flex-wrap gap-10"
-};
+});
 
 //! Hero Styles
 export const heroStyles = (theme) => ({
@@ -147,8 +175,6 @@ export const heroStyles = (theme) => ({
   scrollIndicator: {
     container: "absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center",
     button: `w-[35px] h-[64px] rounded-3xl border-4 border-[${theme.colors.text.secondary}] flex justify-center items-start p-2`,
-    // dot: `w-3 h-3 rounded-full bg-[${theme.colors.text.secondary}] mb-1`
-    // dot: `w-3 h-3 rounded-full bg-[${theme.colors.special.lavender}] mb-1`
     dot: `w-3 h-3 rounded-full bg-[white] mb-1`
   },
   heroHeadText: `text-[${theme.colors.text.primary}]`,
@@ -210,6 +236,33 @@ export const contactStyles = (theme) => ({
   errorMessage: "mt-4 text-center text-red-500",
   globeVisualizationContainer: "absolute top-0 right-[-7rem] -translate-y-1/2 z-0",
   validationError: "text-red-500 text-sm"
+});
+
+
+//! Footer Styles
+export const footerStyles = (theme) => ({
+  container: `w-full bg-[${theme.colors.background.primary}]`,
+  topSection: `bg-[${theme.colors.background.primary}] py-8 sm:py-16`,
+  innerWrapper: "mx-auto max-w-7xl px-6 lg:px-8",
+  contentContainer: `mx-auto max-w-2xl divide-y divide-[${theme.colors.text.tertiary}] lg:mx-0 lg:max-w-none`,
+  gridLayout: "grid grid-cols-1 gap-10 py-16 lg:grid-cols-3",
+  description: `mt-4 text-base text-[${theme.colors.text.secondary}]`,
+  cardsGrid: "grid grid-cols-1 gap-6 sm:grid-cols-2 lg:col-span-2 lg:gap-8",
+  bottomSection: `bg-[${theme.colors.background.primary}] text-[${theme.colors.text.primary}] py-8`,
+  copyrightWrapper: "mt-4 text-center",
+  copyrightText: `text-sm text-[${theme.colors.text.tertiary}]`,
+  contactCard: {
+    container: "rounded-2xl p-10 transition-all duration-300",
+    hovered: `bg-[${theme.colors.background.secondary}] text-[${theme.colors.text.primary}]`,
+    default: `bg-[${theme.colors.background.tertiary}]`,
+    header: "flex items-center gap-3",
+    icon: `transition-all duration-300 text-[${theme.colors.accent.primary}]`,
+    title: `text-base font-semibold transition-all duration-300 text-[${theme.colors.accent.primary}]`,
+    contentList: "mt-3 space-y-1 text-sm",
+    content: "font-semibold transition-all duration-300",
+    contentHovered: `text-[${theme.colors.accent.secondary}]`,
+    contentDefault: `text-[${theme.colors.text.primary}]`
+  }
 });
 
 export const sectionStyles = {

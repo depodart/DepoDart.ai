@@ -8,15 +8,12 @@ import { navLinks } from "../constants";
 
 import "react-vertical-timeline-component/style.min.css";
 
-import { experiences } from "../constants";
+import { experiences, EXPERIENCE_TEXT } from "../constants";
 import { SectionWrapper } from "../hoc";
 import { textVariant } from "../utils/motion";
 import { experienceStyles, styles, initialTheme } from "../style";
 
-const EXPERIENCE_TEXT = {
-  sectionSubText: "Every mapping project is a unique discovery journey",
-  sectionHeadText: "OUR SERVICES"
-};
+
 
 const ExperienceCard = ({ experience }) => {
   const [currentTheme] = useState(initialTheme);

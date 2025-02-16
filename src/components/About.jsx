@@ -5,24 +5,24 @@ import { services } from '../constants';
 import { SectionWrapper } from '../hoc';
 import { fadeIn, textVariant } from '../utils/motion';
 import { navLinks } from '../constants';
-import { styles, initialTheme, aboutStyles } from '../style';
 import { ABOUT_TEXT } from '../constants';
-
+import { styles, initialTheme, aboutStyles } from '../style';
 
 
 const ServiceCard = ({ index, title, description, icon, IconComponent }) => {
+  const [currentTheme] = useState(initialTheme);
   const [isHovered, setIsHovered] = React.useState(false);
-
+  
   return (
-    <Tilt className={aboutStyles.serviceCard}>
+    <Tilt className={aboutStyles(currentTheme).serviceCard}>
       <motion.div
         variants={fadeIn('right', 'spring', index * 0.5, 0.75)}
-        className={`${aboutStyles.serviceCardInner} ${isHovered ? 'animate-border-flow' : ''}`}
+        className={`${aboutStyles(currentTheme).serviceCardInner} ${isHovered ? 'animate-border-flow' : ''}`}
         style={{
           background: `linear-gradient(${isHovered ? '90deg' : '0deg'}, 
-            #00cea8 0%, 
-            #915eff 50%,
-            #ff6b6b 100%
+            ${aboutStyles(currentTheme).serviceCardInnerColors.start} 0%, 
+            ${aboutStyles(currentTheme).serviceCardInnerColors.middle} 50%,
+            ${aboutStyles(currentTheme).serviceCardInnerColors.end} 100%
           )`
         }}
         onMouseEnter={() => setIsHovered(true)}
@@ -34,19 +34,19 @@ const ServiceCard = ({ index, title, description, icon, IconComponent }) => {
             scale: 1,
             speed: 450,
           }}
-          className={aboutStyles.serviceCardContent}
+          className={aboutStyles(currentTheme).serviceCardContent}
         >
           {IconComponent && (
             <IconComponent 
-              className={`${aboutStyles.icon.base} ${isHovered ? aboutStyles.icon.hovered : aboutStyles.icon.default}`}
+              className={`${aboutStyles(currentTheme).icon.base} ${isHovered ? aboutStyles(currentTheme).icon.hovered : aboutStyles(currentTheme).icon.default}`}
             />
           )}
     
-          <h3 className={`${aboutStyles.title.base} ${isHovered ? aboutStyles.title.hovered : aboutStyles.title.default}`}>
+          <h3 className={`${aboutStyles(currentTheme).title.base} ${isHovered ? aboutStyles(currentTheme).title.hovered : aboutStyles(currentTheme).title.default}`}>
             {title}
           </h3>
           
-          <p className={`${aboutStyles.description.base} ${isHovered ? aboutStyles.description.hovered : aboutStyles.description.default}`}>
+          <p className={`${aboutStyles(currentTheme).description.base} ${isHovered ? aboutStyles(currentTheme).description.hovered : aboutStyles(currentTheme).description.default}`}>
             {description}
           </p>
         </div>
@@ -67,12 +67,12 @@ const About = () => {
 
       <motion.p
         variants={fadeIn('', '', 0.1, 1)}
-        className={aboutStyles.overview}
+        className={aboutStyles(currentTheme).overview}
       >
         {ABOUT_TEXT.overview}
       </motion.p>
 
-      <div className={aboutStyles.servicesContainer}>
+      <div className={aboutStyles(currentTheme).servicesContainer}>
         {services.map((service, index) => (
           <ServiceCard key={service.title} index={index} {...service} />
         ))}
