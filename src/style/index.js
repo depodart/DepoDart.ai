@@ -113,11 +113,11 @@ export const themes = {
 
 export const initialTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches 
 // * themes.dark 
-? themes.dark 
-: themes.light;
+// ? themes.dark 
+// : themes.light;
 // * themes.light
-// ? themes.light
-// : themes.dark;
+? themes.light
+: themes.dark;
 
 //! Loader Styles
 export const loaderContainerStyle = {
@@ -527,11 +527,12 @@ export const contactStyles = (theme) => ({
     'w-full',
     'rounded-md',
     `bg-[${theme.colors.background.primary}]`,
+    // `bg-[${theme.colors.common.primary}]`,
     'px-3.5',
     'py-2',
     'text-base',
     `text-[${theme.colors.text.primary}]`,
-    'placeholder:text-[${theme.colors.text.secondary}]'
+    `placeholder:text-[${theme.colors.text.secondary}]`
   ),
   formLabel: classNames(
     'block',
@@ -546,7 +547,7 @@ export const contactStyles = (theme) => ({
     'flex-col-reverse',
     'md:flex-row',
     'gap-10',
-    'overflow-hidden'
+    'overflow-hidden',
   ),
   backgroundGradientContainer: classNames(
     'absolute',
@@ -690,6 +691,8 @@ export const footerStyles = (theme) => ({
   ),
   contactCard: {
     container: classNames(
+      `bg-[${theme.colors.background.primary}]`,
+      `text-[${theme.colors.text.primary}]`,
       'rounded-2xl',
       'p-10',
       'transition-all',
@@ -708,6 +711,7 @@ export const footerStyles = (theme) => ({
     icon: classNames(
       'transition-all',
       'duration-300',
+      `bg-[${theme.colors.background.secondary}]`,
       `text-[${theme.colors.accent.primary}]`
     ),
     title: classNames(
@@ -715,6 +719,7 @@ export const footerStyles = (theme) => ({
       'font-semibold',
       'transition-all',
       'duration-300',
+      `bg-[${theme.colors.background.secondary}]`,
       `text-[${theme.colors.accent.primary}]`
     ),
     contentList: classNames(
@@ -759,6 +764,7 @@ export const styles = (theme) => ({
   ),
   heroHeadText: classNames(
     'font-black',
+    // `bg-[${theme.colors.background.secondary}]`,
     `text-[${theme.colors.text.primary}]`,
     'lg:text-[80px]',
     'sm:text-[60px]',
@@ -768,6 +774,7 @@ export const styles = (theme) => ({
     'mt-2'
   ),
   heroSubText: classNames(
+    // `bg-[${theme.colors.background.secondary}]`,
     `text-[${theme.colors.text.tertiary}]`,
     'font-medium',
     'lg:text-[30px]',
@@ -787,6 +794,7 @@ export const styles = (theme) => ({
   sectionSubText: classNames(
     'sm:text-[18px]',
     'text-[14px]',
+    // `bg-[${theme.colors.background.secondary}]`,
     `text-[${theme.colors.text.secondary}]`,
     'uppercase',
     'tracking-wider'
