@@ -180,7 +180,8 @@ export const appStyles = {
   container: classNames(
     'relative',
     'z-0',
-    `bg-white dark:bg-[${colors.darkBg.primary}]`
+    'bg-background-primary-light',
+    'dark:bg-background-primary-dark'
   ),
   heroSection: classNames(
     'bg-hero-pattern',
@@ -207,7 +208,8 @@ export const loaderContainerStyle = {
 export const loaderProgressTextStyle = {
   className: classNames(
     'text-sm',
-    `text-[${colors.text.light.secondary}] dark:text-[${colors.text.dark.secondary}]`,
+    'text-secondary-light',
+    'dark:text-secondary-dark',
     'font-extrabold',
     'mt-10'
   )
@@ -226,7 +228,12 @@ export const navbarStyles = {
     'top-0',
     'z-20',
     // Background gradient: light uses white; dark uses the dark primary color.
-    `bg-gradient-to-b from-white via-white dark:from-[${colors.darkBg.primary}] dark:via-[${colors.darkBg.primary}] to-transparent`,
+    'bg-gradient-to-b',
+    'from-background-primary-light',
+    'via-background-primary-light',
+    'dark:from-background-primary-dark',
+    'dark:via-background-primary-dark',
+    'to-transparent',
     'backdrop-blur-md'
   ),
   container: classNames(
@@ -247,7 +254,8 @@ export const navbarStyles = {
     'font-bold',
     'cursor-pointer',
     'flex',
-    `text-[${colors.text.light.primary}] dark:text-white`
+    'text-primary-light',
+    'dark:text-primary-dark'
   ),
   desktopNav: classNames(
     'list-none',
@@ -268,13 +276,16 @@ export const navbarStyles = {
     'cursor-pointer'
   ),
   activeLink: classNames(
-    `text-[${colors.text.light.primary}] dark:text-white`
+    'text-primary-light',
+    'dark:text-primary-dark'
   ),
   inactiveDesktopLink: classNames(
-    `text-[${colors.text.light.tertiary}] dark:text-[${colors.text.dark.tertiary}]`
+    'text-tertiary-light',
+    'dark:text-tertiary-dark'
   ),
   inactiveMobileLink: classNames(
-    `text-[${colors.text.light.secondary}] dark:text-[${colors.text.dark.secondary}]`
+    'text-secondary-light',
+    'dark:text-secondary-dark'
   ),
   mobileMenuContainer: classNames(
     'sm:hidden',
@@ -301,7 +312,8 @@ export const navbarStyles = {
     'z-10',
     'rounded-xl',
     // For accent.primary: light uses one color, dark uses another.
-    `bg-[${colors.accent.indigo.light}] dark:bg-[${colors.accent.purple}]`
+    'bg-indigo-light',
+    'dark:bg-purple'
   )
 };
 
@@ -322,15 +334,13 @@ export const aboutStyles = {
     'overflow-hidden'
   ),
   serviceCardInnerColors: {
-    start: classNames(`text-[${colors.accent.green}]`),
-    middle: classNames(`text-[${colors.accent.blue}]`),
-    end: classNames(`text-[${colors.accent.red}]`)
+    start: classNames('text-green'),
+    middle: classNames('text-blue'),
+    end: classNames('text-red')
   },
   serviceCardContent: classNames(
-    // background.tertiary: light vs. dark
-    // `bg-[${colors.lightBg.tertiary}] dark:bg-[${colors.darkBg.tertiary}]`,
-    `bg-white`,
-    `dark:bg-tertiary`,
+    'bg-background-tertiary-light',
+    'dark:bg-background-tertiary-dark',
     'rounded-[20px]',
     'py-5',
     'px-8',
@@ -348,10 +358,8 @@ export const aboutStyles = {
       'duration-300',
     ),
     // On hover, light uses one accent and dark another.
-    hovered: classNames(`text-[#A855F7] dark:text-[#6366F1]`),
-    default: classNames(`text-[#6366F1] dark:text-[#4338CA]`)
-    // hovered: classNames(`text-[${colors.accent.purple}] dark:text-[${colors.accent.indigo.light}]`),
-    // default: classNames(`text-[${colors.accent.indigo.light}] dark:text-[${colors.accent.indigo.dark}]`)
+    hovered: classNames('text-lavender', 'dark:text-indigo-light'),
+    default: classNames('text-indigo-light', 'dark:text-indigo-dark')
   },
   title: {
     base: classNames(
@@ -365,9 +373,10 @@ export const aboutStyles = {
       'transform',
       'scale-110',
       'tracking-wider',
-      `text-[${colors.accent.purple}] dark:text-[${colors.accent.indigo.light}]`
+      'text-purple',
+      'dark:text-indigo-light'
     ),
-    default: classNames(`text-[${colors.text.light.primary}] dark:text-white`)
+    default: classNames('text-primary-light', 'dark:text-primary-dark')
   },
   description: {
     base: classNames(
@@ -382,16 +391,18 @@ export const aboutStyles = {
       'transform',
       '-translate-y-1',
       'leading-relaxed',
-      `text-[${colors.accent.indigo.light}] dark:text-[${colors.accent.indigo.dark}]`
+      'text-indigo-light',
+      'dark:text-indigo-dark'
     ),
-    default: classNames(`text-[${colors.text.light.secondary}] dark:text-[${colors.text.dark.secondary}]`)
+    default: classNames('text-secondary-light', 'dark:text-secondary-dark')
   },
   overview: classNames(
     'mt-4',
     'text-[17px]',
     'max-w-3xl',
     'leading-[30px]',
-    `text-[${colors.text.light.secondary}] dark:text-[${colors.text.dark.secondary}]`
+    'text-secondary-light',
+    'dark:text-secondary-dark'
   ),
   servicesContainer: classNames(
     'mt-20',
@@ -439,7 +450,8 @@ export const heroStyles = {
       'h-5',
       'rounded-full',
       // Uses accent.primary: light vs. dark
-      `bg-[${colors.accent.purple}] dark:bg-[${colors.accent.indigo.light}]`
+      'bg-purple',
+      'dark:bg-indigo-light'
     ),
     line: classNames(
       'w-1',
@@ -449,7 +461,7 @@ export const heroStyles = {
     )
   },
   textContent: {
-    brandHighlight: classNames(`text-[${colors.accent.purple}] dark:text-[${colors.accent.indigo.light}]`),
+    brandHighlight: classNames('text-purple', 'dark:text-indigo-light'),
     subtextContainer: classNames(
       'mt-2',
       'text-white'
@@ -470,7 +482,8 @@ export const heroStyles = {
       'h-[64px]',
       'rounded-3xl',
       'border-4',
-      `border-[${colors.text.light.secondary}] dark:border-[${colors.text.dark.secondary}]`,
+      'border-secondary-light',
+      'dark:border-secondary-dark',
       'flex',
       'justify-center',
       'items-start',
@@ -485,7 +498,8 @@ export const heroStyles = {
     )
   },
   heroHeadText: classNames(
-    `text-[${colors.text.light.primary}] dark:text-white`
+    'text-primary-light',
+    'dark:text-primary-dark'
   )
 };
 
@@ -494,13 +508,13 @@ export const heroStyles = {
 -------------------------------------------------------------------------- */
 export const experienceStyles = {
   timelineElementContent: {
-    background: classNames(`bg-[${colors.lightBg.secondary}] dark:bg-[${colors.darkBg.secondary}]`),
-    color: classNames(`text-[${colors.text.light.primary}] dark:text-white`)
+    background: classNames('bg-background-secondary-light', 'dark:bg-background-secondary-dark'),
+    color: classNames('text-primary-light', 'dark:text-primary-dark')
   },
   // For the arrow you may need to use inline styles or a custom utility;
   // here we just note the intended colors.
   timelineElementArrow: {
-    borderRight: `7px solid ${colors.lightBg.tertiary}` // adjust as needed in your CSS
+    borderRight: "7px solid #E5E7EB"
   },
   iconContainer: classNames(
     'flex',
@@ -517,14 +531,16 @@ export const experienceStyles = {
   cardTitle: classNames(
     'text-[24px]',
     'font-bold',
-    `text-[${colors.text.light.primary}] dark:text-white`
+    'text-primary-light',
+    'dark:text-primary-dark'
   ),
   cardSubtitle: {
     margin: '0',
     className: classNames(
       'text-[16px]',
       'font-semibold',
-      `text-[${colors.text.light.secondary}] dark:text-[${colors.text.dark.secondary}]`
+      'text-secondary-light',
+      'dark:text-secondary-dark'
     )
   },
   pointsList: classNames(
@@ -537,7 +553,8 @@ export const experienceStyles = {
     'text-[14px]',
     'pl-1',
     'tracking-wider',
-    `text-[${colors.text.light.tertiary}] dark:text-[${colors.text.dark.tertiary}]`
+    'text-tertiary-light',
+    'dark:text-tertiary-dark'
   ),
   timelineContainer: classNames(
     'mt-20',
@@ -557,7 +574,8 @@ export const worksStyles = {
       'sm:w-[360px]',
       'w-full',
       // background.secondary: light vs. dark
-      `bg-[${colors.lightBg.secondary}] dark:bg-[${colors.darkBg.secondary}]`
+      'bg-background-secondary-light',
+      'dark:bg-background-secondary-dark'
     ),
     imageContainer: classNames(
       'relative',
@@ -588,12 +606,14 @@ export const worksStyles = {
     title: classNames(
       'font-bold',
       'text-[24px]',
-      `text-[${colors.text.light.primary}] dark:text-white`
+      'text-primary-light',
+      'dark:text-primary-dark'
     ),
     description: classNames(
       'mt-2',
       'text-[14px]',
-      `text-[${colors.text.light.secondary}] dark:text-[${colors.text.dark.secondary}]`
+      'text-secondary-light',
+      'dark:text-secondary-dark'
     ),
     tagsContainer: classNames(
       'mt-4',
@@ -609,7 +629,8 @@ export const worksStyles = {
       'text-[17px]',
       'max-w-3xl',
       'leading-[30px]',
-      `text-[${colors.text.light.secondary}] dark:text-[${colors.text.dark.secondary}]`
+      'text-secondary-light',
+      'dark:text-secondary-dark'
     ),
     projectsGrid: classNames(
       'mt-20',
@@ -629,20 +650,24 @@ export const contactStyles = {
     'w-full',
     'rounded-md',
     // `bg-white dark:bg-[${colors.darkBg.primary}]`,
-    `bg-white dark:bg-[transparent]`,
+    'bg-background-primary-light',
+    'dark:bg-transparent',
     'border',
     'border-white',
     'px-3.5',
     'py-2',
     'text-base',
-    `text-[${colors.text.light.primary}] dark:text-white`,
-    `placeholder:text-[${colors.text.light.secondary}] dark:placeholder:text-[${colors.text.dark.secondary}]`
+    'text-primary-light',
+    'dark:text-primary-dark',
+    'placeholder:text-secondary-light',
+    'dark:placeholder:text-secondary-dark'
   ),
   formLabel: classNames(
     'block',
     'text-sm',
     'font-semibold',
-    `text-[${colors.text.light.primary}] dark:text-white`
+    'text-primary-light',
+    'dark:text-primary-dark'
   ),
   contactContainer: classNames(
     'relative',
@@ -671,8 +696,8 @@ export const contactStyles = {
     '-translate-x-1/2',
     'rotate-[30deg]',
     'bg-gradient-to-tr',
-    `from-[${colors.accent.pink}]`,
-    `to-[${colors.accent.lavender}]`,
+    'from-hotPink',
+    'to-lavender',
     'opacity-30',
     'sm:w-[72.1875rem]'
   ),
@@ -682,7 +707,8 @@ export const contactStyles = {
     'rounded-2xl',
     'relative',
     'z-10',
-    `bg-[${colors.lightBg.secondary}] dark:bg-[${colors.darkBg.secondary}]`
+    'bg-background-secondary-light',
+    'dark:bg-background-secondary-dark'
   ),
   contactForm: classNames(
     'mx-auto',
@@ -701,15 +727,18 @@ export const contactStyles = {
     'block',
     'w-full',
     'rounded-md',
-    `bg-[${colors.accent.indigo.medium}] dark:bg-[${colors.accent.indigo.medium}]`,
+    'bg-indigo-medium',
+    'dark:bg-indigo-medium',
     'px-3.5',
     'py-2.5',
     'text-center',
     'text-sm',
     'font-semibold',
-    `text-[${colors.text.light.primary}] dark:text-white`,
+    'text-primary-light',
+    'dark:text-primary-dark',
     'shadow-sm',
-    `hover:bg-[${colors.accent.indigo.light}] dark:hover:bg-[${colors.accent.indigo.dark}]`,
+    'hover:bg-indigo-light',
+    'dark:hover:bg-indigo-dark',
     'disabled:opacity-50'
   ),
   successMessage: classNames(
@@ -741,12 +770,14 @@ export const contactStyles = {
 export const footerStyles = {
   container: classNames(
     'w-full',
-    `bg-white dark:bg-[${colors.darkBg.primary}]`
+    'bg-background-primary-light',
+    'dark:bg-background-primary-dark'
   ),
   topSection: classNames(
     'py-8',
     'sm:py-16',
-    `bg-white dark:bg-[${colors.darkBg.primary}]`
+    'bg-background-primary-light',
+    'dark:bg-background-primary-dark'
   ),
   innerWrapper: classNames(
     'mx-auto',
@@ -760,7 +791,8 @@ export const footerStyles = {
     'divide-y',
     'lg:mx-0',
     'lg:max-w-none',
-    `divide-[${colors.text.light.tertiary}] dark:divide-[${colors.text.dark.tertiary}]`
+    'divide-tertiary-light',
+    'dark:divide-tertiary-dark'
   ),
   gridLayout: classNames(
     'grid',
@@ -772,7 +804,8 @@ export const footerStyles = {
   description: classNames(
     'mt-4',
     'text-base',
-    `text-[${colors.text.light.secondary}] dark:text-[${colors.text.dark.secondary}]`
+    'text-secondary-light',
+    'dark:text-secondary-dark'
   ),
   cardsGrid: classNames(
     'grid',
@@ -784,8 +817,10 @@ export const footerStyles = {
   ),
   bottomSection: classNames(
     'py-8',
-    `bg-white dark:bg-[${colors.darkBg.primary}]`,
-    `text-[${colors.text.light.primary}] dark:text-white`
+    'bg-background-primary-light',
+    'dark:bg-background-primary-dark',
+    'text-primary-light',
+    'dark:text-primary-dark'
   ),
   copyrightWrapper: classNames(
     'mt-4',
@@ -793,7 +828,8 @@ export const footerStyles = {
   ),
   copyrightText: classNames(
     'text-sm',
-    `text-[${colors.text.light.tertiary}] dark:text-[${colors.text.dark.tertiary}]`
+    'text-tertiary-light',
+    'dark:text-tertiary-dark'
   ),
   contactCard: {
     container: classNames(
@@ -801,47 +837,34 @@ export const footerStyles = {
       'p-10',
       'transition-all',
       'duration-300',
-      `bg-white dark:bg-[${colors.darkBg.primary}]`,
-      `text-[${colors.text.light.primary}] dark:text-white`
+      'bg-background-primary-light',
+      'dark:bg-background-primary-dark',
+      'text-primary-light',
+      'dark:text-primary-dark'
     ),
     hovered: classNames(
       'transition-all',
       'duration-300',
-      `bg-[${colors.lightBg.secondary}] dark:bg-[${colors.darkBg.secondary}]`,
-      `text-[${colors.text.light.primary}] dark:text-white`
+      'bg-background-secondary-light',
+      'dark:bg-background-secondary-dark',
+      'text-primary-light',
+      'dark:text-primary-dark'
     ),
-    default: classNames(
-      `bg-[${colors.lightBg.tertiary}] dark:bg-[${colors.darkBg.tertiary}]`
-    ),
-    header: classNames(
-      'flex',
-      'items-center',
-      'gap-3'
-    ),
-    icon: classNames(
-      'transition-all',
-      'duration-300',
-      `text-[${colors.accent.indigo.light}] dark:text-[${colors.accent.indigo.dark}]`
-    ),
+    default: classNames('bg-background-tertiary-light', 'dark:bg-background-tertiary-dark'),
+    header: classNames('flex', 'items-center', 'gap-3'),
+    icon: classNames('transition-all', 'duration-300', 'text-indigo-light', 'dark:text-indigo-dark'),
     title: classNames(
       'text-base',
       'font-semibold',
       'transition-all',
       'duration-300',
-      `text-[${colors.accent.indigo.light}] dark:text-[${colors.accent.indigo.dark}]`
+      'text-indigo-light',
+      'dark:text-indigo-dark'
     ),
-    contentList: classNames(
-      'mt-3',
-      'space-y-1',
-      'text-sm'
-    ),
-    content: classNames(
-      'font-semibold',
-      'transition-all',
-      'duration-300'
-    ),
-    contentHovered: classNames(`text-[${colors.accent.indigo.medium}] dark:text-[${colors.accent.purple}]`),
-    contentDefault: classNames(`text-[${colors.text.light.primary}] dark:text-white`)
+    contentList: classNames('mt-3', 'space-y-1', 'text-sm'),
+    content: classNames('font-semibold', 'transition-all', 'duration-300'),
+    contentHovered: classNames('text-indigo-medium', 'dark:text-purple'),
+    contentDefault: classNames('text-primary-light', 'dark:text-primary-dark')
   }
 };
 
@@ -875,7 +898,8 @@ export const defaultSectionStyles = {
   ),
   heroHeadText: classNames(
     'font-black',
-    `text-[${colors.text.light.primary}] dark:text-white`,
+    'text-primary-light',
+    'dark:text-primary-dark',
     'lg:text-[80px]',
     'sm:text-[60px]',
     'xs:text-[50px]',
@@ -884,7 +908,8 @@ export const defaultSectionStyles = {
     'mt-2'
   ),
   heroSubText: classNames(
-    `text-[${colors.text.light.secondary}] dark:text-[${colors.text.dark.secondary}]`,
+    'text-secondary-light',
+    'dark:text-secondary-dark',
     'font-medium',
     'lg:text-[30px]',
     'sm:text-[26px]',
@@ -893,7 +918,8 @@ export const defaultSectionStyles = {
     'lg:leading-[40px]'
   ),
   sectionHeadText: classNames(
-    `text-[${colors.text.light.primary}] dark:text-white`,
+    'text-primary-light',
+    'dark:text-primary-dark',
     'font-black',
     'md:text-[60px]',
     'sm:text-[50px]',
@@ -903,7 +929,8 @@ export const defaultSectionStyles = {
   sectionSubText: classNames(
     'sm:text-[18px]',
     'text-[14px]',
-    `text-[${colors.text.light.secondary}] dark:text-[${colors.text.dark.secondary}]`,
+    'text-secondary-light',
+    'dark:text-secondary-dark',
     'uppercase',
     'tracking-wider'
   )
