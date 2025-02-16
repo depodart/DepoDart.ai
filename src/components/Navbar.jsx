@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { close, logo, menu } from '../assets';
 import { navLinks } from '../constants';
-import { styles } from '../styles';
+import { navbarStyles, styles } from '../style';
+
+
 
 const Navbar = () => {
   const [active, setActive] = useState('');
@@ -20,13 +22,17 @@ const Navbar = () => {
   }, [toggle]);
 
   const renderNavLinks = (isMobile) => (
-    <ul className={`list-none ${isMobile ? 'flex flex-col' : 'hidden sm:flex flex-row'} gap-6`}>
+    <ul className={isMobile ? navbarStyles.mobileNav : navbarStyles.desktopNav}>
       {navLinks.map((link) => (
         <li
           key={link.id}
           className={`${
-            active === link.title ? 'text-white' : isMobile ? 'text-secondary' : 'text-white'
-          } hover:text-white text-[18px] font-medium cursor-pointer`}
+            active === link.title 
+              ? navbarStyles.activeLink 
+              : isMobile 
+                ? navbarStyles.inactiveMobileLink 
+                : navbarStyles.inactiveDesktopLink
+          } ${navbarStyles.navLink} hover:text-white`}
           onClick={() => {
             setActive(link.title);
             
@@ -44,9 +50,7 @@ const Navbar = () => {
         </li>
       ))}
       <li
-        className={`text-${
-          isMobile ? 'secondary' : 'white'
-        } hover:text-white text-[18px] font-medium cursor-pointer`}
+        className={`${isMobile ? navbarStyles.inactiveMobileLink : navbarStyles.inactiveDesktopLink} ${navbarStyles.navLink} hover:text-white`}
       >
         <button onClick={toggleResume}>Download info</button>
       </li>
@@ -54,17 +58,17 @@ const Navbar = () => {
   );
 
   return (
-    <nav className={`${styles.paddingX} w-full flex items-center py-5 fixed top-0 z-20 bg-gradient-to-b from-[#050816] via-[#050816] to-transparent backdrop-blur-md`}>
-      <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
+    <nav className={`${styles.paddingX} ${navbarStyles.nav}`}>
+      <div className={navbarStyles.container}>
         <Link
           to="/"
-          className="flex items-center gap-2"
+          className={navbarStyles.logo}
           onClick={() => {
             setActive('');
             window.scrollTo(0, 0);
           }}
         >
-          <p className="text-white text-[20px] font-bold cursor-pointer flex">
+          <p className={navbarStyles.logoText}>
             Depo&nbsp;
             <span>Dart</span>
           </p>
@@ -74,15 +78,15 @@ const Navbar = () => {
         {renderNavLinks(false)}
 
         {/* Mobile Navigation */}
-        <div className="sm:hidden flex flex-1 justify-end items-center">
+        <div className={navbarStyles.mobileMenuContainer}>
           <img
             src={toggle ? close : menu}
             alt="menu"
-            className="w-[28px] h-[28px] object-contain cursor-pointer"
+            className={navbarStyles.menuIcon}
             onClick={() => setToggle(!toggle)}
           />
 
-          <div className={`${!toggle ? 'hidden' : 'flex'} p-6 black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl bg-[#915EFF]`}>
+          <div className={`${!toggle ? 'hidden' : 'flex'} ${navbarStyles.mobileMenuDropdown}`}>
             {renderNavLinks(true)}
           </div>
         </div>

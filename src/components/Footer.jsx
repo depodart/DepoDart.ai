@@ -1,20 +1,9 @@
 import React from "react";
 import { SectionWrapper } from "../hoc";
-import { styles } from "../styles";
+import { styles } from "../style";
+import { FOOTER_TEXT } from "../constants";
 import { EnvelopeIcon, PhoneIcon, MapPinIcon } from "@heroicons/react/24/outline";
-
-const FOOTER_TEXT = {
-  address: {
-    street: import.meta.env.VITE_ADDRESS_STREET || "",
-    province: import.meta.env.VITE_ADDRESS_PROVINCE || "",
-    city: import.meta.env.VITE_ADDRESS_CITY || ""
-  },
-  phone: import.meta.env.VITE_PHONE || "",
-  email: import.meta.env.VITE_EMAIL_RECIPIENT || "",
-  copyright: `© ${new Date().getFullYear()} ${import.meta.env.VITE_EMAIL_RECIPIENT_NAME || ""}. All rights reserved.`
-};
-
-const contactSections = [
+export const FOOTER_CONTACT_SECTIONS = [
   {
     icon: <EnvelopeIcon className="h-6 w-6" />,
     title: "EMAIL",
@@ -95,7 +84,7 @@ const Footer = () => {
                </p>
               </div>
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:col-span-2 lg:gap-8">
-                {contactSections.map((section, index) => (
+                {FOOTER_CONTACT_SECTIONS.map((section, index) => (
                   <ContactCard key={index} {...section} />
                 ))}
               </div>

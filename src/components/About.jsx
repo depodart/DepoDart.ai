@@ -3,7 +3,7 @@ import React from 'react';
 import { Tilt } from 'react-tilt';
 import { services } from '../constants';
 import { SectionWrapper } from '../hoc';
-import { styles } from '../styles';
+import { styles } from '../style';
 import { fadeIn, textVariant } from '../utils/motion';
 import { navLinks } from '../constants';
 const ServiceCard = ({ index, title, description, icon, IconComponent }) => {
