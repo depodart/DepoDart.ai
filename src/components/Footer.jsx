@@ -1,10 +1,8 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { SectionWrapper } from "../hoc";
 import { FOOTER_TEXT } from "../constants";
 import { EnvelopeIcon, PhoneIcon, MapPinIcon } from "@heroicons/react/24/outline";
 import { defaultSectionStyles, footerStyles } from "../style";
-import { ThemeContext } from '../context/ThemeContext';
-
 
 export const FOOTER_CONTACT_SECTIONS = [
   {
@@ -15,43 +13,39 @@ export const FOOTER_CONTACT_SECTIONS = [
   {
     icon: <PhoneIcon className="h-6 w-6" />,
     title: "PHONE",
-    content: FOOTER_TEXT.phone
+    content: FOOTER_TEXT.phone,
   },
   {
     icon: <MapPinIcon className="h-6 w-6" />,
     title: "ADDRESS", 
-    content: FOOTER_TEXT.address.city + ", " + FOOTER_TEXT.address.province + ", " + FOOTER_TEXT.address.street
+    content: `${FOOTER_TEXT.address.city}, ${FOOTER_TEXT.address.province}, ${FOOTER_TEXT.address.street}`
   },
 ];
 
 const ContactCard = ({ title, content, icon }) => {
-  const { currentTheme } = useContext(ThemeContext);
   const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div 
-      className={`${footerStyles(currentTheme).contactCard.container} ${
-        isHovered ? footerStyles(currentTheme).contactCard.hovered : footerStyles(currentTheme).contactCard.default
+      className={`${footerStyles.contactCard.container} ${
+        isHovered ? footerStyles.contactCard.hovered : footerStyles.contactCard.default
       }`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className={footerStyles(currentTheme).contactCard.header}>
-          <span className={footerStyles(currentTheme).contactCard.icon}>
-          {icon}
-        </span>
-        <h3 className={footerStyles(currentTheme).contactCard.title}>
-          {title || ""}
-        </h3>
+      <div className={footerStyles.contactCard.header}>
+        <span className={footerStyles.contactCard.icon}>{icon}</span>
+        <h3 className={footerStyles.contactCard.title}>{title || ""}</h3>
       </div>
-      <dl className={footerStyles(currentTheme).contactCard.contentList}>
+      <dl className={footerStyles.contactCard.contentList}>
         <div>
           <dt className="sr-only">{title}</dt>
           <dd>
-            <p className={`${footerStyles(currentTheme).contactCard.content} ${
-                isHovered ? footerStyles(currentTheme).contactCard.contentHovered : footerStyles(currentTheme).contactCard.contentDefault
-              }`}
-            >
+            <p className={`${footerStyles.contactCard.content} ${
+              isHovered
+                ? footerStyles.contactCard.contentHovered
+                : footerStyles.contactCard.contentDefault
+            }`}>
               {content || ""}
             </p>
           </dd>
@@ -62,23 +56,19 @@ const ContactCard = ({ title, content, icon }) => {
 };
 
 const Footer = () => {
-  const { currentTheme } = useContext(ThemeContext);
-
   return (
-    <footer className={footerStyles(currentTheme).container}>
-      <div className={footerStyles(currentTheme).topSection}>
-        <div className={footerStyles(currentTheme).innerWrapper}>
-          <div className={footerStyles(currentTheme).contentContainer}>
-            <div className={footerStyles(currentTheme).gridLayout}>
+    <footer className={footerStyles.container}>
+      <div className={footerStyles.topSection}>
+        <div className={footerStyles.innerWrapper}>
+          <div className={footerStyles.contentContainer}>
+            <div className={footerStyles.gridLayout}>
               <div>
-                <h2 className={`${defaultSectionStyles(currentTheme).sectionHeadText}`}>
-                  Contacts
-                </h2>
-                <p className={footerStyles(currentTheme).description}>
+                <h2 className={defaultSectionStyles.sectionHeadText}>Contacts</h2>
+                <p className={footerStyles.description}>
                   Discover how innovative exploration companies are making breakthrough discoveries with DepoDart.
                 </p>
               </div>
-              <div className={footerStyles(currentTheme).cardsGrid}>
+              <div className={footerStyles.cardsGrid}>
                 {FOOTER_CONTACT_SECTIONS.map((section, index) => (
                   <ContactCard key={index} {...section} />
                 ))}
@@ -88,9 +78,11 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className={footerStyles(currentTheme).bottomSection}>
-        <div className={footerStyles(currentTheme).copyrightWrapper}>
-          <p className={footerStyles(currentTheme).copyrightText}>{FOOTER_TEXT.copyright}</p>
+      <div className={footerStyles.bottomSection}>
+        <div className={footerStyles.copyrightWrapper}>
+          <p className={footerStyles.copyrightText}>
+            {FOOTER_TEXT.copyright}
+          </p>
         </div>
       </div>
     </footer>

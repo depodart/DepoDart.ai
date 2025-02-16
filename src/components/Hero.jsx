@@ -1,31 +1,28 @@
-import React, { Suspense, useContext } from "react";
+import React, { Suspense } from "react";
 import { motion } from "framer-motion";
 import Typewriter from "typewriter-effect";
 import GlobeComponentCanvas from "./canvas/GlobeComponent";
 import CanvasLoader from "./Loader";
 import { HERO_TEXT } from "../constants";
 import { heroStyles, defaultSectionStyles } from "../style";
-import { ThemeContext } from '../context/ThemeContext';
 
 const Hero = () => {
-  const { currentTheme } = useContext(ThemeContext);
-
   return (
-    <section className={heroStyles(currentTheme).section}>
-      <div className={heroStyles(currentTheme).contentWrapper}>
-        <div className={`${heroStyles(currentTheme).mainContainer} ${defaultSectionStyles(currentTheme).paddingX}`}>
-          <div className={heroStyles(currentTheme).leftDecoration.container}>
-            <div className={heroStyles(currentTheme).leftDecoration.circle} />
-            <div className={heroStyles(currentTheme).leftDecoration.line} />
+    <section className={heroStyles.section}>
+      <div className={heroStyles.contentWrapper}>
+        <div className={`${heroStyles.mainContainer} ${defaultSectionStyles.paddingX}`}>
+          <div className={heroStyles.leftDecoration.container}>
+            <div className={heroStyles.leftDecoration.circle} />
+            <div className={heroStyles.leftDecoration.line} />
           </div>
           <div>
-            <h1 className={`${defaultSectionStyles(currentTheme).heroHeadText} ${heroStyles(currentTheme).heroHeadText}`}>
+            <h1 className={`${defaultSectionStyles.heroHeadText} ${heroStyles.heroHeadText}`}>
               {HERO_TEXT.brandName.first}
-              <span className={heroStyles(currentTheme).textContent.brandHighlight}>
+              <span className={heroStyles.textContent.brandHighlight}>
                 {HERO_TEXT.brandName.second}
               </span>
             </h1>
-            <div className={`${defaultSectionStyles(currentTheme).heroSubText} ${heroStyles(currentTheme).textContent.subtextContainer}`}>
+            <div className={`${defaultSectionStyles.heroSubText} ${heroStyles.textContent.subtextContainer}`}>
               {HERO_TEXT.tagline}
               <Typewriter
                 options={{
@@ -33,33 +30,27 @@ const Hero = () => {
                   autoStart: true,
                   loop: true,
                   loopCount: Infinity,
-                  deleteSpeed: 30, // Faster typing speed
-                  delay: 30, // Reduced delay between characters
-                  pauseFor: 2000, // Shorter pause between loops
+                  deleteSpeed: 30,
+                  delay: 30,
+                  pauseFor: 2000,
                 }}
               />
             </div>
           </div>
         </div>
       </div>
-      
+
       <Suspense fallback={<CanvasLoader />}>
         <GlobeComponentCanvas />
       </Suspense>
-      
-      <div className={heroStyles(currentTheme).scrollIndicator.container}>
+
+      <div className={heroStyles.scrollIndicator.container}>
         <a href="#about">
-          <div className={heroStyles(currentTheme).scrollIndicator.button}>
+          <div className={heroStyles.scrollIndicator.button}>
             <motion.div
-              animate={{
-                y: [0, 24, 0],
-              }}
-              transition={{
-                duration: 1.5,
-                repeat: Infinity,
-                repeatType: "loop",
-              }}
-              className={heroStyles(currentTheme).scrollIndicator.dot}
+              animate={{ y: [0, 24, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity, repeatType: "loop" }}
+              className={heroStyles.scrollIndicator.dot}
             />
           </div>
         </a>

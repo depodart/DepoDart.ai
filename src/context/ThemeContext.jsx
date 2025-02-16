@@ -1,28 +1,28 @@
+// src/context/ThemeContext.jsx
 import React, { createContext, useState, useEffect } from 'react';
-import { themes, initialTheme } from '../style';
 
 export const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-  // Lazy initialization to read from localStorage immediately
-  const [currentTheme, setCurrentTheme] = useState(() => {
-    const storedTheme = localStorage.getItem('theme');
-    return storedTheme ? JSON.parse(storedTheme) : initialTheme;
-  });
+  const [isDark, setIsDark] = useState(() =>
+    localStorage.getItem('isDark')
+      ? JSON.parse(localStorage.getItem('isDark'))
+      : window.matchMedia('(prefers-color-scheme: dark)').matches
+  );
 
-  // Persist theme changes in localStorage
   useEffect(() => {
-    localStorage.setItem('theme', JSON.stringify(currentTheme));
-  }, [currentTheme]);
+    localStorage.setItem('isDark', JSON.stringify(isDark));
+    if (isDark) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [isDark]);
 
-  const toggleTheme = () => {
-    setCurrentTheme(prevTheme =>
-      prevTheme === themes.dark ? themes.light : themes.dark
-    );
-  };
+  const toggleTheme = () => setIsDark(prev => !prev);
 
   return (
-    <ThemeContext.Provider value={{ currentTheme, toggleTheme }}>
+    <ThemeContext.Provider value={{ isDark, toggleTheme }}>
       {children}
     </ThemeContext.Provider>
   );
