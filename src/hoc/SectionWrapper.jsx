@@ -1,14 +1,19 @@
+import React, { useContext } from "react";
 import { motion } from "framer-motion";
 import { staggerContainer } from "../utils/motion";
-import { sectionStyles, styles } from "../style";
+import { sectionStyles, defaultSectionStyles } from "../style";
+import { ThemeContext } from '../context/ThemeContext';
 
-const StarWrapper = (Component, idName) => () => (
-  <motion.section
-    variants={staggerContainer()}
-    initial="hidden"
-    whileInView="show"
-    viewport={{ once: true, amount: 0.25 }}
-    className={`${styles.padding} ${sectionStyles.section}`}
+const StarWrapper = (Component, idName) => () => {
+  const { currentTheme } = useContext(ThemeContext);
+
+  return (
+    <motion.section
+      variants={staggerContainer()}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.25 }}
+      className={`${defaultSectionStyles(currentTheme).padding} ${sectionStyles(currentTheme).section}`}
   >
     <span className={sectionStyles.hashSpan} id={idName}>
       &nbsp;
@@ -16,5 +21,6 @@ const StarWrapper = (Component, idName) => () => (
     <Component />
   </motion.section>
 );
+}
 
 export default StarWrapper;

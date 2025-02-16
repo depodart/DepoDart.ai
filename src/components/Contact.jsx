@@ -6,7 +6,7 @@ import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
 import "../index.css";
 import { CONTACT_TEXT, INITIAL_FORM_STATE, navLinks } from "../constants";
-import { contactStyles, styles } from "../style";
+import { contactStyles, defaultSectionStyles } from "../style";
 import { ThemeContext } from '../context/ThemeContext';
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
@@ -119,8 +119,8 @@ const Contact = () => {
       <motion.div variants={slideIn("left", "tween", 0.2, 1)} className={contactStyles(currentTheme).contactFormContainer}
         style={{ maxWidth: '500px' }}
       >
-        <p className={styles(currentTheme).sectionSubText}>{CONTACT_TEXT.sectionSubText}</p>
-        <h3 className={styles(currentTheme).sectionHeadText}>{CONTACT_TEXT.sectionHeadText}</h3>
+        <p className={defaultSectionStyles(currentTheme).sectionSubText}>{CONTACT_TEXT.sectionSubText}</p>
+        <h3 className={defaultSectionStyles(currentTheme).sectionHeadText}>{CONTACT_TEXT.sectionHeadText}</h3>
         
         <form ref={formRef} onSubmit={handleSubmit} className={contactStyles(currentTheme).contactForm}>
           <div className={contactStyles(currentTheme).formFieldsGrid}>

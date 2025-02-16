@@ -5,7 +5,7 @@ import { github } from "../assets";
 import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
-import { worksStyles, styles } from "../style";
+import { worksStyles, defaultSectionStyles } from "../style";
 import { ThemeContext } from '../context/ThemeContext';
 import { WORKS_TEXT } from "../constants";
 
@@ -60,7 +60,7 @@ const ProjectCard = ({ name, description, tags, image, source_code_link }) => {
   return (
     <>
       <motion.div variants={textVariant()}>
-        <h2 className={`${styles(currentTheme).sectionHeadText}`}>{WORKS_TEXT.sectionHeading}</h2>
+        <h2 className={`${defaultSectionStyles(currentTheme).sectionHeadText}`}>{WORKS_TEXT.sectionHeading}</h2>
       </motion.div>
       <div className="w-full flex">
         <motion.p variants={fadeIn("", "", 0.1)} className={worksStyles(currentTheme).mainContent.description}>

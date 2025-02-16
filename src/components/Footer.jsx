@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { SectionWrapper } from "../hoc";
 import { FOOTER_TEXT } from "../constants";
 import { EnvelopeIcon, PhoneIcon, MapPinIcon } from "@heroicons/react/24/outline";
-import { styles, footerStyles } from "../style";
+import { defaultSectionStyles, footerStyles } from "../style";
 import { ThemeContext } from '../context/ThemeContext';
 
 
@@ -71,7 +71,7 @@ const Footer = () => {
           <div className={footerStyles(currentTheme).contentContainer}>
             <div className={footerStyles(currentTheme).gridLayout}>
               <div>
-                <h2 className={`${styles(currentTheme).sectionHeadText}`}>
+                <h2 className={`${defaultSectionStyles(currentTheme).sectionHeadText}`}>
                   Contacts
                 </h2>
                 <p className={footerStyles(currentTheme).description}>

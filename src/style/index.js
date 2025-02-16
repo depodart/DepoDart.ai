@@ -756,7 +756,7 @@ export const footerStyles = (theme) => ({
   }
 });
 
-export const sectionStyles = {
+export const sectionStyles = (theme) => ({
   section: classNames(
     'max-w-7xl',
     'mx-auto',
@@ -764,9 +764,9 @@ export const sectionStyles = {
     'z-0'
   ),
   hashSpan: classNames('hash-span')
-};
+});
 
-export const styles = (theme) => ({
+export const defaultSectionStyles = (theme) => ({
   paddingX: classNames(
     'sm:px-16',
     'px-6'

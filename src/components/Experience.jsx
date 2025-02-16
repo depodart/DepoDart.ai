@@ -11,7 +11,7 @@ import "react-vertical-timeline-component/style.min.css";
 import { experiences, EXPERIENCE_TEXT } from "../constants";
 import { SectionWrapper } from "../hoc";
 import { textVariant } from "../utils/motion";
-import { experienceStyles, styles } from "../style";
+import { experienceStyles, defaultSectionStyles } from "../style";
 import { ThemeContext } from '../context/ThemeContext';
 
 
@@ -64,10 +64,10 @@ const Experience = () => {
   return (
     <>
       <motion.div variants={textVariant()}>
-        <p className={`${styles(currentTheme).sectionSubText} text-center`}>
+        <p className={`${defaultSectionStyles(currentTheme).sectionSubText} text-center`}>
           {EXPERIENCE_TEXT.sectionSubText}
         </p>
-        <h2 className={`${styles(currentTheme).sectionHeadText} text-center`}>
+        <h2 className={`${defaultSectionStyles(currentTheme).sectionHeadText} text-center`}>
           {EXPERIENCE_TEXT.sectionHeadText}
         </h2>
       </motion.div>

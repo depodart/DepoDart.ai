@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import GlobeElevatedPolygonsCanvas from "./canvas/GlobeElevatedPolygons";
-import { styles } from "../style";
+import { defaultSectionStyles } from "../style";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
 import "../index.css";
@@ -193,8 +193,8 @@ const ContactSales = () => {
         variants={slideIn("left", "tween", 0.2, 1)}
         className="flex-[0.75] bg-black-100 p-8 rounded-2xl"
       >
-        <p className={styles.sectionSubText}>{TEXT.sectionSubText}</p>
-        <h3 className={styles.sectionHeadText}>{TEXT.sectionHeadText}</h3>
+        <p className={defaultSectionStyles.sectionSubText}>{TEXT.sectionSubText}</p>
+        <h3 className={defaultSectionStyles.sectionHeadText}>{TEXT.sectionHeadText}</h3>
         
         <form ref={formRef} onSubmit={handleSubmit} className="mx-auto mt-12 max-w-xl">
           <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">

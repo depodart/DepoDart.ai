@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { close, logo, menu } from '../assets';
 import { navLinks } from '../constants';
-import { navbarStyles, styles, themes } from '../style';
+import { navbarStyles, defaultSectionStyles, themes } from '../style';
 import { ThemeContext } from '../context/ThemeContext';
 
 const Navbar = () => {
@@ -67,7 +67,7 @@ const Navbar = () => {
   );
 
   return (
-    <nav className={`${styles(currentTheme).paddingX} ${navbarStyles(currentTheme).nav}`}>
+    <nav className={`${defaultSectionStyles(currentTheme).paddingX} ${navbarStyles(currentTheme).nav}`}>
       <div className={navbarStyles(currentTheme).container}>
         <Link
           to="/"

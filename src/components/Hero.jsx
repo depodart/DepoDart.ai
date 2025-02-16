@@ -4,7 +4,7 @@ import Typewriter from "typewriter-effect";
 import GlobeComponentCanvas from "./canvas/GlobeComponent";
 import CanvasLoader from "./Loader";
 import { HERO_TEXT } from "../constants";
-import { heroStyles, styles } from "../style";
+import { heroStyles, defaultSectionStyles } from "../style";
 import { ThemeContext } from '../context/ThemeContext';
 
 const Hero = () => {
@@ -13,19 +13,19 @@ const Hero = () => {
   return (
     <section className={heroStyles(currentTheme).section}>
       <div className={heroStyles(currentTheme).contentWrapper}>
-        <div className={`${heroStyles(currentTheme).mainContainer} ${styles(currentTheme).paddingX}`}>
+        <div className={`${heroStyles(currentTheme).mainContainer} ${defaultSectionStyles(currentTheme).paddingX}`}>
           <div className={heroStyles(currentTheme).leftDecoration.container}>
             <div className={heroStyles(currentTheme).leftDecoration.circle} />
             <div className={heroStyles(currentTheme).leftDecoration.line} />
           </div>
           <div>
-            <h1 className={`${styles(currentTheme).heroHeadText} ${heroStyles(currentTheme).heroHeadText}`}>
+            <h1 className={`${defaultSectionStyles(currentTheme).heroHeadText} ${heroStyles(currentTheme).heroHeadText}`}>
               {HERO_TEXT.brandName.first}
               <span className={heroStyles(currentTheme).textContent.brandHighlight}>
                 {HERO_TEXT.brandName.second}
               </span>
             </h1>
-            <div className={`${styles(currentTheme).heroSubText} ${heroStyles(currentTheme).textContent.subtextContainer}`}>
+            <div className={`${defaultSectionStyles(currentTheme).heroSubText} ${heroStyles(currentTheme).textContent.subtextContainer}`}>
               {HERO_TEXT.tagline}
               <Typewriter
                 options={{

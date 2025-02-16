@@ -6,7 +6,7 @@ import { SectionWrapper } from '../hoc';
 import { fadeIn, textVariant } from '../utils/motion';
 import { navLinks } from '../constants';
 import { ABOUT_TEXT } from '../constants';
-import { styles, aboutStyles } from '../style';
+import { defaultSectionStyles, aboutStyles } from '../style';
 import { ThemeContext } from '../context/ThemeContext';
 
 const ServiceCard = ({ index, title, description, icon, IconComponent }) => {
@@ -61,8 +61,8 @@ const About = () => {
   return (
     <>
       <motion.div variants={textVariant()}>
-        <p className={`${styles(currentTheme).sectionSubText} text-center`}>{ABOUT_TEXT.sectionSubText}</p>
-        <h2 className={`${styles(currentTheme).sectionHeadText} text-center`}>{ABOUT_TEXT.sectionHeadText}</h2>
+        <p className={`${defaultSectionStyles(currentTheme).sectionSubText} text-center`}>{ABOUT_TEXT.sectionSubText}</p>
+        <h2 className={`${defaultSectionStyles(currentTheme).sectionHeadText} text-center`}>{ABOUT_TEXT.sectionHeadText}</h2>
       </motion.div>
 
       <motion.p
