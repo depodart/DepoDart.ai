@@ -7,6 +7,8 @@ import python from "./overview-icons/python.png";
 // Import project images
 import mhft from "./projects/mhft.png";
 
+// import AG_AU_Cu from "./projects/AG_AU_Cu.png";
+
 // Import common assets
 //import logo from "./github.png";
 import logo from "./company/logo.png";
@@ -20,6 +22,8 @@ export {
   python,
 
   mhft,
+
+  // AG_AU_Cu,
 
   logo,
   github,

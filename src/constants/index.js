@@ -176,7 +176,7 @@ export const projects = [
       { name: "Geochemical maps", color: "green-text-gradient" },
       { name: "Geological Modeling", color: "pink-text-gradient" },
     ],
-    image: mhft,
+    image: "/AG_AU_CU.png",
     source_code_link: "https://github.com/",
   },
  
@@ -187,9 +187,9 @@ export const projects = [
     tags: [
       { name: "DepoDart", color: "blue-text-gradient" },
       { name: "3D orebody", color: "green-text-gradient" },
-      { name: "Geological Modeling", color: "pink-text-gradient" },
+      { name: "Geochemical maps", color: "pink-text-gradient" },
     ],
-    image: mhft,
+    image: "/AG_AU_CU.png",
     source_code_link: "https://github.com/",
   },
   {
@@ -201,7 +201,7 @@ export const projects = [
       { name: "Predictive Analytics", color: "green-text-gradient" },
       { name: "Geological Modeling", color: "pink-text-gradient" },
     ],
-    image: mhft,
+    image: "/AG_AU_CU.png",
     source_code_link: "https://github.com/",
   }
 ];
