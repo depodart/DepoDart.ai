@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from 'react';
+// src/components/Navbar.jsx
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { close, logo, menu } from '../assets';
 import { navLinks } from '../constants';
-import { navbarStyles, styles, initialTheme } from '../style';
+import { navbarStyles, styles, themes } from '../style';
+import { ThemeContext } from '../context/ThemeContext';
 
 const Navbar = () => {
+  const { currentTheme, toggleTheme } = useContext(ThemeContext);
   const [active, setActive] = useState('');
   const [toggle, setToggle] = useState(false);
-  const [currentTheme] = useState(initialTheme);
 
   const toggleResume = () => {
     const resumeUrl = '/example.pdf';
@@ -18,45 +20,51 @@ const Navbar = () => {
     if (toggle) {
       setActive('');
     }
-  }, [toggle]);     
+  }, [toggle]);
 
-  const renderNavLinks = (isMobile) => {
-    return (
-      <ul className={isMobile ? navbarStyles(currentTheme).mobileNav : navbarStyles(currentTheme).desktopNav}>
-        {navLinks.map((link) => (
-          <li
-            key={link.id}
-            className={`${
-              active === link.title 
-                ? navbarStyles(currentTheme).activeLink 
-                : isMobile 
-                  ? navbarStyles(currentTheme).inactiveMobileLink 
-                  : navbarStyles(currentTheme).inactiveDesktopLink
-            } ${navbarStyles(currentTheme).navLink} hover:text-white`}
-            onClick={() => {
-              setActive(link.title);
-              
-              const element = document.getElementById(link.id);
-              if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
-              }
-              
-              if (isMobile) {
-                setToggle(false);
-              }
-            }}
-          >
-            <a href={`#${link.id}`}>{link.title}</a>
-          </li>
-        ))}
+  const renderNavLinks = (isMobile) => (
+    <ul
+      className={
+        isMobile
+          ? navbarStyles(currentTheme).mobileNav
+          : navbarStyles(currentTheme).desktopNav
+      }
+    >
+      {navLinks.map((link) => (
         <li
-          className={`${isMobile ? navbarStyles(currentTheme).inactiveMobileLink : navbarStyles(currentTheme).inactiveDesktopLink} ${navbarStyles(currentTheme).navLink} hover:text-white`}
+          key={link.id}
+          className={`${
+            active === link.title 
+              ? navbarStyles(currentTheme).activeLink 
+              : isMobile 
+                ? navbarStyles(currentTheme).inactiveMobileLink 
+                : navbarStyles(currentTheme).inactiveDesktopLink
+          } ${navbarStyles(currentTheme).navLink} hover:text-white`}
+          onClick={() => {
+            setActive(link.title);
+            const element = document.getElementById(link.id);
+            if (element) {
+              element.scrollIntoView({ behavior: 'smooth' });
+            }
+            if (isMobile) {
+              setToggle(false);
+            }
+          }}
         >
-          <button onClick={toggleResume}>Download info</button>
+          <a href={`#${link.id}`}>{link.title}</a>
         </li>
-      </ul>
-    );
-  };
+      ))}
+      <li
+        className={`${
+          isMobile
+            ? navbarStyles(currentTheme).inactiveMobileLink
+            : navbarStyles(currentTheme).inactiveDesktopLink
+        } ${navbarStyles(currentTheme).navLink} hover:text-white`}
+      >
+        <button onClick={toggleResume}>Download info</button>
+      </li>
+    </ul>
+  );
 
   return (
     <nav className={`${styles(currentTheme).paddingX} ${navbarStyles(currentTheme).nav}`}>
@@ -75,6 +83,14 @@ const Navbar = () => {
             <span>Dart</span>
           </p>
         </Link>
+
+        {/* Global Theme Toggle Button */}
+        <button
+          onClick={toggleTheme}
+          className="ml-4 p-2 rounded border border-gray-300"
+        >
+          {currentTheme === themes.dark ? 'Light Mode' : 'Dark Mode'}
+        </button>
 
         {/* Desktop Navigation */}
         {renderNavLinks(false)}

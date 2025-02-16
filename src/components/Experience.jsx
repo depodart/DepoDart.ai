@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import {
   VerticalTimeline,
   VerticalTimelineElement,
@@ -11,12 +11,13 @@ import "react-vertical-timeline-component/style.min.css";
 import { experiences, EXPERIENCE_TEXT } from "../constants";
 import { SectionWrapper } from "../hoc";
 import { textVariant } from "../utils/motion";
-import { experienceStyles, styles, initialTheme } from "../style";
+import { experienceStyles, styles } from "../style";
+import { ThemeContext } from '../context/ThemeContext';
 
 
 
 const ExperienceCard = ({ experience }) => {
-  const [currentTheme] = useState(initialTheme);
+  const { currentTheme } = useContext(ThemeContext);
 
   return (
     <VerticalTimelineElement
@@ -58,7 +59,7 @@ const ExperienceCard = ({ experience }) => {
 };
 
 const Experience = () => {
-  const [currentTheme] = useState(initialTheme);
+  const { currentTheme } = useContext(ThemeContext);
 
   return (
     <>

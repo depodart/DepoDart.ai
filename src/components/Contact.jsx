@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useContext } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import GlobeElevatedPolygonsCanvas from "./canvas/GlobeElevatedPolygons";
@@ -6,12 +6,13 @@ import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
 import "../index.css";
 import { CONTACT_TEXT, INITIAL_FORM_STATE, navLinks } from "../constants";
-import { contactStyles, styles, initialTheme } from "../style";
-
+import { contactStyles, styles } from "../style";
+import { ThemeContext } from '../context/ThemeContext';
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
 const FormInput = ({ label, id, name, type = "text", value, onChange, error, textarea }) => {
-  const [currentTheme] = useState(initialTheme);
+  
+  const { currentTheme } = useContext(ThemeContext);
 
   return (
     <div className={`${name === "firstName" || name === "lastName" ? "" : "sm:col-span-2"}`}>
@@ -50,7 +51,7 @@ const Contact = () => {
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
   const [confirmation, setConfirmation] = useState("");
-  const [currentTheme] = useState(initialTheme);
+  const { currentTheme } = useContext(ThemeContext);
 
   const handleChange = (e) => {
     const { name, value } = e.target;

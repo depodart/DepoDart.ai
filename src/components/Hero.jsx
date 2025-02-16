@@ -1,13 +1,14 @@
-import React, { Suspense, useState } from "react";
+import React, { Suspense, useContext } from "react";
 import { motion } from "framer-motion";
 import Typewriter from "typewriter-effect";
 import GlobeComponentCanvas from "./canvas/GlobeComponent";
 import CanvasLoader from "./Loader";
 import { HERO_TEXT } from "../constants";
-import { heroStyles, styles, initialTheme } from "../style";
+import { heroStyles, styles } from "../style";
+import { ThemeContext } from '../context/ThemeContext';
 
 const Hero = () => {
-  const [currentTheme] = useState(initialTheme);
+  const { currentTheme } = useContext(ThemeContext);
 
   return (
     <section className={heroStyles(currentTheme).section}>
