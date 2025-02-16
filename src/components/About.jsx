@@ -4,7 +4,7 @@ import { Tilt } from 'react-tilt';
 import { services, navLinks, ABOUT_TEXT } from '../constants';
 import { SectionWrapper } from '../hoc';
 import { fadeIn, textVariant } from '../utils/motion';
-import { defaultSectionStyles, aboutStyles } from '../style';
+import { defaultSectionStyles, aboutStyles, colors } from '../style';
 
 const ServiceCard = ({ index, title, description, icon, IconComponent }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -16,9 +16,9 @@ const ServiceCard = ({ index, title, description, icon, IconComponent }) => {
         className={`${aboutStyles.serviceCardInner} ${isHovered ? 'animate-border-flow' : ''}`}
         style={{
           background: `linear-gradient(${isHovered ? '90deg' : '0deg'}, 
-            ${aboutStyles.serviceCardInnerColors.start} 0%, 
-            ${aboutStyles.serviceCardInnerColors.middle} 50%,
-            ${aboutStyles.serviceCardInnerColors.end} 100%
+            ${colors.accent.green} 0%, 
+            ${colors.accent.blue} 50%,
+            ${colors.accent.red} 100%
           )`
         }}
         onMouseEnter={() => setIsHovered(true)}

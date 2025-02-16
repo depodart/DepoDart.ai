@@ -328,9 +328,7 @@ export const aboutStyles = {
   },
   serviceCardContent: classNames(
     // background.tertiary: light vs. dark
-    // `bg-[${colors.lightBg.tertiary}] dark:bg-[${colors.darkBg.tertiary}]`,
-    `bg-white`,
-    `dark:bg-tertiary`,
+    `bg-[${colors.lightBg.tertiary}] dark:bg-[${colors.darkBg.tertiary}]`,
     'rounded-[20px]',
     'py-5',
     'px-8',
@@ -345,13 +343,11 @@ export const aboutStyles = {
       'w-10',
       'h-10',
       'transition-all',
-      'duration-300',
+      'duration-300'
     ),
     // On hover, light uses one accent and dark another.
-    hovered: classNames(`text-[#A855F7] dark:text-[#6366F1]`),
-    default: classNames(`text-[#6366F1] dark:text-[#4338CA]`)
-    // hovered: classNames(`text-[${colors.accent.purple}] dark:text-[${colors.accent.indigo.light}]`),
-    // default: classNames(`text-[${colors.accent.indigo.light}] dark:text-[${colors.accent.indigo.dark}]`)
+    hovered: classNames(`text-[${colors.accent.purple}] dark:text-[${colors.accent.indigo.light}]`),
+    default: classNames(`text-[${colors.accent.indigo.light}] dark:text-[${colors.accent.indigo.dark}]`)
   },
   title: {
     base: classNames(
