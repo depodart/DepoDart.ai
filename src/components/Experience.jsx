@@ -9,14 +9,22 @@ import { experienceStyles, defaultSectionStyles } from "../style";
 
 const ExperienceCard = ({ experience }) => {
   return (
-    <VerticalTimelineElement
-      contentStyle={experienceStyles.timelineElementContent}
-      contentArrowStyle={experienceStyles.timelineElementArrow}
-      date={experience.date}
-      iconStyle={{ background: experience.iconBg }}
-      icon={
+      <VerticalTimelineElement
+        className={experienceStyles.timelineElement}
+        contentStyle={{
+              background: '#1d1836',
+              color: 'rgb(17 24 39)'
+        }}
+        contentArrowStyle={{
+          //  borderRight: "7px solid #E5E7EB",
+          //  background: '#1d1836'
+        }}
+        date={experience.date}
+        iconStyle={{ background: experience.iconBg }}
+        icon={
         experience.icon && (
-          <div className={experienceStyles.iconContainer}>
+          <div className={`${experienceStyles.timelineElementContent} ${experienceStyles.iconContainer}`}
+            >
             <img
               src={experience.icon}
               alt={experience.sub_title}

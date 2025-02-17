@@ -507,15 +507,6 @@ export const heroStyles = {
    Experience Styles
 -------------------------------------------------------------------------- */
 export const experienceStyles = {
-  timelineElementContent: {
-    background: classNames('bg-background-secondary-light', 'dark:bg-background-secondary-dark'),
-    color: classNames('text-primary-light', 'dark:text-primary-dark')
-  },
-  // For the arrow you may need to use inline styles or a custom utility;
-  // here we just note the intended colors.
-  timelineElementArrow: {
-    borderRight: "7px solid #E5E7EB"
-  },
   iconContainer: classNames(
     'flex',
     'justify-center',
@@ -531,7 +522,7 @@ export const experienceStyles = {
   cardTitle: classNames(
     'text-[24px]',
     'font-bold',
-    'text-primary-light',
+    'text-primary-dark',
     'dark:text-primary-dark'
   ),
   cardSubtitle: {
@@ -539,7 +530,7 @@ export const experienceStyles = {
     className: classNames(
       'text-[16px]',
       'font-semibold',
-      'text-secondary-light',
+      'text-secondary-dark',
       'dark:text-secondary-dark'
     )
   },
@@ -553,7 +544,7 @@ export const experienceStyles = {
     'text-[14px]',
     'pl-1',
     'tracking-wider',
-    'text-tertiary-light',
+    'text-tertiary-dark',
     'dark:text-tertiary-dark'
   ),
   timelineContainer: classNames(

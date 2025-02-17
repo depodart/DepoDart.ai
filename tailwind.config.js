@@ -16,7 +16,17 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        'new-background-primary-dark': '#4c2b1c',
+        'new-background-secondary-dark': '#cb540b',
+        'new-background-tertiary-dark': '#ffc409',
+        'new-background-primary-light': '#FFFFFF',
+        
         // Background colors
+        // 'background-primary-dark': '#4c2b1c',
+        // 'background-secondary-dark': '#cb540b',
+        // 'background-tertiary-dark': '#ffc409',
+        // 'background-primary-light': '#FFFFFF',
+
         'background-primary-dark': '#050816',
         'background-secondary-dark': '#1d1836',
         'background-tertiary-dark': '#232631',
