@@ -544,8 +544,8 @@ export const experienceStyles = {
     'text-[14px]',
     'pl-1',
     'tracking-wider',
-    'text-tertiary-dark',
-    'dark:text-tertiary-dark'
+    'text-primaray-dark',
+    'dark:text-primary-dark'
   ),
   timelineContainer: classNames(
     'mt-20',
