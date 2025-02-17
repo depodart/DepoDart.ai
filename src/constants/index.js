@@ -160,9 +160,9 @@ export const projects = [
     description:
       "Predicted areas of high-concentration zones for gold, cobalt, and silver in Abitibi region.",
     tags: [
-      { name: "DepoDart", color: "blue-text-gradient" },
-      { name: "Geochemical maps", color: "green-text-gradient" },
-      { name: "Geological Modeling", color: "pink-text-gradient" },
+      { name: "DepoDart", color: "#CB540B" }, //#blue-text-gradient
+      { name: "Geochemical maps", color: "#CB540B" },  //"green-text-gradient"
+      { name: "Geological Modeling", color: "#CB540B" }, //"pink-text-gradient"
     ],
     image: "/AG_AU_CU.png",
     source_code_link: "https://github.com/",
