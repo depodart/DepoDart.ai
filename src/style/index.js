@@ -277,7 +277,7 @@ export const navbarStyles = {
   ),
   activeLink: classNames(
     'text-primary-light',
-    'dark:text-primary-dark'
+    'dark:text-primary-light'
   ),
   inactiveDesktopLink: classNames(
     'text-tertiary-light',
@@ -376,7 +376,7 @@ export const aboutStyles = {
       'text-purple',
       'dark:text-indigo-light'
     ),
-    default: classNames('text-primary-light', 'dark:text-primary-dark')
+    default: classNames('text-primary-light', 'dark:text-primary-light')
   },
   description: {
     base: classNames(
@@ -524,7 +524,7 @@ export const experienceStyles = {
     'text-[24px]',
     'font-bold',
     'text-primary-dark',
-    'dark:text-primary-dark'
+    'dark:text-primary-light'
   ),
   cardSubtitle: {
     margin: '0',
@@ -532,7 +532,7 @@ export const experienceStyles = {
       'text-[16px]',
       'font-semibold',
       'text-secondary-dark',
-      'dark:text-secondary-dark'
+      'dark:text-secondary-light'
     )
   },
   pointsList: classNames(
@@ -545,8 +545,8 @@ export const experienceStyles = {
     'text-[14px]',
     'pl-1',
     'tracking-wider',
-    'text-primaray-dark',
-    'dark:text-primary-dark'
+    'text-primary-dark',
+    'dark:text-primary-light'
   ),
   timelineContainer: classNames(
     'mt-20',
@@ -598,14 +598,14 @@ export const worksStyles = {
     title: classNames(
       'font-bold',
       'text-[24px]',
-      'text-primary-light',
-      'dark:text-primary-dark'
+      'text-primary-dark',
+      'dark:text-primary-light'
     ),
     description: classNames(
       'mt-2',
       'text-[14px]',
-      'text-primary-light',
-      'dark:text-primary-dark'
+      'text-primary-dark',
+      'dark:text-primary-light'
     ),
     tagsContainer: classNames(
       'mt-4',
@@ -621,8 +621,8 @@ export const worksStyles = {
       'text-[17px]',
       'max-w-3xl',
       'leading-[30px]',
-      'text-primary-light',
-      'dark:text-primary-dark'
+      'text-primary-dark',
+      'dark:text-primary-light'
     ),
     projectsGrid: classNames(
       'mt-20',
@@ -649,17 +649,17 @@ export const contactStyles = {
     'px-3.5',
     'py-2',
     'text-base',
-    'text-primary-light',
-    'dark:text-primary-dark',
-    'placeholder:text-secondary-light',
-    'dark:placeholder:text-secondary-dark'
+    'text-primary-dark',
+    'dark:text-primary-light',
+    'placeholder:text-secondary-dark',
+    'dark:placeholder:text-secondary-light'
   ),
   formLabel: classNames(
     'block',
     'text-sm',
     'font-semibold',
-    'text-primary-light',
-    'dark:text-primary-dark'
+    'text-primary-dark',
+    'dark:text-primary-light'
   ),
   contactContainer: classNames(
     'relative',
@@ -726,8 +726,8 @@ export const contactStyles = {
     'text-center',
     'text-sm',
     'font-semibold',
-    'text-primary-light',
-    'dark:text-primary-dark',
+    'text-primary-dark',
+    'dark:text-primary-light',
     'shadow-sm',
     'hover:bg-indigo-light',
     'dark:hover:bg-indigo-dark',
@@ -811,8 +811,8 @@ export const footerStyles = {
     'py-8',
     'bg-background-primary-light',
     'dark:bg-background-primary-dark',
-    'text-primary-light',
-    'dark:text-primary-dark'
+    'text-primary-dark',
+    'dark:text-primary-light'
   ),
   copyrightWrapper: classNames(
     'mt-4',
@@ -831,16 +831,16 @@ export const footerStyles = {
       'duration-300',
       'bg-background-primary-light',
       'dark:bg-background-primary-dark',
-      'text-primary-light',
-      'dark:text-primary-dark'
+      'text-primary-dark',
+      'dark:text-primary-light'
     ),
     hovered: classNames(
       'transition-all',
       'duration-300',
       'bg-background-secondary-light',
       'dark:bg-background-secondary-dark',
-      'text-primary-light',
-      'dark:text-primary-dark'
+      'text-primary-dark',
+      'dark:text-primary-light'
     ),
     default: classNames('bg-background-tertiary-light', 'dark:bg-background-tertiary-dark'),
     header: classNames('flex', 'items-center', 'gap-3'),
@@ -856,7 +856,7 @@ export const footerStyles = {
     contentList: classNames('mt-3', 'space-y-1', 'text-sm'),
     content: classNames('font-semibold', 'transition-all', 'duration-300'),
     contentHovered: classNames('text-indigo-medium', 'dark:text-purple'),
-    contentDefault: classNames('text-primary-light', 'dark:text-primary-dark')
+    contentDefault: classNames('text-primary-dark', 'dark:text-primary-light')
   }
 };
 
