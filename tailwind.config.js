@@ -16,7 +16,7 @@ module.exports = {
       colors: {
         // Dark theme colors
         'primary-dark': '#110A07',      // Very dark brown/black
-        'secondary-dark': '#CB540B',    // Burnt orange
+        'secondary-dark': '#D23B0C',    // Burnt orange
         'tertiary-dark': '#200D02',     // Dark brown
         
         // Light theme colors
@@ -27,7 +27,7 @@ module.exports = {
         // Background colors
         'background-primary-light': '#FFFFFF',    // White
         'background-primary-dark': '#110A07',    // Very dark brown/black
-        'background-secondary-dark': '#CB540B',   // Burnt orange
+        'background-secondary-dark': '#D23B0C',   // Burnt orange
         'background-tertiary-dark': '#200D02',    // Dark brown
       },
       boxShadow: {
