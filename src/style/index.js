@@ -887,7 +887,7 @@ export const defaultSectionStyles = {
     'sm:py-16',
     'py-10'
   ),
-  heroHeadText: classNames(
+  HeadText: classNames(
     'font-black',
     'text-primary-light',
     'dark:text-primary-dark',
@@ -909,7 +909,7 @@ export const defaultSectionStyles = {
     'lg:leading-[40px]'
   ),
   sectionHeadText: classNames(
-    'text-primary-light',
+    'text-primheroary-light',
     'dark:text-primary-dark',
     'font-black',
     'md:text-[60px]',
