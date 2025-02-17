@@ -665,7 +665,6 @@ export const contactStyles = {
     'block',
     'w-full',
     'rounded-md',
-    // `bg-white dark:bg-[${colors.darkBg.primary}]`,
     'bg-background-primary-light',
     'dark:bg-transparent',
     'border',
@@ -723,8 +722,9 @@ export const contactStyles = {
     'rounded-2xl',
     'relative',
     'z-10',
-    'bg-background-tertiary-light',
-    'dark:bg-background-tertiary-dark'
+    // ? background color of the form
+    // 'bg-background-tertiary-light',
+    // 'dark:bg-background-tertiary-dark'
   ),
   contactForm: classNames(
     'mx-auto',
