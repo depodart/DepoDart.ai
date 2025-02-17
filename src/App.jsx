@@ -23,7 +23,7 @@ const App = () => {
         <Works />
         <div className={appStyles.contactSection}>
           <Contact />
-          <StarsCanvas />
+          {/* <StarsCanvas /> */}
         </div>
         <Footer />
       </div>
