@@ -24,7 +24,7 @@ const Navbar = () => {
         >
           <p className={navbarStyles.logoText}>
             <img src={logo} alt="Logo" className="w-8 h-8 object-contain mr-2" />
-            Depo&nbsp;<span>Dart</span>
+            DepoDart
           </p>
         </Link>
 
