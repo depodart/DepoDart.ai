@@ -352,9 +352,7 @@ export const aboutStyles = {
     'relative',
     'overflow-hidden',
     'bg-gradient-to-r',
-    `from-[${colors.accent.green}]`,
-    `via-[${colors.accent.yellow}]`, 
-    `to-[${colors.accent.red}]`,
+    `from-secondary-dark`,
     'p-[4px]',
     'transition-all',
     'duration-300',
@@ -366,7 +364,7 @@ export const aboutStyles = {
     end: classNames('text-red')
   },
   serviceCardContent: classNames(
-    'bg-background-tertiary-light',
+    'bg-background-secondary-light',
     'dark:bg-background-tertiary-dark',
     'rounded-[20px]',
     'py-5',
