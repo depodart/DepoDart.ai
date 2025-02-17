@@ -348,9 +348,17 @@ export const aboutStyles = {
     'w-full',
     'p-[1px]',
     'rounded-[20px]',
-    'shadow-card',
+    'shadow-card', 
     'relative',
-    'overflow-hidden'
+    'overflow-hidden',
+    'bg-gradient-to-r',
+    `from-[${colors.accent.green}]`,
+    `via-[${colors.accent.yellow}]`, 
+    `to-[${colors.accent.red}]`,
+    'p-[4px]',
+    'transition-all',
+    'duration-300',
+    'hover:bg-gradient-90'
   ),
   serviceCardInnerColors: {
     start: classNames('text-green'),
