@@ -462,7 +462,7 @@ export const heroStyles = {
     )
   },
   textContent: {
-    brandHighlight: classNames('text-purple', 'dark:text-indigo-light'),
+    brandHighlight: classNames('dark:text-secondary-dark'),
     subtextContainer: classNames(
       'mt-2',
       'text-white'
@@ -499,8 +499,8 @@ export const heroStyles = {
     )
   },
   heroHeadText: classNames(
-    'text-primary-light',
-    'dark:text-primary-dark'
+    'text-primary-dark',
+    'dark:text-primary-light'
   )
 };
 
@@ -888,7 +888,7 @@ export const defaultSectionStyles = {
     'sm:py-16',
     'py-10'
   ),
-  HeadText: classNames(
+  heroHeadText: classNames(
     'font-black',
     'text-primary-light',
     'dark:text-primary-dark',
