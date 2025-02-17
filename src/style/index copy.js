@@ -441,7 +441,7 @@ export const heroStyles = {
       'w-1',
       'sm:h-80',
       'h-40',
-      'violet-gradient'
+      'bg-secondary-dark'
     )
   },
   textContent: {

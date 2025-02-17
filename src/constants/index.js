@@ -120,7 +120,7 @@ export const experiences = [
   },
   {
     title: "Outsourcing Solutions", 
-    sub_title: "Enterprise AI Integration Services",
+    // sub_title: "Enterprise AI Integration Services",
     icon: null,
     iconBg: "#A27B00", // Emerald
     date: "",

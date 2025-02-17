@@ -451,13 +451,14 @@ export const heroStyles = {
       'rounded-full',
       // Uses accent.primary: light vs. dark
       'bg-purple',
-      'dark:bg-indigo-light'
+      // 'dark:bg-indigo-light'
+      'bg-secondary-dark'
     ),
     line: classNames(
       'w-1',
       'sm:h-80',
       'h-40',
-      'violet-gradient'
+      'bg-secondary-dark'
     )
   },
   textContent: {
