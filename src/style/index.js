@@ -255,7 +255,7 @@ export const navbarStyles = {
     'cursor-pointer',
     'flex',
     'text-primary-light',
-    'dark:text-primary-dark'
+    'dark:text-primary-light'
   ),
   desktopNav: classNames(
     'list-none',
