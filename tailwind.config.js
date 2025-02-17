@@ -15,7 +15,7 @@ module.exports = {
     extend: {
       colors: {
         'primary-dark': '#110A07',
-        'secondary-dark': '#CB540B',
+        'secondary-dark': '#D23B0C',
         
         'tertiary-dark': '#FFC409',
 
@@ -24,7 +24,7 @@ module.exports = {
         
         // Background colors
         'background-primary-dark': '#110A07',
-        'background-secondary-dark': '#CB540B',
+        'background-secondary-dark': '#D23B0C',
         'background-tertiary-dark': '#200D02',
         'background-primary-light': '#FFFFFF',
         'indigo-light': '#200D02',
@@ -39,8 +39,8 @@ module.exports = {
 
         // Common colors
         'common-primary': '#FFFFFF',
-        // 'common-secondary': '#CB540B',
-        'common-secondary': '#CB540B',
+        // 'common-secondary': '#D23B0C',
+        'common-secondary': '#D23B0C',
         'common-tertiary': '#FFC409',
       },
       boxShadow: {
