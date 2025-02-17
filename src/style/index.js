@@ -358,8 +358,8 @@ export const aboutStyles = {
       'duration-300',
     ),
     // On hover, light uses one accent and dark another.
-    hovered: classNames('text-lavender', 'dark:text-indigo-light'),
-    default: classNames('text-indigo-light', 'dark:text-indigo-dark')
+    hovered: classNames('text-lavender', 'dark:text-primary-dark'),
+    default: classNames('text-indigo-light', 'dark:text-primary-light')
   },
   title: {
     base: classNames(
@@ -394,15 +394,15 @@ export const aboutStyles = {
       'text-indigo-light',
       'dark:text-indigo-dark'
     ),
-    default: classNames('text-secondary-light', 'dark:text-secondary-dark')
+    default: classNames('text-primary-light', 'dark:text-primary-dark')
   },
   overview: classNames(
     'mt-4',
     'text-[17px]',
     'max-w-3xl',
     'leading-[30px]',
-    'text-secondary-light',
-    'dark:text-secondary-dark'
+    'text-primary-dark',
+    'dark:text-primary-light'
   ),
   servicesContainer: classNames(
     'mt-20',
