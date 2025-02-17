@@ -603,8 +603,8 @@ export const worksStyles = {
     description: classNames(
       'mt-2',
       'text-[14px]',
-      'text-secondary-light',
-      'dark:text-secondary-dark'
+      'text-primary-light',
+      'dark:text-primary-dark'
     ),
     tagsContainer: classNames(
       'mt-4',
@@ -620,8 +620,8 @@ export const worksStyles = {
       'text-[17px]',
       'max-w-3xl',
       'leading-[30px]',
-      'text-secondary-light',
-      'dark:text-secondary-dark'
+      'text-primary-light',
+      'dark:text-primary-dark'
     ),
     projectsGrid: classNames(
       'mt-20',
