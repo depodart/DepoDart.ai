@@ -97,7 +97,7 @@ export const experiences = [
     title: "New Deposit Discovery Asisted by AI specialists and geologists",
     //sub_title: "Data Scientist & Geologist personal assistance",
     icon: null,
-    iconBg: "#00cea8", // Gold
+    iconBg: "#A27B00", // Gold
     // iconBg: "#FFD700", // Gold
     date: "",
     points: [
@@ -122,7 +122,7 @@ export const experiences = [
     title: "Autonomous Solution for Deposit Descovery",
     // sub_title: "Intelligent Automation",
     icon: null,
-    iconBg: "#ff6b6b", // Ruby red
+    iconBg: "#A27B00", // Ruby red
     date: "",
     points: [
       "Use our AI models yourself by enter your data and generate your predictions.",
@@ -134,7 +134,7 @@ export const experiences = [
     title: "Outsourcing Solutions", 
     sub_title: "Enterprise AI Integration Services",
     icon: null,
-    iconBg: "#915eff", // Emerald
+    iconBg: "#A27B00", // Emerald
     date: "",
     points: [
       "Supercharge your operations with custom AI pipelines engineered for unmatched scalability and precision.",
@@ -146,7 +146,7 @@ export const experiences = [
     title: "Mine Planning & Optimization",
     // sub_title: "Resource Modeling",
     icon: null,
-    iconBg: "#4F5555", // Hematite gray
+    iconBg: "#A27B00", // Hematite gray
     date: "",
     points: [
       "Evaluate remaining ore reserves in mines to determine economic feasibility.",
