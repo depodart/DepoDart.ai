@@ -26,12 +26,23 @@ const ServiceCard = ({ index, title, description, icon, IconComponent }) => {
       >
         <div className={aboutStyles.serviceCardContent}>
           {IconComponent && (
-            <IconComponent className={`${aboutStyles.icon.base} ${isHovered ? aboutStyles.icon.hovered : aboutStyles.icon.default}`} />
+            <IconComponent className={`${aboutStyles.icon.base} 
+            ${isHovered ? aboutStyles.icon.hovered : aboutStyles.icon.default}`} />
           )}
-          <h3 className={`${aboutStyles.title.base} ${isHovered ? aboutStyles.title.hovered : aboutStyles.title.default}`}>
+          <h3 className={`${aboutStyles.text.title.base} 
+          ${
+            isHovered 
+            ? aboutStyles.text.title.hovered 
+            : aboutStyles.text.title.default}`
+          }>
             {title}
           </h3>
-          <p className={`${aboutStyles.description.base} ${isHovered ? aboutStyles.description.hovered : aboutStyles.description.default}`}>
+          <p className={`${aboutStyles.text.description.base} 
+          ${
+            isHovered 
+            ? aboutStyles.text.description.hovered 
+            : aboutStyles.text.description.default}`
+          }>
             {description}
           </p>
         </div>

@@ -377,12 +377,13 @@ export const aboutStyles = {
       'duration-300',
     ),
     // On hover, light uses one accent and dark another.
-    hovered: classNames('text-lavender', 'dark:text-primary-dark'),
-    default: classNames('text-indigo-light', 'dark:text-primary-light')
+    hovered: classNames( 'dark:text-primary-light'),
+    default: classNames( 'dark:text-primary-light')
   },
-  title: {
-    base: classNames(
-      'text-[18px]',
+  text: {
+    title: {
+      base: classNames(
+        'text-[18px]',
       'font-bold',
       'text-center',
       'transition-all',
@@ -423,6 +424,7 @@ export const aboutStyles = {
     'text-primary-dark',
     'dark:text-primary-light'
   ),
+},
   servicesContainer: classNames(
     'mt-20',
     'flex',
@@ -545,32 +547,37 @@ export const heroStyles = {
    Experience Styles
 -------------------------------------------------------------------------- */
 export const experienceStyles = {
-  iconContainer: classNames(
-    'flex',
-    'justify-center',
-    'items-center',
-    'w-full',
-    'h-full'
-  ),
-  iconImage: classNames(
-    'w-[60%]',
-    'h-[60%]',
-    'object-contain'
-  ),
-  cardTitle: classNames(
-    'text-[24px]',
-    'font-bold',
-    'text-primary-dark',
-    'dark:text-primary-light'
-  ),
-  cardSubtitle: {
-    margin: '0',
-    className: classNames(
-      'text-[16px]',
-      'font-semibold',
-      'text-secondary-dark',
-      'dark:text-secondary-light'
-    )
+
+  icon:{
+    iconContainer: classNames(
+      'flex',
+      'justify-center',
+      'items-center',
+      'w-full',
+      'h-full'
+    ),
+    iconImage: classNames(
+      'w-[60%]',
+      'h-[60%]',
+      'object-contain'
+    ),
+  },
+    text: {
+    cardTitle: classNames(
+      'text-[24px]',
+      'font-bold',
+      'text-primary-dark',
+      'dark:text-primary-light'
+    ),
+      cardSubtitle: {
+        margin: '0',
+        className: classNames(
+          'text-[16px]',
+          'font-semibold',
+          'text-secondary-dark',
+          'dark:text-secondary-light'
+        )
+      },
   },
   pointsList: classNames(
     'mt-5',

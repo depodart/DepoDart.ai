@@ -10,7 +10,6 @@ import { experienceStyles, defaultSectionStyles } from "../style";
 const ExperienceCard = ({ experience }) => {
   return (
       <VerticalTimelineElement
-        className={experienceStyles.timelineElement}
         contentStyle={{
               background: '#200D02',
               color: 'rgb(17 24 39)'
@@ -23,20 +22,20 @@ const ExperienceCard = ({ experience }) => {
         iconStyle={{ background: experience.iconBg }}
         icon={
         experience.icon && (
-          <div className={`${experienceStyles.timelineElementContent} ${experienceStyles.iconContainer}`}
+          <div className={experienceStyles.icon.iconContainer}
             >
             <img
               src={experience.icon}
               alt={experience.sub_title}
-              className={experienceStyles.iconImage}
+              className={experienceStyles.icon.iconImage}
             />
           </div>
         )
       }
     >
       <div>
-        <h3 className={experienceStyles.cardTitle}>{experience.title}</h3>
-        <p className={experienceStyles.cardSubtitle.className} style={experienceStyles.cardSubtitle}>
+        <h3 className={experienceStyles.text.cardTitle}>{experience.title}</h3>
+        <p className={experienceStyles.text.cardSubtitle.className}>
           {experience.sub_title}
         </p>
       </div>
@@ -55,14 +54,14 @@ const ExperienceCard = ({ experience }) => {
 const Experience = () => {
   return (
     <>
-      <motion.div variants={textVariant()}>
+      {/* <motion.div variants={textVariant()}> */}
         <p className={`${defaultSectionStyles.sectionSubText} text-center`}>
           {EXPERIENCE_TEXT.sectionSubText}
         </p>
         <h2 className={`${defaultSectionStyles.sectionHeadText} text-center`}>
           {EXPERIENCE_TEXT.sectionHeadText}
         </h2>
-      </motion.div>
+      {/* </motion.div> */}
 
       <div className={experienceStyles.timelineContainer}>
         <VerticalTimeline>
