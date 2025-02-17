@@ -484,8 +484,29 @@ export const heroStyles = {
     brandHighlight: classNames('dark:text-secondary-dark'),
     subtextContainer: classNames(
       'mt-2',
-      'text-white'
-    )
+      'text-primary-dark',
+      'dark:text-secondary-dark',
+      
+      'text-secondary-dark',
+      'dark:text-secondary-light',
+      'font-medium',
+      'lg:text-[30px]',
+      'sm:text-[26px]',
+      'xs:text-[20px]',
+      'text-[16px]',
+      'lg:leading-[40px]'
+    ),
+    heroHeadText: classNames(
+      'font-black',
+      'text-primary-dark',
+      'dark:text-primary-light',
+      'lg:text-[80px]',
+      'sm:text-[60px]',
+      'xs:text-[50px]',
+      'text-[40px]',
+      'lg:leading-[98px]',
+      'mt-2'
+    ),
   },
   scrollIndicator: {
     container: classNames(
@@ -517,10 +538,7 @@ export const heroStyles = {
       'mb-1'
     )
   },
-  heroHeadText: classNames(
-    'text-primary-dark',
-    'dark:text-primary-light'
-  )
+
 };
 
 /* --------------------------------------------------------------------------
@@ -665,7 +683,6 @@ export const contactStyles = {
     'block',
     'w-full',
     'rounded-md',
-    // `bg-white dark:bg-[${colors.darkBg.primary}]`,
     'bg-background-primary-light',
     'dark:bg-transparent',
     'border',
@@ -723,8 +740,9 @@ export const contactStyles = {
     'rounded-2xl',
     'relative',
     'z-10',
-    'bg-background-tertiary-light',
-    'dark:bg-background-tertiary-dark'
+    // ? background color of the form
+    // 'bg-background-tertiary-light',
+    // 'dark:bg-background-tertiary-dark'
   ),
   contactForm: classNames(
     'mx-auto',
@@ -844,8 +862,8 @@ export const footerStyles = {
   ),
   copyrightText: classNames(
     'text-sm',
-    'text-tertiary-light',
-    'dark:text-tertiary-dark'
+    'text-primary-dark',
+    'dark:text-primary-light'
   ),
   contactCard: {
     container: classNames(
@@ -853,8 +871,10 @@ export const footerStyles = {
       'p-10',
       'transition-all',
       'duration-300',
+      
       'bg-background-primary-light',
       'dark:bg-background-primary-dark',
+
       'text-primary-dark',
       'dark:text-primary-light'
     ),
@@ -923,27 +943,6 @@ export const defaultSectionStyles = {
     'px-6',
     'sm:py-16',
     'py-10'
-  ),
-  heroHeadText: classNames(
-    'font-black',
-    'text-primary-dark',
-    'dark:text-primary-light',
-    'lg:text-[80px]',
-    'sm:text-[60px]',
-    'xs:text-[50px]',
-    'text-[40px]',
-    'lg:leading-[98px]',
-    'mt-2'
-  ),
-  heroSubText: classNames(
-    'text-secondary-dark',
-    'dark:text-secondary-light',
-    'font-medium',
-    'lg:text-[30px]',
-    'sm:text-[26px]',
-    'xs:text-[20px]',
-    'text-[16px]',
-    'lg:leading-[40px]'
   ),
   sectionHeadText: classNames(
     'text-primary-dark',
