@@ -106,18 +106,6 @@ export const experiences = [
       "Rapidly identify your new mineral deposits under human supervision for best accuracy."
     ]
   },
-  // {
-  //   title: "Consulting Powered AI",
-  //   sub_title: "Expert AI Consulting & Geoscience Integration",
-  //   icon: null,
-  //   iconBg: "#B87333", // Copper
-  //   date: "",
-  //   points: [
-  //     "Unlock AI's true potential with consulting that merges deep geoscience expertise with advanced analytics.",
-  //     "Get tailored strategies to implement machine learning that revolutionizes your data interpretation.",
-  //     "Leverage bespoke AI solutions designed to overcome your unique geological challenges and drive success."
-  //   ],
-  // },
   {
     title: "Autonomous Solution for Deposit Descovery",
     // sub_title: "Intelligent Automation",
