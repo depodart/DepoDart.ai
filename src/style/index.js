@@ -890,8 +890,8 @@ export const defaultSectionStyles = {
   ),
   heroHeadText: classNames(
     'font-black',
-    'text-primary-light',
-    'dark:text-primary-dark',
+    'text-primary-dark',
+    'dark:text-primary-light',
     'lg:text-[80px]',
     'sm:text-[60px]',
     'xs:text-[50px]',
@@ -900,8 +900,8 @@ export const defaultSectionStyles = {
     'mt-2'
   ),
   heroSubText: classNames(
-    'text-secondary-light',
-    'dark:text-secondary-dark',
+    'text-secondary-dark',
+    'dark:text-secondary-light',
     'font-medium',
     'lg:text-[30px]',
     'sm:text-[26px]',
@@ -910,8 +910,8 @@ export const defaultSectionStyles = {
     'lg:leading-[40px]'
   ),
   sectionHeadText: classNames(
-    'text-primheroary-light',
-    'dark:text-primary-dark',
+    'text-primary-dark',
+    'dark:text-primary-light',
     'font-black',
     'md:text-[60px]',
     'sm:text-[50px]',
@@ -921,8 +921,8 @@ export const defaultSectionStyles = {
   sectionSubText: classNames(
     'sm:text-[18px]',
     'text-[14px]',
-    'text-secondary-light',
-    'dark:text-secondary-dark',
+    'text-secondary-dark',
+    'dark:text-secondary-light',
     'uppercase',
     'tracking-wider'
   )
