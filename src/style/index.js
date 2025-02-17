@@ -698,8 +698,8 @@ export const contactStyles = {
     'rounded-2xl',
     'relative',
     'z-10',
-    'bg-background-secondary-light',
-    'dark:bg-background-secondary-dark'
+    'bg-background-tertiary-light',
+    'dark:bg-background-tertiary-dark'
   ),
   contactForm: classNames(
     'mx-auto',
