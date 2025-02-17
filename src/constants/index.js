@@ -30,7 +30,7 @@ export const navLinks = [
 
 //! About Text
 export const ABOUT_TEXT = {
-  sectionSubText: "Introduction",
+  sectionSubText: "",
   sectionHeadText: "Overview",
   overview: "At DepoDart, we collect and process large geological, geophysical, remote sensing, satellite and geochemical datasets to identify rare mineral deposits through specialized AI models. Our big data-driven model can be continuously retrained, integrating local data from the area of interest to refine predictions and adapt to its unique geological characteristics."
 };
@@ -88,7 +88,7 @@ export const services = [
 
 //! Experience Text
 export const EXPERIENCE_TEXT = {
-  sectionSubText: "Every mapping project is a unique discovery journey",
+  sectionSubText: "Put a slogan here",
   sectionHeadText: "OUR SERVICES"
 };
 
@@ -110,7 +110,7 @@ export const experiences = [
     title: "Autonomous Solution for Deposit Descovery",
     // sub_title: "Intelligent Automation",
     icon: null,
-    iconBg: "#A27B00", // Ruby red
+    iconBg: "#371703", // Ruby red
     date: "",
     points: [
       "Use our AI models yourself by enter your data and generate your predictions.",
@@ -122,7 +122,7 @@ export const experiences = [
     title: "Outsourcing Solutions", 
     // sub_title: "Enterprise AI Integration Services",
     icon: null,
-    iconBg: "#A27B00", // Emerald
+    iconBg: "#371703", // Emerald
     date: "",
     points: [
       "Supercharge your operations with custom AI pipelines engineered for unmatched scalability and precision.",
@@ -134,7 +134,7 @@ export const experiences = [
     title: "Mine Planning & Optimization",
     // sub_title: "Resource Modeling",
     icon: null,
-    iconBg: "#A27B00", // Hematite gray
+    iconBg: "#371703", // Hematite gray
     date: "",
     points: [
       "Evaluate remaining ore reserves in mines to determine economic feasibility.",

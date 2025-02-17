@@ -25,9 +25,9 @@ module.exports = {
         // Background colors
         'background-primary-dark': '#110A07',
         'background-secondary-dark': '#CB540B',
-        'background-tertiary-dark': '#A27B00',
+        'background-tertiary-dark': '#371703',
         'background-primary-light': '#FFFFFF',
-        'indigo-light': '#A27B00',
+        'indigo-light': '#371703',
         // 'bg-background-tertiary-light': '#A27B00',
         // 'dark:bg-background-tertiary-dark': '#A27B00',
 
