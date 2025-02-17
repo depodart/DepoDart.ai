@@ -16,6 +16,7 @@ const App = () => {
         <div className={appStyles.heroSection}>
           <Navbar />
           <Hero />
+          <StarsCanvas />
         </div>
         <About />
         <Experience />
