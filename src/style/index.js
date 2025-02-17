@@ -1,6 +1,7 @@
 // src/style.js
 
 import classNames from 'classnames';
+import { NearestMipMapNearestFilter } from 'three';
 
 //! Theme Configuration
 export const themes = {
@@ -221,26 +222,29 @@ export const loaderProgressTextStyle = {
 export const navbarStyles = {
   nav: classNames(
     'w-full',
-    'flex',
+    'flex', 
     'items-center',
     'py-5',
     'fixed',
     'top-0',
     'z-20',
-    // Background gradient: light uses white; dark uses the dark primary color.
     'bg-gradient-to-b',
     'from-background-primary-light',
-    'via-background-primary-light',
+    'via-background-primary-light', 
     'dark:from-background-primary-dark',
     'dark:via-background-primary-dark',
     'to-transparent',
-    'backdrop-blur-md'
+    'backdrop-blur-md',
+    'text-primary-dark',
+    'dark:text-primary-light',
+    'transition-colors', // Add transition for smooth color changes
+    'duration-300' // Duration of transition
   ),
   container: classNames(
     'w-full',
     'flex',
     'justify-between',
-    'items-center',
+    'items-center', 
     'max-w-7xl',
     'mx-auto'
   ),
@@ -254,8 +258,10 @@ export const navbarStyles = {
     'font-bold',
     'cursor-pointer',
     'flex',
-    'text-primary-light',
-    'dark:text-primary-light'
+    'text-primary-dark',
+    'dark:text-primary-light',
+    'transition-colors', // Add transition
+    'duration-300'
   ),
   desktopNav: classNames(
     'list-none',
@@ -273,19 +279,29 @@ export const navbarStyles = {
   navLink: classNames(
     'text-[18px]',
     'font-medium',
-    'cursor-pointer'
+    'cursor-pointer',
+    'text-primary-dark',
+    'dark:text-primary-light',
+    'transition-colors', // Add transition
+    'duration-300'
   ),
   activeLink: classNames(
-    'text-primary-light',
-    'dark:text-primary-light'
+    'text-secondary-dark', // Changed from indigo-medium
+    'dark:text-secondary-light', // Changed from indigo-light
+    'transition-colors',
+    'duration-300'
   ),
   inactiveDesktopLink: classNames(
-    'text-tertiary-light',
-    'dark:text-tertiary-dark'
+    'text-primary-dark',
+    'dark:text-primary-light',
+    'transition-colors',
+    'duration-300'
   ),
   inactiveMobileLink: classNames(
-    'text-secondary-light',
-    'dark:text-secondary-dark'
+    'text-primary-dark',
+    'dark:text-primary-light',
+    'transition-colors',
+    'duration-300'
   ),
   mobileMenuContainer: classNames(
     'sm:hidden',
@@ -302,7 +318,7 @@ export const navbarStyles = {
   ),
   mobileMenuDropdown: classNames(
     'p-6',
-    'black-gradient', // custom class (if needed)
+    'black-gradient',
     'absolute',
     'top-20',
     'right-0',
@@ -311,9 +327,12 @@ export const navbarStyles = {
     'min-w-[140px]',
     'z-10',
     'rounded-xl',
-    // For accent.primary: light uses one color, dark uses another.
-    'bg-indigo-light',
-    'dark:bg-purple'
+    'bg-background-primary-light',
+    'dark:bg-background-primary-dark',
+    'text-primary-dark',
+    'dark:text-primary-light',
+    'transition-colors', // Add transition
+    'duration-300'
   )
 };
 
@@ -591,6 +610,7 @@ export const worksStyles = {
       'cursor-pointer'
     ),
     githubIcon: classNames(
+      'display-none',
       'w-1/2',
       'h-1/2',
       'object-contain'
@@ -613,7 +633,11 @@ export const worksStyles = {
       'flex-wrap',
       'gap-2'
     ),
-    tag: classNames('text-[14px]')
+    tag: classNames(
+      'text-[14px]',
+      'text-primary-dark',
+      'dark:text-primary-light'
+    )
   },
   mainContent: {
     description: classNames(
@@ -796,8 +820,8 @@ export const footerStyles = {
   description: classNames(
     'mt-4',
     'text-base',
-    'text-secondary-light',
-    'dark:text-secondary-dark'
+    'text-secondary-dark',
+    'dark:text-secondary-light'
   ),
   cardsGrid: classNames(
     'grid',
@@ -842,16 +866,28 @@ export const footerStyles = {
       'text-primary-dark',
       'dark:text-primary-light'
     ),
-    default: classNames('bg-background-tertiary-light', 'dark:bg-background-tertiary-dark'),
-    header: classNames('flex', 'items-center', 'gap-3'),
-    icon: classNames('transition-all', 'duration-300', 'text-indigo-light', 'dark:text-indigo-dark'),
+    default: classNames(
+      'bg-background-tertiary-light', 
+      'dark:bg-background-tertiary-dark'
+    ),
+    header: classNames(
+      'flex', 
+      'items-center', 
+      'gap-3'
+    ),
+    icon: classNames(
+      'transition-all', 
+      'duration-300', 
+      'text-primary-dark', 
+      'dark:text-primary-light'
+    ),
     title: classNames(
       'text-base',
       'font-semibold',
       'transition-all',
       'duration-300',
-      'text-indigo-light',
-      'dark:text-indigo-dark'
+      'text-primary-dark', 
+      'dark:text-primary-light'
     ),
     contentList: classNames('mt-3', 'space-y-1', 'text-sm'),
     content: classNames('font-semibold', 'transition-all', 'duration-300'),
@@ -921,8 +957,8 @@ export const defaultSectionStyles = {
   sectionSubText: classNames(
     'sm:text-[18px]',
     'text-[14px]',
-    'text-secondary-dark',
-    'dark:text-secondary-light',
+    'text-primary-dark',
+    'dark:text-primary-light',
     'uppercase',
     'tracking-wider'
   )

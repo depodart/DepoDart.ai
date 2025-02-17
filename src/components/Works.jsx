@@ -28,14 +28,14 @@ const ProjectCard = ({ name, description, tags, image, source_code_link }) => {
             alt="project_image"
             className={worksStyles.projectCard.image}
           />
-          <div className="absolute inset-0 flex justify-end m-3 card-img_hover">
+          {/* <div className="absolute inset-0 flex justify-end m-3 card-img_hover">
             <div
               onClick={() => window.open(source_code_link, "_blank")}
               className={worksStyles.projectCard.githubButton}
             >
               <img src={github} alt="source code" className={worksStyles.projectCard.githubIcon} />
             </div>
-          </div>
+          </div> */}
         </div>
         <div className="mt-5">
           <h3 className={worksStyles.projectCard.title}>{name}</h3>

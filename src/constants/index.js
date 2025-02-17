@@ -160,9 +160,9 @@ export const projects = [
     description:
       "Predicted areas of high-concentration zones for gold, cobalt, and silver in Abitibi region.",
     tags: [
-      { name: "DepoDart", color: "#CB540B" }, //#blue-text-gradient
-      { name: "Geochemical maps", color: "#CB540B" },  //"green-text-gradient"
-      { name: "Geological Modeling", color: "#CB540B" }, //"pink-text-gradient"
+      { name: "DepoDart", color: "" }, //#blue-text-gradient
+      { name: "Geochemical maps", color: "" },  //"green-text-gradient"
+      { name: "Geological Modeling", color: "" }, //"pink-text-gradient"
     ],
     image: "/AG_AU_CU.png",
     source_code_link: "https://github.com/",
@@ -173,9 +173,9 @@ export const projects = [
     description:
       "Create 3D maps of a mineral deposit using geological, geochemical, and geophysical data",
     tags: [
-      { name: "DepoDart", color: "blue-text-gradient" },
-      { name: "3D orebody", color: "green-text-gradient" },
-      { name: "Geochemical maps", color: "pink-text-gradient" },
+      { name: "DepoDart", color: "" },
+      { name: "3D orebody", color: "" },
+      { name: "Geochemical maps", color: "" },
     ],
     image: "/AG_AU_CU.png",
     source_code_link: "https://github.com/",
@@ -185,9 +185,9 @@ export const projects = [
     description:
       "Get a detailed report of your predictions and recommendations for further actions.",
     tags: [
-      { name: "DepoDart", color: "blue-text-gradient" },
-      { name: "Predictive Analytics", color: "green-text-gradient" },
-      { name: "Geological Modeling", color: "pink-text-gradient" },
+      { name: "DepoDart", color: "" },
+      { name: "Predictive Analytics", color: "" },
+      { name: "Geological Modeling", color: "" },
     ],
     image: "/AG_AU_CU.png",
     source_code_link: "https://github.com/",
