@@ -565,8 +565,8 @@ export const worksStyles = {
       'sm:w-[360px]',
       'w-full',
       // background.secondary: light vs. dark
-      'bg-background-secondary-light',
-      'dark:bg-background-secondary-dark'
+      'bg-background-tertiary-light',
+      'dark:bg-background-tertiary-dark'
     ),
     imageContainer: classNames(
       'relative',
