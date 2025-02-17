@@ -14,34 +14,21 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'primary-dark': '#110A07',
-        'secondary-dark': '#CB540B',
+        // Dark theme colors
+        'primary-dark': '#110A07',      // Very dark brown/black
+        'secondary-dark': '#CB540B',    // Burnt orange
+        'tertiary-dark': '#200D02',     // Dark brown
         
-        'tertiary-dark': '#FFC409',
-
-        'primary-light': '#FFFFFF',
-        'secondary-light': '#FFFFFF',
+        // Light theme colors
+        'primary-light': '#FFFFFF',      // White
+        'secondary-light': '#FFFFFF',    // White
+        'tertiary-light': '#FFC409',     // Bright yellow/gold
         
         // Background colors
-        'background-primary-dark': '#110A07',
-        'background-secondary-dark': '#CB540B',
-        'background-tertiary-dark': '#200D02',
-        'background-primary-light': '#FFFFFF',
-        'indigo-light': '#200D02',
-        // 'bg-background-tertiary-light': '#A27B00',
-        // 'dark:bg-background-tertiary-dark': '#A27B00',
-
-        // Text colors
-        'text-primary-dark': '#FFFFFF',
-        'text-secondary-dark': '#FFFFFF',
-        'text-tertiary-dark': '#FFFFFF',
-        'text-primary-light': '#FFFFFF',
-
-        // Common colors
-        'common-primary': '#FFFFFF',
-        // 'common-secondary': '#CB540B',
-        'common-secondary': '#CB540B',
-        'common-tertiary': '#FFC409',
+        'background-primary-light': '#FFFFFF',    // White
+        'background-primary-dark': '#110A07',    // Very dark brown/black
+        'background-secondary-dark': '#CB540B',   // Burnt orange
+        'background-tertiary-dark': '#200D02',    // Dark brown
       },
       boxShadow: {
         card: '0 35px 120px -15px #110A07',

@@ -844,8 +844,8 @@ export const footerStyles = {
   ),
   copyrightText: classNames(
     'text-sm',
-    'text-tertiary-light',
-    'dark:text-tertiary-dark'
+    'text-primary-dark',
+    'dark:text-primary-light'
   ),
   contactCard: {
     container: classNames(
@@ -853,8 +853,10 @@ export const footerStyles = {
       'p-10',
       'transition-all',
       'duration-300',
+      
       'bg-background-primary-light',
       'dark:bg-background-primary-dark',
+
       'text-primary-dark',
       'dark:text-primary-light'
     ),

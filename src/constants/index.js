@@ -97,8 +97,7 @@ export const experiences = [
     title: "New Deposit Discovery Asisted by AI specialists and geologists",
     //sub_title: "Data Scientist & Geologist personal assistance",
     icon: null,
-    iconBg: "#A27B00", // Gold
-    // iconBg: "#FFD700", // Gold
+    iconBg: "#200D02",
     date: "",
     points: [
       "Interact with DepoDart Data Scientists and Geologists to beter understand, process and integrate your data.",
@@ -110,7 +109,7 @@ export const experiences = [
     title: "Autonomous Solution for Deposit Descovery",
     // sub_title: "Intelligent Automation",
     icon: null,
-    iconBg: "#200D02", // Ruby red
+    iconBg: "#200D02", 
     date: "",
     points: [
       "Use our AI models yourself by enter your data and generate your predictions.",
@@ -122,7 +121,7 @@ export const experiences = [
     title: "Outsourcing Solutions", 
     // sub_title: "Enterprise AI Integration Services",
     icon: null,
-    iconBg: "#200D02", // Emerald
+    iconBg: "#200D02",
     date: "",
     points: [
       "Supercharge your operations with custom AI pipelines engineered for unmatched scalability and precision.",
@@ -134,7 +133,7 @@ export const experiences = [
     title: "Mine Planning & Optimization",
     // sub_title: "Resource Modeling",
     icon: null,
-    iconBg: "#200D02", // Hematite gray
+    iconBg: "#200D02",
     date: "",
     points: [
       "Evaluate remaining ore reserves in mines to determine economic feasibility.",
