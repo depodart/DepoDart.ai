@@ -110,7 +110,7 @@ export const experiences = [
     title: "Autonomous Solution for Deposit Descovery",
     // sub_title: "Intelligent Automation",
     icon: null,
-    iconBg: "#371703", // Ruby red
+    iconBg: "#200D02", // Ruby red
     date: "",
     points: [
       "Use our AI models yourself by enter your data and generate your predictions.",
@@ -122,7 +122,7 @@ export const experiences = [
     title: "Outsourcing Solutions", 
     // sub_title: "Enterprise AI Integration Services",
     icon: null,
-    iconBg: "#371703", // Emerald
+    iconBg: "#200D02", // Emerald
     date: "",
     points: [
       "Supercharge your operations with custom AI pipelines engineered for unmatched scalability and precision.",
@@ -134,7 +134,7 @@ export const experiences = [
     title: "Mine Planning & Optimization",
     // sub_title: "Resource Modeling",
     icon: null,
-    iconBg: "#371703", // Hematite gray
+    iconBg: "#200D02", // Hematite gray
     date: "",
     points: [
       "Evaluate remaining ore reserves in mines to determine economic feasibility.",
