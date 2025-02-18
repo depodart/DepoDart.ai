@@ -2,15 +2,6 @@ module.exports = {
   content: ['./src/**/*.{js,jsx}'],
   mode: 'jit',
   darkMode: 'class',
-  safelist: [
-    {
-      pattern: /^(bg|text|border)-\[\#(?:4C2B1C|CB540B|FFC409|FFFFFF)\]$/,
-      variants: ['dark'],
-    },
-    {
-      pattern: /^(bg|text|border)-\[\#(?:4C2B1C|CB540B|FFC409|FFFFFF)\]$/,
-    },
-  ],
   theme: {
     extend: {
       colors: {

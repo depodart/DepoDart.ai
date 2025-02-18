@@ -5,31 +5,31 @@ import { NearestMipMapNearestFilter } from 'three';
 
 //! Theme Configuration
 export const themes = {
-  dark: {
-    colors: {
-      background: {
-        //* Very dark blue-black
-        primary: "#050816",
-        //* Dark blue-purple
-        secondary: "#1d1836",
-        //* Dark slate
-        tertiary: "#232631",
+  colors: {
+    dark: {
+        background: {
+        //* Very dark brown/black
+        primary: "#110A07",
+        //* Burnt orange
+        secondary: "#D23B0C", 
+        //* Dark brown
+        tertiary: "#200D02",
       },
       text: {
-        //* Pure white
-        primary: "#FFFFFF", 
-        //* Off-white
-        secondary: "#F1F1F1",
-        //* Pale purple
-        tertiary: "#dfd9ff",
+        //* White
+        primary: "#FFFFFF",
+        //* White 
+        secondary: "#FFFFFF",
+        //* Bright yellow/gold
+        tertiary: "#FFC409",
       },
-      accent: {
-        //* Bright purple
-        primary: "#915EFF",
-        //* Deep indigo
-        secondary: "#4F46E5",
-        //* Bright indigo
-        tertiary: "#6366F1",
+      emphasis: {
+        //* Very dark brown/black
+        primary: "#110A07",
+        //* Burnt orange
+        secondary: "#D23B0C",
+        //* Dark brown
+        tertiary: "#200D02", 
       },
       special: {
         //* Hot pink
@@ -44,22 +44,10 @@ export const themes = {
         blue: "#007bff",
         //* Bright yellow
         yellow: "#ffc107",
-      },
-      common: {
-        //* Pure white
-        primary: "#FFFFFF",
-        //* Very light gray
-        secondary: "#F1F1F1", 
-        //* Light gray with slight blue tint
-        tertiary: "#E5E7EB",
-        //* Dark blue-gray
-        quaternary: "#1d1836",
-    },
-    }
+      }
   },
   //* Light theme colors
   light: {
-    colors: {
       background: {
         //* Pure white
         primary: "#FFFFFF",
@@ -76,7 +64,7 @@ export const themes = {
         //* Medium gray
         tertiary: "#4B5563",
       },
-      accent: {
+      emphasis: {
         //* Bright indigo
         primary: "#6366F1",
         //* Deep indigo
@@ -100,17 +88,25 @@ export const themes = {
         //* Bright orange
         orange: "#fd7e14",
       },
-      common: {
-        //* Pure white
-        primary: "#FFFFFF",
-        //* Very light gray
-        secondary: "#F1F1F1", 
-        //* Light gray with slight blue tint
-        tertiary: "#E5E7EB",
-        //* Dark blue-gray
-        quaternary: "#1d1836",
-      },
-    }
+    },
+    common: {
+      //* Pure white
+      primary: "#FFFFFF",
+      //* Very light gray
+      secondary: "#F1F1F1", 
+      //* Light gray with slight blue tint
+      tertiary: "#E5E7EB",
+      //* Dark blue-gray
+      quaternary: "#1d1836",
+      purple: "#915EFF",      // Bright purple
+      pink: "#EC4899",        // Bright pink
+      lavender: "#A855F7",    // Bright purple/lavender
+      green: "#00cea8",       // Bright green
+      red: "#ff6b6b",         // Bright red
+      blue: "#007bff",        // Bright blue
+      yellow: "#ffc107",      // Bright yellow
+      orange: "#fd7e14"       // Bright orange
+    },
   }
 };
 
@@ -121,58 +117,6 @@ export const initialTheme = window.matchMedia && window.matchMedia('(prefers-col
 // * themes.light
 // ? themes.light
 // : themes.dark;
-
-
-/* --------------------------------------------------------------------------
-   Colors
--------------------------------------------------------------------------- */
-export const colors = {
-  // Light mode background colors
-  lightBg: {
-    primary: "#FFFFFF",     // Pure white
-    secondary: "#F1F1F1",   // Very light gray
-    tertiary: "#E5E7EB",    // Light gray with slight blue tint
-  },
-
-  // Dark mode background colors  
-  darkBg: {
-    primary: "#050816",     // Very dark blue/black
-    secondary: "#1d1836",   // Dark blue-gray
-    tertiary: "#232631",    // Dark gray-blue
-  },
-
-  // Text colors
-  text: {
-    light: {
-      primary: "#1d1836",   // Dark blue-gray
-      secondary: "#374151", // Medium gray
-      tertiary: "#4B5563",  // Gray
-      quaternary: "#dfd9ff" // Light purple/lavender
-    },
-    dark: {
-      primary: "#FFFFFF",   // Pure white
-      secondary: "#F1F1F1", // Very light gray
-      tertiary: "#dfd9ff"   // Light purple/lavender
-    }
-  },
-
-  // Accent colors
-  accent: {
-    indigo: {
-      light: "#6366F1",     // Bright indigo
-      medium: "#4F46E5",    // Deep indigo  
-      dark: "#4338CA"       // Darker indigo
-    },
-    purple: "#915EFF",      // Bright purple
-    pink: "#EC4899",        // Bright pink
-    lavender: "#A855F7",    // Bright purple/lavender
-    green: "#00cea8",       // Bright green
-    red: "#ff6b6b",         // Bright red
-    blue: "#007bff",        // Bright blue
-    yellow: "#ffc107",      // Bright yellow
-    orange: "#fd7e14"       // Bright orange
-  }
-};
 
 /* --------------------------------------------------------------------------
    App Styles

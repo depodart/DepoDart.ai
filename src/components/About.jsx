@@ -4,7 +4,7 @@ import { Tilt } from 'react-tilt';
 import { services, navLinks, ABOUT_TEXT } from '../constants';
 import { SectionWrapper } from '../hoc';
 import { fadeIn, textVariant } from '../utils/motion';
-import { defaultSectionStyles, aboutStyles, colors } from '../style';
+import { defaultSectionStyles, aboutStyles } from '../style';
 
 const ServiceCard = ({ index, title, description, icon, IconComponent }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -14,13 +14,6 @@ const ServiceCard = ({ index, title, description, icon, IconComponent }) => {
       <motion.div
         variants={fadeIn('right', 'spring', index * 0.5, 0.75)}
         className={`${aboutStyles.serviceCardInner} ${isHovered ? 'animate-border-flow' : ''}`}
-        // style={{
-        //   background: `linear-gradient(${isHovered ? '90deg' : '0deg'}, 
-        //     ${colors.accent.green} 0%, 
-        //     ${colors.accent.yellow} 50%,
-        //     ${colors.accent.red} 100%
-        //   )`
-        // }}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >

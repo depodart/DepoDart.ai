@@ -1,26 +1,29 @@
 import React, { useContext } from "react";
 import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component";
-import { motion } from "framer-motion";
 import "react-vertical-timeline-component/style.min.css";
 import { experiences, EXPERIENCE_TEXT, navLinks } from "../constants";
 import { SectionWrapper } from "../hoc";
-import { textVariant } from "../utils/motion";
-import { experienceStyles, defaultSectionStyles } from "../style";
+import { experienceStyles, defaultSectionStyles, themes } from "../style";
 import { ThemeContext } from "../context/ThemeContext";
 
 
 const ExperienceCard = ({ experience }) => {
-  const { toggleTheme, isDark } = useContext(ThemeContext);
-
+  const { isDark } = useContext(ThemeContext);
   return (
       <VerticalTimelineElement
-        contentStyle={{background: isDark ? '#200D02' : '#D23B0C'}}
+        contentStyle={{
+          background: isDark 
+          ? themes.colors.dark.background.tertiary 
+          : themes.colors.dark.background.secondary
+        }}
         contentArrowStyle={{
           borderRight: "7px solid #E5E7EB",
-          color: isDark ? '#1d1836' : '#D23B0C'
+          color: isDark 
+          ? themes.colors.dark.background.secondary 
+          : themes.colors.dark.background.secondary
         }}
         date={experience.date}
-        iconStyle={{ background: isDark ? '#200D02' : '#D23B0C' }}
+        iconStyle={{ background: isDark ? themes.colors.dark.background.tertiary : themes.colors.dark.background.secondary }}
         icon={
         experience.icon && (
           <div className={experienceStyles.icon.iconContainer}
