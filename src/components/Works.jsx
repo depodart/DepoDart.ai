@@ -45,17 +45,15 @@ const Works = () => {
   return (
     <>
       <motion.div variants={textVariant()}>
-        <h2 className={defaultSectionStyles.sectionHeadText}>
+        <h2 className={`
+          ${defaultSectionStyles.sectionHeadText} 
+          ${worksStyles.text.mainContent.h2}`
+        }>
           {WORKS_TEXT.sectionHeading}
         </h2>
       </motion.div>
       <div className="w-full flex">
-        <motion.p
-          variants={fadeIn("", "", 0.1)}
-          className={worksStyles.mainContent.description}
-        >
-          {WORKS_TEXT.description}
-        </motion.p>
+          <p className={worksStyles.text.mainContent.p}>{WORKS_TEXT.description}</p>
       </div>
       <div className={worksStyles.mainContent.projectsGrid}>
         {projects.map((project, index) => (

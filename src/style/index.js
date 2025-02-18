@@ -322,9 +322,18 @@ export const aboutStyles = {
     default: classNames( 'dark:text-primary-light')
   },
   text: {
+    sectionHeadText: {
+      title: classNames(
+        'uppercase',
+        'text-center'
+      ),
+    subtext: classNames(
+      'text-center'
+    ),
+  },
     title: {
       base: classNames(
-        'text-[18px]',
+      'text-[18px]',
       'font-bold',
       'text-center',
       'transition-all',
@@ -504,6 +513,15 @@ export const experienceStyles = {
     ),
   },
   text: {
+    mainTitle:{
+      h2: classNames(
+        'uppercase',
+        'text-center'
+      ),
+      p: classNames(
+        'text-center'
+      )
+    },
     cardTitle: classNames(
       'text-[24px]',
       'font-bold',
@@ -544,6 +562,39 @@ export const experienceStyles = {
    Works Styles
 -------------------------------------------------------------------------- */
 export const worksStyles = {
+  text: {
+    mainContent: {
+      h2: classNames(
+        'uppercase',
+        'text-center'
+    ),
+    p: classNames(
+        // 'text-center',
+        'mt-3',
+        // 'text-[17px]',
+        // 'max-w-3xl',
+        // 'leading-[30px]',
+        'text-primary-dark',
+        'dark:text-primary-light'
+      )
+    },
+  },
+  mainContent: {
+    description: classNames(
+      'mt-3',
+      'text-[17px]',
+      'max-w-3xl',
+      'leading-[30px]',
+      'text-primary-dark',
+      'dark:text-primary-light'
+    ),
+    projectsGrid: classNames(
+      'mt-20',
+      'flex',
+      'flex-wrap',
+      'gap-7'
+    )
+  },
   projectCard: {
     wrapper: classNames(
       'p-5',
@@ -605,22 +656,6 @@ export const worksStyles = {
       'dark:text-primary-light'
     )
   },
-  mainContent: {
-    description: classNames(
-      'mt-3',
-      'text-[17px]',
-      'max-w-3xl',
-      'leading-[30px]',
-      'text-primary-dark',
-      'dark:text-primary-light'
-    ),
-    projectsGrid: classNames(
-      'mt-20',
-      'flex',
-      'flex-wrap',
-      'gap-7'
-    )
-  }
 };
 
 /* --------------------------------------------------------------------------

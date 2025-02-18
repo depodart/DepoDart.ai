@@ -48,10 +48,10 @@ const About = () => {
   return (
     <>
       <motion.div variants={textVariant()}>
-        <p className={`${defaultSectionStyles.sectionSubText} text-center`}>
+        <p className={`${defaultSectionStyles.sectionSubText} ${aboutStyles.text.subtext} text-center`}>
           {ABOUT_TEXT.sectionSubText}
         </p>
-        <h2 className={`${defaultSectionStyles.sectionHeadText} text-center`}>
+        <h2 className={`${defaultSectionStyles.sectionHeadText} ${aboutStyles.text.sectionHeadText.title} text-center`}>
           {ABOUT_TEXT.sectionHeadText}
         </h2>
       </motion.div>

@@ -19,7 +19,7 @@ export const navLinks = [
   },
   {
     id: "experience",
-    title: "Research", 
+    title: "Services", 
   },
   {
     id: "contact",
@@ -87,7 +87,7 @@ export const services = [
 
 //! Experience Text
 export const EXPERIENCE_TEXT = {
-  sectionSubText: "Put a slogan here",
+  sectionSubText: "", // TODO: Add a slogan here
   sectionHeadText: "OUR SERVICES"
 };
 

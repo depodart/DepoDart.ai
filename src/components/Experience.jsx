@@ -52,10 +52,16 @@ const ExperienceCard = memo(({ experience }) => {
 const Experience = () => {
   return (
     <>
-      <p className={`${defaultSectionStyles.sectionSubText} text-center`}>
+      <p className={`
+        ${defaultSectionStyles.sectionSubText} 
+        ${experienceStyles.text.mainTitle.p}
+        `}>
         {EXPERIENCE_TEXT.sectionSubText}
       </p>
-      <h2 className={`${defaultSectionStyles.sectionHeadText} text-center`}>
+      <h2 className={`
+        ${defaultSectionStyles.sectionHeadText} 
+        ${experienceStyles.text.mainTitle.h2}`
+      }>
         {EXPERIENCE_TEXT.sectionHeadText}
       </h2>
 
