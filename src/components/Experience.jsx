@@ -1,4 +1,5 @@
-import React, { useContext } from "react";
+// Experience.jsx
+import React, { memo, useContext } from "react";
 import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import { experiences, EXPERIENCE_TEXT, navLinks } from "../constants";
@@ -6,32 +7,23 @@ import { SectionWrapper } from "../hoc";
 import { experienceStyles, defaultSectionStyles, themes } from "../style";
 import { ThemeContext } from "../context/ThemeContext";
 
-
-const ExperienceCard = ({ experience }) => {
+const ExperienceCard = memo(({ experience }) => {
   const { isDark } = useContext(ThemeContext);
+  const backgroundColor = isDark
+    ? themes.colors.dark.background.tertiary
+    : themes.colors.dark.background.secondary;
+
   return (
-      <VerticalTimelineElement
-        contentStyle={{
-          background: isDark 
-          ? themes.colors.dark.background.tertiary 
-          : themes.colors.dark.background.secondary
-        }}
-        contentArrowStyle={{
-          borderRight: "7px solid #E5E7EB",
-          color: isDark 
-          ? themes.colors.dark.background.secondary 
-          : themes.colors.dark.background.secondary
-        }}
-        date={experience.date}
-        iconStyle={{ background: isDark 
-          ? themes.colors.dark.background.tertiary 
-          : themes.colors.dark.background.secondary 
-        }}
-        icon={
+    <VerticalTimelineElement
+      contentStyle={{ background: backgroundColor }}
+      contentArrowStyle={{
+        borderRight: "7px solid #E5E7EB",
+      }}
+      date={experience.date}
+      iconStyle={{ background: backgroundColor }}
+      icon={
         experience.icon && (
-          <div 
-          className={experienceStyles.icon.iconContainer}
-            >
+          <div className={experienceStyles.icon.iconContainer}>
             <img
               src={experience.icon}
               alt={experience.sub_title}
@@ -43,9 +35,7 @@ const ExperienceCard = ({ experience }) => {
     >
       <div>
         <h3 className={experienceStyles.text.cardTitle}>{experience.title}</h3>
-        <p className={experienceStyles.text.cardSubtitle.className}>
-          {experience.sub_title}
-        </p>
+        <p className={experienceStyles.text.cardSubtitle}>{experience.sub_title}</p>
       </div>
 
       <ul className={experienceStyles.pointsList}>
@@ -57,19 +47,17 @@ const ExperienceCard = ({ experience }) => {
       </ul>
     </VerticalTimelineElement>
   );
-};
+});
 
 const Experience = () => {
   return (
     <>
-      {/* <motion.div variants={textVariant()}> */}
-        <p className={`${defaultSectionStyles.sectionSubText} text-center`}>
-          {EXPERIENCE_TEXT.sectionSubText}
-        </p>
-        <h2 className={`${defaultSectionStyles.sectionHeadText} text-center`}>
-          {EXPERIENCE_TEXT.sectionHeadText}
-        </h2>
-      {/* </motion.div> */}
+      <p className={`${defaultSectionStyles.sectionSubText} text-center`}>
+        {EXPERIENCE_TEXT.sectionSubText}
+      </p>
+      <h2 className={`${defaultSectionStyles.sectionHeadText} text-center`}>
+        {EXPERIENCE_TEXT.sectionHeadText}
+      </h2>
 
       <div className={experienceStyles.timelineContainer}>
         <VerticalTimeline>

@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+// Footer.jsx
+import React, { memo } from "react";
 import { SectionWrapper } from "../hoc";
 import { FOOTER_TEXT } from "../constants";
 import { EnvelopeIcon, PhoneIcon, MapPinIcon } from "@heroicons/react/24/outline";
@@ -17,21 +18,15 @@ export const FOOTER_CONTACT_SECTIONS = [
   },
   {
     icon: <MapPinIcon className="h-6 w-6" />,
-    title: "ADDRESS", 
-    content: `${FOOTER_TEXT.address.city}, ${FOOTER_TEXT.address.province}, ${FOOTER_TEXT.address.street}`
+    title: "ADDRESS",
+    content: `${FOOTER_TEXT.address.city}, ${FOOTER_TEXT.address.province}, ${FOOTER_TEXT.address.street}`,
   },
 ];
 
-const ContactCard = ({ title, content, icon }) => {
-  const [isHovered, setIsHovered] = useState(false);
-
+const ContactCard = memo(({ title, content, icon }) => {
   return (
-    <div 
-      className={`${footerStyles.contactCard.container} ${
-        isHovered ? footerStyles.contactCard.hovered : footerStyles.contactCard.default
-      }`}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+    <div
+      className={`${footerStyles.contactCard.container} ${footerStyles.contactCard.default}`}
     >
       <div className={footerStyles.contactCard.header}>
         <span className={footerStyles.contactCard.icon}>{icon}</span>
@@ -41,11 +36,7 @@ const ContactCard = ({ title, content, icon }) => {
         <div>
           <dt className="sr-only">{title}</dt>
           <dd>
-            <p className={`${footerStyles.contactCard.content} ${
-              isHovered
-                ? footerStyles.contactCard.contentHovered
-                : footerStyles.contactCard.contentDefault
-            }`}>
+            <p className={`${footerStyles.contactCard.content} ${footerStyles.contactCard.contentDefault}`}>
               {content || ""}
             </p>
           </dd>
@@ -53,7 +44,7 @@ const ContactCard = ({ title, content, icon }) => {
       </dl>
     </div>
   );
-};
+});
 
 const Footer = () => {
   return (

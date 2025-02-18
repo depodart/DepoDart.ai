@@ -1,4 +1,5 @@
-import React, { Suspense } from "react";
+// Hero.jsx
+import React, { Suspense, memo } from "react";
 import { motion } from "framer-motion";
 import Typewriter from "typewriter-effect";
 import GlobeComponentCanvas from "./canvas/GlobeComponent";
@@ -16,25 +17,24 @@ const Hero = () => {
             <div className={heroStyles.leftDecoration.line} />
           </div>
           <div>
-            <h1 className={`${heroStyles.textContent.heroHeadText}`}>
+            <h1 className={heroStyles.textContent.heroHeadText}>
               {HERO_TEXT.brandName.first}
               <span className={heroStyles.textContent.brandHighlight}>
                 {HERO_TEXT.brandName.second}
               </span>
             </h1>
-            <div className={`${heroStyles.textContent.subtextContainer}`}>
+            <div className={heroStyles.textContent.subtextContainer}>
               <h3>{HERO_TEXT.tagline}</h3>
               <Typewriter
-                  options={{
-                    strings: HERO_TEXT.miningCapabilities,
-                    autoStart: true,
-                    loop: true,
-                    loopCount: Infinity,
-                    deleteSpeed: 30,
-                    delay: 30,
-                    pauseFor: 2000,
-                  }}
-                />
+                options={{
+                  strings: HERO_TEXT.miningCapabilities,
+                  autoStart: true,
+                  loop: true,
+                  deleteSpeed: 30,
+                  delay: 30,
+                  pauseFor: 2000,
+                }}
+              />
             </div>
           </div>
         </div>
@@ -59,4 +59,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default memo(Hero);

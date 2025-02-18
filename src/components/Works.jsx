@@ -1,16 +1,13 @@
-import React from "react";
+// Works.jsx
+import React, { memo } from "react";
 import { Tilt } from "react-tilt";
 import { motion } from "framer-motion";
 import { SectionWrapper } from "../hoc";
-import { projects } from "../constants";
+import { projects, WORKS_TEXT } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
 import { worksStyles, defaultSectionStyles } from "../style";
-import { WORKS_TEXT } from "../constants";
 
-
-const ProjectCard = ({ name, description, tags, image, source_code_link }) => {
-
-
+const ProjectCard = memo(({ name, description, tags, image, source_code_link }) => {
   return (
     <motion.div variants={fadeIn("up", "spring")}>
       <Tilt
@@ -24,7 +21,7 @@ const ProjectCard = ({ name, description, tags, image, source_code_link }) => {
         <div className={worksStyles.projectCard.imageContainer}>
           <img
             src={image}
-            alt="project_image"
+            alt={name}
             className={worksStyles.projectCard.image}
           />
         </div>
@@ -42,17 +39,21 @@ const ProjectCard = ({ name, description, tags, image, source_code_link }) => {
       </Tilt>
     </motion.div>
   );
-};
+});
 
-  const Works = () => {
-
+const Works = () => {
   return (
     <>
       <motion.div variants={textVariant()}>
-        <h2 className={`${defaultSectionStyles.sectionHeadText}`}>{WORKS_TEXT.sectionHeading}</h2>
+        <h2 className={defaultSectionStyles.sectionHeadText}>
+          {WORKS_TEXT.sectionHeading}
+        </h2>
       </motion.div>
       <div className="w-full flex">
-        <motion.p variants={fadeIn("", "", 0.1)} className={worksStyles.mainContent.description}>
+        <motion.p
+          variants={fadeIn("", "", 0.1)}
+          className={worksStyles.mainContent.description}
+        >
           {WORKS_TEXT.description}
         </motion.p>
       </div>

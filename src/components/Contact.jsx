@@ -1,4 +1,5 @@
-import React, { useState, useRef, useEffect } from "react";
+// Contact.jsx
+import React, { useState, useRef, useEffect, useCallback, memo } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import GlobeElevatedPolygonsCanvas from "./canvas/GlobeElevatedPolygons";
@@ -11,23 +12,41 @@ import { isMobile } from "../utils/screensize";
 
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-const FormInput = ({ label, id, name, type = "text", value, onChange, error, textarea, placeholder }) => {
-  return (
-    <div className={`${name === "firstName" || name === "lastName" ? "" : "sm:col-span-2"}`}>
-      <label htmlFor={id} className={contactStyles.formLabel}>
-        {label}
-      </label>
-      <div className="mt-2.5">
-        {textarea ? (
-          <textarea id={id} name={name} value={value} onChange={onChange} className={contactStyles.formInput} rows={4} placeholder={placeholder} />
-        ) : (
-          <input id={id} name={name} type={type} value={value} onChange={onChange} className={contactStyles.formInput} placeholder={placeholder} />
-        )}
-        {error && <span className={contactStyles.validationError}>{error}</span>}
+const FormInput = memo(
+  ({ label, id, name, type = "text", value, onChange, error, textarea, placeholder }) => {
+    return (
+      <div className={`${name === "firstName" || name === "lastName" ? "" : "sm:col-span-2"}`}>
+        <label htmlFor={id} className={contactStyles.formLabel}>
+          {label}
+        </label>
+        <div className="mt-2.5">
+          {textarea ? (
+            <textarea
+              id={id}
+              name={name}
+              value={value}
+              onChange={onChange}
+              className={contactStyles.formInput}
+              rows={4}
+              placeholder={placeholder}
+            />
+          ) : (
+            <input
+              id={id}
+              name={name}
+              type={type}
+              value={value}
+              onChange={onChange}
+              className={contactStyles.formInput}
+              placeholder={placeholder}
+            />
+          )}
+          {error && <span className={contactStyles.validationError}>{error}</span>}
+        </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+);
 
 const Contact = () => {
   const formRef = useRef();
@@ -42,56 +61,58 @@ const Contact = () => {
       setShowGlobe(!isMobile());
     };
 
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const handleChange = (e) => {
+  const handleChange = useCallback((e) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
-  };
+  }, []);
 
-  const validateForm = () => {
+  const validateForm = useCallback(() => {
     const newErrors = {};
     if (!form.firstName.trim()) newErrors.firstName = CONTACT_TEXT.firstNameError;
     if (!EMAIL_REGEX.test(form.email)) newErrors.email = CONTACT_TEXT.emailError;
     if (!form.agreed) newErrors.agreed = CONTACT_TEXT.agreementError;
     return newErrors;
-  };
-  
+  }, [form]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const validationErrors = validateForm();
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
-      return;
-    }
+  const handleSubmit = useCallback(
+    (e) => {
+      e.preventDefault();
+      const validationErrors = validateForm();
+      if (Object.keys(validationErrors).length > 0) {
+        setErrors(validationErrors);
+        return;
+      }
 
-    setLoading(true);
+      setLoading(true);
 
-    const fullName = `${form.firstName}${form.lastName ? ` ${form.lastName}` : ''}`;
-    const combinedMessage = `Company: ${form.company}\nPhone: ${form.phone}\n\nMessage:\n${form.message}`;
+      const fullName = `${form.firstName}${form.lastName ? ` ${form.lastName}` : ""}`;
+      const combinedMessage = `Company: ${form.company}\nPhone: ${form.phone}\n\nMessage:\n${form.message}`;
 
-    emailjs
-      .send(
-        CONTACT_TEXT.EMAIL_SERVICE_ID,
-        CONTACT_TEXT.EMAIL_TEMPLATE_ID,
-        {
-          from_name: fullName,
-          to_name: CONTACT_TEXT.EMAIL_RECIPIENT_NAME,
-          from_email: form.email,
-          message: combinedMessage
-        },
-        CONTACT_TEXT.EMAIL_PUBLIC_KEY
-      )
-      .then(() => {
-        setForm(INITIAL_FORM_STATE);
-        setConfirmation(CONTACT_TEXT.successMessage);
-      })
-      .catch(() => setConfirmation(CONTACT_TEXT.errorMessage))
-      .finally(() => setLoading(false));
-  };
+      emailjs
+        .send(
+          CONTACT_TEXT.EMAIL_SERVICE_ID,
+          CONTACT_TEXT.EMAIL_TEMPLATE_ID,
+          {
+            from_name: fullName,
+            to_name: CONTACT_TEXT.EMAIL_RECIPIENT_NAME,
+            from_email: form.email,
+            message: combinedMessage,
+          },
+          CONTACT_TEXT.EMAIL_PUBLIC_KEY
+        )
+        .then(() => {
+          setForm(INITIAL_FORM_STATE);
+          setConfirmation(CONTACT_TEXT.successMessage);
+        })
+        .catch(() => setConfirmation(CONTACT_TEXT.errorMessage))
+        .finally(() => setLoading(false));
+    },
+    [form, validateForm]
+  );
 
   return (
     <div className={contactStyles.contactContainer}>
@@ -110,7 +131,7 @@ const Contact = () => {
       <motion.div
         variants={slideIn("left", "tween", 0.2, 1)}
         className={contactStyles.contactFormContainer}
-        style={{ maxWidth: '500px' }}
+        style={{ maxWidth: "500px" }}
       >
         <p className={defaultSectionStyles.sectionSubText}>{CONTACT_TEXT.sectionSubText}</p>
         <h3 className={defaultSectionStyles.sectionHeadText}>{CONTACT_TEXT.sectionHeadText}</h3>
@@ -177,11 +198,13 @@ const Contact = () => {
           </div>
 
           {confirmation && (
-            <p className={
-              confirmation === CONTACT_TEXT.successMessage
-                ? contactStyles.successMessage
-                : contactStyles.errorMessage
-            }>
+            <p
+              className={
+                confirmation === CONTACT_TEXT.successMessage
+                  ? contactStyles.successMessage
+                  : contactStyles.errorMessage
+              }
+            >
               {confirmation}
             </p>
           )}
