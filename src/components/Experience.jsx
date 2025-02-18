@@ -23,10 +23,14 @@ const ExperienceCard = ({ experience }) => {
           : themes.colors.dark.background.secondary
         }}
         date={experience.date}
-        iconStyle={{ background: isDark ? themes.colors.dark.background.tertiary : themes.colors.dark.background.secondary }}
+        iconStyle={{ background: isDark 
+          ? themes.colors.dark.background.tertiary 
+          : themes.colors.dark.background.secondary 
+        }}
         icon={
         experience.icon && (
-          <div className={experienceStyles.icon.iconContainer}
+          <div 
+          className={experienceStyles.icon.iconContainer}
             >
             <img
               src={experience.icon}
