@@ -1,8 +1,7 @@
 import {
-  mathwork,
-  python,
-  mhft,
+  AG_AU_Cu,
 } from "../assets";
+
 import { 
   BeakerIcon,
   CpuChipIcon,
@@ -163,7 +162,7 @@ export const projects = [
       { name: "Geochemical maps", color: "" },  //"green-text-gradient"
       { name: "Geological Modeling", color: "" }, //"pink-text-gradient"
     ],
-    image: "/AG_AU_CU.png",
+    image: AG_AU_Cu,
     source_code_link: "https://github.com/",
   },
  
@@ -176,7 +175,7 @@ export const projects = [
       { name: "3D orebody", color: "" },
       { name: "Geochemical maps", color: "" },
     ],
-    image: "/AG_AU_CU.png",
+    image: AG_AU_Cu,
     source_code_link: "https://github.com/",
   },
   {
@@ -188,7 +187,7 @@ export const projects = [
       { name: "Predictive Analytics", color: "" },
       { name: "Geological Modeling", color: "" },
     ],
-    image: "/AG_AU_CU.png",
+    image: AG_AU_Cu,
     source_code_link: "https://github.com/",
   }
 ];

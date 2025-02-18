@@ -640,7 +640,8 @@ export const contactStyles = {
     'text-base',
     'text-primary-dark',
     'dark:text-primary-light',
-    'placeholder:text-secondary-dark',
+
+    'placeholder:text-secondary-light',
     'dark:placeholder:text-secondary-light'
   ),
   formLabel: classNames(
@@ -648,7 +649,8 @@ export const contactStyles = {
     'text-sm',
     'font-semibold',
     'text-primary-dark',
-    'dark:text-primary-light'
+    'dark:text-primary-light',
+    'hidden'
   ),
   contactContainer: classNames(
     'relative',
@@ -688,9 +690,12 @@ export const contactStyles = {
     'rounded-2xl',
     'relative',
     'z-10',
+    'border-2',
+    'border-secondary-dark',
     // ? background color of the form
     'bg-background-secondary-dark',
     // 'dark:bg-background-tertiary-dark'
+    'dark:bg-transparent'
   ),
   contactForm: classNames(
     'mx-auto',
@@ -706,6 +711,9 @@ export const contactStyles = {
   ),
   submitButtonWrapper: classNames('mt-10'),
   submitButton: classNames(
+    //? Button background color
+    'bg-secondary-light',
+    'dark:bg-secondary-dark',
     'block',
     'w-full',
     'rounded-md',

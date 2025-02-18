@@ -11,7 +11,7 @@ import { isMobile } from "../utils/screensize";
 
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-const FormInput = ({ label, id, name, type = "text", value, onChange, error, textarea }) => {
+const FormInput = ({ label, id, name, type = "text", value, onChange, error, textarea, placeholder }) => {
   return (
     <div className={`${name === "firstName" || name === "lastName" ? "" : "sm:col-span-2"}`}>
       <label htmlFor={id} className={contactStyles.formLabel}>
@@ -19,9 +19,9 @@ const FormInput = ({ label, id, name, type = "text", value, onChange, error, tex
       </label>
       <div className="mt-2.5">
         {textarea ? (
-          <textarea id={id} name={name} value={value} onChange={onChange} className={contactStyles.formInput} rows={4} />
+          <textarea id={id} name={name} value={value} onChange={onChange} className={contactStyles.formInput} rows={4} placeholder={placeholder} />
         ) : (
-          <input id={id} name={name} type={type} value={value} onChange={onChange} className={contactStyles.formInput} />
+          <input id={id} name={name} type={type} value={value} onChange={onChange} className={contactStyles.formInput} placeholder={placeholder} />
         )}
         {error && <span className={contactStyles.validationError}>{error}</span>}
       </div>
@@ -120,6 +120,7 @@ const Contact = () => {
               label={CONTACT_TEXT.firstNameLabel}
               id="first-name"
               name="firstName"
+              placeholder={CONTACT_TEXT.firstNameLabel}
               value={form.firstName}
               onChange={handleChange}
               error={errors.firstName}
@@ -128,6 +129,7 @@ const Contact = () => {
               label={CONTACT_TEXT.lastNameLabel}
               id="last-name"
               name="lastName"
+              placeholder={CONTACT_TEXT.lastNameLabel}
               value={form.lastName}
               onChange={handleChange}
             />
@@ -135,6 +137,7 @@ const Contact = () => {
               label={CONTACT_TEXT.companyLabel}
               id="company"
               name="company"
+              placeholder={CONTACT_TEXT.companyLabel}
               value={form.company}
               onChange={handleChange}
             />
@@ -143,6 +146,7 @@ const Contact = () => {
               id="email"
               name="email"
               type="email"
+              placeholder={CONTACT_TEXT.emailLabel}
               value={form.email}
               onChange={handleChange}
               error={errors.email}
@@ -151,6 +155,7 @@ const Contact = () => {
               label={CONTACT_TEXT.phoneLabel}
               id="phone-number"
               name="phone"
+              placeholder={CONTACT_TEXT.phoneLabel}
               value={form.phone}
               onChange={handleChange}
             />
@@ -158,6 +163,7 @@ const Contact = () => {
               label={CONTACT_TEXT.messageLabel}
               id="message"
               name="message"
+              placeholder={CONTACT_TEXT.messageLabel}
               value={form.message}
               onChange={handleChange}
               textarea={true}
