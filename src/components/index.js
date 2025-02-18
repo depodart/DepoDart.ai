@@ -1,5 +1,4 @@
 import {
-  EarthCanvas,
   StarsCanvas,
 } from "./canvas";
 
@@ -19,6 +18,5 @@ export {
   Works,
   Contact,
   Footer,
-  EarthCanvas,
   StarsCanvas,
 };
