@@ -551,7 +551,7 @@ export const worksStyles = {
       'sm:w-[360px]',
       'w-full',
       // background.secondary: light vs. dark
-      'bg-background-tertiary-light',
+      'bg-background-secondary-dark',
       'dark:bg-background-tertiary-dark'
     ),
     imageContainer: classNames(
@@ -689,7 +689,7 @@ export const contactStyles = {
     'relative',
     'z-10',
     // ? background color of the form
-    // 'bg-background-tertiary-light',
+    'bg-background-secondary-dark',
     // 'dark:bg-background-tertiary-dark'
   ),
   contactForm: classNames(
@@ -799,10 +799,10 @@ export const footerStyles = {
   ),
   bottomSection: classNames(
     'py-8',
+    'text-primary-dark',
+    'dark:text-primary-light',
     'bg-background-primary-light',
     'dark:bg-background-primary-dark',
-    'text-primary-dark',
-    'dark:text-primary-light'
   ),
   copyrightWrapper: classNames(
     'mt-4',
@@ -820,7 +820,7 @@ export const footerStyles = {
       'transition-all',
       'duration-300',
       
-      'bg-background-primary-light',
+      'bg-background-secondary-dark',
       'dark:bg-background-primary-dark',
 
       'text-primary-dark',
