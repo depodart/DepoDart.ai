@@ -109,15 +109,6 @@ export const themes = {
     },
   }
 };
-
-export const initialTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches 
-// * themes.dark 
-? themes.dark 
-: themes.light;
-// * themes.light
-// ? themes.light
-// : themes.dark;
-
 /* --------------------------------------------------------------------------
    App Styles
 -------------------------------------------------------------------------- */
