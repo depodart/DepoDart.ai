@@ -503,14 +503,14 @@ export const experienceStyles = {
       'object-contain'
     ),
   },
-    text: {
+  text: {
     cardTitle: classNames(
       'text-[24px]',
       'font-bold',
       'text-primary-dark',
       'dark:text-primary-light'
     ),
-      cardSubtitle: {
+    cardSubtitle: {
         margin: '0',
         className: classNames(
           'text-[16px]',
