@@ -1,7 +1,7 @@
-import { useEffect, useRef, useState, useMemo } from "react";
+import React, { Suspense, useEffect, useRef, useState, useMemo } from "react";
 import Globe from "react-globe.gl";
 import * as THREE from "three";
-
+import CanvasLoader from "../Loader";
 const GlobeElevatedPolygons = () => {
   const globeRef = useRef();
   const containerRef = useRef();
@@ -97,14 +97,16 @@ const GlobeElevatedPolygons = () => {
       ref={containerRef}
       style={{ width: "800px", height: "800px", background: "transparent" }}
     >
-      <Globe
-        ref={globeRef}
-        width={dimensions.width}
-        height={dimensions.height}
-        globeMaterial={globeMaterial}
-        globeImageUrl="//unpkg.com/three-globe/example/img/earth-blue-marble.jpg"
-        backgroundColor="rgba(0,0,0,0)"
-      />
+      <Suspense fallback={<CanvasLoader />}>
+        <Globe
+          ref={globeRef}
+          width={dimensions.width}
+          height={dimensions.height}
+          globeMaterial={globeMaterial}
+          globeImageUrl="//unpkg.com/three-globe/example/img/earth-blue-marble.jpg"
+          backgroundColor="rgba(0,0,0,0)"
+          />
+      </Suspense>
     </div>
   );
 };

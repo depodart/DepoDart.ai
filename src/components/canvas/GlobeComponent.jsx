@@ -118,7 +118,9 @@ const GlobeComponentCanvas = () => {
       />
         {/* Wrap the GlobeComponent with <Html> so it renders as HTML */}
         <Html fullscreen style={{ pointerEvents: 'none' }}>
+        <Suspense fallback={<CanvasLoader />}>
           <GlobeComponent />
+        </Suspense>
         </Html>
       <Preload all />
     </Canvas>
