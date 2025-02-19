@@ -1,40 +1,35 @@
 // App.jsx
 import React, { Suspense, lazy } from "react";
-import { BrowserRouter } from "react-router-dom";
-import { appStyles } from "./style";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom"; // Import Link and Routes
 
 // Lazy load pages/components not needed at first paint
-const About = lazy(() => import("./pages/spa/About"));
-const Contact = lazy(() => import("./pages/spa/Contact"));
-const Experience = lazy(() => import("./pages/spa/Experience"));
-const Hero = lazy(() => import("./pages/spa/Hero"));
-const Navbar = lazy(() => import("./components/Navbar"));
-// const StarsCanvas = lazy(() => import("./components/canvas/Stars"));
-const Works = lazy(() => import("./pages/spa/Works"));
-const Footer = lazy(() => import("./pages/spa/Footer"));
+const MainSpa = lazy(() => import("./pages/spa/Sap"));
+
 
 const App = () => {
   return (
-    <BrowserRouter
-      basename="/DepoDart.ai"
-      future={{ v7_startTransition: true, v7_relativeSplatPath: true }}
-    >
-      <div className={appStyles.container}>
-        <Suspense fallback={<div>Loading...</div>}>
-          <div className={appStyles.heroSection}>
-            <Navbar />
-            <Hero />
-          </div>
-          <About />
-          <Experience />
-          <Works />
-          <div className={appStyles.contactSection}>
-            <Contact />
-            {/* <StarsCanvas /> */}
-          </div>
-          <Footer />
-        </Suspense>
-      </div>
+    <BrowserRouter basename="/DepoDart.ai" 
+      future={{
+          v7_startTransition: true, 
+          v7_relativeSplatPath: true 
+        }}>  
+      <Routes>
+      <Route index element={<MainSpa />} />
+        {/* 
+            <Route path="about" element={<About />} />
+
+            <Route element={<AuthLayout />}>
+              <Route path="login" element={<Login />} />
+              <Route path="register" element={<Register />} />
+            </Route>
+
+            <Route path="concerts">
+              <Route index element={<ConcertsHome />} />
+              <Route path=":city" element={<City />} />
+              <Route path="trending" element={<Trending />} />
+            </Route> 
+        */}
+      </Routes>
     </BrowserRouter>
   );
 };
