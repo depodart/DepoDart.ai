@@ -1,82 +1,70 @@
 import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { projects } from "../../constants";
-import { fadeIn } from "../../utils/motion";
-import { worksStyles } from "../../style";
 import { useParams } from "react-router-dom";
 
-const ServiceCard = ({ id, name, description, tags, image, onClick, isSelected }) => {
-    return (
-        <motion.div 
-            variants={fadeIn("up", "spring")} 
-            onClick={() => onClick(id)}
-            className={`relative ${isSelected ? 'z-20' : 'z-10'}`}
-        >
-            <div className={`${worksStyles.projectCard.wrapper} cursor-pointer`}>
-                <div className={worksStyles.projectCard.imageContainer}>
-                    <img
-                        src={image}
-                        alt={name}
-                        className={worksStyles.projectCard.image}
-                    />
-                </div>
-                <div className="mt-5">
-                    <h3 className={worksStyles.projectCard.title}>{name}</h3>
-                    <p className={worksStyles.projectCard.description}>{description}</p>
-                </div>
-                <div className={worksStyles.projectCard.tagsContainer}>
-                    {tags.map((tag) => (
-                        <p key={tag.name} className={`${worksStyles.projectCard.tag} ${tag.color}`}>
-                            #{tag.name}
-                        </p>
-                    ))}
-                </div>
+const ServiceDetails = ({ service }) => {
+    if (!service) {
+        return (
+            <div className="flex items-center justify-center h-[400px] bg-background-secondary-dark dark:bg-background-tertiary-dark rounded-lg border-secondary-dark">
+                <p className="text-primary-light">Select a service to view details</p>
             </div>
-        </motion.div>
+        );
+    }
+
+    return (
+        <div className="mb-8 bg-tertiary-dark">
+            <div className="w-full aspect-video rounded-lg overflow-hidden">
+                <img 
+                    src={service.image}
+                    alt={service.name}
+                    className="w-full h-full object-cover"
+                />
+            </div>
+            <h1 className="text-2xl font-bold mt-4 text-secondary-dark dark:text-tertiary-light">
+                {service.name}
+            </h1>
+            <p className="mt-2 text-primary-dark dark:text-primary-light">
+                {service.description}
+            </p>
+            <div className="flex gap-2 mt-4">
+                {service.tags.map((tag) => (
+                    <span key={tag.name} className={`px-2 py-1 rounded  text-primary-light`}>
+                        #{tag.name}
+                    </span>
+                ))}
+            </div>
+        </div>
     );
 };
 
-const ServiceDetail = ({ project, onClose }) => {
+const ServiceCard = ({ project, index, isSelected, onClick }) => {
     return (
-        <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-30"
-            onClick={onClose}
+        <div 
+            onClick={() => onClick(index)}
+            className={`
+                flex gap-4 p-4 rounded-lg cursor-pointer transition-colors duration-200
+                ${isSelected ? 
+                    'bg-background-secondary-dark dark:bg-background-tertiary-dark border-2 border-secondary-dark' : 
+                    'hover:bg-background-secondary-dark hover:dark:bg-background-tertiary-dark'
+                }
+            `}
         >
-            <div className="bg-white dark:bg-gray-800 rounded-lg p-8 max-w-2xl w-full m-4" onClick={e => e.stopPropagation()}>
-                <div className={worksStyles.projectCard.imageContainer}>
-                    <img
-                        src={project.image}
-                        alt={project.name}
-                        className="w-full h-full object-cover rounded-2xl"
-                    />
-                </div>
-
-                <div className="mt-8">
-                    <h2 className={worksStyles.projectCard.title}>{project.name}</h2>
-                    <p className={`${worksStyles.projectCard.description} mt-4`}>
-                        {project.description}
-                    </p>
-                </div>
-
-                <div className={`${worksStyles.projectCard.tagsContainer} mt-6`}>
-                    {project.tags.map((tag) => (
-                        <p key={tag.name} className={`${worksStyles.projectCard.tag} ${tag.color}`}>
-                            #{tag.name}
-                        </p>
-                    ))}
-                </div>
-
-                <button 
-                    onClick={onClose}
-                    className="mt-6 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-                >
-                    Close
-                </button>
+            <div className="w-40 h-24 flex-shrink-0 rounded-lg overflow-hidden">
+                <img 
+                    src={project.image}
+                    alt={project.name}
+                    className="w-full h-full object-cover"
+                />
             </div>
-        </motion.div>
+            <div className="flex flex-col">
+                <h3 className="font-medium text-secondary-dark dark:text-tertiary-light">
+                    {project.name}
+                </h3>
+                <p className="text-sm text-primary-dark dark:text-primary-light line-clamp-2">
+                    {project.description}
+                </p>
+            </div>
+        </div>
     );
 };
 
@@ -94,33 +82,26 @@ const ServicesPage = () => {
         setSelectedService(projects[id]);
     };
 
-    const handleClose = () => {
-        setSelectedService(null);
-    };
-
     return (
-        <>
-            <div className={worksStyles.mainContent.projectsGrid}>
+        <div className="flex flex-col md:flex-row gap-8">
+            {/* Main Content Area - Takes 2/3 width on desktop */}
+            <div className="md:w-2/3">
+                <ServiceDetails service={selectedService} />
+            </div>
+
+            {/* Sidebar - Takes 1/3 width on desktop */}
+            <div className="md:w-1/3 space-y-4">
                 {projects.map((project, index) => (
                     <ServiceCard
                         key={`project-${index}`}
-                        {...project}
-                        id={index}
-                        onClick={handleServiceClick}
+                        project={project}
+                        index={index}
                         isSelected={selectedService === project}
+                        onClick={handleServiceClick}
                     />
                 ))}
             </div>
-
-            <AnimatePresence>
-                {selectedService && (
-                    <ServiceDetail 
-                        project={selectedService}
-                        onClose={handleClose}
-                    />
-                )}
-            </AnimatePresence>
-        </>
+        </div>
     );
 };
 
