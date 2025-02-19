@@ -2,21 +2,28 @@
 import React, { memo } from "react";
 import { Tilt } from "react-tilt";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import { SectionWrapper } from "../../hoc";
 import { projects, WORKS_TEXT } from "../../constants";
 import { fadeIn, textVariant } from "../../utils/motion";
 import { worksStyles, defaultSectionStyles } from "../../style";
 
-const ProjectCard = memo(({ name, description, tags, image, source_code_link }) => {
+const ProjectCard = memo(({ id, name, description, tags, image, source_code_link }) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`projects/${id}`);
+  };
+
   return (
-    <motion.div variants={fadeIn("up", "spring")}>
+    <motion.div variants={fadeIn("up", "spring")} onClick={handleClick}>
       <Tilt
         options={{
           max: 45,
           scale: 1,
           speed: 450,
         }}
-        className={worksStyles.projectCard.wrapper}
+        className={`${worksStyles.projectCard.wrapper} cursor-pointer`}
       >
         <div className={worksStyles.projectCard.imageContainer}>
           <img
@@ -53,11 +60,15 @@ const Works = () => {
         </h2>
       </motion.div>
       <div className="w-full flex">
-          <p className={worksStyles.text.mainContent.p}>{WORKS_TEXT.description}</p>
+        <p className={worksStyles.text.mainContent.p}>{WORKS_TEXT.description}</p>
       </div>
       <div className={worksStyles.mainContent.projectsGrid}>
         {projects.map((project, index) => (
-          <ProjectCard key={`project-${index}`} {...project} />
+          <ProjectCard
+            key={`project-${index}`}
+            {...project}
+            id={index}
+          />
         ))}
       </div>
     </>

@@ -1,20 +1,21 @@
 // App.jsx
 import React, { Suspense, lazy } from "react";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom"; // Import Link and Routes
+import { Routes, Route, Link } from "react-router-dom"; // Import Link and Routes
 
 // Lazy load pages/components not needed at first paint
 const MainSpa = lazy(() => import("./pages/spa/Sap"));
+const Footer = lazy(() => import("./components/Footer"));
+const Navbar = lazy(() => import("./components/Navbar"));
 
 
 const App = () => {
   return (
-    <BrowserRouter basename="/DepoDart.ai" 
-      future={{
-          v7_startTransition: true, 
-          v7_relativeSplatPath: true 
-        }}>  
+    <>
+      <Navbar />
       <Routes>
-      <Route index element={<MainSpa />} />
+        <Route index element={<MainSpa />} />
+        <Route path="/" element={<MainSpa />} />
+
         {/* 
             <Route path="about" element={<About />} />
 
@@ -30,8 +31,10 @@ const App = () => {
             </Route> 
         */}
       </Routes>
-    </BrowserRouter>
+      <Footer />
+    </>
   );
 };
 
 export default App;
+

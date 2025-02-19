@@ -1,40 +1,36 @@
 
 // App.jsx
 import React, { Suspense, lazy } from "react";
-import { Routes, Route } from "react-router-dom"; // Import Link and Routes
 import { appStyles } from "../../style";
 
 // Lazy load pages/components not needed at first paint
-const About = lazy(() => import("./About"));
-const Contact = lazy(() => import("./Contact"));
-const Experience = lazy(() => import("./Experience"));
-const Hero = lazy(() => import("./Hero"));
-const Navbar = lazy(() => import("../../components/Navbar"));
+const About = lazy(() => import("./2_About"));
+const Contact = lazy(() => import("./5_Contact"));
+const Experience = lazy(() => import("./3_Experience"));
+const Hero = lazy(() => import("./1_Hero"));
 // const StarsCanvas = lazy(() => import("./components/canvas/Stars"));
-const Works = lazy(() => import("./Works"));
-const Footer = lazy(() => import("./Footer"));
+const Works = lazy(() => import("./4_Works"));
 
 // const ProjectDetail = lazy(() => import("../../routes/works/ProjectDetail"));
 
 const MainSpa = () => {
-  return (
-          <div className={appStyles.container}>
+    return (
+        <div className={appStyles.container}>
             <Suspense fallback={<div>Loading...</div>}>
-              <div className={appStyles.heroSection}>
-                <Navbar />
-                <Hero />
-              </div>
-              <About />
-              <Experience />
-              <Works />
-              <div className={appStyles.contactSection}>
-                <Contact />
-                {/* <StarsCanvas /> */}
-              </div>
-              <Footer />
+                <div className={appStyles.heroSection}>
+                    <Hero />
+                </div>
+                <About />
+                <Experience />
+                <Works />
+                <div className={appStyles.contactSection}>
+                    <Contact />
+                    {/* <StarsCanvas /> */}
+                </div>
+
             </Suspense>
-          </div>
-  );
+        </div>
+    );
 };
 
 export default MainSpa;

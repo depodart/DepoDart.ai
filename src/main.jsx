@@ -6,11 +6,18 @@ import { ThemeProvider } from './context/ThemeContext';
 
 const rootElement = document.getElementById('root');
 const root = createRoot(rootElement);
+import { BrowserRouter } from "react-router-dom"; // Import Link and Routes
 
 root.render(
   <React.StrictMode>
     <ThemeProvider>
-      <App />
+      <BrowserRouter basename="/DepoDart.ai"
+        future={{
+          v7_startTransition: true,
+          v7_relativeSplatPath: true
+        }}>
+        <App />
+      </BrowserRouter>
     </ThemeProvider>
   </React.StrictMode>
 );
