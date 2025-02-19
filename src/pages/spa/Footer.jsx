@@ -1,9 +1,9 @@
 // Footer.jsx
 import React, { memo } from "react";
-import { SectionWrapper } from "../hoc";
-import { FOOTER_TEXT } from "../constants";
+import { SectionWrapper } from "../../hoc";
+import { FOOTER_TEXT } from "../../constants";
 import { EnvelopeIcon, PhoneIcon, MapPinIcon } from "@heroicons/react/24/outline";
-import { defaultSectionStyles, footerStyles } from "../style";
+import { defaultSectionStyles, footerStyles } from "../../style";
 
 export const FOOTER_CONTACT_SECTIONS = [
   {

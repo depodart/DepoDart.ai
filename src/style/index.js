@@ -163,12 +163,10 @@ export const navbarStyles = {
     'fixed',
     'top-0',
     'z-20',
-    'bg-gradient-to-b',
-    'from-background-primary-light',
-    'via-background-primary-light', 
     'dark:from-background-primary-dark',
     'dark:via-background-primary-dark',
     'to-transparent',
+    
     'backdrop-blur-md',
     'text-primary-dark',
     'dark:text-primary-light',
@@ -282,12 +280,13 @@ export const aboutStyles = {
   serviceCardInner: classNames(
     'w-full',
     'p-[1px]',
-    'rounded-[20px]',
-    'shadow-card', 
+    'rounded-3xl',
     'relative',
     'overflow-hidden',
+    // Vialusation of border over overwrites the gradient.
     'bg-gradient-to-r',
     `from-secondary-dark`,
+
     'p-[4px]',
     'transition-all',
     'duration-300',
@@ -301,7 +300,7 @@ export const aboutStyles = {
   serviceCardContent: classNames(
     'bg-background-secondary-light',
     'dark:bg-background-tertiary-dark',
-    'rounded-[20px]',
+    'rounded-3xl',
     'py-5',
     'px-8',
     'h-[280px]',
@@ -569,11 +568,7 @@ export const worksStyles = {
         'text-center'
     ),
     p: classNames(
-        // 'text-center',
         'mt-3',
-        // 'text-[17px]',
-        // 'max-w-3xl',
-        // 'leading-[30px]',
         'text-primary-dark',
         'dark:text-primary-light'
       )
@@ -598,7 +593,7 @@ export const worksStyles = {
   projectCard: {
     wrapper: classNames(
       'p-5',
-      'rounded-2xl',
+      'rounded-3xl',
       'sm:w-[360px]',
       'w-full',
       // background.secondary: light vs. dark
@@ -614,7 +609,7 @@ export const worksStyles = {
       'w-full',
       'h-full',
       'object-cover',
-      'rounded-2xl'
+      'rounded-3xl'
     ),
     githubButton: classNames(
       'black-gradient',
@@ -722,14 +717,14 @@ export const contactStyles = {
   contactFormContainer: classNames(
     'flex-1',
     'p-8',
-    'rounded-2xl',
+    'rounded-3xl',
     'relative',
     'z-10',
     'border-2',
     'border-secondary-dark',
     // ? background color of the form
     'bg-background-secondary-dark',
-    // 'dark:bg-background-tertiary-dark'
+    'dark:bg-background-tertiary-dark',
     'dark:bg-transparent'
   ),
   contactForm: classNames(
@@ -817,7 +812,7 @@ export const footerStyles = {
     'lg:mx-0',
     'lg:max-w-none',
     'divide-tertiary-light',
-    'dark:divide-tertiary-dark'
+    // 'dark:divide-tertiary-dark'
   ),
   gridLayout: classNames(
     'grid',
@@ -858,13 +853,15 @@ export const footerStyles = {
   ),
   contactCard: {
     container: classNames(
-      'rounded-2xl',
+      'rounded-3xl',
       'p-10',
       'transition-all',
       'duration-300',
       
       'bg-background-secondary-dark',
       'dark:bg-background-primary-dark',
+
+
 
       'text-primary-dark',
       'dark:text-primary-light'

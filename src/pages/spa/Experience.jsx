@@ -2,10 +2,10 @@
 import React, { memo, useContext } from "react";
 import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
-import { experiences, EXPERIENCE_TEXT, navLinks } from "../constants";
-import { SectionWrapper } from "../hoc";
-import { experienceStyles, defaultSectionStyles, themes } from "../style";
-import { ThemeContext } from "../context/ThemeContext";
+import { experiences, EXPERIENCE_TEXT, navLinks } from "../../constants";
+import { SectionWrapper } from "../../hoc";
+import { experienceStyles, defaultSectionStyles, themes } from "../../style";
+import { ThemeContext } from "../../context/ThemeContext";
 
 const ExperienceCard = memo(({ experience }) => {
   const { isDark } = useContext(ThemeContext);

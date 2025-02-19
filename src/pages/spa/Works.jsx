@@ -2,10 +2,10 @@
 import React, { memo } from "react";
 import { Tilt } from "react-tilt";
 import { motion } from "framer-motion";
-import { SectionWrapper } from "../hoc";
-import { projects, WORKS_TEXT } from "../constants";
-import { fadeIn, textVariant } from "../utils/motion";
-import { worksStyles, defaultSectionStyles } from "../style";
+import { SectionWrapper } from "../../hoc";
+import { projects, WORKS_TEXT } from "../../constants";
+import { fadeIn, textVariant } from "../../utils/motion";
+import { worksStyles, defaultSectionStyles } from "../../style";
 
 const ProjectCard = memo(({ name, description, tags, image, source_code_link }) => {
   return (

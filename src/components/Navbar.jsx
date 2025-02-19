@@ -1,13 +1,17 @@
 // src/components/Navbar.jsx
-import React, { useContext, useState } from 'react';
+import React, { 
+  // useContext, 
+  useState 
+} from 'react';
 import { Link } from 'react-router-dom';
 import { navbarStyles, defaultSectionStyles } from '../style';
-import { ThemeContext } from '../context/ThemeContext';
+// import { ThemeContext } from '../context/ThemeContext';
 import { menu, close, logo } from '../assets';
 import { navLinks } from '../constants';
 
 const Navbar = () => {
-  const { toggleTheme, isDark } = useContext(ThemeContext);
+  //? Dark mode and light mode toggle button
+  // const { toggleTheme, isDark } = useContext(ThemeContext);
   const [active, setActive] = useState('');
   const [toggle, setToggle] = useState(false);
 
@@ -28,7 +32,8 @@ const Navbar = () => {
           </p>
         </Link>
 
-        <button
+        {/* //? Dark mode and light mode toggle button */}
+        {/* <button
           onClick={toggleTheme}
           className={`ml-4 px-4 py-2 rounded-full transition-colors duration-300 flex items-center gap-2 ${
             isDark 
@@ -51,7 +56,7 @@ const Navbar = () => {
               <span>Dark</span>
             </>
           )}
-        </button>
+        </button> */}
 
         {/* Desktop Navigation */}
         <ul className={navbarStyles.desktopNav}>

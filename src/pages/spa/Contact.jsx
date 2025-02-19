@@ -2,13 +2,13 @@
 import React, { useState, useRef, useEffect, useCallback, memo } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
-import GlobeElevatedPolygonsCanvas from "./canvas/GlobeElevatedPolygons";
-import { SectionWrapper } from "../hoc";
-import { slideIn } from "../utils/motion";
-import "../index.css";
-import { CONTACT_TEXT, INITIAL_FORM_STATE, navLinks } from "../constants";
-import { contactStyles, defaultSectionStyles } from "../style";
-import { isMobile } from "../utils/screensize";
+import GlobeElevatedPolygonsCanvas from "../../components/canvas/GlobeElevatedPolygons";
+import { SectionWrapper } from "../../hoc";
+import { slideIn } from "../../utils/motion";
+import "../../index.css";
+import { CONTACT_TEXT, INITIAL_FORM_STATE, navLinks } from "../../constants";
+import { contactStyles, defaultSectionStyles } from "../../style";
+import { isMobile } from "../../utils/screensize";
 
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 

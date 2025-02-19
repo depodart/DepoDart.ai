@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Tilt } from 'react-tilt';
-import { services, navLinks, ABOUT_TEXT } from '../constants';
-import { SectionWrapper } from '../hoc';
-import { fadeIn, textVariant } from '../utils/motion';
-import { defaultSectionStyles, aboutStyles } from '../style';
+import { services, navLinks, ABOUT_TEXT } from '../../constants';
+import { SectionWrapper } from '../../hoc';
+import { fadeIn, textVariant } from '../../utils/motion';
+import { defaultSectionStyles, aboutStyles } from '../../style';
 
 const ServiceCard = ({ index, title, description, icon, IconComponent }) => {
   const [isHovered, setIsHovered] = useState(false);

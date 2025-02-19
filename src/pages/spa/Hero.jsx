@@ -2,10 +2,10 @@
 import React, { Suspense, memo } from "react";
 import { motion } from "framer-motion";
 import Typewriter from "typewriter-effect";
-import GlobeComponentCanvas from "./canvas/GlobeComponent";
-import CanvasLoader from "./Loader";
-import { HERO_TEXT } from "../constants";
-import { heroStyles, defaultSectionStyles } from "../style";
+import GlobeComponentCanvas from "../../components/canvas/GlobeComponent";
+import CanvasLoader from "../../components/Loader";
+import { HERO_TEXT } from "../../constants";
+import { heroStyles, defaultSectionStyles } from "../../style";
 
 const Hero = () => {
   return (

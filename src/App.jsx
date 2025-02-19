@@ -4,14 +4,14 @@ import { BrowserRouter } from "react-router-dom";
 import { appStyles } from "./style";
 
 // Lazy load pages/components not needed at first paint
-const About = lazy(() => import("./components/About"));
-const Contact = lazy(() => import("./components/Contact"));
-const Experience = lazy(() => import("./components/Experience"));
-const Hero = lazy(() => import("./components/Hero"));
+const About = lazy(() => import("./pages/spa/About"));
+const Contact = lazy(() => import("./pages/spa/Contact"));
+const Experience = lazy(() => import("./pages/spa/Experience"));
+const Hero = lazy(() => import("./pages/spa/Hero"));
 const Navbar = lazy(() => import("./components/Navbar"));
-const StarsCanvas = lazy(() => import("./components/canvas/Stars"));
-const Works = lazy(() => import("./components/Works"));
-const Footer = lazy(() => import("./components/Footer"));
+// const StarsCanvas = lazy(() => import("./components/canvas/Stars"));
+const Works = lazy(() => import("./pages/spa/Works"));
+const Footer = lazy(() => import("./pages/spa/Footer"));
 
 const App = () => {
   return (
