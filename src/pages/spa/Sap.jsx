@@ -9,7 +9,7 @@ const Contact = lazy(() => import("./5_Contact"));
 const Experience = lazy(() => import("./3_Experience"));
 const Hero = lazy(() => import("./1_Hero"));
 // const StarsCanvas = lazy(() => import("./components/canvas/Stars"));
-const Works = lazy(() => import("./4_Works"));
+const Services = lazy(() => import("./4_Services"));
 const Contacts = lazy(() => import("./6_Contacts"));
 // const ProjectDetail = lazy(() => import("../../routes/works/ProjectDetail"));
 
@@ -22,7 +22,7 @@ const MainSpa = () => {
                 </div>
                 <About />
                 <Experience />
-                <Works />
+                <Services />
                 <div className={appStyles.contactSection}>
                     <Contact />
                     {/* <StarsCanvas /> */}

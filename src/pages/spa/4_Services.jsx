@@ -8,11 +8,11 @@ import { projects, WORKS_TEXT } from "../../constants";
 import { fadeIn, textVariant } from "../../utils/motion";
 import { worksStyles, defaultSectionStyles } from "../../style";
 
-const ProjectCard = memo(({ id, name, description, tags, image, source_code_link }) => {
+const ServiceCard = memo(({ id, name, description, tags, image, source_code_link }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(`projects/${id}`);
+    navigate(`/services/${id}`);
   };
 
   return (
@@ -48,7 +48,7 @@ const ProjectCard = memo(({ id, name, description, tags, image, source_code_link
   );
 });
 
-const Works = () => {
+const Services = () => {
   return (
     <>
       <motion.div variants={textVariant()}>
@@ -64,7 +64,7 @@ const Works = () => {
       </div>
       <div className={worksStyles.mainContent.projectsGrid}>
         {projects.map((project, index) => (
-          <ProjectCard
+          <ServiceCard
             key={`project-${index}`}
             {...project}
             id={index}
@@ -75,4 +75,4 @@ const Works = () => {
   );
 };
 
-export default SectionWrapper(Works, "");
+export default SectionWrapper(Services, "");
