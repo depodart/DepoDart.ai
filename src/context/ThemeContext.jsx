@@ -4,11 +4,15 @@ import React, { createContext, useState, useEffect } from 'react';
 export const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-  const [isDark, setIsDark] = useState(() =>
-    localStorage.getItem('isDark')
-      ? JSON.parse(localStorage.getItem('isDark'))
-      : window.matchMedia('(prefers-color-scheme: dark)').matches
-  );
+
+  // Todo: Remove this once we have a way to persist the theme(Dark mode and light mode) 
+  // const [isDark, setIsDark] = useState(() =>
+  //   localStorage.getItem('isDark')
+  //     ? JSON.parse(localStorage.getItem('isDark'))
+  //     : window.matchMedia('(prefers-color-scheme: dark)').matches
+  // );
+  // Always set isDark to true
+  const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
     localStorage.setItem('isDark', JSON.stringify(isDark));
