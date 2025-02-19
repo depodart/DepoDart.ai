@@ -4,7 +4,6 @@ import { Routes, Route, Link } from "react-router-dom"; // Import Link and Route
 
 // Lazy load pages/components not needed at first paint
 const MainSpa = lazy(() => import("./pages/spa/Sap"));
-const Footer = lazy(() => import("./components/Footer"));
 const Navbar = lazy(() => import("./components/Navbar"));
 
 
@@ -31,7 +30,7 @@ const App = () => {
             </Route> 
         */}
       </Routes>
-      <Footer />
+
     </>
   );
 };

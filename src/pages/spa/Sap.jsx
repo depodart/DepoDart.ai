@@ -10,7 +10,7 @@ const Experience = lazy(() => import("./3_Experience"));
 const Hero = lazy(() => import("./1_Hero"));
 // const StarsCanvas = lazy(() => import("./components/canvas/Stars"));
 const Works = lazy(() => import("./4_Works"));
-
+const Contacts = lazy(() => import("./6_Contacts"));
 // const ProjectDetail = lazy(() => import("../../routes/works/ProjectDetail"));
 
 const MainSpa = () => {
@@ -27,7 +27,7 @@ const MainSpa = () => {
                     <Contact />
                     {/* <StarsCanvas /> */}
                 </div>
-
+                <Contacts />
             </Suspense>
         </div>
     );
