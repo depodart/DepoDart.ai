@@ -6,7 +6,14 @@ import {
   BeakerIcon,
   CpuChipIcon,
   ClockIcon, 
-} from '@heroicons/react/24/outline'
+  CurrencyDollarIcon,
+  CursorArrowRaysIcon,
+} from '@heroicons/react/24/outline';
+
+import {
+  IconShovel,
+  IconZoomExclamation,
+}  from "@tabler/icons-react";
 
 
 
@@ -61,25 +68,25 @@ export const services = [
   { 
     title: "Potential Deposits Identification",
     icon: null,
-    IconComponent: CpuChipIcon,
+    IconComponent: CursorArrowRaysIcon,
     description: ""
   },
   { 
     title: "Exploration Cost Reduction",
     icon: null,
-    IconComponent: ClockIcon,
+    IconComponent: CurrencyDollarIcon,
     description: ""
   },
   { 
     title: "Mineral Resource & Reserve Evaluation",
     icon: null,
-    IconComponent: BeakerIcon,
+    IconComponent: IconZoomExclamation,
     description: ""
   },
   { 
     title: "Data Collection & Integration",
     icon: null,
-    IconComponent: BeakerIcon,
+    IconComponent: IconShovel,
     description: ""
   },
 ];
