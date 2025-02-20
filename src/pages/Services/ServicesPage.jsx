@@ -1,34 +1,35 @@
 import React, { useState, useEffect } from "react";
 import { projects } from "../../constants";
 import { useParams } from "react-router-dom";
+import { servicesStyles } from "../../style";
 
 const ServiceDetails = ({ service }) => {
     if (!service) {
         return (
-            <div className="flex items-center justify-center h-[400px] bg-background-secondary-dark dark:bg-background-tertiary-dark rounded-lg border-secondary-dark">
-                <p className="text-primary-light">Select a service to view details</p>
+            <div className={servicesStyles.emptyStateContainer}>
+                <p className={servicesStyles.emptyStateText}>Select a service to view details</p>
             </div>
         );
     }
 
     return (
-        <div className="mb-8 bg-tertiary-dark">
-            <div className="w-full aspect-video rounded-lg overflow-hidden">
+        <div className={servicesStyles.detailsContainer}>
+            <div className={servicesStyles.imageContainer}>
                 <img 
                     src={service.image}
                     alt={service.name}
-                    className="w-full h-full object-cover"
+                    className={servicesStyles.image}
                 />
             </div>
-            <h1 className="text-2xl font-bold mt-4 text-secondary-dark dark:text-tertiary-light">
+            <h1 className={servicesStyles.title}>
                 {service.name}
             </h1>
-            <p className="mt-2 text-primary-dark dark:text-primary-light">
+            <p className={servicesStyles.description}>
                 {service.description}
             </p>
-            <div className="flex gap-2 mt-4">
+            <div className={servicesStyles.tagsContainer}>
                 {service.tags.map((tag) => (
-                    <span key={tag.name} className={`px-2 py-1 rounded  text-primary-light`}>
+                    <span key={tag.name} className={servicesStyles.tag}>
                         #{tag.name}
                     </span>
                 ))}
@@ -41,26 +42,20 @@ const ServiceCard = ({ project, index, isSelected, onClick }) => {
     return (
         <div 
             onClick={() => onClick(index)}
-            className={`
-                flex gap-4 p-4 rounded-lg cursor-pointer transition-colors duration-200
-                ${isSelected ? 
-                    'bg-background-secondary-dark dark:bg-background-tertiary-dark border-2 border-secondary-dark' : 
-                    'hover:bg-background-secondary-dark hover:dark:bg-background-tertiary-dark'
-                }
-            `}
+            className={servicesStyles.serviceCard.container(isSelected)}
         >
-            <div className="w-40 h-24 flex-shrink-0 rounded-lg overflow-hidden">
+            <div className={servicesStyles.serviceCard.imageWrapper}>
                 <img 
                     src={project.image}
                     alt={project.name}
-                    className="w-full h-full object-cover"
+                    className={servicesStyles.serviceCard.image}
                 />
             </div>
-            <div className="flex flex-col">
-                <h3 className="font-medium text-secondary-dark dark:text-tertiary-light">
+            <div className={servicesStyles.serviceCard.contentWrapper}>
+                <h3 className={servicesStyles.serviceCard.title}>
                     {project.name}
                 </h3>
-                <p className="text-sm text-primary-dark dark:text-primary-light line-clamp-2">
+                <p className={servicesStyles.serviceCard.description}>
                     {project.description}
                 </p>
             </div>
@@ -83,14 +78,12 @@ const ServicesPage = () => {
     };
 
     return (
-        <div className="flex flex-col md:flex-row gap-8">
-            {/* Main Content Area - Takes 2/3 width on desktop */}
-            <div className="md:w-2/3">
+        <div className={servicesStyles.pageLayout.container}>
+            <div className={servicesStyles.pageLayout.mainContent}>
                 <ServiceDetails service={selectedService} />
             </div>
 
-            {/* Sidebar - Takes 1/3 width on desktop */}
-            <div className="md:w-1/3 space-y-4">
+            <div className={servicesStyles.pageLayout.sidebar}>
                 {projects.map((project, index) => (
                     <ServiceCard
                         key={`project-${index}`}

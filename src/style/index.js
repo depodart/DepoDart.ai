@@ -560,6 +560,41 @@ export const experienceStyles = {
 /* --------------------------------------------------------------------------
    Works Styles
 -------------------------------------------------------------------------- */
+export const servicesStyles = {
+  emptyStateContainer: "flex items-center justify-center h-[400px] bg-background-secondary-dark dark:bg-background-tertiary-dark rounded-3xl border-secondary-dark",
+  emptyStateText: "text-primary-light",
+  
+  detailsContainer: "rounded-3xl mb-8 bg-background-secondary-dark dark:bg-background-tertiary-dark shadow-secondary-dark border-2 border-secondary-dark",
+  imageContainer: "w-full aspect-video rounded-3xl overflow-hidden",
+  image: "w-full h-full object-cover",
+  title: "text-2xl font-bold mt-4 text-secondary-dark dark:text-tertiary-light",
+  description: "mt-2 text-primary-dark dark:text-primary-light",
+  tagsContainer: "flex gap-2 mt-4",
+  tag: "px-2 py-1 rounded-3xl text-primary-light",
+
+  serviceCard: {
+      container: (isSelected) => `
+          flex gap-4 p-4 rounded-3xl cursor-pointer transition-colors duration-200 dark:bg-background-tertiary-dark
+          ${isSelected ? 
+              ' dark:bg-background-tertiary-dark shadow-[-4px_-4px_0px_0px_rgba(210,59,12,0.3)] shadow-secondary-dark' : 
+              'hover:bg-background-secondary-dark hover:dark:bg-background-tertiary-dark'
+          }
+      `,
+      imageWrapper: "w-40 h-24 flex-shrink-0 rounded overflow-hidden",
+      image: "w-full h-full object-cover",
+      contentWrapper: "flex flex-col",
+      title: "font-medium text-secondary-dark dark:text-tertiary-light",
+      description: "text-sm text-primary-dark dark:text-primary-light line-clamp-2"
+  },
+
+  pageLayout: {
+      container: "flex flex-col md:flex-row gap-8",
+      mainContent: "md:w-2/3",
+      sidebar: "md:w-1/3 space-y-4"
+  }
+};
+
+
 export const worksStyles = {
   text: {
     mainContent: {
