@@ -24,6 +24,17 @@ export const navLinks = {
     {
       id: "home",
       title: "Home",
+      path: "/",
+    },
+    {
+      id: "careers",
+      title: "Careers",
+      path: "/careers",
+    },
+    {
+      id: "services",
+      title: "Services",
+      path: "/services/1",
     },
   ],
   SPA: [
@@ -259,3 +270,41 @@ export const FOOTER_TEXT = {
   copyright: `© ${new Date().getFullYear()} ${import.meta.env.VITE_EMAIL_RECIPIENT_NAME || ""}. All rights reserved.`
 };
 
+
+
+//! Careers
+
+
+export const departments = [
+  { id: 'engineering', name: 'Engineering' },
+  { id: 'data-science', name: 'Data Science' },
+  { id: 'geology', name: 'Geology' },
+  { id: 'operations', name: 'Operations' }
+];
+
+export const careers = [
+  {
+    id: 1,
+    title: 'Senior Machine Learning Engineer',
+    department: 'engineering',
+    location: 'Remote',
+    type: 'Full-time',
+    description: 'We are seeking an experienced Machine Learning Engineer to develop and implement AI models for geological data analysis.'
+  },
+  {
+    id: 2, 
+    title: 'Data Scientist',
+    department: 'data-science',
+    location: 'Hybrid',
+    type: 'Full-time',
+    description: 'Join our data science team to work on cutting-edge predictive models for mineral exploration.'
+  },
+  {
+    id: 3,
+    title: 'Senior Geologist',
+    department: 'geology', 
+    location: 'On-site',
+    type: 'Full-time',
+    description: 'Looking for an experienced geologist to lead field operations and provide domain expertise for our AI systems.'
+  }
+];

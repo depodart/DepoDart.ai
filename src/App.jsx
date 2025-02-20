@@ -7,18 +7,24 @@ import { appStyles } from "./style";
 const MainSpa = lazy(() => import("./pages/spa/Sap"));
 const Navbar = lazy(() => import("./components/Navbar"));
 const ServicesLayout = lazy(() => import("./layouts/ServicesLayout"));
-const ServicesPage = lazy(() => import("./pages/Services/ServicesPage"));
-
-
+const ServicesPage = lazy(() => import("./pages/products/ServicesPage"));
+const CareersLayout = lazy(() => import("./layouts/CareersLayout"));
+const CareersPage = lazy(() => import("./pages/careers/CareersPage"));
 const App = () => {
   return (
     <>
-      <Navbar />
       <div className={`${appStyles.container} top-10`}>
+    <Suspense fallback={<div>Loading...</div>}>
+    
+      <Navbar />
       <Routes>
         <Route index element={<MainSpa />} />
         <Route element={<ServicesLayout />}>
           <Route path="services/:id" element={<ServicesPage />} />
+        </Route>
+
+        <Route element={<CareersLayout />}>
+          <Route path="careers" element={<CareersPage />} />
         </Route>
 
         {/* 
@@ -36,8 +42,8 @@ const App = () => {
             </Route> 
         */}
       </Routes>
+      </Suspense>
       </div>
-
     </>
   );
 };
