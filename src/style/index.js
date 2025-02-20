@@ -576,7 +576,7 @@ export const servicesStyles = {
       container: (isSelected) => `
           flex gap-4 p-4 rounded-3xl cursor-pointer transition-colors duration-200 dark:bg-background-tertiary-dark
           ${isSelected ? 
-              ' dark:bg-background-tertiary-dark shadow-[-4px_-4px_0px_0px_rgba(210,59,12,0.3)] shadow-secondary-dark' : 
+              'dark:bg-background-tertiary-dark shadow-[-4px_-4px_0px_0px_rgba(210,59,12,0.3)] shadow-secondary-dark' : 
               'hover:bg-background-secondary-dark hover:dark:bg-background-tertiary-dark'
           }
       `,
@@ -633,7 +633,9 @@ export const worksStyles = {
       'w-full',
       // background.secondary: light vs. dark
       'bg-background-secondary-dark',
-      'dark:bg-background-tertiary-dark'
+      'dark:bg-background-tertiary-dark',
+      'shadow-[-4px_-4px_4px_0px_rgba(210,59,12,0.6),_-4px_0px_4px_0px_rgba(210,59,12,0.6),_-4px_4px_4px_0px_rgba(210,59,12,0.6)]',
+      'shadow-secondary-dark'
     ),
     imageContainer: classNames(
       'relative',
@@ -896,7 +898,8 @@ export const footerStyles = {
       'bg-background-secondary-dark',
       'dark:bg-background-primary-dark',
 
-
+      'shadow-[-4px_-4px_4px_0px_rgba(210,59,12,0.6),_-4px_0px_4px_0px_rgba(210,59,12,0.6),_-4px_4px_4px_0px_rgba(210,59,12,0.6)]',
+      'shadow-secondary-dark',  
 
       'text-primary-dark',
       'dark:text-primary-light'

@@ -15,7 +15,10 @@ const ExperienceCard = memo(({ experience }) => {
 
   return (
     <VerticalTimelineElement
-      contentStyle={{ background: backgroundColor }}
+      contentStyle={{ 
+        background: backgroundColor,
+        boxShadow: "-4px -4px 4px 0px rgba(210,59,12,0.6), -4px 0px 4px 0px rgba(210,59,12,0.6), -4px 4px 4px 0px rgba(210,59,12,0.6)"
+      }}
       contentArrowStyle={{
         borderRight: "7px solid #E5E7EB",
       }}
