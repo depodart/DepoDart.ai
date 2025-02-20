@@ -60,7 +60,7 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <ul className={navbarStyles.desktopNav}>
-          {navLinks.map(link => (
+          {navLinks?.main?.map(link => (
             <li
               key={link.id}
               className={`${active === link.title ? navbarStyles.activeLink : navbarStyles.inactiveDesktopLink} ${navbarStyles.navLink}`}
@@ -81,7 +81,7 @@ const Navbar = () => {
           />
           <div className={`${!toggle ? 'hidden' : 'flex'} ${navbarStyles.mobileMenuDropdown}`}>
             <ul className={navbarStyles.mobileNav}>
-              {navLinks.map(link => (
+              {navLinks?.main?.map(link => (
                 <li
                   key={link.id}
                   className={`${active === link.title ? navbarStyles.activeLink : navbarStyles.inactiveMobileLink} ${navbarStyles.navLink}`}

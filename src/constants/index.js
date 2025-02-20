@@ -19,20 +19,28 @@ import {
 
 
 //! Nav Links
-export const navLinks = [
-  {
-    id: "about",
-    title: "About",
+export const navLinks = {
+  main: [
+    {
+      id: "home",
+      title: "Home",
+    },
+  ],
+  SPA: [
+    {
+      id: "about",
+      title: "About",
   },
   {
     id: "experience",
     title: "Services", 
   },
   {
-    id: "contact",
-    title: "Contact",
-  },
-];
+      id: "contact",
+      title: "Contact",
+    },
+  ],
+};
 
 //! About Text
 export const ABOUT_TEXT = {
@@ -195,6 +203,7 @@ export const projects = [
       { name: "Geological Modeling", color: "" },
     ],
     image: AG_AU_Cu,
+
     source_code_link: "https://github.com/",
   }
 ];

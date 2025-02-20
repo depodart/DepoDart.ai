@@ -224,4 +224,4 @@ const Contact = () => {
   );
 };
 
-export default SectionWrapper(Contact, navLinks[2].id);
+export default SectionWrapper(Contact, navLinks.SPA[2].id);

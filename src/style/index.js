@@ -268,7 +268,69 @@ export const navbarStyles = {
     'duration-300'
   )
 };
+export const navbarStylesVertical = {
+  floatingNav: classNames(
+    'fixed right-0 top-1/2 -translate-y-1/2', // Center vertically on the right
+    'w-20 h-auto', // Narrow width for vertical tabs
+    'flex flex-col items-center', // Vertical layout
+    'py-7',
+    'px-7',
+    'z-20',
+    'bg-transparent',
+    'backdrop-blur-md',
+    'rounded-l-lg',
+    'shadow-[-4px_-4px_4px_0px_rgba(210,59,12,0.6),_-4px_0px_4px_0px_rgba(210,59,12,0.6),_-4px_4px_4px_0px_rgba(210,59,12,0.6)]',
+    'shadow-secondary-dark',
+    'dark:from-background-primary-dark',
+    'dark:via-background-primary-dark',
+    'transition-all duration-300'
+  ),
+  verticalContainer: classNames(
+    'flex flex-col items-center gap-8', // Vertical alignment
+    'h-full w-full'
+  ),
 
+  verticalNav: classNames(
+    'list-none',
+    'flex flex-col', // Vertical direction
+    'gap-6',
+    'items-center' // Center items
+  ),
+  verticalLink: classNames(
+    // 'rotate-90', // Rotate links vertically
+    'w-28', // Enough width for rotated text
+    'text-center',
+    'text-[16px] font-medium',
+    'cursor-pointer',
+    'hover:text-secondary-dark dark:hover:text-secondary-light',
+    'transition-colors duration-300'
+  ),
+  activeVerticalLink: classNames(
+    'text-secondary-dark dark:text-secondary-light',
+    'border-b-2 border-secondary-dark dark:border-secondary-light'
+  ),
+  mobileMenuContainer: classNames(
+    'sm:hidden',
+    'fixed right-4 top-4', // Position mobile menu button
+    'z-30'
+  ),
+  menuIcon: classNames(
+    'w-8 h-8',
+    'cursor-pointer',
+    'hover:scale-110',
+    'transition-transform duration-300'
+  ),
+  mobileMenuDropdown: classNames(
+    'fixed right-4 top-16',
+    'py-4 px-6',
+    'rounded-lg',
+    'bg-white/90 dark:bg-gray-800/90',
+    'backdrop-blur-sm',
+    'shadow-xl',
+    'min-w-[160px]',
+    'flex flex-col gap-4'
+  )
+};
 /* --------------------------------------------------------------------------
    About Styles
 -------------------------------------------------------------------------- */

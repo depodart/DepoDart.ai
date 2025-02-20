@@ -69,4 +69,4 @@ const About = () => {
   );
 };
 
-export default SectionWrapper(About, navLinks[0].id);
+export default SectionWrapper(About, navLinks.SPA[0].id);

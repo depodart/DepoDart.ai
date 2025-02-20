@@ -79,4 +79,4 @@ const Experience = () => {
   );
 };
 
-export default SectionWrapper(Experience, navLinks[1].id);
+export default SectionWrapper(Experience, navLinks.SPA[1].id);

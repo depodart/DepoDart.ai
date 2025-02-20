@@ -2,7 +2,7 @@
 // App.jsx
 import React, { Suspense, lazy } from "react";
 import { appStyles } from "../../style";
-
+import {VerticalNavbar} from "../../components/VerticalNavbar";
 // Lazy load pages/components not needed at first paint
 const About = lazy(() => import("./2_About"));
 const Contact = lazy(() => import("./5_Contact"));
@@ -16,6 +16,7 @@ const Contacts = lazy(() => import("./6_Contacts"));
 const MainSpa = () => {
     return (
         <div className={appStyles.container}>
+            <VerticalNavbar />
             <Suspense fallback={<div>Loading...</div>}>
                 <div className={appStyles.heroSection}>
                     <Hero />
