@@ -4,7 +4,7 @@ import { navbarStylesVertical } from '../style';
 import { menu, close } from '../assets';
 import { navLinks } from '../constants';
 
-export const VerticalNavbar = () => {
+const VerticalNavbar = () => {
   const [active, setActive] = useState('');
   const [toggle, setToggle] = useState(false);
 
@@ -52,7 +52,7 @@ export const VerticalNavbar = () => {
   return (
     <>
       {/* Desktop Vertical Navbar */}
-      <nav className={navbarStylesVertical.floatingNav}>
+      <nav className={`${navbarStylesVertical.floatingNav} hidden sm:block`}>
         <div className={navbarStylesVertical.verticalContainer}>
           <motion.ul 
             className={navbarStylesVertical.verticalNav}
@@ -153,3 +153,6 @@ export const VerticalNavbar = () => {
     </>
   );
 }
+
+export default VerticalNavbar;
+

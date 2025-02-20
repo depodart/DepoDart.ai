@@ -2,8 +2,8 @@
 // App.jsx
 import React, { Suspense, lazy } from "react";
 import { appStyles } from "../../style";
-import {VerticalNavbar} from "../../components/VerticalNavbar";
 // Lazy load pages/components not needed at first paint
+const VerticalNavbar = lazy(() => import( "../../components/VerticalNavbar"));
 const About = lazy(() => import("./2_About"));
 const Contact = lazy(() => import("./5_Contact"));
 const Experience = lazy(() => import("./3_Experience"));
