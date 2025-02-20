@@ -1,7 +1,7 @@
 import React, { Suspense, useEffect, useRef, useState, useMemo } from "react";
 import Globe from "react-globe.gl";
 import * as THREE from "three";
-import CanvasLoader from "../Loader";
+import CanvasLoader from "./CanvasLoader";
 const GlobeElevatedPolygons = () => {
   const globeRef = useRef();
   const containerRef = useRef();

@@ -17,7 +17,7 @@ const MainSpa = () => {
     return (
         <div className={appStyles.container}>
             <VerticalNavbar />
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<div></div>}>
                 <div className={appStyles.heroSection}>
                     <Hero />
                 </div>

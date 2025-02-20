@@ -3,7 +3,7 @@ import React, { Suspense, memo } from "react";
 import { motion } from "framer-motion";
 import Typewriter from "typewriter-effect";
 import GlobeComponentCanvas from "../../components/canvas/GlobeComponent";
-import CanvasLoader from "../../components/canvas/CanvasLoader";
+import CanvasLoader from "../../components/CanvasLoader";
 import { HERO_TEXT } from "../../constants";
 import { heroStyles, defaultSectionStyles } from "../../style";
 

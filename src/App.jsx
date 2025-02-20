@@ -3,6 +3,7 @@ import React, { Suspense, lazy } from "react";
 import { Routes, Route, Link } from "react-router-dom"; // Import Link and Routes
 import { appStyles } from "./style";
 
+import Loader from "./components/Loader";
 // Lazy load pages/components not needed at first paint
 const MainSpa = lazy(() => import("./pages/spa/Sap"));
 const Navbar = lazy(() => import("./components/Navbar"));
@@ -14,7 +15,8 @@ const App = () => {
   return (
     <>
       <div className={`${appStyles.container} top-10`}>
-    <Suspense fallback={<div>Loading...</div>}>
+    {/* <Suspense fallback={<CanvasLoader/>}> */}
+    <Suspense fallback={<Loader/>}>
     
       <Navbar />
       <Routes>
