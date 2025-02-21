@@ -88,25 +88,25 @@ export const services = [
     title: "Potential Deposits Identification",
     icon: null,
     IconComponent: CursorArrowRaysIcon,
-    description: "Discover the most promising areas for exploration identified by our artificial intelligence model."
+    description: "Discover the most promising areas for exploration identified by our Data-Driven AI model."
   },
   { 
     title: "Exploration Cost Reduction",
     icon: null,
     IconComponent: CurrencyDollarIcon,
-    description: ""
+    description: "Make the most of your resources with precise insights from AI."
   },
   { 
     title: "Mineral Resource & Reserve Evaluation",
     icon: null,
     IconComponent: IconZoomExclamation,
-    description: ""
+    description: "Evaluate the potential of your mineral resources and reserves with AI."
   },
   { 
     title: "Data Collection & Integration",
     icon: null,
     IconComponent: IconShovel,
-    description: ""
+    description: "Collect your data in the field and integrate it to create a comprehensive geological model."
   },
 ];
 
