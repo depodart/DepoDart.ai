@@ -88,7 +88,7 @@ export const services = [
     title: "Potential Deposits Identification",
     icon: null,
     IconComponent: CursorArrowRaysIcon,
-    description: ""
+    description: "Discover the most promising areas for exploration identified by our artificial intelligence model."
   },
   { 
     title: "Exploration Cost Reduction",
