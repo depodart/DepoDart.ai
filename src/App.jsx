@@ -11,6 +11,9 @@ const ServicesLayout = lazy(() => import("./layouts/ServicesLayout"));
 const ServicesPage = lazy(() => import("./pages/products/ServicesPage"));
 const CareersLayout = lazy(() => import("./layouts/CareersLayout"));
 const CareersPage = lazy(() => import("./pages/careers/CareersPage"));
+const TerrainLayout = lazy(() => import("./layouts/TerrainLayout"));
+const TerrainPage = lazy(() => import("./pages/terrain/TerrainPage"));
+
 const App = () => {
   return (
     <>
@@ -27,6 +30,10 @@ const App = () => {
 
         <Route element={<CareersLayout />}>
           <Route path="careers" element={<CareersPage />} />
+        </Route>
+        
+        <Route element={<TerrainLayout />}>
+          <Route path="terrain" element={<TerrainPage />} />
         </Route>
 
         {/* 
