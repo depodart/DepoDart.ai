@@ -5,8 +5,7 @@ import tailwindcss from "tailwindcss";
 import autoprefixer from "autoprefixer";
 
 export default defineConfig({
-
-  base: "/DepoDart.ai/",
+  base: "/",
   server: {
     port: 3000,
     host: true,
