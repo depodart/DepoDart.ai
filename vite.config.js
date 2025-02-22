@@ -6,7 +6,7 @@ import autoprefixer from "autoprefixer";
 
 export default defineConfig({
 
-  base: "/",
+  base: "/DepoDart.ai/",
   server: {
     port: 3000,
     host: true,
