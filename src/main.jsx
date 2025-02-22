@@ -11,7 +11,7 @@ import { BrowserRouter } from "react-router-dom"; // Import Link and Routes
 root.render(
   <React.StrictMode>
     <ThemeProvider>
-      <BrowserRouter basename="/"
+      <BrowserRouter
         future={{
           v7_startTransition: true,
           v7_relativeSplatPath: true
