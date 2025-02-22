@@ -16,7 +16,7 @@ const Contacts = lazy(() => import("./6_Contacts"));
 const MainSpa = () => {
     return (
         <div className={appStyles.container}>
-            <VerticalNavbar />
+            {/* <VerticalNavbar /> */}
             <Suspense fallback={<div></div>}>
                 <div className={appStyles.heroSection}>
                     <Hero />
