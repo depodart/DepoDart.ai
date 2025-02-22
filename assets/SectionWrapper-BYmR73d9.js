@@ -1,1 +1,0 @@
-import{j as s,m as i,d as n,C as a}from"./index-C3xBb6p0.js";import{a as o}from"./motion-D_uXpfKZ.js";const m=(e,t)=>()=>s.jsxs(i.section,{variants:o(),initial:"hidden",whileInView:"show",viewport:{once:!0,amount:.25},className:`${n.padding} ${a.section}`,children:[s.jsx("span",{className:a.hashSpan,id:t,children:" "}),s.jsx(e,{})]});export{m as S};
