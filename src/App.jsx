@@ -9,7 +9,7 @@ const MainSpa = lazy(() => import("./pages/spa/Sap"));
 const Navbar = lazy(() => import("./components/Navbar"));
 const ServicesLayout = lazy(() => import("./layouts/ServicesLayout"));
 const ServicesPage = lazy(() => import("./pages/products/ServicesPage"));
-const CareersLayout = lazy(() => import("./layouts/CareersLayout")); 
+const CareersLayout = lazy(() => import("./layouts/CareersLayout"));
 const CareersPage = lazy(() => import("./pages/careers/CareersPage"));
 // const TerrainLayout = lazy(() => import("./layouts/TerrainLayout"));
 // const TerrainPage = lazy(() => import("./pages/terrain/TerrainPage"));
@@ -25,60 +25,52 @@ const NotFound = lazy(() => import("./pages/404page"));
 
 const App = () => {
   return (
-    <>
+    <Suspense fallback={<Loader />}>
       <div className={`${appStyles.container} top-10`}>
-    {/* <Suspense fallback={<CanvasLoader/>}> */}
-    <Suspense fallback={<Loader/>}>
-    
-      <Navbar />
-      <Routes>
+        <Navbar />
+        <Routes>
+          {/* Main Spa Route */}
+          <Route path="/" element={<MainSpa />} />
 
-        {/* Main Spa Route */}
-        <Route path="/" element={<MainSpa />} />
-        
-        {/* 404 Route */}
-        <Route path="*" element={<NotFound />} /> 
+          {/* 404 Route */}
+          <Route path="*" element={<NotFound />} />
 
-        <Route element={<ServicesLayout />}>
-          <Route path="services/:id" element={<ServicesPage />} />
-        </Route>
+          <Route element={<ServicesLayout />}>
+            <Route path="services/:id" element={<ServicesPage />} />
+          </Route>
 
-        <Route element={<CareersLayout />}>
-          <Route path="careers" element={<CareersPage />} />
-        </Route>
-        
+          <Route element={<CareersLayout />}>
+            <Route path="careers" element={<CareersPage />} />
+          </Route>
+
           {/* <Route element={<TerrainLayout />}>
-            <Route path="terrain" element={<TerrainPage />} />
-          </Route> */}
+          <Route path="terrain" element={<TerrainPage />} />
+        </Route> */}
 
-        {/* Technology Routes */}
-        <Route path="technology">
-          <Route path="saige" element={<Technology />} />
-          <Route path="use-cases" element={<UseCases />} />
-        </Route>
+          {/* Technology Routes */}
+          <Route path="technology">
+            <Route path="saige" element={<Technology />} />
+            <Route path="use-cases" element={<UseCases />} />
+          </Route>
 
-        {/* About Routes */}
-        <Route path="about">
-          <Route index element={<About />} />
-          <Route path="team" element={<Team />} />
-        </Route>
+          {/* About Routes */}
+          <Route path="about">
+            <Route index element={<About />} />
+            <Route path="team" element={<Team />} />
+          </Route>
 
-        {/* Resources Routes */}
-        <Route path="resources">
-          <Route path="knowledge" element={<Knowledge />} />
-          <Route path="faq" element={<FAQ />} />
-        </Route>
+          {/* Resources Routes */}
+          <Route path="resources">
+            <Route path="knowledge" element={<Knowledge />} />
+            <Route path="faq" element={<FAQ />} />
+          </Route>
 
-        {/* Contact Route */}
-        <Route path="contact" element={<Contact />} />
-
-        
-        
-      </Routes>
-      </Suspense>
-      <Footer />
+          {/* Contact Route */}
+          <Route path="contact" element={<Contact />} />
+        </Routes>
+        <Footer />
       </div>
-    </>
+    </Suspense>
   );
 };
 
