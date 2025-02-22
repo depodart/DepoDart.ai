@@ -64,14 +64,14 @@ const Footer = () => {
             <p className="text-sm text-primary-light/70">
               © {new Date().getFullYear()} DepoDart. All rights reserved.
             </p>
-            <div className="flex items-center gap-6">
+            {/* <div className="flex items-center gap-6">
               <Link to="/privacy" className="text-sm text-primary-light/70 hover:text-tertiary-light">
                 Privacy Policy
               </Link>
               <Link to="/terms" className="text-sm text-primary-light/70 hover:text-tertiary-light">
                 Terms of Service
               </Link>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
