@@ -48,7 +48,7 @@ const ContactCard = memo(({ title, content, icon }) => {
 
 const Contacts = () => {
   return (
-    <footer className={footerStyles.container}>
+    <section className={footerStyles.container}>
       <div className={footerStyles.topSection}>
         <div className={footerStyles.innerWrapper}>
           <div className={footerStyles.contentContainer}>
@@ -68,15 +68,7 @@ const Contacts = () => {
           </div>
         </div>
       </div>
-
-      <div className={footerStyles.bottomSection}>
-        <div className={footerStyles.copyrightWrapper}>
-          <p className={footerStyles.copyrightText}>
-            {FOOTER_TEXT.copyright}
-          </p>
-        </div>
-      </div>
-    </footer>
+    </section>
   );
 };
 
