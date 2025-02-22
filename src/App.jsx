@@ -21,6 +21,7 @@ const Team = lazy(() => import("./pages/about/Team"));
 const Knowledge = lazy(() => import("./pages/resources/Knowledge"));
 const FAQ = lazy(() => import("./pages/resources/FAQ"));
 const Contact = lazy(() => import("./pages/contact/Contact"));
+const NotFound = lazy(() => import("./pages/404page"));
 
 const App = () => {
   return (
@@ -31,7 +32,13 @@ const App = () => {
     
       <Navbar />
       <Routes>
-        <Route index element={<MainSpa />} />
+
+        {/* Main Spa Route */}
+        <Route path="/" element={<MainSpa />} />
+        
+        {/* 404 Route */}
+        <Route path="*" element={<NotFound />} /> 
+
         <Route element={<ServicesLayout />}>
           <Route path="services/:id" element={<ServicesPage />} />
         </Route>
@@ -65,6 +72,8 @@ const App = () => {
         {/* Contact Route */}
         <Route path="contact" element={<Contact />} />
 
+        
+        
       </Routes>
       </Suspense>
       <Footer />
