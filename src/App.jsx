@@ -48,27 +48,42 @@ const App = () => {
         </Route> */}
 
           {/* Technology Routes */}
-          <Route path="technology">
+          {/* <Route path="technology">
             <Route path="saige" element={<Technology />} />
             <Route path="use-cases" element={<UseCases />} />
-          </Route>
+          </Route> */}
 
           {/* About Routes */}
-          <Route path="about">
+          {/* <Route path="about">
             <Route index element={<About />} />
             <Route path="team" element={<Team />} />
-          </Route>
+          </Route> */}
 
           {/* Resources Routes */}
-          <Route path="resources">
+          {/* <Route path="resources">
             <Route path="knowledge" element={<Knowledge />} />
             <Route path="faq" element={<FAQ />} />
-          </Route>
+          </Route> */}
 
           {/* Contact Route */}
           <Route path="contact" element={<Contact />} />
         </Routes>
-        <Footer />
+        {/* <Footer /> */}
+        <div className="mt-16 pt-8 border-t border-primary-light/20">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-sm text-primary-light/70">
+              © {new Date().getFullYear()} DepoDart. All rights reserved.
+            </p>
+            {/* <div className="flex items-center gap-6">
+              <Link to="/privacy" className="text-sm text-primary-light/70 hover:text-tertiary-light">
+                Privacy Policy
+              </Link>
+              <Link to="/terms" className="text-sm text-primary-light/70 hover:text-tertiary-light">
+                Terms of Service
+              </Link>
+            </div> */}
+          </div>
+        </div>
       </div>
     </Suspense>
   );
