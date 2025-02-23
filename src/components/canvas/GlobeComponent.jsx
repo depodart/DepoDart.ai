@@ -1,10 +1,37 @@
 import React, { Suspense, useEffect, useRef, useState } from 'react';
 import Globe from 'globe.gl';
-import CanvasLoader from './CanvasLoader';
+
+const LoadingSpinner = () => (
+  <div style={{
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    textAlign: 'center',
+    color: '#fff'
+  }}>
+    <div className="spinner" style={{
+      width: '50px',
+      height: '50px',
+      border: '5px solid #f3f3f3',
+      borderTop: '5px solid #3498db',
+      borderRadius: '50%',
+      animation: 'spin 1s linear infinite',
+    }} />
+    <style>{`
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    `}</style>
+  </div>
+);
 
 const GlobeComponent = () => {
   const globeRef = useRef();
   const [dimensions, setDimensions] = useState({ width: '100%', height: '100%' });
+  const [loadingProgress, setLoadingProgress] = useState(0);
+  const [isGlobeReady, setIsGlobeReady] = useState(false);
 
   // Handle resize
   useEffect(() => {
@@ -48,15 +75,26 @@ const GlobeComponent = () => {
 
     // Handle resize for globe instance
     const handleGlobeResize = () => {
-      if (globeInstance && globeRef.current) {  // Check both globe instance and ref
+      if (globeInstance && globeRef.current) {
         const width = globeRef.current.clientWidth;
         const height = globeRef.current.clientHeight;
-        if (width > 0 && height > 0) {  // Additional check for valid dimensions
+        if (width > 0 && height > 0) {
           globeInstance.width(width);
           globeInstance.height(height);
         }
       }
     };
+
+    // Simulate loading progress
+    const loadingInterval = setInterval(() => {
+      setLoadingProgress(prev => {
+        if (prev >= 90) {
+          clearInterval(loadingInterval);
+          return prev;
+        }
+        return prev + 10;
+      });
+    }, 200);
 
     // Fetch geojson data and initialize the globe
     fetch('https://raw.githubusercontent.com/vasturiano/globe.gl/master/example/datasets/ne_110m_admin_0_countries.geojson')
@@ -87,7 +125,12 @@ const GlobeComponent = () => {
             })
             .hexBinMerge(true)
             .enablePointerInteraction(false)
-            .backgroundColor('rgba(0,0,0,0)');
+            .backgroundColor('rgba(0,0,0,0)')
+            .onGlobeReady(() => {
+              setLoadingProgress(100);
+              setIsGlobeReady(true);
+              clearInterval(loadingInterval);
+            });
 
           // Mount the globe into our ref'd div
           globeInstance(globeRef.current);
@@ -118,6 +161,7 @@ const GlobeComponent = () => {
         // Cleanup on unmount
         return () => {
           clearInterval(heatInterval);
+          clearInterval(loadingInterval);
           if (globeInstance) {
             globeInstance.controls().autoRotate = false;
             globeInstance.controls().dispose();
@@ -128,14 +172,39 @@ const GlobeComponent = () => {
       });
   }, []);
 
-  return <div ref={globeRef} style={{ width: dimensions.width, height: dimensions.height }} />;
+  return (
+    <div style={{ position: 'relative', width: dimensions.width, height: dimensions.height }}>
+      {!isGlobeReady && (
+        <div style={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          textAlign: 'center',
+          color: '#fff',
+          zIndex: 1000
+        }}>
+          {/* <LoadingSpinner /> */}
+          <div style={{ marginTop: '20px' }}>
+            {loadingProgress}%
+          </div>
+        </div>
+      )}
+      <div ref={globeRef} style={{ 
+        width: dimensions.width, 
+        height: dimensions.height,
+        opacity: isGlobeReady ? 1 : 0,
+        transition: 'opacity 0.5s ease-in-out'
+      }} />
+    </div>
+  );
 };
 
 // Simplified wrapper component
 const GlobeComponentCanvas = () => {
   return (
     <div style={{ width: '100%', height: '100%', position: 'absolute' }}>
-      <Suspense fallback={<CanvasLoader />}>
+      <Suspense fallback={<LoadingSpinner />}>
         <GlobeComponent />
       </Suspense>
     </div>
