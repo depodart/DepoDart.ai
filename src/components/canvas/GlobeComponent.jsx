@@ -97,6 +97,12 @@ const GlobeComponent = () => {
 
           // Add resize listener after globe is initialized
           window.addEventListener('resize', handleGlobeResize);
+
+          // Disable zoom
+          const controls = globeInstance.controls();
+          controls.enableZoom = false;
+          controls.minDistance = 350;
+          controls.maxDistance = 350;
         }
 
         // Enable auto-rotation
