@@ -1,7 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Footer = () => {
+  const navigate = useNavigate();
+
+  const handleNavigation = (path) => {
+    navigate(path);
+    window.scrollTo(0, 0);
+  };
+
   const footerSections = [
     {
       title: "TECHNOLOGY",
@@ -43,15 +50,15 @@ const Footer = () => {
               <ul className="space-y-4">
                 {section.links.map((link, linkIndex) => (
                   <li key={linkIndex}>
-                    <Link 
-                      to={link.href} 
+                    <button 
+                      onClick={() => handleNavigation(link.href)}
                       className="relative inline-block hover:text-tertiary-light transition-colors duration-300
                         after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-tertiary-light 
                         after:left-0 after:-bottom-1 after:transition-all after:duration-300
                         hover:after:w-full"
                     >
                       {link.text}
-                    </Link>
+                    </button>
                   </li>
                 ))}
               </ul>
