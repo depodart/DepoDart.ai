@@ -43,7 +43,7 @@ const Navbar = () => {
           {navLinks?.main?.map(link => (
             <li
               key={link.id}
-              className={`${active === link.title ? navbarStyles.activeLink : navbarStyles.inactiveDesktopLink} ${navbarStyles.navLink}`}
+              className={`${active === link.title ? navbarStyles.activeLink : navbarStyles.inactiveDesktopLink} ${navbarStyles.navLink} ${link.path === '/contact' ? 'bg-tertiary-light text-primary-dark px-4 py-2 rounded-lg hover:bg-tertiary-dark' : ''}`}
               onClick={() => handleNavigation(link.path, link.title)}
             >
               <Link to={link.path}>{link.title}</Link>
@@ -64,7 +64,7 @@ const Navbar = () => {
               {navLinks?.main?.map(link => (
                 <li
                   key={link.id}
-                  className={`${active === link.title ? navbarStyles.activeLink : navbarStyles.inactiveMobileLink} ${navbarStyles.navLink}`}
+                  className={`${active === link.title ? navbarStyles.activeLink : navbarStyles.inactiveMobileLink} ${navbarStyles.navLink} ${link.path === '/contact' ? 'bg-tertiary-light text-primary-dark px-4 py-2 rounded-lg hover:bg-tertiary-dark' : ''}`}
                   onClick={() => {
                     handleNavigation(link.path, link.title);
                     setToggle(false);

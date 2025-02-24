@@ -36,6 +36,11 @@ export const navLinks = {
       title: "Services",
       path: "/services/1",
     },
+    {
+      id: "contact",
+      title: "Contact",
+      path: "/contact",
+    },
   ],
   SPA: [
     {
