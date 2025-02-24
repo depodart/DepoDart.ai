@@ -11,8 +11,6 @@ const ServicesLayout = lazy(() => import("./layouts/ServicesLayout"));
 const ServicesPage = lazy(() => import("./pages/products/ServicesPage"));
 const CareersLayout = lazy(() => import("./layouts/CareersLayout"));
 const CareersPage = lazy(() => import("./pages/careers/CareersPage"));
-// const TerrainLayout = lazy(() => import("./layouts/TerrainLayout"));
-// const TerrainPage = lazy(() => import("./pages/terrain/TerrainPage"));
 const Footer = lazy(() => import("./components/Footer"));
 const Technology = lazy(() => import("./pages/technology/Technology"));
 const UseCases = lazy(() => import("./pages/technology/UseCases"));
@@ -29,10 +27,10 @@ const App = () => {
       <div className={`${appStyles.container} top-10`}>
         <Navbar />
         <Routes>
-          {/* Main Spa Route */}
+           {/* Main Spa Route  */}
           <Route path="/" element={<MainSpa />} />
 
-          {/* 404 Route */}
+           {/* 404 Route  */}
           <Route path="*" element={<NotFound />} />
 
           <Route element={<ServicesLayout />}>
@@ -43,45 +41,41 @@ const App = () => {
             <Route path="careers" element={<CareersPage />} />
           </Route>
 
-          {/* <Route element={<TerrainLayout />}>
-          <Route path="terrain" element={<TerrainPage />} />
-        </Route> */}
-
-          {/* Technology Routes */}
-          {/* <Route path="technology">
+           {/* Technology Routes  */}
+           <Route path="technology">
             <Route path="saige" element={<Technology />} />
             <Route path="use-cases" element={<UseCases />} />
-          </Route> */}
+          </Route> 
 
-          {/* About Routes */}
-          {/* <Route path="about">
+           {/* About Routes  */}
+           <Route path="about">
             <Route index element={<About />} />
             <Route path="team" element={<Team />} />
-          </Route> */}
+          </Route> 
 
-          {/* Resources Routes */}
-          {/* <Route path="resources">
+           {/* Resources Routes  */}
+           <Route path="resources">
             <Route path="knowledge" element={<Knowledge />} />
             <Route path="faq" element={<FAQ />} />
-          </Route> */}
+          </Route> 
 
-          {/* Contact Route */}
+           {/* Contact Route  */}
           <Route path="contact" element={<Contact />} />
         </Routes>
-        {/* <Footer /> */}
+         <Footer /> 
         <div className="mt-16 pt-8 border-t border-primary-light/20">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-primary-light/70">
               © {new Date().getFullYear()} DepoDart. All rights reserved.
             </p>
-            {/* <div className="flex items-center gap-6">
+             <div className="flex items-center gap-6">
               <Link to="/privacy" className="text-sm text-primary-light/70 hover:text-tertiary-light">
                 Privacy Policy
               </Link>
               <Link to="/terms" className="text-sm text-primary-light/70 hover:text-tertiary-light">
                 Terms of Service
               </Link>
-            </div> */}
+            </div> 
           </div>
         </div>
       </div>
