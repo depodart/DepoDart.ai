@@ -67,8 +67,8 @@ const GlobeElevatedPolygons = () => {
         
         globeMaterial.map = surfaceTexture;
         globeMaterial.specularMap = waterTexture;
-        globeMaterial.specular = new THREE.Color('grey');
-        globeMaterial.shininess = 15;
+        globeMaterial.specular = new THREE.Color('white'); // Changed from grey to white
+        globeMaterial.shininess = 25; // Increased shininess
         globeMaterial.needsUpdate = true;
         setGlobeReady(true);
       } else {
@@ -111,15 +111,15 @@ const GlobeElevatedPolygons = () => {
       const existingLights = scene.children.filter(child => child.isLight);
       existingLights.forEach(light => scene.remove(light));
       
-      // Add new lights
-      const ambientLight = new THREE.AmbientLight(0xbbbbbb, 0.3);
+      // Add new lights with increased intensity
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.6); // Increased intensity and changed color
       scene.add(ambientLight);
       
-      const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+      const directionalLight = new THREE.DirectionalLight(0xffffff, 1.2); // Increased intensity
       directionalLight.position.set(1, 1, 1);
       scene.add(directionalLight);
       
-      const pointLight = new THREE.PointLight(0xffffff, 0.5);
+      const pointLight = new THREE.PointLight(0xffffff, 0.8); // Increased intensity
       pointLight.position.set(-50, 100, 50);
       scene.add(pointLight);
     }
