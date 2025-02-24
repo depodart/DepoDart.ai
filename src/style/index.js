@@ -157,21 +157,21 @@ export const loaderProgressTextStyle = {
 export const navbarStyles = {
   nav: classNames(
     'w-full',
-    'flex', 
+    'flex',
     'items-center',
-    'py-5',
+    'justify-center',
+    'py-5', 
     'fixed',
     'top-0',
     'z-20',
     'dark:from-background-primary-dark',
     'dark:via-background-primary-dark',
     'to-transparent',
-    
     'backdrop-blur-md',
-    'text-primary-dark',
+    'text-primary-dark', 
     'dark:text-primary-light',
-    'transition-colors', // Add transition for smooth color changes
-    'duration-300' // Duration of transition
+    'transition-colors',
+    'duration-300'
   ),
   container: classNames(
     'w-full',
@@ -201,13 +201,15 @@ export const navbarStyles = {
     'hidden',
     'sm:flex',
     'flex-row',
-    'gap-6'
+    'gap-6',
+    'items-center',
+    'justify-center'
   ),
   mobileNav: classNames(
     'list-none',
     'flex',
     'flex-col',
-    'gap-6'
+    'gap-6',
   ),
   navLink: classNames(
     'text-[18px]',
