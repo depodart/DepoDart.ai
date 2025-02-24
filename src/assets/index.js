@@ -13,7 +13,6 @@ import AG_AU_Cu from "./projects/AG_AU_Cu.png";
 export {
 
   AG_AU_Cu,
-
   logo,
   Dart_1,
   github,

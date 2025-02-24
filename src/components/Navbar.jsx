@@ -6,7 +6,7 @@ import React, {
 import { Link, useNavigate } from 'react-router-dom';
 import { navbarStyles, defaultSectionStyles } from '../style';
 // import { ThemeContext } from '../context/ThemeContext';
-import { menu, close, logo } from '../assets';
+import { menu, close, logo, Dart_1 } from '../assets';
 import { navLinks } from '../constants';
 
 const Navbar = () => {
@@ -34,7 +34,7 @@ const Navbar = () => {
           }}
         >
           <p className={navbarStyles.logoText}>
-            <img src={logo} alt="Logo" className="w-8 h-8 object-contain mr-2" />
+            <img src={Dart_1} alt="Logo" className="w-8 h-8 object-contain mr-2" />
             DepoDart
           </p>
         </Link>
