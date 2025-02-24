@@ -43,7 +43,10 @@ const Navbar = () => {
           {navLinks?.main?.map(link => (
             <li
               key={link.id}
-              className={`${active === link.title ? navbarStyles.activeLink : navbarStyles.inactiveDesktopLink} ${navbarStyles.navLink} ${link.path === '/contact' ? 'bg-tertiary-light text-primary-dark px-4 py-2 rounded-lg hover:bg-tertiary-dark' : ''}`}
+              className={`
+                ${active === link.title ? navbarStyles.activeLink : navbarStyles.inactiveDesktopLink} 
+                ${navbarStyles.navLink} 
+              ${link.path === '/contact' ? 'bg-secondary-dark text-primary-dark px-4 py-2 rounded-lg hover:bg-transparent border-2 border-secondary-dark hover:border-2 hover:border-secondary-dark' : ''}`}
               onClick={() => handleNavigation(link.path, link.title)}
             >
               <Link to={link.path}>{link.title}</Link>
