@@ -25,16 +25,43 @@ const Hero = () => {
             </h1>
             <div className={heroStyles.textContent.subtextContainer}>
               <h3>{HERO_TEXT.tagline}</h3>
-              <Typewriter
-                options={{
-                  strings: HERO_TEXT.miningCapabilities,
-                  autoStart: true,
-                  loop: true,
-                  deleteSpeed: 30,
-                  delay: 30,
-                  pauseFor: 2000,
-                }}
-              />
+              <div className="relative h-12">
+                {HERO_TEXT.miningCapabilities.map((text, index) => {
+                  const [currentIndex, setCurrentIndex] = React.useState(0);
+
+                  React.useEffect(() => {
+                    const interval = setInterval(() => {
+                      setCurrentIndex(prev => 
+                        (prev + 1) % HERO_TEXT.miningCapabilities.length
+                      );
+                    }, 1500);
+
+                    return () => clearInterval(interval);
+                  }, []);
+
+                  return (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ 
+                        opacity: index === currentIndex ? 1 : 0,
+                        y: 0,
+                        transition: {
+                          duration: 0.5
+                        }
+                      }}
+                      className="absolute top-0 left-0 w-full text-xl font-bold"
+                      style={{
+                        background: "linear-gradient(90deg, #FFFFFF 0%, #D23B0C 50%, #FFFFFF 100%)",
+                        WebkitBackgroundClip: "text",
+                        WebkitTextFillColor: "transparent"
+                      }}
+                    >
+                      {text}
+                    </motion.div>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
