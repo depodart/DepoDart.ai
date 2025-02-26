@@ -281,35 +281,151 @@ export const FOOTER_TEXT = {
 
 
 export const departments = [
-  { id: 'engineering', name: 'Engineering' },
-  { id: 'data-science', name: 'Data Science' },
-  { id: 'geology', name: 'Geology' },
-  { id: 'operations', name: 'Operations' }
+  { id: 'geoscience-innovation', key: 'geoscience', name: 'Geoscience Innovation' },
+  { id: 'commercial-strategy', key: 'commercial', name: 'Commercial Strategy' },
+  { id: 'growth-enablement', key: 'growth', name: 'Growth Enablement' },
+  { id: 'technology-development', key: 'technology', name: 'Technology Development' }
 ];
 
 export const careers = [
   {
-    id: 1,
-    title: 'Senior Machine Learning Engineer',
-    department: 'engineering',
-    location: 'Remote',
-    type: 'Full-time',
-    description: 'We are seeking an experienced Machine Learning Engineer to develop and implement AI models for geological data analysis.'
+    id: 'rd-001',
+    title: 'Senior Frontend Architect',
+    department: 'technology-development',
+    location: {
+      city: 'Vancouver',
+      region: 'British Columbia',
+      country: 'Canada',
+      workType: 'Remote'
+    },
+    employment: {
+      type: 'Full-time',
+      experience: {
+        level: 'Senior',
+        years: 5
+      },
+      terms: ['Permanent', 'Background Check Required']
+    },
+    compensation: {
+      currency: 'CAD',
+      range: [130000, 150000],
+      benefits: ['Stock Options', 'Performance Bonus']
+    },
+    requirements: {
+      technical: ['React', 'Vue', 'AWS', 'Terraform'],
+      professional: [
+        '5+ years web development experience',
+        'REST API integration expertise',
+        'Cloud deployment knowledge'
+      ]
+    },
+    description: 'Lead DepoDart\'s frontend development initiatives, creating cutting-edge interfaces for AI-driven mineral exploration solutions.',
+    perks: [
+      'Comprehensive health/dental package',
+      'RRSP matching program',
+      'Flexible remote work options'
+    ]
   },
   {
-    id: 2, 
-    title: 'Data Scientist',
-    department: 'data-science',
-    location: 'Hybrid',
-    type: 'Full-time',
-    description: 'Join our data science team to work on cutting-edge predictive models for mineral exploration.'
+    id: 'geo-002',
+    title: 'APAC Senior Geologist',
+    department: 'geoscience-innovation',
+    location: {
+      city: 'Perth',
+      region: 'Western Australia',
+      country: 'Australia',
+      workType: 'Hybrid'
+    },
+    employment: {
+      type: 'Full-time',
+      experience: {
+        level: 'Senior',
+        years: 5
+      },
+      terms: ['2-week Canada training', 'Periodic travel required']
+    },
+    compensation: {
+      currency: 'AUD',
+      range: [150000, 170000],
+      benefits: ['Superannuation', 'Performance Bonus']
+    },
+    requirements: {
+      technical: ['GIS', 'Python', '3D Modeling'],
+      professional: [
+        '5+ years geological experience',
+        'Mineral exploration expertise',
+        'Data interpretation skills'
+      ]
+    },
+    description: 'Drive DepoDart\'s AI integration in APAC mineral exploration through advanced geological data synthesis and pattern recognition.',
+    tools: ['ArcGIS', 'QGIS', 'Remote Sensing Systems']
   },
   {
-    id: 3,
-    title: 'Senior Geologist',
-    department: 'geology', 
-    location: 'On-site',
-    type: 'Full-time',
-    description: 'Looking for an experienced geologist to lead field operations and provide domain expertise for our AI systems.'
+    id: 'cs-003',
+    title: 'Strategic Solutions Advisor',
+    department: 'commercial-strategy',
+    location: {
+      city: 'Vancouver',
+      region: 'British Columbia',
+      country: 'Canada',
+      workType: 'Hybrid'
+    },
+    employment: {
+      type: 'Full-time',
+      experience: {
+        level: 'Senior',
+        years: 5
+      }
+    },
+    compensation: {
+      currency: 'CAD',
+      range: [100000, 130000],
+      benefits: ['Commission Structure', 'RRSP Matching']
+    },
+    requirements: {
+      technical: ['Capital Markets', 'Investor Relations'],
+      professional: [
+        '5+ years mining finance experience',
+        'Bilingual English/French (Quebec roles)'
+      ]
+    },
+    description: 'Lead DepoDart\'s client engagements in North America, transforming geological data into strategic investment narratives.',
+    clientPortfolio: {
+      industries: ['Mineral Exploration', 'Mining Finance'],
+      regions: ['North America', 'APAC']
+    }
+  },
+  {
+    id: 'tech-004',
+    title: 'Cloud Infrastructure Architect',
+    department: 'technology-development',
+    location: {
+      workType: 'Remote',
+      region: 'Global'
+    },
+    employment: {
+      type: 'Full-time',
+      experience: {
+        level: 'Lead',
+        years: 6
+      }
+    },
+    compensation: {
+      currency: 'CAD',
+      range: [160000, 180000],
+      benefits: ['Stock Options', 'Performance Bonus']
+    },
+    requirements: {
+      technical: ['AWS', 'Terraform', 'Python', 'SOC2 Compliance'],
+      professional: [
+        '6+ years cloud engineering',
+        'Geospatial data experience'
+      ]
+    },
+    description: 'Architect DepoDart\'s petabyte-scale geospatial platforms enabling AI-driven mineral discovery.',
+    infrastructure: {
+      cloudServices: ['AWS Storage', 'Container Services', 'ML Analytics'],
+      security: ['Data Encryption', 'Access Controls']
+    }
   }
 ];
