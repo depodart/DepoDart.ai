@@ -44,13 +44,13 @@ const App = () => {
            {/* Technology Routes  */}
            <Route path="technology">
             <Route path="saige" element={<Technology />} />
-            <Route path="use-cases" element={<UseCases />} />
+            {/* <Route path="use-cases" element={<UseCases />} /> */}
           </Route> 
 
            {/* About Routes  */}
            <Route path="about">
             <Route index element={<About />} />
-            <Route path="team" element={<Team />} />
+            {/* <Route path="team" element={<Team />} /> */}
           </Route> 
 
            {/* Resources Routes  */}

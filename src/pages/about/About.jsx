@@ -1,9 +1,18 @@
+import React from 'react';
 import { motion } from 'framer-motion';
+import { ABOUT_TEXT } from '../../constants';
+import { BrainCircuit, Globe2, Leaf, Users } from 'lucide-react';
 
 const About = () => {
-  const containerVariants = {
+  const fadeInUp = {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: 20 }
+  };
+
+  const containerAnimation = {
     hidden: { opacity: 0 },
-    visible: {
+    show: {
       opacity: 1,
       transition: {
         staggerChildren: 0.2
@@ -11,120 +20,98 @@ const About = () => {
     }
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5
-      }
-    }
-  };
-
-  const teamMembers = [
+  const features = [
     {
-      name: "Dr. Sarah Chen",
-      role: "Chief Technology Officer",
-      description: "Ph.D. in Geospatial Analytics with 15 years of experience in terrain analysis and AI.",
-      image: "🧑‍🔬"
+      title: "AI-Powered Analysis",
+      description: "Advanced machine learning algorithms process complex geological datasets",
+      icon: <BrainCircuit size={32} className="text-secondary-dark" />
     },
     {
-      name: "Mark Rodriguez",
-      role: "Lead Developer",
-      description: "Expert in 3D visualization and real-time terrain rendering systems.",
-      image: "👨‍💻"
+      title: "Global Coverage", 
+      description: "Comprehensive mineral exploration data from around the world",
+      icon: <Globe2 size={32} className="text-secondary-dark" />
     },
     {
-      name: "Dr. Emily Watson",
-      role: "Environmental Scientist",
-      description: "Specialist in environmental impact assessment and terrain sustainability.",
-      image: "👩‍🔬"
+      title: "Sustainable Practices",
+      description: "Environmentally conscious exploration methods and techniques", 
+      icon: <Leaf size={32} className="text-secondary-dark" />
     },
     {
-      name: "James Kim",
-      role: "AI Research Lead",
-      description: "Pioneer in applying machine learning to geographical data analysis.",
-      image: "🧑‍💻"
+      title: "Expert Support",
+      description: "Dedicated team of geologists and data scientists",
+      icon: <Users size={32} className="text-secondary-dark" />
     }
   ];
 
   return (
-    <div className="min-h-screen w-full bg-primary-dark pt-24 pb-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-primary-light mb-4">
-            About DepoDart
-          </h1>
-          <p className="text-xl text-secondary-light max-w-3xl mx-auto">
-            Revolutionizing terrain analysis through cutting-edge technology and expert innovation
-          </p>
-        </div>
-
-        <motion.div
-          className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          <motion.div 
-            className="bg-secondary-dark p-8 rounded-lg shadow-lg"
-            variants={itemVariants}
-          >
-            <h2 className="text-3xl font-bold text-primary-light mb-4">Our Mission</h2>
-            <p className="text-secondary-light text-lg">
-              At DepoDart, we're committed to transforming how organizations understand and interact with terrain data. 
-              Through innovative AI-powered analysis and advanced visualization technologies, we provide unprecedented 
-              insights into geographical landscapes.
-            </p>
-          </motion.div>
-
-          <motion.div 
-            className="bg-secondary-dark p-8 rounded-lg shadow-lg"
-            variants={itemVariants}
-          >
-            <h2 className="text-3xl font-bold text-primary-light mb-4">Our Vision</h2>
-            <p className="text-secondary-light text-lg">
-              We envision a future where terrain analysis is accessible, accurate, and actionable. 
-              Our goal is to empower organizations with the tools they need to make informed decisions 
-              about geographical challenges and opportunities.
-            </p>
-          </motion.div>
-        </motion.div>
-
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary-light mb-4">
-            Meet Our Team
-          </h2>
-          <p className="text-xl text-secondary-light max-w-3xl mx-auto">
-            Experts dedicated to pushing the boundaries of terrain analysis
-          </p>
-        </div>
-
+    <div className="min-h-screen bg-primary-dark">
+      <div className="container mx-auto px-6 py-24">
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
-          variants={containerVariants}
           initial="hidden"
-          animate="visible"
+          animate="show"
+          variants={containerAnimation}
+          className="space-y-20"
         >
-          {teamMembers.map((member, index) => (
+          {/* Hero Section */}
+          <motion.div 
+            variants={fadeInUp}
+            className="text-center max-w-4xl mx-auto"
+          >
+            <h1 className="text-5xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-secondary-dark to-primary-light mb-8">
+              Revolutionizing Mineral Exploration
+            </h1>
+            <p className="text-xl text-primary-light/80">
+              {ABOUT_TEXT.overview}
+            </p>
+          </motion.div>
+
+          {/* Features Grid */}
+          <motion.div variants={fadeInUp} className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {features.map((feature, index) => (
+              <motion.div
+                key={index}
+                variants={fadeInUp}
+                className="bg-white/5 backdrop-blur-lg rounded-2xl p-8 border border-white/10 hover:border-secondary-dark/50 transition-all duration-300 text-center group hover:transform hover:scale-105"
+              >
+                <div className="flex justify-center text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                  {feature.icon}
+                </div>
+                <h3 className="text-xl font-bold text-secondary-dark mb-3">
+                  {feature.title}
+                </h3>
+                <p className="text-primary-light/70">
+                  {feature.description}
+                </p>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* Mission & Vision */}
+          <div className="grid md:grid-cols-2 gap-12">
             <motion.div
-              key={index}
-              className="bg-secondary-dark p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
-              variants={itemVariants}
+              variants={fadeInUp}
+              className="bg-white/5 backdrop-blur-lg rounded-2xl p-10 border border-white/10 hover:border-secondary-dark/50 transition-all duration-300"
             >
-              <div className="text-4xl mb-4">{member.image}</div>
-              <h3 className="text-2xl font-bold text-primary-light mb-2">
-                {member.name}
-              </h3>
-              <h4 className="text-xl text-primary-light/80 mb-3">
-                {member.role}
-              </h4>
-              <p className="text-secondary-light">
-                {member.description}
+              <h2 className="text-3xl font-bold text-secondary-dark mb-6">Our Mission</h2>
+              <p className="text-primary-light/80 text-lg leading-relaxed">
+                To revolutionize mineral exploration through AI-powered analysis of geological data, 
+                making exploration more efficient, accurate, and environmentally sustainable while 
+                delivering unprecedented value to our clients.
               </p>
             </motion.div>
-          ))}
+
+            <motion.div
+              variants={fadeInUp} 
+              className="bg-white/5 backdrop-blur-lg rounded-2xl p-10 border border-white/10 hover:border-secondary-dark/50 transition-all duration-300"
+            >
+              <h2 className="text-3xl font-bold text-secondary-dark mb-6">Our Vision</h2>
+              <p className="text-primary-light/80 text-lg leading-relaxed">
+                To become the global leader in AI-driven mineral exploration, transforming how 
+                organizations discover and evaluate mineral deposits while promoting sustainable 
+                practices and responsible resource development.
+              </p>
+            </motion.div>
+          </div>
         </motion.div>
       </div>
     </div>

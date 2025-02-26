@@ -14,14 +14,14 @@ const Footer = () => {
       title: "TECHNOLOGY",
       links: [
         { text: "DepoDart Technology", href: "/technology/saige" },
-        { text: "Use Cases", href: "/technology/use-cases" }
+        // { text: "Use Cases", href: "/technology/use-cases" }
       ]
     },
     {
       title: "ABOUT", 
       links: [
         { text: "About DepoDart", href: "/about" },
-        { text: "Our Team", href: "/about/team" },
+        // { text: "Our Team", href: "/about/team" },
         { text: "Careers", href: "/careers" }
       ]
     },
