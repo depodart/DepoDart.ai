@@ -46,8 +46,12 @@ const Navbar = () => {
           }}
         >
           <p className={navbarStyles.logoText}>
-            <img src={Dart_1} alt="Logo" className="w-8 h-8 object-contain mr-2" />
-            DepoDart
+            <img 
+              src={Dart_1} 
+              alt="Logo" 
+              className="w-8 h-8 object-contain mr-2 filter brightness-500 hover:brightness-100 transition-all duration-300" 
+            />
+            <span className="">DepoDart</span>
           </p>
         </Link>
         {/* Desktop Navigation */}
