@@ -14,7 +14,7 @@ const Footer = () => {
       title: "TECHNOLOGY",
       links: [
         { text: "DepoDart Technology", href: "/technology/saige" },
-        { text: "Use Cases", href: "/technology/use-cases" }
+        // { text: "Use Cases", href: "/technology/use-cases" }
       ]
     },
     {
