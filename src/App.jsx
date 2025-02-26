@@ -63,7 +63,7 @@ const App = () => {
           <Route path="contact" element={<Contact />} />
         </Routes>
          <Footer /> 
-        <div className="mt-16 pt-8 border-t border-primary-light/20">
+        {/* <div className="mt-16 pt-8 border-t border-primary-light/20">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-primary-light/70">
               © {new Date().getFullYear()} DepoDart. All rights reserved.
@@ -76,8 +76,8 @@ const App = () => {
                 Terms of Service
               </Link>
             </div> 
-          </div>
-        </div>
+          </div> */}
+        {/* </div> */}
       </div>
     </Suspense>
   );
