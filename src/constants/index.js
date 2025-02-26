@@ -188,6 +188,7 @@ export const projects = [
     name: "Geochemical 2D maps",
     description:
       "Predicted areas of high-concentration zones for gold, cobalt, and silver in Abitibi region.",
+    route_description: "Additional information",
     tags: [
       { name: "DepoDart", color: "" }, //#blue-text-gradient
       { name: "Geochemical maps", color: "" },  //"green-text-gradient"

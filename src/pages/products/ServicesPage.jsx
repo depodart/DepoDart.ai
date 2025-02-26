@@ -34,6 +34,9 @@ const ServiceDetails = ({ service }) => {
                     </span>
                 ))}
             </div>
+            <p className={servicesStyles.routeDescription}>
+                {service.route_description}
+            </p>
         </div>
     );
 };
