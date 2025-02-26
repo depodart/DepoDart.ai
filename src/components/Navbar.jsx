@@ -62,7 +62,7 @@ const Navbar = () => {
               className={`
                 ${active === link.title ? navbarStyles.activeLink : navbarStyles.inactiveDesktopLink} 
                 ${navbarStyles.navLink} 
-              ${link.path === '/contact' ? ' text-primary-dark px-4 py-2 rounded-lg hover:bg-transparent border-2 border-secondary-dark hover:border-2 hover:border-secondary-dark hover:bg-secondary-dark' : ''}`}
+              ${link.path === '/contact' ? ' text-secondary-dark bg-transparent px-4 py-2 rounded-lg hover:bg-secondary-dark hover:text-primary-dark border-2 border-secondary-dark transition-all duration-300' : ''}`}
               onClick={() => handleNavigation(link.path, link.title, link.id)}
             >
               <span>{link.title}</span>
