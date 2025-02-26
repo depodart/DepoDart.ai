@@ -21,11 +21,11 @@ import {
 //! Nav Links
 export const navLinks = {
   main: [
-    {
-      id: "home",
-      title: "Home",
-      path: "/",
-    },
+    // {
+    //   id: "home",
+    //   title: "Home",
+    //   path: "/",
+    // },
     {
       id: "careers",
       title: "Careers",
