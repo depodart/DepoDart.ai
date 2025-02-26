@@ -87,7 +87,7 @@ const CareersPage = () => {
                   {job.description}
                 </p>
                 <a 
-                  href={`mailto:careers@depodart.com?subject=Application for ${job.title}`}
+                  href={`mailto:info@depodart.com?subject=Application for ${job.title}`}
                   className="block w-full bg-secondary-dark text-primary-light px-6 py-3 rounded-xl hover:shadow-lg hover:shadow-secondary-dark/30 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] text-center"
                 >
                   Apply Now
