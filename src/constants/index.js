@@ -55,7 +55,7 @@ export const ABOUT_TEXT = {
   sectionSubText: "",
   sectionHeadText: "Overview",
   overview:
-    "At DepoDart, we collect and process large geological, geophysical, remote sensing, satellite and geochemical datasets to identify rare mineral deposits through specialized AI models. Our big data-driven model can be continuously retrained, integrating local data from the area of interest to refine predictions and adapt to its unique geological characteristics.",
+    "At DepoDart, we leverage large geological, geophysical, and geochemical datasets to train specialized AI models that identify rare mineral deposits. Our big data-driven model can be fine-tuned to integrate local data from the area of interest, enhancing predictions and adapting to its unique geological characteristics.",
 };
 
 //! Hero Text

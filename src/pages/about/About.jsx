@@ -34,14 +34,15 @@ const About = () => {
       icon: <Globe2 size={32} className="text-secondary-dark" />,
     },
     {
-      title: "Sustainable Practices",
+      title: "Tailored input",
       description:
-        "Environmentally conscious exploration methods and techniques",
+        "New variables matching the input format can be quickly added to the model for tuning, making it the most versatile of its kind.",
       icon: <Leaf size={32} className="text-secondary-dark" />,
     },
     {
-      title: "Expert Support",
-      description: "Dedicated team of geologists and data scientists",
+      title: "Hands-Off Access",
+      description:
+        "Our API allows specialized users to input their own data and get predictions without the need for technical assistance.",
       icon: <Users size={32} className="text-secondary-dark" />,
     },
   ];
