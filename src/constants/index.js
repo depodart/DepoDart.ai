@@ -26,7 +26,7 @@ export const navLinks = {
     {
       id: "services",
       title: "Services",
-      path: "/services/1",
+      path: "/services/1/details",
     },
     {
       id: "contact",
@@ -182,9 +182,8 @@ export const projects = [
     name: "Geochemical 2D maps",
     description:
       "Predicted areas of high-concentration zones for gold, cobalt, and silver in Abitibi region.",
-    route_description: "Additional information",
+    route_description: "Our advanced AI models analyze geochemical data to generate detailed 2D maps highlighting areas with high mineral concentrations. These maps provide valuable insights for exploration targeting, with accuracy rates of approximately 25% in high-concentration ranges. The maps are generated at a 50-meter resolution and can identify potential deposits spanning 200-1000 meters in diameter. This tool is particularly effective for precious metals like gold, silver, and strategic minerals like cobalt.",
     tags: [
-      { name: "DepoDart", color: "" }, //#blue-text-gradient
       { name: "Geochemical maps", color: "" }, //"green-text-gradient"
       { name: "Geological Modeling", color: "" }, //"pink-text-gradient"
     ],
@@ -196,8 +195,8 @@ export const projects = [
     name: "3D orebody model",
     description:
       "Create 3D maps of a mineral deposit using geological, geochemical, and geophysical data",
+    route_description: "Our 3D orebody modeling system integrates multiple data sources including drill hole data, geological mapping, geochemical sampling, and geophysical surveys to create comprehensive three-dimensional models of mineral deposits. These models help visualize the spatial distribution of mineralization, structural controls, and geological features. The system employs advanced interpolation techniques and machine learning algorithms to predict mineral grades between sampling points, providing a more complete understanding of the deposit's geometry and grade distribution.",
     tags: [
-      { name: "DepoDart", color: "" },
       { name: "3D orebody", color: "" },
       { name: "Geochemical maps", color: "" },
     ],
@@ -208,13 +207,12 @@ export const projects = [
     name: "AI Exploration Reports",
     description:
       "Get a detailed report of your predictions and recommendations for further actions.",
+    route_description: "Our AI-powered reporting system generates comprehensive exploration reports that include detailed analysis of mineral potential, risk assessment, and recommended next steps. The reports incorporate machine learning predictions, statistical analysis of geochemical data, and geological interpretations. Each report includes high-resolution maps, probability distributions of mineral occurrences, and specific recommendations for follow-up exploration activities such as drilling targets or additional sampling locations. The system also provides confidence levels for predictions and highlights areas of uncertainty that may require additional investigation.",
     tags: [
-      { name: "DepoDart", color: "" },
       { name: "Predictive Analytics", color: "" },
       { name: "Geological Modeling", color: "" },
     ],
     image: AGAUCU,
-
     source_code_link: "https://github.com/",
   },
 ];
