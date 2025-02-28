@@ -13,7 +13,7 @@ const Technology = () => {
     },
     {
       title: "Big-Data preprocessing",
-      description: "Fill",
+      description: "Fill with description",
       icon: <Box size={32} className="text-secondary-dark" />,
       gradient: "from-[#4776E6] to-[#8E54E9]",
     },
