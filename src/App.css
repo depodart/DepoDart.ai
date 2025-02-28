@@ -1,13 +1,17 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  max-width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
   text-align: center;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .logo {
-  height: 6em;
-  padding: 1.5em;
+  height: min(6em, 10vh);
+  padding: min(1.5em, 2vh);
   will-change: filter;
   transition: filter 300ms;
 }
@@ -33,7 +37,7 @@
 }
 
 .card {
-  padding: 2em;
+  padding: min(2em, 3vh);
 }
 
 .read-the-docs {
@@ -43,5 +47,5 @@
 .resume-button {
   border: 2px solid blue;
   border-radius: 4px;
-  padding: 6px 12px;
+  padding: min(6px, 1vh) min(12px, 2vw);
 }
