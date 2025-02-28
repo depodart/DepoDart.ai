@@ -5,26 +5,36 @@ import { Link } from "react-router-dom";
 const Technology = () => {
   const technologies = [
     {
-      title: "AI-Powered Analysis",
+      title: "AI-ML tools",
       description:
-        "Our advanced artificial intelligence algorithms process terrain data with unprecedented accuracy, providing detailed insights for informed decision-making.",
+        "Our team has gathered and standardized extensive databases containing geochemical, geological, and geophysical variables to train the models, enhancing their intelligence.",
       icon: <BrainCircuit size={32} className="text-secondary-dark" />,
       gradient: "from-[#FF512F] to-[#DD2476]",
     },
     {
-      title: "3D Terrain Visualization",
-      description:
-        "State-of-the-art 3D rendering technology allows for immersive visualization of geographical data, enabling better understanding of terrain characteristics.",
+      title: "Big-Data preprocessing",
+      description: "Fill",
       icon: <Box size={32} className="text-secondary-dark" />,
       gradient: "from-[#4776E6] to-[#8E54E9]",
     },
+    //{
+    //title: "Big Data preprocessing",
+    //description: "State-of-the-art 3D rendering technology allows for immersive visualization of geographical data, enabling better understanding of terrain characteristics.",
+    //icon: <Box size={32} className="text-secondary-dark" />,
+    //gradient: "from-[#4776E6] to-[#8E54E9]",
+    //},
     {
       title: "Real-time Processing",
-      description:
-        "Lightning-fast processing capabilities deliver instant analysis of terrain data, supporting rapid assessment and decision-making in the field.",
+      description: "Fill",
       icon: <Zap size={32} className="text-secondary-dark" />,
       gradient: "from-[#00B4DB] to-[#0083B0]",
     },
+    //{
+    //title: "Real-time Processing",
+    //description: "Lightning-fast processing capabilities deliver instant analysis of terrain data, supporting rapid assessment and decision-making in the field.",
+    //icon: <Zap size={32} className="text-secondary-dark" />,
+    //gradient: "from-[#00B4DB] to-[#0083B0]",
+    //},
     {
       title: "Hands-Off Access",
       description:
@@ -69,8 +79,7 @@ const Technology = () => {
             Pioneering Technology
           </h1>
           <p className="text-2xl text-primary-light/80 max-w-3xl mx-auto leading-relaxed">
-            Revolutionizing terrain analysis through cutting-edge AI and
-            advanced visualization technologies
+            Revolutionizing terrain analysis through cutting-edge AI.
           </p>
         </motion.div>
 
