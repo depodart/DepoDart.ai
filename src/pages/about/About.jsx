@@ -24,13 +24,13 @@ const About = () => {
     {
       title: "AI-Powered Analysis",
       description:
-        "Advanced machine learning algorithms process complex geological datasets",
+        "Innovative machine learning models that uncover complex relationships between geological, geophysical, and geochemical variables.",
       icon: <BrainCircuit size={32} className="text-secondary-dark" />,
     },
     {
       title: "Global Coverage",
       description:
-        "Comprehensive mineral exploration data from around the world",
+        "Using extensive mining datasets from all corners of the world makes our model the most comprehensive of its kind.",
       icon: <Globe2 size={32} className="text-secondary-dark" />,
     },
     {
