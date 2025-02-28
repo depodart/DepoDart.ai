@@ -1,13 +1,13 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ABOUT_TEXT } from '../../constants';
-import { BrainCircuit, Globe2, Leaf, Users } from 'lucide-react';
+import React from "react";
+import { motion } from "framer-motion";
+import { ABOUT_TEXT } from "../../constants";
+import { BrainCircuit, Globe2, Leaf, Users } from "lucide-react";
 
 const About = () => {
   const fadeInUp = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
-    exit: { opacity: 0, y: 20 }
+    exit: { opacity: 0, y: 20 },
   };
 
   const containerAnimation = {
@@ -15,45 +15,48 @@ const About = () => {
     show: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
-      }
-    }
+        staggerChildren: 0.2,
+      },
+    },
   };
 
   const features = [
     {
       title: "AI-Powered Analysis",
-      description: "Advanced machine learning algorithms process complex geological datasets",
-      icon: <BrainCircuit size={32} className="text-secondary-dark" />
+      description:
+        "Advanced machine learning algorithms process complex geological datasets",
+      icon: <BrainCircuit size={32} className="text-secondary-dark" />,
     },
     {
-      title: "Global Coverage", 
-      description: "Comprehensive mineral exploration data from around the world",
-      icon: <Globe2 size={32} className="text-secondary-dark" />
+      title: "Global Coverage",
+      description:
+        "Comprehensive mineral exploration data from around the world",
+      icon: <Globe2 size={32} className="text-secondary-dark" />,
     },
     {
       title: "Sustainable Practices",
-      description: "Environmentally conscious exploration methods and techniques", 
-      icon: <Leaf size={32} className="text-secondary-dark" />
+      description:
+        "Environmentally conscious exploration methods and techniques",
+      icon: <Leaf size={32} className="text-secondary-dark" />,
     },
     {
       title: "Expert Support",
       description: "Dedicated team of geologists and data scientists",
-      icon: <Users size={32} className="text-secondary-dark" />
-    }
+      icon: <Users size={32} className="text-secondary-dark" />,
+    },
   ];
 
   return (
     <div className="min-h-screen bg-primary-dark">
       <div className="container mx-auto px-6 py-24">
-        <motion.div 
+        <motion.div
           initial="hidden"
           animate="show"
           variants={containerAnimation}
           className="space-y-20"
         >
           {/* Hero Section */}
-          <motion.div 
+          <motion.div
             variants={fadeInUp}
             className="text-center max-w-4xl mx-auto"
           >
@@ -66,7 +69,10 @@ const About = () => {
           </motion.div>
 
           {/* Features Grid */}
-          <motion.div variants={fadeInUp} className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <motion.div
+            variants={fadeInUp}
+            className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+          >
             {features.map((feature, index) => (
               <motion.div
                 key={index}
@@ -79,9 +85,7 @@ const About = () => {
                 <h3 className="text-xl font-bold text-secondary-dark mb-3">
                   {feature.title}
                 </h3>
-                <p className="text-primary-light/70">
-                  {feature.description}
-                </p>
+                <p className="text-primary-light/70">{feature.description}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -92,23 +96,25 @@ const About = () => {
               variants={fadeInUp}
               className="bg-white/5 backdrop-blur-lg rounded-2xl p-10 border border-white/10 hover:border-secondary-dark/50 transition-all duration-300"
             >
-              <h2 className="text-3xl font-bold text-secondary-dark mb-6">Our Mission</h2>
+              <h2 className="text-3xl font-bold text-secondary-dark mb-6">
+                Our Mission
+              </h2>
               <p className="text-primary-light/80 text-lg leading-relaxed">
-                To revolutionize mineral exploration through AI-powered analysis of geological data, 
-                making exploration more efficient, accurate, and environmentally sustainable while 
-                delivering unprecedented value to our clients.
+                To meet the growing demand for minerals by transforming vast
+                amounts of data into valuable insights for the industry.
               </p>
             </motion.div>
 
             <motion.div
-              variants={fadeInUp} 
+              variants={fadeInUp}
               className="bg-white/5 backdrop-blur-lg rounded-2xl p-10 border border-white/10 hover:border-secondary-dark/50 transition-all duration-300"
             >
-              <h2 className="text-3xl font-bold text-secondary-dark mb-6">Our Vision</h2>
+              <h2 className="text-3xl font-bold text-secondary-dark mb-6">
+                Our Vision
+              </h2>
               <p className="text-primary-light/80 text-lg leading-relaxed">
-                To become the global leader in AI-driven mineral exploration, transforming how 
-                organizations discover and evaluate mineral deposits while promoting sustainable 
-                practices and responsible resource development.
+                To revolutionize the mining industry by making data-driven
+                decision-making the standard for the future.
               </p>
             </motion.div>
           </div>
