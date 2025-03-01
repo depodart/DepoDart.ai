@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Technology = () => {
   const technologies = [
     {
-      title: "AI-ML tools",
+      title: "AI-ML technology",
       description:
         "Our team has gathered and standardized extensive databases containing geochemical, geological, and geophysical variables to train the models, enhancing their intelligence.",
       icon: <BrainCircuit size={32} className="text-secondary-dark" />,
