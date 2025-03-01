@@ -4,32 +4,25 @@ import { motion } from "framer-motion";
 const Knowledge = () => {
   const articles = [
     {
-      title: "AI on Mineral Exploration",
+      title: "AI in Mineral Exploration",
       description:
         "The Transformative Impact of Artificial Intelligence on Mineral Exploration: Efficiency, Sustainability, and Discovery",
       category: "AI & Industry",
       readTime: "5 min read",
     },
     {
-      title: "AI in Environmental Monitoring",
+      title: "Big Data, New Frontiers in Mineral Exploration",
       description:
         "Discover how artificial intelligence is transforming environmental monitoring and conservation efforts.",
-      category: "AI & Environment",
+      category: "AI & Industry",
       readTime: "8 min read",
     },
     {
-      title: "Best Practices in Land Development",
+      title: "New Technologies in Prospectivity Mapping",
       description:
-        "Expert insights on sustainable land development practices and how technology can support better decision-making.",
+        "Recent advancements in mineral prospectivity mapping are leveraging artificial intelligence, machine learning, and hyperspectral imaging to transform resource exploration",
       category: "Industry",
       readTime: "10 min read",
-    },
-    {
-      title: "The Future of Urban Planning",
-      description:
-        "Explore how advanced terrain analysis is shaping the future of urban development and smart cities.",
-      category: "Urban Planning",
-      readTime: "7 min read",
     },
   ];
 
