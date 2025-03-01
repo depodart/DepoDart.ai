@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState(null);
@@ -7,39 +7,46 @@ const FAQ = () => {
   const faqData = [
     {
       question: "What is DepoDart?",
-      answer: "DepoDart is an advanced AI-powered terrain analysis and visualization platform that helps organizations make data-driven decisions about land development, environmental monitoring, and resource management.",
-      gradient: "from-[#FF512F] to-[#DD2476]"
+      answer:
+        "DepoDart is an advanced AI-powered terrain analysis and visualization platform that helps organizations make data-driven decisions about land development, environmental monitoring, and resource management.",
+      gradient: "from-[#FF512F] to-[#DD2476]",
     },
     {
-      question: "How accurate is DepoDart's terrain analysis?", 
-      answer: "DepoDart utilizes high-resolution satellite imagery and advanced AI algorithms to provide terrain analysis with accuracy levels up to 98%. The exact accuracy may vary depending on the specific location and available data sources.",
-      gradient: "from-[#4776E6] to-[#8E54E9]"
+      question: "How accurate is DepoDart?",
+      answer:
+        "The accuracy of our models depends on the data used. Clients can choose to use public data, where roughly 1 in 4 deposits is detected, or provide high-definition data for the target area. In the latter case, accuracy will generally be higher, depending on the number of raster layers provided and their resolution.",
+      gradient: "from-[#4776E6] to-[#8E54E9]",
     },
     {
       question: "What industries can benefit from DepoDart?",
-      answer: "DepoDart serves multiple industries including urban planning, construction, environmental conservation, agriculture, mining, and infrastructure development. Any organization that requires detailed terrain analysis can benefit from our platform.",
-      gradient: "from-[#00B4DB] to-[#0083B0]"
+      answer:
+        "DepoDart supports the mining industry by providing AI-driven geological insights to enhance mineral exploration.",
+      gradient: "from-[#00B4DB] to-[#0083B0]",
     },
     {
-      question: "How frequently is the terrain data updated?",
-      answer: "Our terrain data is updated regularly, with most regions receiving updates every 1-3 months. Critical areas can be monitored more frequently upon request.",
-      gradient: "from-[#56ab2f] to-[#a8e063]"
+      question: "How frequently is the data updated?",
+      answer:
+        "At Depodart, we continuously integrate new data into the training set, adding approximately one database per month. This process involves identifying the database, obtaining permissions, downloading the data, and reformatting it.",
+      gradient: "from-[#56ab2f] to-[#a8e063]",
     },
     {
       question: "Can I export analysis results from DepoDart?",
-      answer: "Yes, DepoDart allows you to export analysis results in multiple formats including PDF reports, CSV data files, and GIS-compatible formats for integration with other tools.",
-      gradient: "from-[#FF512F] to-[#DD2476]"
+      answer:
+        "Yes, DepoDart allows you to export analysis results in multiple formats including PDF reports, CSV data files, and GIS-compatible formats for integration with other tools.",
+      gradient: "from-[#FF512F] to-[#DD2476]",
     },
-    {
-      question: "What kind of support do you offer?",
-      answer: "We provide comprehensive support including technical assistance, training sessions, and dedicated account management for enterprise clients. Our support team is available 24/7 to help with any questions or issues.",
-      gradient: "from-[#4776E6] to-[#8E54E9]"
-    },
+    // {
+    //   question: "What kind of support do you offer?",
+    //   answer:
+    //     "We provide comprehensive support including technical assistance, and dedicated account management for enterprise clients. Our support team is available 24/7 to help with any questions or issues.",
+    //   gradient: "from-[#4776E6] to-[#8E54E9]",
+    // },
     {
       question: "Is my data secure with DepoDart?",
-      answer: "Yes, we take data security seriously. All data is encrypted both in transit and at rest, and we comply with international data protection standards. We also offer private cloud deployments for enterprise clients.",
-      gradient: "from-[#00B4DB] to-[#0083B0]"
-    }
+      answer:
+        "Yes, we take data security seriously. All data is encrypted both in transit and at rest, and we comply with international data protection standards. We also offer private cloud deployments for enterprise clients.",
+      gradient: "from-[#00B4DB] to-[#0083B0]",
+    },
   ];
 
   const containerVariants = {
@@ -47,9 +54,9 @@ const FAQ = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.3
-      }
-    }
+        staggerChildren: 0.3,
+      },
+    },
   };
 
   const itemVariants = {
@@ -59,9 +66,9 @@ const FAQ = () => {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: "easeOut"
-      }
-    }
+        ease: "easeOut",
+      },
+    },
   };
 
   return (
@@ -72,7 +79,8 @@ const FAQ = () => {
             Frequently Asked Questions
           </h1>
           <p className="text-2xl text-primary-light/80 max-w-3xl mx-auto leading-relaxed">
-            Find answers to common questions about DepoDart's terrain analysis platform
+            Find answers to common questions about DepoDart's terrain analysis
+            platform
           </p>
         </div>
 
@@ -88,18 +96,22 @@ const FAQ = () => {
               variants={itemVariants}
               className="group relative"
             >
-              <div className={`absolute inset-0 bg-gradient-to-r ${faq.gradient} rounded-2xl opacity-20 group-hover:opacity-30 transition-opacity duration-300`}></div>
+              <div
+                className={`absolute inset-0 bg-gradient-to-r ${faq.gradient} rounded-2xl opacity-20 group-hover:opacity-30 transition-opacity duration-300`}
+              ></div>
               <div className="relative bg-white/5 backdrop-blur-lg rounded-2xl p-8 border border-white/10 hover:border-secondary-dark/50 transition-all duration-300">
                 <button
                   className="w-full flex justify-between items-center transition-all duration-300 hover:scale-[1.02]"
-                  onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                  onClick={() =>
+                    setOpenIndex(openIndex === index ? null : index)
+                  }
                 >
                   <h3 className="text-2xl font-bold text-primary-light">
                     {faq.question}
                   </h3>
                   <svg
                     className={`w-6 h-6 text-secondary-dark transform transition-transform duration-300 ${
-                      openIndex === index ? 'rotate-180' : ''
+                      openIndex === index ? "rotate-180" : ""
                     }`}
                     fill="none"
                     viewBox="0 0 24 24"

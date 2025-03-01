@@ -6,14 +6,14 @@ const Knowledge = () => {
     {
       title: "AI in Mineral Exploration",
       description:
-        "The Transformative Impact of Artificial Intelligence on Mineral Exploration: Efficiency, Sustainability, and Discovery",
+        "The integration of artificial intelligence (AI) into mineral exploration represents a paradigm shift in how the mining industry identifies and extracts critical resources. By combining advanced machine learning algorithms, autonomous systems, and predictive analytics, AI is overcoming long-standing challenges in discovery rates, operational costs, and environmental impact.",
       category: "AI & Industry",
       readTime: "5 min read",
     },
     {
       title: "Big Data, New Frontiers in Mineral Exploration",
       description:
-        "Discover how artificial intelligence is transforming environmental monitoring and conservation efforts.",
+        "Recent advancements in public datasets and big data analytics are transforming mineral exploration, enabling more efficient discovery of critical minerals. Key developments include new open-access platforms, AI-driven data integration, and collaborative geoscience projects enhancing exploration capabilities.",
       category: "AI & Industry",
       readTime: "8 min read",
     },
