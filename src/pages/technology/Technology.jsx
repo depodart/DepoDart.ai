@@ -7,7 +7,7 @@ const Technology = () => {
     {
       title: "AI-ML technology",
       description:
-        "Unique algorithms have been designed to integrate predictive variables in the mining context, enabling the creation of high-precision geochemical maps.",
+        "Unique algorithms have been designed to integrate predictive variables in the mining context, enabling the creation of high-precision geospatial maps.",
       icon: <BrainCircuit size={32} className="text-secondary-dark" />,
       gradient: "from-[#FF512F] to-[#DD2476]",
     },
@@ -25,8 +25,9 @@ const Technology = () => {
     //gradient: "from-[#4776E6] to-[#8E54E9]",
     //},
     {
-      title: "Real-time Processing",
-      description: "Fill",
+      title: "Visualization",
+      description:
+        "Graphical applications designed to visualize results in the most useful way for the client, combining relevant content tailored to their needs.",
       icon: <Zap size={32} className="text-secondary-dark" />,
       gradient: "from-[#00B4DB] to-[#0083B0]",
     },
