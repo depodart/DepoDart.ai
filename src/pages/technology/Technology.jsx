@@ -7,13 +7,14 @@ const Technology = () => {
     {
       title: "AI-ML technology",
       description:
-        "Our team has gathered and standardized extensive databases containing geochemical, geological, and geophysical variables to train the models, enhancing their intelligence.",
+        "Unique algorithms have been designed to integrate predictive variables in the mining context, enabling the creation of high-precision geochemical maps.",
       icon: <BrainCircuit size={32} className="text-secondary-dark" />,
       gradient: "from-[#FF512F] to-[#DD2476]",
     },
     {
       title: "Big-Data preprocessing",
-      description: "Fill with description",
+      description:
+        "Algorithms to standardize extensive databases containing geochemical, geological, and geophysical variables to train the models, enhancing their intelligence.",
       icon: <Box size={32} className="text-secondary-dark" />,
       gradient: "from-[#4776E6] to-[#8E54E9]",
     },
