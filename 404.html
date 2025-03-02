@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>DepoDart.ai</title>
+  <script type="text/javascript">
+    // Single-page application redirect script
+    // Store the originally requested URL in sessionStorage
+    var pathSegmentsToKeep = 0; // Set to 1 if your site is in a subdirectory on the domain
+
+    var l = window.location;
+    var destinationUrl = 
+      l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+      l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/' +
+      l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+      (l.search ? '?' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+      l.hash;
+
+    // Store the path we want to redirect to after loading index.html
+    sessionStorage.redirect = destinationUrl;
+    
+    // Now redirect to the root
+    window.location.href = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '');
+  </script>
+</head>
+<body>
+  <h2>Redirecting...</h2>
+  <p>If you are not redirected automatically, please <a href="/">click here</a>.</p>
+</body>
+</html> 
