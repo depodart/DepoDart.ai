@@ -18,6 +18,31 @@
   <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png" />
   <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png" />
 
+  <!-- SPA Redirect Script -->
+  <script type="text/javascript">
+    // This script checks if a redirect is coming from 404.html
+    (function() {
+      // If the URL contains a '?/' pattern, it's a redirect from 404.html
+      var redirect = sessionStorage.redirect;
+      delete sessionStorage.redirect;
+      
+      // If there was a redirect, check to see if we need to handle a path
+      if (redirect && redirect !== window.location.href) {
+        // If we were redirected to this page but should be at a different path, navigate there
+        window.history.replaceState(null, null, redirect);
+      } else {
+        // Check if this is a direct access with the special pattern from 404.html
+        var l = window.location;
+        if (l.search.match(/^\?\//) || l.pathname.match(/\/?\/$/)) {
+          var redirectPath = l.pathname + (l.search.match(/^\?\//) ? l.search.slice(2) : '') + l.hash;
+          // Remove the special flag added by 404.html
+          redirectPath = redirectPath.replace(/\/?\//, '/');
+          window.history.replaceState(null, null, redirectPath);
+        }
+      }
+    })();
+  </script>
+
   <title>DepoDart</title>
 </head>
 <body class="bg-primary-dark">
