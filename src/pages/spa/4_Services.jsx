@@ -11,7 +11,7 @@ const ServiceCard = memo(({ id, name, description, tags, image, source_code_link
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(`/services/${id}`);
+    navigate(`/services/${id}/details`);
   };
 
   return (
