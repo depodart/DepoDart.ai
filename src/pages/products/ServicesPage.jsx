@@ -73,13 +73,18 @@ const ServiceDetails = ({ service }) => {
       <div className="relative z-10">
         <motion.div 
           variants={itemVariants}
-          className="aspect-video rounded-xl overflow-hidden mb-8 shadow-xl"
+          className="aspect-video rounded-xl overflow-hidden mb-8 shadow-xl relative"
         >
           <img 
             src={service.image}
             alt={service.name}
             className="w-full h-full object-cover"
           />
+          {service.underDevelopment && (
+            <div className="absolute top-4 left-4 px-3 py-1 bg-yellow-500/90 text-black font-semibold text-xs rounded-full shadow-lg transform rotate-[-5deg] z-10 animate-pulse">
+              Under Development
+            </div>
+          )}
         </motion.div>
         
         <motion.h1 
@@ -149,12 +154,17 @@ const ServiceCard = ({ project, index, isSelected, onClick }) => {
       } rounded-xl transition-opacity duration-500`}></div>
       
       <div className="relative">
-        <div className="aspect-video rounded-lg overflow-hidden mb-4 shadow-md">
+        <div className="aspect-video rounded-lg overflow-hidden mb-4 shadow-md relative">
           <img 
             src={project.image}
             alt={project.name}
             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out"
           />
+          {project.underDevelopment && (
+            <div className="absolute top-2 left-2 px-3 py-1 bg-yellow-500/90 text-black font-semibold text-xs rounded-full shadow-lg transform rotate-[-5deg] z-10 animate-pulse">
+              Under Development
+            </div>
+          )}
         </div>
         <h3 className="text-xl font-bold text-primary-light mb-3  transition-colors duration-300">
           {project.name}

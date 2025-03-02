@@ -7,7 +7,7 @@ import { projects, WORKS_TEXT } from "../../constants";
 import { textVariant } from "../../utils/motion";
 import { worksStyles, defaultSectionStyles } from "../../style";
 
-const ServiceCard = memo(({ id, name, description, tags, image, source_code_link }) => {
+const ServiceCard = memo(({ id, name, description, tags, image, source_code_link, underDevelopment }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -26,6 +26,11 @@ const ServiceCard = memo(({ id, name, description, tags, image, source_code_link
             className={`${worksStyles.projectCard.image} w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out`}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          {underDevelopment && (
+            <div className="absolute top-4 left-4 px-3 py-1 bg-yellow-500/90 text-black font-semibold text-xs rounded-full shadow-lg transform rotate-[-5deg] z-10 animate-pulse">
+              Under Development
+            </div>
+          )}
           <button 
             className="absolute bottom-4 right-4 px-4 py-2 bg-secondary-dark/80 hover:bg-secondary-dark text-white rounded-lg shadow-lg transform translate-y-12 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500"
             onClick={(e) => {
@@ -38,9 +43,12 @@ const ServiceCard = memo(({ id, name, description, tags, image, source_code_link
         </figure>
 
         <header className="space-y-4">
-          <h3 className={`${worksStyles.projectCard.title} text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-secondary-dark to-tertiary-light group-hover:scale-105 transition-transform duration-500`}>
-            {name}
-          </h3>
+          <div className="flex items-center justify-between">
+            <h3 className={`${worksStyles.projectCard.title} text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-secondary-dark to-tertiary-light group-hover:scale-105 transition-transform duration-500`}>
+              {name}
+            </h3>
+
+          </div>
           <p className={`${worksStyles.projectCard.description} text-primary-light/80 text-sm leading-relaxed line-clamp-3 group-hover:line-clamp-none transition-all duration-500 group-hover:text-primary-light`}>
             {description}
           </p>
