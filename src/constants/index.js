@@ -1,5 +1,6 @@
 import { AGAUCU } from "../assets";
 import { Results } from "../assets";
+import { ORE3D } from "../assets";
 
 import {
   BeakerIcon,
@@ -202,7 +203,7 @@ export const projects = [
       { name: "3D orebody", color: "" },
       { name: "Geochemical maps", color: "" },
     ],
-    image: AGAUCU,
+    image: ORE3D,
     source_code_link: "https://github.com/",
   },
   {
