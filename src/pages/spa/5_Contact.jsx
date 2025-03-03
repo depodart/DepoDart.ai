@@ -66,31 +66,55 @@ const Contact = () => {
   }, []);
 
   const handleChange = useCallback((e) => {
-    const { name, value } = e.target;
-    setForm((prev) => ({ ...prev, [name]: value }));
+    const { name, type, value, checked } = e.target;
+    const newValue = type === 'checkbox' ? checked : value;
+    setForm((prev) => ({ ...prev, [name]: newValue }));
+    console.log(`Field ${name} updated to: ${newValue}`);
   }, []);
 
   const validateForm = useCallback(() => {
     const newErrors = {};
     if (!form.firstName.trim()) newErrors.firstName = CONTACT_TEXT.firstNameError;
     if (!EMAIL_REGEX.test(form.email)) newErrors.email = CONTACT_TEXT.emailError;
-    if (!form.agreed) newErrors.agreed = CONTACT_TEXT.agreementError;
+    
+    console.log("Form validation results:", { 
+      form, 
+      errors: newErrors, 
+      isValid: Object.keys(newErrors).length === 0 
+    });
+    
     return newErrors;
   }, [form]);
 
   const handleSubmit = useCallback(
     (e) => {
       e.preventDefault();
+      console.log("Form submission started", { formData: form });
+      
       const validationErrors = validateForm();
       if (Object.keys(validationErrors).length > 0) {
+        console.log("Form validation failed:", validationErrors);
         setErrors(validationErrors);
         return;
       }
 
       setLoading(true);
+      console.log("Form passed validation, sending email...");
 
       const fullName = `${form.firstName}${form.lastName ? ` ${form.lastName}` : ""}`;
       const combinedMessage = `Company: ${form.company}\nPhone: ${form.phone}\n\nMessage:\n${form.message}`;
+
+      console.log("EmailJS parameters:", {
+        serviceId: CONTACT_TEXT.EMAIL_SERVICE_ID,
+        templateId: CONTACT_TEXT.EMAIL_TEMPLATE_ID,
+        publicKey: CONTACT_TEXT.EMAIL_PUBLIC_KEY,
+        messageData: {
+          from_name: fullName,
+          to_name: CONTACT_TEXT.EMAIL_RECIPIENT_NAME,
+          from_email: form.email,
+          message: combinedMessage,
+        }
+      });
 
       emailjs
         .send(
@@ -104,12 +128,19 @@ const Contact = () => {
           },
           CONTACT_TEXT.EMAIL_PUBLIC_KEY
         )
-        .then(() => {
+        .then((response) => {
+          console.log("EmailJS success response:", response);
           setForm(INITIAL_FORM_STATE);
           setConfirmation(CONTACT_TEXT.successMessage);
         })
-        .catch(() => setConfirmation(CONTACT_TEXT.errorMessage))
-        .finally(() => setLoading(false));
+        .catch((error) => {
+          console.error("EmailJS error:", error);
+          setConfirmation(CONTACT_TEXT.errorMessage);
+        })
+        .finally(() => {
+          console.log("Email sending process completed");
+          setLoading(false);
+        });
     },
     [form, validateForm]
   );
@@ -191,6 +222,21 @@ const Contact = () => {
             />
           </div>
 
+          {/* Optional Privacy Policy Checkbox */}
+          {/* <div className="mt-6 flex items-center gap-x-3">
+            <input
+              id="privacy-policy"
+              name="agreed"
+              type="checkbox"
+              checked={form.agreed}
+              onChange={handleChange}
+              className="h-5 w-5 rounded border-gray-300 text-primary-dark focus:ring-primary-dark"
+            />
+            <label htmlFor="privacy-policy" className="text-sm text-primary-dark dark:text-primary-light">
+              I agree to the privacy policy (optional)
+            </label>
+          </div> */}
+          
           <div className={contactStyles.submitButtonWrapper}>
             <button type="submit" disabled={loading} className={contactStyles.submitButton}>
               {loading ? CONTACT_TEXT.sendingButton : CONTACT_TEXT.sendButton}
