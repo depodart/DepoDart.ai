@@ -9,5 +9,6 @@ import close from "./icons/close.svg";
 
 // Import project images
 import AGAUCU from "./projects/AGAUCU.png";
+import Results from "./projects/Results.png";
 
-export { AGAUCU, logo, Dart_1, github, menu, close };
+export { AGAUCU, Results, logo, Dart_1, github, menu, close };

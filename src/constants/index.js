@@ -1,4 +1,5 @@
 import { AGAUCU } from "../assets";
+import { Results } from "../assets";
 
 import {
   BeakerIcon,
@@ -172,9 +173,8 @@ export const WORKS_TEXT = {
   description:
     "Our model leverages autoencoders and semi-supervised learning to estimate\
    the concentrations of dozens of minerals simultaneously. For rare minerals like gold, \
-   cobalt, and silver in Abitibi region, for example, we achieve approximately 25% accuracy in high-concentration ranges—meaning \
-   one in four predictions is correct. The algorithm operates at a 50-meter resolution, \
-   with predicted high-concentration zones typically spanning 200 to 1000 meters in diameter.",
+   cobalt, and silver in Abitibi region, one every four zones predicted predicted as mineralized is correct. The algorithm operates at a 50-meter resolution, \
+   with predicted mineralized zones typically spanning 200 to 1000 meters in diameter.",
 };
 
 export const projects = [
@@ -215,7 +215,7 @@ export const projects = [
       { name: "Predictive Analytics", color: "" },
       { name: "Geological Modeling", color: "" },
     ],
-    image: AGAUCU,
+    image: Results,
     source_code_link: "https://github.com/",
   },
 ];
