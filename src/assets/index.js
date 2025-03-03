@@ -9,5 +9,7 @@ import close from "./icons/close.svg";
 
 // Import project images
 import AGAUCU from "./projects/AGAUCU.png";
+import Results from "./projects/Results.png";
+import ORE3D from "./projects/ORE3D.png";
 
-export { AGAUCU, logo, Dart_1, github, menu, close };
+export { AGAUCU, ORE3D, Results, logo, Dart_1, github, menu, close };

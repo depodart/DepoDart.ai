@@ -1,4 +1,6 @@
 import { AGAUCU } from "../assets";
+import { Results } from "../assets";
+import { ORE3D } from "../assets";
 
 import {
   BeakerIcon,
@@ -172,14 +174,14 @@ export const WORKS_TEXT = {
   description:
     "Our model leverages autoencoders and semi-supervised learning to estimate\
    the concentrations of dozens of minerals simultaneously. For rare minerals like gold, \
-   cobalt, and silver in Abitibi region, for example, we achieve approximately 25% accuracy in high-concentration ranges—meaning \
-   one in four predictions is correct. The algorithm operates at a 50-meter resolution, \
-   with predicted high-concentration zones typically spanning 200 to 1000 meters in diameter.",
+   cobalt, and silver in Abitibi region, one every four zones predicted predicted as mineralized is correct. The algorithm operates at a 50-meter resolution, \
+   with predicted mineralized zones typically spanning 200 to 1000 meters in diameter.",
 };
 
 export const projects = [
   {
     name: "Geochemical 2D maps",
+    underDevelopment: false,
     description:
       "Predicted areas of high-concentration zones for gold, cobalt, and silver in Abitibi region.",
     route_description: "Our advanced AI models analyze geochemical data to generate detailed 2D maps highlighting areas with high mineral concentrations. These maps provide valuable insights for exploration targeting, with accuracy rates of approximately 25% in high-concentration ranges. The maps are generated at a 50-meter resolution and can identify potential deposits spanning 200-1000 meters in diameter. This tool is particularly effective for precious metals like gold, silver, and strategic minerals like cobalt.",
@@ -193,6 +195,7 @@ export const projects = [
 
   {
     name: "3D orebody model",
+    underDevelopment: true,
     description:
       "Create 3D maps of a mineral deposit using geological, geochemical, and geophysical data",
     route_description: "Our 3D orebody modeling system integrates multiple data sources including drill hole data, geological mapping, geochemical sampling, and geophysical surveys to create comprehensive three-dimensional models of mineral deposits. These models help visualize the spatial distribution of mineralization, structural controls, and geological features. The system employs advanced interpolation techniques and machine learning algorithms to predict mineral grades between sampling points, providing a more complete understanding of the deposit's geometry and grade distribution.",
@@ -200,11 +203,12 @@ export const projects = [
       { name: "3D orebody", color: "" },
       { name: "Geochemical maps", color: "" },
     ],
-    image: AGAUCU,
+    image: ORE3D,
     source_code_link: "https://github.com/",
   },
   {
     name: "AI Exploration Reports",
+    underDevelopment: false,
     description:
       "Get a detailed report of your predictions and recommendations for further actions.",
     route_description: "Our AI-powered reporting system generates comprehensive exploration reports that include detailed analysis of mineral potential, risk assessment, and recommended next steps. The reports incorporate machine learning predictions, statistical analysis of geochemical data, and geological interpretations. Each report includes high-resolution maps, probability distributions of mineral occurrences, and specific recommendations for follow-up exploration activities such as drilling targets or additional sampling locations. The system also provides confidence levels for predictions and highlights areas of uncertainty that may require additional investigation.",
@@ -212,7 +216,7 @@ export const projects = [
       { name: "Predictive Analytics", color: "" },
       { name: "Geological Modeling", color: "" },
     ],
-    image: AGAUCU,
+    image: Results,
     source_code_link: "https://github.com/",
   },
 ];
