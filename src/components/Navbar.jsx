@@ -23,7 +23,7 @@ const Navbar = () => {
 
   const handleNavigation = (path, title, id) => {
     setActive(title);
-    
+
     // If on main route and clicking contact, scroll to contact section
     if (location.pathname === '/' && path === '/contact') {
       smoothScroll('contact');
@@ -45,14 +45,17 @@ const Navbar = () => {
             window.scrollTo(0, 0);
           }}
         >
-          <p className={navbarStyles.logoText}>
-            <img 
-              src={Dart_1} 
-              alt="Logo" 
-              className="w-8 h-8 object-contain mr-2 filter brightness-500 hover:brightness-100 transition-all duration-300" 
-            />
-            <span className="">DepoDart</span>
-          </p>
+          <img
+            src={Dart_1}
+            alt="Logo"
+            className="w-8 h-8 object-contain mr-2 filter brightness-500 hover:brightness-100 transition-all duration-300"
+          />
+          <div className="flex flex-col">
+            <p className={navbarStyles.logoText}>
+              <span className="">Depo</span><span className="text-secondary-dark">Dart</span>
+            </p>
+            <p className="text-xs">Where big data meets big discoveries</p>
+          </div>
         </Link>
         {/* Desktop Navigation */}
         <ul className={navbarStyles.desktopNav}>
