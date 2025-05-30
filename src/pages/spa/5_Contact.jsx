@@ -13,11 +13,11 @@ import { isMobile } from "../../utils/screensize";
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
 const FormInput = memo(
-  ({ label, id, name, type = "text", value, onChange, error, textarea, placeholder }) => {
+  ({ label, id, name, type = "text", value, onChange, error, textarea, placeholder, required = false }) => {
     return (
       <div className={`${name === "firstName" || name === "lastName" ? "" : "sm:col-span-2"}`}>
         <label htmlFor={id} className={contactStyles.formLabel}>
-          {label}
+          {label} {required && <span className="text-red-500">*</span>}
         </label>
         <div className="mt-2.5">
           {textarea ? (
@@ -29,6 +29,7 @@ const FormInput = memo(
               className={contactStyles.formInput}
               rows={4}
               placeholder={placeholder}
+              required={required}
             />
           ) : (
             <input
@@ -39,6 +40,7 @@ const FormInput = memo(
               onChange={onChange}
               className={contactStyles.formInput}
               placeholder={placeholder}
+              required={required}
             />
           )}
           {error && <span className={contactStyles.validationError}>{error}</span>}
@@ -69,19 +71,38 @@ const Contact = () => {
     const { name, type, value, checked } = e.target;
     const newValue = type === 'checkbox' ? checked : value;
     setForm((prev) => ({ ...prev, [name]: newValue }));
+    
+    // Clear specific field error when user starts typing
+    if (errors[name]) {
+      setErrors((prev) => ({ ...prev, [name]: "" }));
+    }
+    
     console.log(`Field ${name} updated to: ${newValue}`);
-  }, []);
+  }, [errors]);
 
   const validateForm = useCallback(() => {
     const newErrors = {};
-    if (!form.firstName.trim()) newErrors.firstName = CONTACT_TEXT.firstNameError;
-    if (!EMAIL_REGEX.test(form.email)) newErrors.email = CONTACT_TEXT.emailError;
     
-    console.log("Form validation results:", { 
-      form, 
-      errors: newErrors, 
-      isValid: Object.keys(newErrors).length === 0 
-    });
+    // Required field validations
+    if (!form.firstName.trim()) {
+      newErrors.firstName = CONTACT_TEXT.firstNameError || "First name is required";
+    }
+    
+    if (!form.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!EMAIL_REGEX.test(form.email)) {
+      newErrors.email = CONTACT_TEXT.emailError || "Please enter a valid email address";
+    }
+    
+    if (!form.message.trim()) {
+      newErrors.message = "Message is required";
+    }
+    
+    // console.log("Form validation results:", { 
+    //   form, 
+    //   errors: newErrors, 
+    //   isValid: Object.keys(newErrors).length === 0 
+    // });
     
     return newErrors;
   }, [form]);
@@ -89,7 +110,11 @@ const Contact = () => {
   const handleSubmit = useCallback(
     (e) => {
       e.preventDefault();
-      console.log("Form submission started", { formData: form });
+      // console.log("Form submission started", { formData: form });
+      
+      // Clear previous errors and confirmation messages
+      setErrors({});
+      setConfirmation("");
       
       const validationErrors = validateForm();
       if (Object.keys(validationErrors).length > 0) {
@@ -102,19 +127,31 @@ const Contact = () => {
       console.log("Form passed validation, sending email...");
 
       const fullName = `${form.firstName}${form.lastName ? ` ${form.lastName}` : ""}`;
-      const combinedMessage = `Company: ${form.company}\nPhone: ${form.phone}\n\nMessage:\n${form.message}`;
+      const combinedMessage = `Company: ${form.company || "Not provided"}\nPhone: ${form.phone || "Not provided"}\nEmail: ${form.email}\n\nMessage:\n${form.message}`;
 
-      console.log("EmailJS parameters:", {
-        serviceId: CONTACT_TEXT.EMAIL_SERVICE_ID,
-        templateId: CONTACT_TEXT.EMAIL_TEMPLATE_ID,
-        publicKey: CONTACT_TEXT.EMAIL_PUBLIC_KEY,
-        messageData: {
-          from_name: fullName,
-          to_name: CONTACT_TEXT.EMAIL_RECIPIENT_NAME,
-          from_email: form.email,
-          message: combinedMessage,
-        }
-      });
+      // Validate EmailJS configuration
+      if (!CONTACT_TEXT.EMAIL_SERVICE_ID || !CONTACT_TEXT.EMAIL_TEMPLATE_ID || !CONTACT_TEXT.EMAIL_PUBLIC_KEY) {
+        console.error("EmailJS configuration missing:", {
+          serviceId: !!CONTACT_TEXT.EMAIL_SERVICE_ID,
+          templateId: !!CONTACT_TEXT.EMAIL_TEMPLATE_ID,
+          publicKey: !!CONTACT_TEXT.EMAIL_PUBLIC_KEY
+        });
+        setConfirmation("Email configuration error. Please contact support.");
+        setLoading(false);
+        return;
+      }
+
+      // console.log("EmailJS parameters:", {
+      //   serviceId: CONTACT_TEXT.EMAIL_SERVICE_ID,
+      //   templateId: CONTACT_TEXT.EMAIL_TEMPLATE_ID,
+      //   publicKey: CONTACT_TEXT.EMAIL_PUBLIC_KEY,
+      //   messageData: {
+      //     from_name: fullName,
+      //     to_name: CONTACT_TEXT.EMAIL_RECIPIENT_NAME,
+      //     from_email: form.email,
+      //     message: combinedMessage,
+      //   }
+      // });
 
       emailjs
         .send(
@@ -122,23 +159,37 @@ const Contact = () => {
           CONTACT_TEXT.EMAIL_TEMPLATE_ID,
           {
             from_name: fullName,
-            to_name: CONTACT_TEXT.EMAIL_RECIPIENT_NAME,
+            to_name: CONTACT_TEXT.EMAIL_RECIPIENT_NAME || "Support Team",
             from_email: form.email,
             message: combinedMessage,
           },
           CONTACT_TEXT.EMAIL_PUBLIC_KEY
         )
         .then((response) => {
-          console.log("EmailJS success response:", response);
+          // console.log("EmailJS success response:", response);
           setForm(INITIAL_FORM_STATE);
-          setConfirmation(CONTACT_TEXT.successMessage);
+          setConfirmation(CONTACT_TEXT.successMessage || "Message sent successfully! We'll get back to you soon.");
         })
         .catch((error) => {
           console.error("EmailJS error:", error);
-          setConfirmation(CONTACT_TEXT.errorMessage);
+          
+          let errorMessage = CONTACT_TEXT.errorMessage || "Failed to send message. Please try again.";
+          
+          // Provide more specific error messages based on error type
+          if (error.status === 400) {
+            errorMessage = "Invalid email configuration. Please contact support.";
+          } else if (error.status === 403) {
+            errorMessage = "Email service unavailable. Please try again later.";
+          } else if (error.status === 422) {
+            errorMessage = "Invalid email format. Please check your email address.";
+          } else if (error.text && error.text.includes("network")) {
+            errorMessage = "Network error. Please check your connection and try again.";
+          }
+          
+          setConfirmation(errorMessage);
         })
         .finally(() => {
-          console.log("Email sending process completed");
+          // console.log("Email sending process completed");
           setLoading(false);
         });
     },
@@ -176,6 +227,7 @@ const Contact = () => {
               value={form.firstName}
               onChange={handleChange}
               error={errors.firstName}
+              required={true}
             />
             <FormInput
               label={CONTACT_TEXT.lastNameLabel}
@@ -202,6 +254,7 @@ const Contact = () => {
               value={form.email}
               onChange={handleChange}
               error={errors.email}
+              required={true}
             />
             <FormInput
               label={CONTACT_TEXT.phoneLabel}
@@ -218,7 +271,9 @@ const Contact = () => {
               placeholder={CONTACT_TEXT.messageLabel}
               value={form.message}
               onChange={handleChange}
+              error={errors.message}
               textarea={true}
+              required={true}
             />
           </div>
 
@@ -239,14 +294,14 @@ const Contact = () => {
           
           <div className={contactStyles.submitButtonWrapper}>
             <button type="submit" disabled={loading} className={contactStyles.submitButton}>
-              {loading ? CONTACT_TEXT.sendingButton : CONTACT_TEXT.sendButton}
+              {loading ? CONTACT_TEXT.sendingButton || "Sending..." : CONTACT_TEXT.sendButton || "Send Message"}
             </button>
           </div>
 
           {confirmation && (
             <p
               className={
-                confirmation === CONTACT_TEXT.successMessage
+                confirmation === (CONTACT_TEXT.successMessage || "Message sent successfully! We'll get back to you soon.")
                   ? contactStyles.successMessage
                   : contactStyles.errorMessage
               }
