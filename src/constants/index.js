@@ -20,11 +20,11 @@ export const navLinks = {
     //   title: "Home",
     //   path: "/",
     // },
-    {
-      id: "careers",
-      title: "Careers",
-      path: "/careers",
-    },
+    // {
+    //   id: "careers",
+    //   title: "Careers",
+    //   path: "/careers",
+    // },
     {
       id: "services",
       title: "Services",
@@ -73,10 +73,10 @@ export const HERO_TEXT = {
     "AI-Driven Resource Estimation & Feasibility Studies",
   ],
   brandName: {
-    first: import.meta.env.VITE_HERO_TEXT_BRAND_NAME_FIRST,
-    second: import.meta.env.VITE_HERO_TEXT_BRAND_NAME_SECOND,
+    first: import.meta.env.VITE_HERO_TEXT_BRAND_NAME_FIRST || "Depo",
+    second: import.meta.env.VITE_HERO_TEXT_BRAND_NAME_SECOND || "Dart",
   },
-  tagline: import.meta.env.VITE_HERO_TEXT_TAGLINE,
+  tagline: import.meta.env.VITE_HERO_TEXT_TAGLINE || "AI-Powered Mineral Exploration",
 };
 
 //! Services
@@ -206,19 +206,19 @@ export const projects = [
     image: ORE3D,
     source_code_link: "https://github.com/",
   },
-  {
-    name: "AI Exploration Reports",
-    underDevelopment: false,
-    description:
-      "Get a detailed report of your predictions and recommendations for further actions.",
-    route_description: "Our AI-powered reporting system generates comprehensive exploration reports that include detailed analysis of mineral potential, risk assessment, and recommended next steps. The reports incorporate machine learning predictions, statistical analysis of geochemical data, and geological interpretations. Each report includes high-resolution maps, probability distributions of mineral occurrences, and specific recommendations for follow-up exploration activities such as drilling targets or additional sampling locations. The system also provides confidence levels for predictions and highlights areas of uncertainty that may require additional investigation.",
-    tags: [
-      { name: "Predictive Analytics", color: "" },
-      { name: "Geological Modeling", color: "" },
-    ],
-    image: Results,
-    source_code_link: "https://github.com/",
-  },
+  // {
+  //   name: "AI Exploration Reports",
+  //   underDevelopment: false,
+  //   description:
+  //     "Get a detailed report of your predictions and recommendations for further actions.",
+  //   route_description: "Our AI-powered reporting system generates comprehensive exploration reports that include detailed analysis of mineral potential, risk assessment, and recommended next steps. The reports incorporate machine learning predictions, statistical analysis of geochemical data, and geological interpretations. Each report includes high-resolution maps, probability distributions of mineral occurrences, and specific recommendations for follow-up exploration activities such as drilling targets or additional sampling locations. The system also provides confidence levels for predictions and highlights areas of uncertainty that may require additional investigation.",
+  //   tags: [
+  //     { name: "Predictive Analytics", color: "" },
+  //     { name: "Geological Modeling", color: "" },
+  //   ],
+  //   image: Results,
+  //   source_code_link: "https://github.com/",
+  // },
 ];
 
 export const INITIAL_FORM_STATE = {
@@ -265,12 +265,12 @@ export const CONTACT_TEXT = {
 //! Footer Text and Contact Sections
 export const FOOTER_TEXT = {
   address: {
-    street: import.meta.env.VITE_ADDRESS_STREET || "",
-    province: import.meta.env.VITE_ADDRESS_PROVINCE || "",
-    city: import.meta.env.VITE_ADDRESS_CITY || "",
+    street: import.meta.env.VITE_ADDRESS_STREET || "24 Tyndall Ave",
+    province: import.meta.env.VITE_ADDRESS_PROVINCE || "ON",
+    city: import.meta.env.VITE_ADDRESS_CITY || "Toronto",
   },
-  phone: import.meta.env.VITE_PHONE || "",
-  email: import.meta.env.VITE_EMAIL_RECIPIENT || "",
+  phone: import.meta.env.VITE_PHONE || "+1 416-562-6578",
+  email: import.meta.env.VITE_EMAIL_RECIPIENT || "info@depodart.com",
   copyright: `© ${new Date().getFullYear()} ${
     import.meta.env.VITE_EMAIL_RECIPIENT_NAME || ""
   }. All rights reserved.`,

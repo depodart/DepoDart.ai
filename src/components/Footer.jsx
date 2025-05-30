@@ -22,7 +22,7 @@ const Footer = () => {
       links: [
         { text: "About DepoDart", href: "/about" },
         // { text: "Our Team", href: "/about/team" },
-        { text: "Careers", href: "/careers" }
+        // { text: "Careers", href: "/careers" }
       ]
     },
     {
