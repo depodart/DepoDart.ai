@@ -7,7 +7,6 @@ const About = lazy(() => import("./2_About"));
 const Experience = lazy(() => import("./3_Experience"));
 const Services = lazy(() => import("./4_Services"));
 const Personas = lazy(() => import("./_Personas"));
-const Research = lazy(() => import("./_Research"));
 const Contact = lazy(() => import("./5_Contact"));
 const FinalCta = lazy(() => import("./_FinalCta"));
 const Contacts = lazy(() => import("./6_Contacts"));
@@ -23,7 +22,6 @@ const MainSpa = () => {
         <Experience />
         <Services />
         <Personas />
-        <Research />
         <div className={appStyles.contactSection}>
           <Contact />
         </div>

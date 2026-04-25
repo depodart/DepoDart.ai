@@ -1172,136 +1172,124 @@ export const uiStyles = {
 };
 
 /* --------------------------------------------------------------------------
-   Brutal (Neobrutalism + Bauhaus) — visual language for the landing page.
+   Refined card + button system — the design language was previously
+   neobrutalist; this version dials it back toward editorial / enterprise
+   B2B. Single accent (orange) reserved for primary CTAs only.
 
    Design rules:
-   - Borders: 2-3px flat, always visible (no opacity tricks).
-   - Shadows: solid offsets, zero blur. Offset is [4px, 4px] at rest, [0, 0]
-     on active hover, paired with a +2px +2px element translate for the
-     classic "press" feel.
-   - No gradients on interactive surfaces.
-   - Transitions fast (150ms) — brutalism is decisive.
-   - Works on both the dark primary bg and the cream sectionLight bg.
+   - Borders: 1px hairline, rgb-with-alpha, no chunky 2-3px frames.
+   - Shadows: soft and elevated, not solid-offset.
+   - Hover: gentle lift (translate-y-0.5) + shadow grow. No "press"
+     effect, no rotation.
+   - Single badge style. Used for eyebrows site-wide.
 -------------------------------------------------------------------------- */
 export const brutal = {
-  // Card on dark sections. Orange offset shadow against dark bg.
+  // Refined card on dark sections.
   card: classNames(
     'relative',
     'rounded-xl',
-    'border-2',
-    'border-primary-light/80',
-    'bg-[#1a0f0a]',
+    'border',
+    'border-primary-light/10',
+    'bg-[#16213A]',
     'p-6',
     'sm:p-8',
-    'shadow-[6px_6px_0_0_#D23B0C]'
+    'shadow-[0_20px_40px_-20px_rgba(0,0,0,0.6)]'
   ),
-  // Same as card but interactive — hover press effect.
+  // Interactive variant — gentle lift on hover, cursor change.
   cardInteractive: classNames(
     'relative',
     'rounded-xl',
-    'border-2',
-    'border-primary-light/80',
-    'bg-[#1a0f0a]',
+    'border',
+    'border-primary-light/10',
+    'bg-[#16213A]',
     'p-6',
     'sm:p-8',
-    'shadow-[6px_6px_0_0_#D23B0C]',
+    'shadow-[0_20px_40px_-20px_rgba(0,0,0,0.6)]',
     'transition-all',
-    'duration-150',
-    'hover:-translate-y-0.5',
-    'hover:shadow-[8px_8px_0_0_#D23B0C]',
-    'active:translate-x-[4px]',
-    'active:translate-y-[4px]',
-    'active:shadow-[0_0_0_0_#D23B0C]',
+    'duration-300',
+    'ease-out',
+    'hover:-translate-y-1',
+    'hover:border-primary-light/20',
+    'hover:shadow-[0_28px_60px_-20px_rgba(0,0,0,0.75)]',
     'cursor-pointer'
   ),
-  // Card on light (cream) sections — dark border + dark shadow.
   cardLight: classNames(
     'relative',
     'rounded-xl',
-    'border-2',
-    'border-primary-dark',
-    'bg-[#faf6ee]',
+    'border',
+    'border-primary-dark/10',
+    'bg-white',
     'p-6',
     'sm:p-8',
-    'shadow-[6px_6px_0_0_#110A07]'
+    'shadow-[0_20px_40px_-24px_rgba(14,23,41,0.18)]'
   ),
-  // Sticker-style badge — small chunky pill with offset shadow.
+  // Single badge — thin border, no offset shadow. Used for eyebrows.
   badge: classNames(
     'inline-flex',
     'items-center',
-    'gap-1.5',
+    'gap-2',
     'px-3',
     'py-1',
-    'rounded-md',
-    'border-2',
-    'border-primary-light',
-    'bg-primary-dark',
+    'rounded-full',
+    'border',
+    'border-primary-light/15',
+    'bg-primary-light/[0.04]',
     'text-[10px]',
     'sm:text-[11px]',
-    'font-bold',
+    'font-semibold',
     'uppercase',
-    'tracking-[0.18em]',
-    'text-primary-light',
-    'shadow-[3px_3px_0_0_#D23B0C]'
+    'tracking-[0.22em]',
+    'text-primary-light/70',
+    'backdrop-blur-sm'
   ),
+  // Subtle accent badge — only when something needs to stand out (e.g. "Live" status).
   badgeOrange: classNames(
     'inline-flex',
     'items-center',
     'gap-1.5',
-    'px-3',
+    'px-2.5',
     'py-1',
-    'rounded-md',
-    'border-2',
-    'border-primary-dark',
-    'bg-secondary-dark',
+    'rounded-full',
+    'bg-secondary-dark/12',
+    'border',
+    'border-secondary-dark/30',
     'text-[10px]',
     'sm:text-[11px]',
     'font-bold',
     'uppercase',
     'tracking-[0.18em]',
-    'text-primary-light',
-    'shadow-[3px_3px_0_0_#110A07]'
+    'text-secondary-dark'
   ),
+  // Used for "In Development"-style status. Subtle.
   badgeGold: classNames(
     'inline-flex',
     'items-center',
     'gap-1.5',
-    'px-3',
+    'px-2.5',
     'py-1',
-    'rounded-md',
-    'border-2',
-    'border-primary-dark',
-    'bg-tertiary-light',
+    'rounded-full',
+    'bg-tertiary-light/12',
+    'border',
+    'border-tertiary-light/40',
     'text-[10px]',
     'sm:text-[11px]',
     'font-bold',
     'uppercase',
     'tracking-[0.18em]',
-    'text-primary-dark',
-    'shadow-[3px_3px_0_0_#110A07]'
+    'text-tertiary-light'
   ),
-  // Big sticker for step numbers — oversized, with slight rotation in JSX via rotate class.
+  // Step number — subtle, monospaced, no oversized sticker drama.
   numberSticker: classNames(
     'inline-flex',
     'items-center',
-    'justify-center',
-    'w-14',
-    'h-14',
-    'sm:w-16',
-    'sm:h-16',
-    'rounded-lg',
-    'border-2',
-    'border-primary-dark',
-    'bg-tertiary-light',
-    'text-primary-dark',
-    'text-xl',
-    'sm:text-2xl',
-    'font-black',
+    'gap-2',
+    'text-[11px]',
     'font-mono',
-    'tracking-tight',
-    'shadow-[4px_4px_0_0_#110A07]'
+    'uppercase',
+    'tracking-[0.22em]',
+    'text-primary-light/40'
   ),
-  // Primary button — solid orange, thick dark border, offset dark shadow, press on hover.
+  // Primary CTA — orange, refined. The single high-emphasis moment.
   btnPrimary: classNames(
     'inline-flex',
     'items-center',
@@ -1312,27 +1300,23 @@ export const brutal = {
     'sm:px-6',
     'sm:py-3',
     'rounded-lg',
-    'border-2',
-    'border-primary-dark',
     'bg-secondary-dark',
     'text-primary-light',
     'text-sm',
     'sm:text-[15px]',
-    'font-bold',
+    'font-semibold',
     'tracking-wide',
-    'uppercase',
-    'shadow-[4px_4px_0_0_#110A07]',
+    'shadow-[0_12px_30px_-10px_rgba(210,59,12,0.6)]',
     'transition-all',
-    'duration-150',
+    'duration-200',
+    'ease-out',
     'hover:-translate-y-0.5',
-    'hover:shadow-[6px_6px_0_0_#110A07]',
-    'active:translate-x-[4px]',
-    'active:translate-y-[4px]',
-    'active:shadow-[0_0_0_0_#110A07]',
+    'hover:shadow-[0_18px_40px_-10px_rgba(210,59,12,0.8)]',
+    'hover:bg-secondary-dark/95',
     'disabled:opacity-60',
     'disabled:cursor-not-allowed'
   ),
-  // Secondary button — white bg, dark border, orange shadow.
+  // Secondary — ghost on dark, subtle border.
   btnSecondary: classNames(
     'inline-flex',
     'items-center',
@@ -1343,33 +1327,29 @@ export const brutal = {
     'sm:px-6',
     'sm:py-3',
     'rounded-lg',
-    'border-2',
-    'border-primary-light',
-    'bg-transparent',
+    'border',
+    'border-primary-light/20',
+    'bg-primary-light/[0.04]',
     'text-primary-light',
     'text-sm',
     'sm:text-[15px]',
-    'font-bold',
+    'font-semibold',
     'tracking-wide',
-    'uppercase',
-    'shadow-[4px_4px_0_0_#D23B0C]',
+    'backdrop-blur-sm',
     'transition-all',
-    'duration-150',
-    'hover:-translate-y-0.5',
-    'hover:shadow-[6px_6px_0_0_#D23B0C]',
-    'active:translate-x-[4px]',
-    'active:translate-y-[4px]',
-    'active:shadow-[0_0_0_0_#D23B0C]'
+    'duration-200',
+    'ease-out',
+    'hover:bg-primary-light/[0.08]',
+    'hover:border-primary-light/35'
   ),
-  // Divider — thick orange bar.
   divider: classNames(
-    'h-1',
+    'h-px',
     'w-full',
-    'bg-secondary-dark'
+    'bg-primary-light/10'
   ),
-  // Thick top-border accent bar (e.g. footer or section break).
+  // Subtle top accent — a hairline of accent color.
   topAccent: classNames(
-    'border-t-4',
-    'border-secondary-dark'
+    'border-t',
+    'border-primary-light/10'
   )
 };

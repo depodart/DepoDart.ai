@@ -27,14 +27,14 @@ const ContactCard = memo(({ title, content, icon }) => {
   return (
     <div className={`${brutal.card} flex flex-col gap-3`}>
       <div className="flex items-center gap-3">
-        <span className="w-9 h-9 rounded-md border-2 border-secondary-dark bg-secondary-dark/15 text-secondary-dark flex items-center justify-center shrink-0">
+        <span className="w-9 h-9 rounded-lg border border-primary-light/10 bg-primary-light/[0.04] text-primary-light/80 flex items-center justify-center shrink-0">
           {icon}
         </span>
-        <h3 className="text-[11px] uppercase tracking-[0.22em] font-bold text-primary-light">
+        <h3 className="text-[11px] uppercase tracking-[0.22em] font-semibold text-primary-light/60">
           {title}
         </h3>
       </div>
-      <p className="text-[15px] font-semibold text-primary-light/90 break-words">
+      <p className="text-[15px] font-medium text-primary-light/90 break-words">
         {content}
       </p>
     </div>
@@ -49,11 +49,11 @@ const Contacts = () => {
         <div className={footerStyles.innerWrapper}>
           <div className={footerStyles.gridLayout}>
             <div className="flex flex-col gap-4 lg:col-span-1">
-              <span className={brutal.badgeOrange}>REACH US</span>
+              <span className={brutal.badge}>REACH US</span>
               <h2 className={uiStyles.sectionHeading}>
                 Let's talk exploration.
               </h2>
-              <p className="text-[15px] text-primary-light/70 leading-relaxed max-w-md">
+              <p className="text-[15px] text-primary-light/65 leading-relaxed max-w-md">
                 We respond within two business days. Bring a project — we'll take a look.
               </p>
             </div>

@@ -36,7 +36,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-primary-dark text-primary-light border-t-4 border-secondary-dark">
+    <footer className="bg-primary-dark text-primary-light border-t border-primary-light/10">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-14 sm:py-20">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-10 md:gap-12">
           {/* Brand block — spans 2 cols on md+ */}
