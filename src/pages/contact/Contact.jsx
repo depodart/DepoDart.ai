@@ -14,7 +14,7 @@ const Contact = () => {
             Book a working session with our team.
           </h1>
           <p className={`${uiStyles.sectionSubheading} mx-auto text-center`}>
-            Bring a deposit or region you're evaluating — we'll run it through our model and share the prospectivity map live.
+            Bring a project or region you're exploring — we will walk through how DepoDart would approach it.
           </p>
         </div>
 

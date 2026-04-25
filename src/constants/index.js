@@ -55,17 +55,17 @@ export const PRIMARY_CTA = {
 //! About Text — "Why DepoDart" value pillars section
 export const ABOUT_TEXT = {
   sectionSubText: "WHY DEPODART",
-  sectionHeadText: "A mineral system model — not a pile of spreadsheets.",
+  sectionHeadText: "One view of the subsurface, from every dataset you have.",
   overview:
-    "DepoDart was built by exploration geologists and AI researchers to collapse weeks of data preparation into a unified, auditable pipeline. Every prediction is grounded in multi-source geoscience data and defensible to your board.",
+    "Built by exploration geologists and AI researchers, DepoDart brings multi-source geoscience data into a single analytical workflow. Your team spends less time preparing inputs and more time interpreting what the models find.",
 };
 
 //! Hero Text
 export const HERO_TEXT = {
-  eyebrow: "AI-POWERED MINERAL EXPLORATION",
-  headline: "Turn geoscience data into drill-ready targets.",
+  eyebrow: "EXPLORATION INTELLIGENCE SOFTWARE",
+  headline: "Get more out of your geoscience data.",
   subheadline:
-    "DepoDart fuses geological, geophysical, and geochemical data into AI-driven prospectivity maps at 50-meter resolution — so your exploration team drills where minerals actually are.",
+    "DepoDart brings geological, geophysical, and geochemical inputs into one picture of the subsurface — so mineral exploration teams can focus on interpretation instead of data preparation.",
   primaryCta: { text: "Book a Demo", path: "/contact" },
   secondaryCta: { text: "See how it works", hash: "#process" },
   // kept for backward compatibility
@@ -106,61 +106,61 @@ export const services = [
     icon: null,
     IconComponent: CursorArrowRaysIcon,
     description:
-      "Rank the most promising exploration areas with evidence from our multi-source AI model.",
+      "Highlight promising exploration areas from your integrated geoscience data.",
   },
   {
-    title: "Reduce Exploration Cost",
+    title: "Exploration Decision Support",
     icon: null,
     IconComponent: CurrencyDollarIcon,
     description:
-      "Spend drill meters on defensible targets — not on hunches.",
+      "Inform drill-program decisions with evidence drawn from fused datasets.",
   },
   {
-    title: "Evaluate Resources & Reserves",
+    title: "Resource & Reserve Insight",
     icon: null,
     IconComponent: IconZoomExclamation,
     description:
-      "Understand the upside in your known deposits before planning the next campaign.",
+      "See known deposits through a multi-source lens, not a single dataset.",
   },
   {
-    title: "Unify Field & Historical Data",
+    title: "Unified Data Pipeline",
     icon: null,
     IconComponent: IconShovel,
     description:
-      "Bring geological, geochemical, and geophysical layers into one mineral system model.",
+      "Combine geological, geochemical, and geophysical layers into a single workflow.",
   },
 ];
 
 //! How It Works — 4-step process (replaces the old Experience timeline)
 export const HOW_IT_WORKS = {
   sectionSubText: "HOW DEPODART WORKS",
-  sectionHeadText: "Four steps from raw data to drill target.",
+  sectionHeadText: "From raw data to exploration insight.",
   description:
-    "DepoDart replaces weeks of manual data preparation with a fused, auditable pipeline. Review predictions — don't reconcile CSVs.",
+    "A coherent pipeline for mineral prospectivity — so your geologists interpret model output instead of preparing inputs.",
   steps: [
     {
       number: "01",
       title: "Assemble",
       description:
-        "Upload geological maps, geochemical sampling, drill-hole logs, and geophysical surveys. Tabular, image, or text — we standardize the formats.",
+        "Bring your geological, geochemical, and geophysical data into one consistent data stack, in whatever formats your team already uses.",
     },
     {
       number: "02",
       title: "Model",
       description:
-        "Our autoencoder + semi-supervised ensemble fuses dozens of mineral concentrations into a unified mineral system at 50-meter resolution.",
+        "Machine-learning models fuse your inputs and estimate mineral distributions across the area of interest.",
     },
     {
       number: "03",
       title: "Target",
       description:
-        "Receive 2D prospectivity maps with ranked high-concentration zones typically spanning 200 to 1,000 meters in diameter.",
+        "Review the resulting prospectivity maps and examine the zones the model ranks highest.",
     },
     {
       number: "04",
       title: "Deliver",
       description:
-        "Export interactive maps, PDF reports, and 3D orebody models. Or plug DepoDart into your workflow via API.",
+        "Share maps, reports, and model outputs with your team — or integrate them into your existing exploration workflow.",
     },
   ],
 };
@@ -218,41 +218,12 @@ export const experiences = [
   },
 ];
 
-//! Stats — oversized numbers for social proof
-export const STATS = {
-  sectionSubText: "BY THE NUMBERS",
-  sectionHeadText: "Geoscience at resolution, at scale.",
-  items: [
-    {
-      value: "50",
-      unit: "m",
-      label: "SPATIAL RESOLUTION",
-      caption:
-        "Per prediction zone — decision-grade granularity for prospectivity mapping.",
-    },
-    {
-      value: "1 in 4",
-      unit: "",
-      label: "PREDICTIONS CONFIRMED",
-      caption:
-        "High-concentration predictions validated in the Abitibi region — far above industry baseline.",
-    },
-    {
-      value: "200–1000",
-      unit: "m",
-      label: "TYPICAL DEPOSIT SPAN",
-      caption:
-        "Size range of predicted mineralized zones returned by the model.",
-    },
-  ],
-};
-
 //! Works / Products section
 export const WORKS_TEXT = {
   sectionSubText: "OUR PRODUCTS",
   sectionHeading: "Software built for exploration teams.",
   description:
-    "Our model leverages autoencoders and semi-supervised learning to estimate the concentrations of dozens of minerals simultaneously. For rare metals like gold, cobalt, and silver in the Abitibi region, roughly one in every four predicted zones is correctly mineralized. The algorithm operates at 50-meter resolution, with predicted zones typically spanning 200 to 1,000 meters in diameter.",
+    "DepoDart applies machine learning to mineral prospectivity. Our models fuse multi-source geoscience data to estimate the distribution of mineral concentrations across a study area — giving your team a clearer view of where to focus next.",
 };
 
 export const projects = [
@@ -286,58 +257,43 @@ export const projects = [
   },
 ];
 
-//! Personas — speaks to specific buyers
+//! Personas — speaks to specific buyers (descriptive, no metric claims)
 export const PERSONAS = {
   sectionSubText: "WHO WE HELP",
-  sectionHeadText: "Built for the teams making capex decisions.",
+  sectionHeadText: "Built for the teams making exploration decisions.",
   items: [
     {
       number: "01",
       eyebrow: "CEOS & VPS OF EXPLORATION",
-      headline: "Justify every drill meter to the board.",
-      pain: "You are under pressure to defend exploration spend with data — not intuition.",
+      headline: "Lead exploration with evidence, not anecdote.",
+      pain: "Boards and investors ask for the rationale behind every exploration dollar.",
       outcome:
-        "DepoDart converts hundreds of historical datasets into a ranked target list, so the next drill program is defensible before it is funded.",
+        "DepoDart helps you shape a data-grounded exploration strategy — the kind that holds up under diligence and conversation.",
     },
     {
       number: "02",
       eyebrow: "CHIEF & EXPLORATION GEOLOGISTS",
-      headline: "Stop preprocessing. Start predicting.",
-      pain: "Integrating multi-source datasets is manual, slow, and error-prone.",
+      headline: "Give your models the data they deserve.",
+      pain: "Most of the work in multi-source analysis is wrangling files, not interpreting results.",
       outcome:
-        "Our models ingest geological, geophysical, and geochemical layers at 50-meter resolution — you review predictions, not reconcile CSVs.",
+        "We handle the data integration so your expertise can focus where it matters — reading the geology, not reformatting inputs.",
     },
     {
       number: "03",
       eyebrow: "INVESTORS & JV PARTNERS",
-      headline: "Let the data do the diligence.",
-      pain: "You need a credible, technical read on a junior's asset before you fund the next round.",
+      headline: "Back exploration with a clearer view of the ground.",
+      pain: "Technical diligence on a junior's asset is only as good as the inputs behind it.",
       outcome:
-        "Share an interactive prospectivity map with your investment committee. Quantified targets beat pitch-deck geology.",
-    },
-  ],
-};
-
-//! Testimonials — placeholder until real client quotes land
-export const TESTIMONIALS = {
-  sectionSubText: "FROM THE FIELD",
-  sectionHeadText: "Why exploration teams choose DepoDart.",
-  items: [
-    {
-      quote:
-        "We built DepoDart because running twenty spreadsheets against a single drill target isn't science — it's hope. Our geology teams should ship predictions, not reconcile file formats.",
-      author: "DepoDart Founding Team",
-      role: "Exploration Geologist + AI Research",
-      isPlaceholder: true,
+        "Interactive prospectivity maps turn exploration narratives into something an investment committee can actually evaluate.",
     },
   ],
 };
 
 //! Final CTA band above the footer
 export const FINAL_CTA = {
-  headline: "Your next discovery is in your data. Let's find it.",
+  headline: "Curious what DepoDart sees in your data?",
   subheadline:
-    "Book a 30-minute working session. Bring a deposit or region you're evaluating — we will show you what our model surfaces.",
+    "Book a working session with our team. Bring a project or region you're exploring — we will walk through how our models would approach it.",
   primary: { text: "Book a Demo", path: "/contact" },
   secondary: { text: "Browse resources", path: "/resources/knowledge" },
 };
@@ -386,7 +342,7 @@ export const CONTACT_TEXT = {
 //! Footer Text and Contact Sections
 export const FOOTER_TEXT = {
   tagline:
-    "AI prospectivity mapping for mineral explorers. Built by geologists and AI researchers.",
+    "Exploration intelligence software for the mining industry. Built by geologists and AI researchers.",
   address: {
     street: import.meta.env.VITE_ADDRESS_STREET || "24 Tyndall Ave",
     province: import.meta.env.VITE_ADDRESS_PROVINCE || "ON",

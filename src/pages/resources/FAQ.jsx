@@ -7,12 +7,12 @@ const faqData = [
   {
     question: "What is DepoDart?",
     answer:
-      "DepoDart is an AI-powered prospectivity mapping platform for the mining industry. We fuse geological, geophysical, and geochemical data into ranked drill targets at 50-meter resolution.",
+      "DepoDart is exploration intelligence software for the mining industry. We help exploration teams bring their geological, geophysical, and geochemical data into a single analytical workflow.",
   },
   {
     question: "How accurate is DepoDart?",
     answer:
-      "Accuracy depends on the data used. With public data, roughly 1 in 4 predicted high-concentration zones in our Abitibi validation contained mineralization. With client-supplied high-resolution data, accuracy is typically higher — proportional to raster count and resolution.",
+      "The accuracy of our models depends on the data used. Clients can choose to use public data, where roughly 1 in 4 deposits is detected, or provide high-definition data for the target area. In the latter case, accuracy will generally be higher — depending on the number of raster layers provided and their resolution.",
   },
   {
     question: "What industries can benefit from DepoDart?",

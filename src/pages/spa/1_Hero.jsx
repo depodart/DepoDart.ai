@@ -76,19 +76,6 @@ const Hero = () => {
                 {HERO_TEXT.secondaryCta.text}
               </a>
             </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.7, delay: 0.5 }}
-              className="mt-10 flex items-center gap-4 text-xs uppercase tracking-[0.2em] text-primary-light/40 font-mono"
-            >
-              <span>50m resolution</span>
-              <span aria-hidden="true" className="w-px h-4 bg-primary-light/20" />
-              <span>Multi-source data fusion</span>
-              <span aria-hidden="true" className="hidden sm:inline w-px h-4 bg-primary-light/20" />
-              <span className="hidden sm:inline">Exploration-grade accuracy</span>
-            </motion.div>
           </div>
         </div>
       </div>

@@ -59,7 +59,7 @@ const Technology = () => {
             Prospectivity mapping, powered by multi-source AI.
           </h1>
           <p className={`${uiStyles.sectionSubheading} max-w-3xl text-[17px] sm:text-[19px]`}>
-            Our models fuse geological, geophysical, and geochemical data into auditable, decision-grade targets at 50-meter resolution.
+            Our models fuse geological, geophysical, and geochemical data so your team can focus on interpretation instead of integration.
           </p>
         </motion.div>
 

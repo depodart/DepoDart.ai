@@ -56,7 +56,7 @@ const About = () => {
             ABOUT DEPODART
           </span>
           <h1 className={`${uiStyles.sectionHeading} text-[40px] sm:text-[56px] md:text-[64px]`}>
-            Built by geologists and AI researchers for the teams running exploration programs.
+            Built by geologists and AI researchers, for the teams doing exploration.
           </h1>
           <p className={`${uiStyles.sectionSubheading} max-w-3xl text-[17px] sm:text-[19px]`}>
             {ABOUT_TEXT.overview}
@@ -102,10 +102,10 @@ const About = () => {
               OUR MISSION
             </span>
             <h2 className="mt-4 text-2xl font-bold text-primary-light">
-              Turn the industry's data into valuable insight.
+              Turn geoscience data into useful exploration insight.
             </h2>
             <p className="mt-3 text-[14px] leading-relaxed text-primary-light/70">
-              We meet the growing demand for minerals by transforming vast amounts of geoscience data into decision-grade predictions for exploration teams.
+              We help exploration teams get more from the geoscience data they already have — bringing multi-source inputs into a single, coherent picture of the subsurface.
             </p>
           </section>
 
@@ -115,10 +115,10 @@ const About = () => {
               OUR VISION
             </span>
             <h2 className="mt-4 text-2xl font-bold text-primary-light">
-              Data-driven exploration as the industry standard.
+              Data-driven exploration as a shared standard.
             </h2>
             <p className="mt-3 text-[14px] leading-relaxed text-primary-light/70">
-              We believe the next generation of mineral discoveries will come from fusing multi-source geoscience datasets — not from spreadsheets and intuition alone.
+              The next generation of mineral discoveries will come from teams that can read all of their geoscience data together — not one layer at a time.
             </p>
           </section>
         </motion.div>
