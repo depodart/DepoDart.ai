@@ -56,10 +56,10 @@ const Technology = () => {
             TECHNOLOGY
           </span>
           <h1 className={`${uiStyles.sectionHeading} text-[40px] sm:text-[56px] md:text-[64px]`}>
-            Prospectivity mapping, powered by multi-source AI.
+            Multi-source AI for mineral prospectivity.
           </h1>
           <p className={`${uiStyles.sectionSubheading} max-w-3xl text-[17px] sm:text-[19px]`}>
-            Our models fuse geological, geophysical, and geochemical data so your team can focus on interpretation instead of integration.
+            Geology, geophysics, geochemistry — fused. Less integration, more interpretation.
           </p>
         </motion.div>
 

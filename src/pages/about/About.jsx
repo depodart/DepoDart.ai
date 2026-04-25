@@ -56,7 +56,7 @@ const About = () => {
             ABOUT DEPODART
           </span>
           <h1 className={`${uiStyles.sectionHeading} text-[40px] sm:text-[56px] md:text-[64px]`}>
-            Built by geologists and AI researchers, for the teams doing exploration.
+            Geologists and AI researchers building exploration software.
           </h1>
           <p className={`${uiStyles.sectionSubheading} max-w-3xl text-[17px] sm:text-[19px]`}>
             {ABOUT_TEXT.overview}
@@ -102,10 +102,10 @@ const About = () => {
               OUR MISSION
             </span>
             <h2 className="mt-4 text-2xl font-bold text-primary-light">
-              Turn geoscience data into useful exploration insight.
+              Make geoscience data useful.
             </h2>
             <p className="mt-3 text-[14px] leading-relaxed text-primary-light/70">
-              We help exploration teams get more from the geoscience data they already have — bringing multi-source inputs into a single, coherent picture of the subsurface.
+              Help exploration teams get more from the data they already have. Bring multi-source inputs into one coherent picture of the subsurface.
             </p>
           </section>
 
@@ -115,10 +115,10 @@ const About = () => {
               OUR VISION
             </span>
             <h2 className="mt-4 text-2xl font-bold text-primary-light">
-              Data-driven exploration as a shared standard.
+              Data-driven exploration as standard practice.
             </h2>
             <p className="mt-3 text-[14px] leading-relaxed text-primary-light/70">
-              The next generation of mineral discoveries will come from teams that can read all of their geoscience data together — not one layer at a time.
+              The next generation of discoveries will come from teams reading all of their geoscience data together — not one layer at a time.
             </p>
           </section>
         </motion.div>

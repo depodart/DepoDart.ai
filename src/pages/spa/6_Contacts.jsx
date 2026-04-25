@@ -49,12 +49,12 @@ const Contacts = () => {
         <div className={footerStyles.innerWrapper}>
           <div className={footerStyles.gridLayout}>
             <div className="flex flex-col gap-4 lg:col-span-1">
-              <span className={brutal.badge}>REACH US</span>
+              <span className={brutal.badge}>CONTACT</span>
               <h2 className={uiStyles.sectionHeading}>
-                Let's talk exploration.
+                Send us a region.
               </h2>
               <p className="text-[15px] text-primary-light/65 leading-relaxed max-w-md">
-                We respond within two business days. Bring a project — we'll take a look.
+                Reply within two business days. Bring a target area, a deposit, or a dataset — we'll take a look.
               </p>
             </div>
 

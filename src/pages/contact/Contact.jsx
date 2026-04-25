@@ -11,10 +11,10 @@ const Contact = () => {
             GET IN TOUCH
           </span>
           <h1 className={`${uiStyles.sectionHeading} text-[36px] sm:text-[48px] md:text-[56px]`}>
-            Book a working session with our team.
+            Bring us a region.
           </h1>
           <p className={`${uiStyles.sectionSubheading} mx-auto text-center`}>
-            Bring a project or region you're exploring — we will walk through how DepoDart would approach it.
+            Walk us through your data. We'll walk you through what the model would surface.
           </p>
         </div>
 
