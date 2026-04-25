@@ -1,131 +1,107 @@
-import React from "react";
 import { motion } from "framer-motion";
-import { BrainCircuit, Box, Zap, Leaf } from "lucide-react";
+import { BrainCircuit, Box, Zap, Leaf, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { PRIMARY_CTA } from "../../constants";
+import { uiStyles } from "../../style";
+
+const technologies = [
+  {
+    title: "AI & Machine Learning",
+    description:
+      "Unique algorithms integrate predictive variables in the mining context, producing high-precision geospatial prospectivity maps.",
+    icon: <BrainCircuit size={26} />,
+  },
+  {
+    title: "Big-Data Preprocessing",
+    description:
+      "Standardizes extensive databases of geochemical, geological, and geophysical variables to train and continuously sharpen our models.",
+    icon: <Box size={26} />,
+  },
+  {
+    title: "Visualization",
+    description:
+      "Graphical applications that present results in the most useful form for the client, tailored to each exploration workflow.",
+    icon: <Zap size={26} />,
+  },
+  {
+    title: "Hands-Off API Access",
+    description:
+      "Our API lets specialized users submit their own data and retrieve predictions without requiring technical assistance.",
+    icon: <Leaf size={26} />,
+  },
+];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.12 } },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
+
 const Technology = () => {
-  const technologies = [
-    {
-      title: "AI-ML technology",
-      description:
-        "Unique algorithms have been designed to integrate predictive variables in the mining context, enabling the creation of high-precision geospatial maps.",
-      icon: <BrainCircuit size={32} className="text-secondary-dark" />,
-      gradient: "from-[#FF512F] to-[#DD2476]",
-    },
-    {
-      title: "Big-Data preprocessing",
-      description:
-        "Algorithms to standardize extensive databases containing geochemical, geological, and geophysical variables to train the models, enhancing their intelligence.",
-      icon: <Box size={32} className="text-secondary-dark" />,
-      gradient: "from-[#4776E6] to-[#8E54E9]",
-    },
-    //{
-    //title: "Big Data preprocessing",
-    //description: "State-of-the-art 3D rendering technology allows for immersive visualization of geographical data, enabling better understanding of terrain characteristics.",
-    //icon: <Box size={32} className="text-secondary-dark" />,
-    //gradient: "from-[#4776E6] to-[#8E54E9]",
-    //},
-    {
-      title: "Visualization",
-      description:
-        "Graphical applications designed to visualize results in the most useful way for the client, combining relevant content tailored to their needs.",
-      icon: <Zap size={32} className="text-secondary-dark" />,
-      gradient: "from-[#00B4DB] to-[#0083B0]",
-    },
-    //{
-    //title: "Real-time Processing",
-    //description: "Lightning-fast processing capabilities deliver instant analysis of terrain data, supporting rapid assessment and decision-making in the field.",
-    //icon: <Zap size={32} className="text-secondary-dark" />,
-    //gradient: "from-[#00B4DB] to-[#0083B0]",
-    //},
-    {
-      title: "Hands-Off Access",
-      description:
-        "Our API allows specialized users to input their own data and get predictions without the need for technical assistance.",
-      icon: <Leaf size={32} className="text-secondary-dark" />,
-      gradient: "from-[#56ab2f] to-[#a8e063]",
-    },
-  ];
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.3,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      },
-    },
-  };
-
   return (
-    <div className="min-h-screen bg-gradient-to-b from-primary-dark to-tertiary-dark">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+    <div className="min-h-screen bg-primary-dark">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-24">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          transition={{ duration: 0.6 }}
+          className="flex flex-col items-start gap-4 max-w-3xl"
         >
-          <h1 className="text-6xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-secondary-dark via-tertiary-light to-primary-light mb-8">
-            Pioneering Technology
+          <span className={uiStyles.eyebrow}>
+            <span className={uiStyles.eyebrowDot} />
+            TECHNOLOGY
+          </span>
+          <h1 className={`${uiStyles.sectionHeading} text-[40px] sm:text-[56px] md:text-[64px]`}>
+            Prospectivity mapping, powered by multi-source AI.
           </h1>
-          <p className="text-2xl text-primary-light/80 max-w-3xl mx-auto leading-relaxed">
-            Revolutionizing terrain analysis through cutting-edge AI.
+          <p className={`${uiStyles.sectionSubheading} max-w-3xl text-[17px] sm:text-[19px]`}>
+            Our models fuse geological, geophysical, and geochemical data into auditable, decision-grade targets at 50-meter resolution.
           </p>
         </motion.div>
 
         <motion.div
           variants={containerVariants}
           initial="hidden"
-          animate="visible"
-          className="grid grid-cols-1 md:grid-cols-2 gap-10"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          className="mt-16 grid grid-cols-1 sm:grid-cols-2 gap-5"
         >
-          {technologies.map((tech, index) => (
-            <motion.div
-              key={index}
+          {technologies.map((tech) => (
+            <motion.article
+              key={tech.title}
               variants={itemVariants}
-              className="group relative"
+              className={`${uiStyles.card} flex flex-col gap-4`}
             >
-              <div
-                className={`absolute inset-0 bg-gradient-to-r ${tech.gradient} rounded-2xl opacity-20 group-hover:opacity-30 transition-opacity duration-300`}
-              ></div>
-              <div className="relative bg-white/5 backdrop-blur-lg rounded-2xl p-8 border border-white/10 hover:border-secondary-dark/50 transition-all duration-300">
-                <div className="flex items-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  {tech.icon}
-                  <h3 className="text-2xl font-bold text-primary-light ml-4">
-                    {tech.title}
-                  </h3>
-                </div>
-                <p className="text-lg text-primary-light/70 leading-relaxed">
-                  {tech.description}
-                </p>
+              <div className="w-11 h-11 rounded-lg flex items-center justify-center bg-secondary-dark/15 text-secondary-dark">
+                {tech.icon}
               </div>
-            </motion.div>
+              <h2 className="text-xl font-bold text-primary-light tracking-tight">
+                {tech.title}
+              </h2>
+              <p className="text-[14px] leading-relaxed text-primary-light/70">
+                {tech.description}
+              </p>
+            </motion.article>
           ))}
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="mt-20 text-center"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mt-16 flex flex-wrap items-center gap-3"
         >
-          <Link
-            to="/contact"
-            className="inline-block bg-gradient-to-r from-secondary-dark to-tertiary-light text-primary-light px-10 py-4 rounded-full text-lg font-semibold hover:shadow-lg hover:shadow-secondary-dark/30 transition-all duration-300 hover:scale-105"
-          >
-            Learn More About Our Technology
+          <Link to={PRIMARY_CTA.path} className={uiStyles.btnPrimary}>
+            {PRIMARY_CTA.text}
+            <ArrowRight size={16} />
+          </Link>
+          <Link to="/resources/knowledge" className={uiStyles.btnSecondary}>
+            Read our research
           </Link>
         </motion.div>
       </div>

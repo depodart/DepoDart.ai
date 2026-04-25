@@ -3,39 +3,105 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#110A07" />
 
-  <!-- Favicon for older browsers -->
-  <link rel="icon" type="image/x-icon" href="/favicon.ico" alt="App Icon" />
+  <!-- Primary SEO -->
+  <title>DepoDart — AI Prospectivity Mapping for Mineral Exploration</title>
+  <meta name="description" content="DepoDart fuses geological, geophysical, and geochemical data into AI-driven prospectivity maps at 50-meter resolution — so exploration teams drill where minerals actually are." />
+  <meta name="keywords" content="AI mineral exploration, prospectivity mapping, mineral deposit prediction, geological AI, geochemical analysis, mining AI software, mineral targeting, exploration geology" />
+  <meta name="author" content="DepoDart" />
+  <link rel="canonical" href="https://depodart.com/" />
 
-  <!-- Standard favicon sizes -->
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="DepoDart" />
+  <meta property="og:url" content="https://depodart.com/" />
+  <meta property="og:title" content="DepoDart — AI Prospectivity Mapping for Mineral Exploration" />
+  <meta property="og:description" content="Turn geoscience data into drill-ready targets. AI-driven prospectivity maps for junior and mid-tier mining companies." />
+  <meta property="og:image" content="https://depodart.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="DepoDart — AI-driven mineral prospectivity mapping" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="DepoDart — AI Prospectivity Mapping" />
+  <meta name="twitter:description" content="Turn geoscience data into drill-ready targets. AI-driven prospectivity mapping for the mining industry." />
+  <meta name="twitter:image" content="https://depodart.com/og-image.png" />
+  <meta name="twitter:image:alt" content="DepoDart — AI-driven mineral prospectivity mapping" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-
-  <!-- Apple Touch Icon -->
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-
-  <!-- Android Chrome Icons -->
   <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png" />
   <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png" />
+  <link rel="manifest" href="/site.webmanifest" />
 
-  <!-- SPA Redirect Script -->
+  <!-- Structured Data: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "DepoDart",
+    "url": "https://depodart.com",
+    "logo": "https://depodart.com/android-chrome-512x512.png",
+    "description": "AI-driven mineral prospectivity mapping platform for the mining industry. Fuses geological, geophysical, and geochemical data into drill-ready targets.",
+    "foundingLocation": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Toronto",
+        "addressRegion": "ON",
+        "streetAddress": "24 Tyndall Ave",
+        "addressCountry": "CA"
+      }
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "Sales",
+      "email": "info@depodart.com",
+      "telephone": "+1-416-562-6578",
+      "areaServed": "Worldwide",
+      "availableLanguage": ["en"]
+    }
+  }
+  </script>
+
+  <!-- Structured Data: SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "DepoDart",
+    "applicationCategory": "BusinessApplication",
+    "applicationSubCategory": "Mineral Exploration",
+    "operatingSystem": "Web",
+    "description": "AI prospectivity mapping software for mineral exploration teams. Fuses geological, geophysical, and geochemical datasets into ranked drill targets at 50-meter resolution.",
+    "url": "https://depodart.com",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock",
+      "description": "Contact for enterprise pricing"
+    }
+  }
+  </script>
+
+  <!-- SPA Redirect Script (handles /404.html fallback) -->
   <script type="text/javascript">
-    // This script checks if a redirect is coming from 404.html
     (function() {
-      // If the URL contains a '?/' pattern, it's a redirect from 404.html
       var redirect = sessionStorage.redirect;
       delete sessionStorage.redirect;
-      
-      // If there was a redirect, check to see if we need to handle a path
       if (redirect && redirect !== window.location.href) {
-        // If we were redirected to this page but should be at a different path, navigate there
         window.history.replaceState(null, null, redirect);
       } else {
-        // Check if this is a direct access with the special pattern from 404.html
         var l = window.location;
         if (l.search.match(/^\?\//) || l.pathname.match(/\/?\/$/)) {
           var redirectPath = l.pathname + (l.search.match(/^\?\//) ? l.search.slice(2) : '') + l.hash;
-          // Remove the special flag added by 404.html
           redirectPath = redirectPath.replace(/\/?\//, '/');
           window.history.replaceState(null, null, redirectPath);
         }
@@ -43,7 +109,8 @@
     })();
   </script>
 
-  <title>DepoDart</title>
+  <!-- Cloudflare Web Analytics -->
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "%VITE_CF_ANALYTICS_TOKEN%"}'></script>
 </head>
 <body class="bg-primary-dark">
   <noscript>

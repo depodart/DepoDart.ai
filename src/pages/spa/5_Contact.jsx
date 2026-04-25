@@ -1,5 +1,5 @@
 // Contact.jsx
-import React, { useState, useRef, useEffect, useCallback, memo } from "react";
+import { useState, useRef, useEffect, useCallback, memo } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import GlobeElevatedPolygonsCanvas from "../../components/canvas/GlobeElevatedPolygons";
@@ -7,7 +7,7 @@ import { SectionWrapper } from "../../hoc";
 import { slideIn } from "../../utils/motion";
 import "../../index.css";
 import { CONTACT_TEXT, INITIAL_FORM_STATE, navLinks } from "../../constants";
-import { contactStyles, defaultSectionStyles } from "../../style";
+import { contactStyles, uiStyles } from "../../style";
 import { isMobile } from "../../utils/screensize";
 
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -165,8 +165,7 @@ const Contact = () => {
           },
           CONTACT_TEXT.EMAIL_PUBLIC_KEY
         )
-        .then((response) => {
-          // console.log("EmailJS success response:", response);
+        .then(() => {
           setForm(INITIAL_FORM_STATE);
           setConfirmation(CONTACT_TEXT.successMessage || "Message sent successfully! We'll get back to you soon.");
         })
@@ -215,8 +214,11 @@ const Contact = () => {
         className={contactStyles.contactFormContainer}
         style={{ maxWidth: "500px" }}
       >
-        <p className={defaultSectionStyles.sectionSubText}>{CONTACT_TEXT.sectionSubText}</p>
-        <h3 className={defaultSectionStyles.sectionHeadText}>{CONTACT_TEXT.sectionHeadText}</h3>
+        <span className={uiStyles.eyebrow}>
+          <span className={uiStyles.eyebrowDot} />
+          {CONTACT_TEXT.sectionSubText}
+        </span>
+        <h2 className={`${uiStyles.sectionHeading} mt-3`}>{CONTACT_TEXT.sectionHeadText}</h2>
         <form ref={formRef} onSubmit={handleSubmit} className={contactStyles.contactForm}>
           <div className={contactStyles.formFieldsGrid}>
             <FormInput
@@ -292,9 +294,13 @@ const Contact = () => {
             </label>
           </div> */}
           
-          <div className={contactStyles.submitButtonWrapper}>
-            <button type="submit" disabled={loading} className={contactStyles.submitButton}>
-              {loading ? CONTACT_TEXT.sendingButton || "Sending..." : CONTACT_TEXT.sendButton || "Send Message"}
+          <div className="mt-8">
+            <button
+              type="submit"
+              disabled={loading}
+              className={`${uiStyles.btnPrimary} w-full disabled:opacity-60 disabled:cursor-not-allowed`}
+            >
+              {loading ? (CONTACT_TEXT.sendingButton || "Sending...") : (CONTACT_TEXT.sendButton || "Send message")}
             </button>
           </div>
 

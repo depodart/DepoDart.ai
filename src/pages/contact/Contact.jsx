@@ -1,16 +1,20 @@
-import React from 'react';
 import ContactForm from '../spa/5_Contact';
+import { uiStyles } from '../../style';
 
 const Contact = () => {
   return (
-    <div className="min-h-screen w-full bg-primary-dark pt-24 pb-16">
-      <div className="mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-primary-light mb-4">
-            Get in Touch
+    <div className="min-h-screen w-full bg-primary-dark pt-28 pb-16">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col items-center text-center gap-4 mb-12">
+          <span className={uiStyles.eyebrow}>
+            <span className={uiStyles.eyebrowDot} />
+            GET IN TOUCH
+          </span>
+          <h1 className={`${uiStyles.sectionHeading} text-[36px] sm:text-[48px] md:text-[56px]`}>
+            Book a working session with our team.
           </h1>
-          <p className="text-lg text-primary-light/80 max-w-2xl mx-auto">
-            Have questions about DepoDart? We're here to help. Fill out the form below and we'll get back to you as soon as possible.
+          <p className={`${uiStyles.sectionSubheading} mx-auto text-center`}>
+            Bring a deposit or region you're evaluating — we'll run it through our model and share the prospectivity map live.
           </p>
         </div>
 

@@ -1,138 +1,108 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
+import { ChevronDown } from "lucide-react";
+import { uiStyles } from "../../style";
+
+const faqData = [
+  {
+    question: "What is DepoDart?",
+    answer:
+      "DepoDart is an AI-powered prospectivity mapping platform for the mining industry. We fuse geological, geophysical, and geochemical data into ranked drill targets at 50-meter resolution.",
+  },
+  {
+    question: "How accurate is DepoDart?",
+    answer:
+      "Accuracy depends on the data used. With public data, roughly 1 in 4 predicted high-concentration zones in our Abitibi validation contained mineralization. With client-supplied high-resolution data, accuracy is typically higher — proportional to raster count and resolution.",
+  },
+  {
+    question: "What industries can benefit from DepoDart?",
+    answer:
+      "DepoDart supports the mining industry by providing AI-driven geological insights to enhance mineral exploration — particularly for precious metals (gold, silver) and strategic minerals (cobalt, copper, lithium).",
+  },
+  {
+    question: "How frequently is the training data updated?",
+    answer:
+      "We continuously integrate new data into the training set, adding approximately one new database per month. The process includes identifying the database, obtaining permissions, downloading, and reformatting.",
+  },
+  {
+    question: "Can I export analysis results from DepoDart?",
+    answer:
+      "Yes. DepoDart allows you to export results as PDF reports, CSV data files, and GIS-compatible formats for integration with your existing tools.",
+  },
+  {
+    question: "Is my data secure with DepoDart?",
+    answer:
+      "Yes. All data is encrypted in transit and at rest, and we comply with international data-protection standards. We also offer private cloud deployments for enterprise clients.",
+  },
+];
 
 const FAQ = () => {
-  const [openIndex, setOpenIndex] = useState(null);
-
-  const faqData = [
-    {
-      question: "What is DepoDart?",
-      answer:
-        "DepoDart is an advanced AI-powered terrain analysis and visualization platform that helps organizations make data-driven decisions about land development, environmental monitoring, and resource management.",
-      gradient: "from-[#FF512F] to-[#DD2476]",
-    },
-    {
-      question: "How accurate is DepoDart?",
-      answer:
-        "The accuracy of our models depends on the data used. Clients can choose to use public data, where roughly 1 in 4 deposits is detected, or provide high-definition data for the target area. In the latter case, accuracy will generally be higher, depending on the number of raster layers provided and their resolution.",
-      gradient: "from-[#4776E6] to-[#8E54E9]",
-    },
-    {
-      question: "What industries can benefit from DepoDart?",
-      answer:
-        "DepoDart supports the mining industry by providing AI-driven geological insights to enhance mineral exploration.",
-      gradient: "from-[#00B4DB] to-[#0083B0]",
-    },
-    {
-      question: "How frequently is the data updated?",
-      answer:
-        "At Depodart, we continuously integrate new data into the training set, adding approximately one database per month. This process involves identifying the database, obtaining permissions, downloading the data, and reformatting it.",
-      gradient: "from-[#56ab2f] to-[#a8e063]",
-    },
-    {
-      question: "Can I export analysis results from DepoDart?",
-      answer:
-        "Yes, DepoDart allows you to export analysis results in multiple formats including PDF reports, CSV data files, and GIS-compatible formats for integration with other tools.",
-      gradient: "from-[#FF512F] to-[#DD2476]",
-    },
-    // {
-    //   question: "What kind of support do you offer?",
-    //   answer:
-    //     "We provide comprehensive support including technical assistance, and dedicated account management for enterprise clients. Our support team is available 24/7 to help with any questions or issues.",
-    //   gradient: "from-[#4776E6] to-[#8E54E9]",
-    // },
-    {
-      question: "Is my data secure with DepoDart?",
-      answer:
-        "Yes, we take data security seriously. All data is encrypted both in transit and at rest, and we comply with international data protection standards. We also offer private cloud deployments for enterprise clients.",
-      gradient: "from-[#00B4DB] to-[#0083B0]",
-    },
-  ];
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.3,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      },
-    },
-  };
+  const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-primary-dark to-tertiary-dark">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-        <div className="text-center mb-20">
-          <h1 className="text-6xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-secondary-dark via-tertiary-light to-primary-light mb-8">
-            Frequently Asked Questions
+    <div className="min-h-screen bg-primary-dark pt-28 pb-20">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col items-start gap-4 max-w-3xl mb-14"
+        >
+          <span className={uiStyles.eyebrow}>
+            <span className={uiStyles.eyebrowDot} />
+            FREQUENTLY ASKED
+          </span>
+          <h1 className={`${uiStyles.sectionHeading} text-[40px] sm:text-[56px] md:text-[64px]`}>
+            Questions we answer often.
           </h1>
-          <p className="text-2xl text-primary-light/80 max-w-3xl mx-auto leading-relaxed">
-            Find answers to common questions about DepoDart's terrain analysis
-            platform
+          <p className={`${uiStyles.sectionSubheading} text-[17px] sm:text-[19px]`}>
+            If you have a question we haven't covered, reach out — we reply within two business days.
           </p>
-        </div>
+        </motion.div>
 
         <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="grid grid-cols-1 gap-10"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.4, delay: 0.2 }}
+          className="flex flex-col gap-3"
         >
-          {faqData.map((faq, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              className="group relative"
-            >
+          {faqData.map((faq, index) => {
+            const open = openIndex === index;
+            return (
               <div
-                className={`absolute inset-0 bg-gradient-to-r ${faq.gradient} rounded-2xl opacity-20 group-hover:opacity-30 transition-opacity duration-300`}
-              ></div>
-              <div className="relative bg-white/5 backdrop-blur-lg rounded-2xl p-8 border border-white/10 hover:border-secondary-dark/50 transition-all duration-300">
+                key={faq.question}
+                className={`rounded-xl border transition-all duration-300 ${
+                  open
+                    ? "border-secondary-dark/50 bg-primary-light/[0.04]"
+                    : "border-primary-light/10 bg-primary-light/[0.02] hover:border-primary-light/20"
+                }`}
+              >
                 <button
-                  className="w-full flex justify-between items-center transition-all duration-300 hover:scale-[1.02]"
-                  onClick={() =>
-                    setOpenIndex(openIndex === index ? null : index)
-                  }
+                  type="button"
+                  aria-expanded={open}
+                  onClick={() => setOpenIndex(open ? null : index)}
+                  className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left"
                 >
-                  <h3 className="text-2xl font-bold text-primary-light">
+                  <h2 className="text-base sm:text-lg font-semibold text-primary-light">
                     {faq.question}
-                  </h3>
-                  <svg
-                    className={`w-6 h-6 text-secondary-dark transform transition-transform duration-300 ${
-                      openIndex === index ? "rotate-180" : ""
+                  </h2>
+                  <ChevronDown
+                    size={18}
+                    className={`shrink-0 text-secondary-dark transition-transform duration-300 ${
+                      open ? "rotate-180" : ""
                     }`}
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
+                  />
                 </button>
-                {openIndex === index && (
-                  <p className="text-lg text-primary-light/70 leading-relaxed mt-4 transform transition-all duration-300">
-                    {faq.answer}
-                  </p>
+                {open && (
+                  <div className="px-6 pb-5 -mt-1">
+                    <p className="text-[14px] sm:text-[15px] leading-relaxed text-primary-light/70">
+                      {faq.answer}
+                    </p>
+                  </div>
                 )}
               </div>
-            </motion.div>
-          ))}
+            );
+          })}
         </motion.div>
       </div>
     </div>

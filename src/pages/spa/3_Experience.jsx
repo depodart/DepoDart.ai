@@ -1,79 +1,62 @@
-// Experience.jsx
-import React, { memo, useContext } from "react";
-import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component";
-import "react-vertical-timeline-component/style.min.css";
-import { experiences, EXPERIENCE_TEXT, navLinks } from "../../constants";
+// 3_Experience.jsx — "How It Works" 4-step process
+import { memo } from "react";
+import { motion } from "framer-motion";
+import { HOW_IT_WORKS, navLinks } from "../../constants";
 import { SectionWrapper } from "../../hoc";
-import { experienceStyles, defaultSectionStyles, themes } from "../../style";
-import { ThemeContext } from "../../context/ThemeContext";
+import { uiStyles } from "../../style";
 
-const ExperienceCard = memo(({ experience }) => {
-  const { isDark } = useContext(ThemeContext);
-  const backgroundColor = isDark
-    ? themes.colors.dark.background.tertiary
-    : themes.colors.dark.background.secondary;
-
+const StepCard = memo(({ step, index }) => {
   return (
-    <VerticalTimelineElement
-      contentStyle={{ 
-        background: backgroundColor,
-        boxShadow: "-4px -4px 4px 0px rgba(210,59,12,0.6), -4px 0px 4px 0px rgba(210,59,12,0.6), -4px 4px 4px 0px rgba(210,59,12,0.6)"
-      }}
-      contentArrowStyle={{
-        borderRight: "7px solid #E5E7EB",
-      }}
-      date={experience.date}
-      iconStyle={{ background: backgroundColor }}
-      icon={
-        experience.icon && (
-          <div className={experienceStyles.icon.iconContainer}>
-            <img
-              src={experience.icon}
-              alt={experience.sub_title}
-              className={experienceStyles.icon.iconImage}
-            />
-          </div>
-        )
-      }
+    <motion.article
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.55, delay: index * 0.08, ease: "easeOut" }}
+      className={`${uiStyles.card} flex flex-col h-full`}
     >
-      <div>
-        <h3 className={experienceStyles.text.cardTitle}>{experience.title}</h3>
-        <p className={experienceStyles.text.cardSubtitle}>{experience.sub_title}</p>
+      <div className="flex items-baseline gap-3">
+        <span className="text-[13px] font-mono tracking-widest text-secondary-dark">
+          {step.number}
+        </span>
+        <span className="h-px flex-1 bg-gradient-to-r from-secondary-dark/60 to-transparent" />
       </div>
-
-      <ul className={experienceStyles.pointsList}>
-        {experience.points.map((point, index) => (
-          <li key={`experience-point-${index}`} className={experienceStyles.pointItem}>
-            {point}
-          </li>
-        ))}
-      </ul>
-    </VerticalTimelineElement>
+      <h3 className="mt-5 text-2xl font-bold text-primary-light tracking-tight">
+        {step.title}
+      </h3>
+      <p className="mt-3 text-[14px] sm:text-[15px] leading-relaxed text-primary-light/70">
+        {step.description}
+      </p>
+    </motion.article>
   );
 });
+StepCard.displayName = "StepCard";
 
 const Experience = () => {
   return (
     <>
-      <p className={`
-        ${defaultSectionStyles.sectionSubText} 
-        ${experienceStyles.text.mainTitle.p}
-        `}>
-        {EXPERIENCE_TEXT.sectionSubText}
-      </p>
-      <h2 className={`
-        ${defaultSectionStyles.sectionHeadText} 
-        ${experienceStyles.text.mainTitle.h2}`
-      }>
-        {EXPERIENCE_TEXT.sectionHeadText}
-      </h2>
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="flex flex-col items-start gap-3"
+      >
+        <span className={uiStyles.eyebrow}>
+          <span className={uiStyles.eyebrowDot} />
+          {HOW_IT_WORKS.sectionSubText}
+        </span>
+        <h2 className={uiStyles.sectionHeading}>
+          {HOW_IT_WORKS.sectionHeadText}
+        </h2>
+        <p className={uiStyles.sectionSubheading}>
+          {HOW_IT_WORKS.description}
+        </p>
+      </motion.div>
 
-      <div className={experienceStyles.timelineContainer}>
-        <VerticalTimeline>
-          {experiences.map((experience, index) => (
-            <ExperienceCard key={`experience-${index}`} experience={experience} />
-          ))}
-        </VerticalTimeline>
+      <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+        {HOW_IT_WORKS.steps.map((step, index) => (
+          <StepCard key={step.number} step={step} index={index} />
+        ))}
       </div>
     </>
   );

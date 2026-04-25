@@ -1,5 +1,6 @@
-import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { FOOTER_TEXT, PRIMARY_CTA } from '../constants';
+import { uiStyles } from '../style';
 
 const Footer = () => {
   const navigate = useNavigate();
@@ -11,51 +12,67 @@ const Footer = () => {
 
   const footerSections = [
     {
-      title: "TECHNOLOGY",
+      title: "PRODUCT",
       links: [
-        { text: "DepoDart Technology", href: "/technology/saige" },
-        // { text: "Use Cases", href: "/technology/use-cases" }
-      ]
-    },
-    {
-      title: "ABOUT", 
-      links: [
-        { text: "About DepoDart", href: "/about" },
-        // { text: "Our Team", href: "/about/team" },
-        // { text: "Careers", href: "/careers" }
+        { text: "Prospectivity Maps", href: "/services/0/details" },
+        { text: "3D Orebody Modeling", href: "/services/1/details" },
+        { text: "Technology", href: "/technology/saige" },
       ]
     },
     {
       title: "RESOURCES",
       links: [
         { text: "Knowledge Portal", href: "/resources/knowledge" },
-        { text: "FAQ", href: "/resources/faq" }
+        { text: "FAQ", href: "/resources/faq" },
       ]
     },
     {
-      title: "CONTACT",
+      title: "COMPANY",
       links: [
-        { text: "Get In Touch", href: "/contact" }
+        { text: "About DepoDart", href: "/about" },
+        { text: "Contact", href: "/contact" },
       ]
-    }
+    },
   ];
 
   return (
-    <footer className="bg-gradient-to-r from-primary-dark to-primary-medium text-primary-light py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
-          {footerSections.map((section, index) => (
-            <div key={index} className="text-center md:text-left">
-              <h3 className="text-xl font-bold mb-6 text-tertiary-light">{section.title}</h3>
-              <ul className="space-y-4">
-                {section.links.map((link, linkIndex) => (
-                  <li key={linkIndex}>
-                    <button 
+    <footer className="bg-primary-dark text-primary-light border-t border-primary-light/10">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-14 sm:py-20">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-10 md:gap-12">
+          {/* Brand block — spans 2 cols on md+ */}
+          <div className="col-span-2 flex flex-col gap-4">
+            <Link
+              to="/"
+              onClick={() => window.scrollTo(0, 0)}
+              className="flex items-baseline gap-0 text-2xl font-bold tracking-tight"
+            >
+              <span>Depo</span>
+              <span className="text-secondary-dark">Dart</span>
+            </Link>
+            <p className="text-sm text-primary-light/60 max-w-sm leading-relaxed">
+              {FOOTER_TEXT.tagline}
+            </p>
+            <button
+              type="button"
+              onClick={() => handleNavigation(PRIMARY_CTA.path)}
+              className={`${uiStyles.btnPrimary} self-start mt-2`}
+            >
+              {PRIMARY_CTA.text}
+            </button>
+          </div>
+
+          {footerSections.map((section) => (
+            <div key={section.title} className="flex flex-col">
+              <h3 className="text-[11px] uppercase tracking-[0.22em] font-semibold text-secondary-dark mb-5">
+                {section.title}
+              </h3>
+              <ul className="flex flex-col gap-3">
+                {section.links.map((link) => (
+                  <li key={link.text}>
+                    <button
+                      type="button"
                       onClick={() => handleNavigation(link.href)}
-                      className="relative inline-block hover:text-tertiary-light transition-colors duration-300
-                        after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-tertiary-light 
-                        after:left-0 after:-bottom-1 after:transition-all after:duration-300
-                        hover:after:w-full"
+                      className="text-sm text-primary-light/70 hover:text-primary-light transition-colors duration-200 text-left"
                     >
                       {link.text}
                     </button>
@@ -65,21 +82,14 @@ const Footer = () => {
             </div>
           ))}
         </div>
-        
-        <div className="mt-16 pt-8 border-t border-primary-light/20">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-primary-light/70">
-              © {new Date().getFullYear()} DepoDart. All rights reserved.
-            </p>
-            {/* <div className="flex items-center gap-6">
-              <Link to="/privacy" className="text-sm text-primary-light/70 hover:text-tertiary-light">
-                Privacy Policy
-              </Link>
-              <Link to="/terms" className="text-sm text-primary-light/70 hover:text-tertiary-light">
-                Terms of Service
-              </Link>
-            </div> */}
-          </div>
+
+        <div className="mt-14 pt-8 border-t border-primary-light/10 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <p className="text-xs text-primary-light/50">
+            © {new Date().getFullYear()} DepoDart. All rights reserved.
+          </p>
+          <p className="text-[11px] uppercase tracking-[0.22em] text-primary-light/40 font-mono">
+            {FOOTER_TEXT.address.city}, {FOOTER_TEXT.address.province} &middot; {FOOTER_TEXT.email}
+          </p>
         </div>
       </div>
     </footer>

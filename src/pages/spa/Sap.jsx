@@ -1,38 +1,41 @@
-
-// App.jsx
-import React, { Suspense, lazy } from "react";
+// Sap.jsx — landing page composition
+import { Suspense, lazy } from "react";
 import { appStyles } from "../../style";
-// Lazy load pages/components not needed at first paint
-const VerticalNavbar = lazy(() => import( "../../components/VerticalNavbar"));
-const About = lazy(() => import("./2_About"));
-const Contact = lazy(() => import("./5_Contact"));
-const Experience = lazy(() => import("./3_Experience"));
+
 const Hero = lazy(() => import("./1_Hero"));
-// const StarsCanvas = lazy(() => import("./components/canvas/Stars"));
+const LogoBar = lazy(() => import("./_LogoBar"));
+const About = lazy(() => import("./2_About"));
+const Experience = lazy(() => import("./3_Experience"));
 const Services = lazy(() => import("./4_Services"));
+const Stats = lazy(() => import("./_Stats"));
+const Personas = lazy(() => import("./_Personas"));
+const Testimonials = lazy(() => import("./_Testimonials"));
+const Contact = lazy(() => import("./5_Contact"));
+const FinalCta = lazy(() => import("./_FinalCta"));
 const Contacts = lazy(() => import("./6_Contacts"));
-// const ProjectDetail = lazy(() => import("../../routes/works/ProjectDetail"));
 
 const MainSpa = () => {
-    return (
-        <div className={appStyles.container}>
-            {/* <VerticalNavbar /> */}
-            <Suspense fallback={<div></div>}>
-                <div className={appStyles.heroSection}>
-                    <Hero />
-                </div>
-                <About />
-                <Experience />
-                <Services />
-                <div className={appStyles.contactSection}>
-                    <Contact />
-                    {/* <StarsCanvas /> */}
-                </div>
-                <Contacts />
-            </Suspense>
+  return (
+    <div className={appStyles.container}>
+      <Suspense fallback={<div aria-busy="true" />}>
+        <div className={appStyles.heroSection}>
+          <Hero />
         </div>
-    );
+        <LogoBar />
+        <About />
+        <Experience />
+        <Services />
+        <Stats />
+        <Personas />
+        <Testimonials />
+        <div className={appStyles.contactSection}>
+          <Contact />
+        </div>
+        <FinalCta />
+        <Contacts />
+      </Suspense>
+    </div>
+  );
 };
 
 export default MainSpa;
-

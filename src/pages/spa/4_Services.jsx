@@ -1,109 +1,98 @@
-// Works.jsx
-import React, { memo } from "react";
+// 4_Services.jsx — Products / platform cards
+import { memo } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import { SectionWrapper } from "../../hoc";
 import { projects, WORKS_TEXT } from "../../constants";
-import { textVariant } from "../../utils/motion";
-import { worksStyles, defaultSectionStyles } from "../../style";
+import { uiStyles } from "../../style";
 
-const ServiceCard = memo(({ id, name, description, tags, image, source_code_link, underDevelopment }) => {
+const ProductCard = memo(({ id, name, description, tags, image, underDevelopment }) => {
   const navigate = useNavigate();
 
-  const handleClick = () => {
-    navigate(`/services/${id}/details`);
-  };
+  const handleClick = () => navigate(`/services/${id}/details`);
 
   return (
-    <article onClick={handleClick}>
-      <section
-        className={`${worksStyles.projectCard.wrapper} cursor-pointer bg-white/5 backdrop-blur-lg rounded-2xl p-5 border border-white/10 hover:border-secondary-dark hover:bg-white/10 transition-all duration-500 hover:scale-105 hover:shadow-2xl`}
-      >
-        <figure className={`${worksStyles.projectCard.imageContainer} relative aspect-video rounded-xl overflow-hidden mb-6 shadow-lg group`}>
-          <img
-            src={image}
-            alt={`Service preview for ${name}`}
-            className={`${worksStyles.projectCard.image} w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out`}
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-          {underDevelopment && (
-            <div className="absolute top-4 left-4 px-3 py-1 bg-yellow-500/90 text-black font-semibold text-xs rounded-full shadow-lg transform rotate-[-5deg] z-10 animate-pulse">
-              Under Development
-            </div>
-          )}
-          <button 
-            className="absolute bottom-4 right-4 px-4 py-2 bg-secondary-dark/80 hover:bg-secondary-dark text-white rounded-lg shadow-lg transform translate-y-12 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500"
-            onClick={(e) => {
-              e.stopPropagation();
-              navigate(`/services/${id}/details`);
-            }}
-          >
-            Learn More
-          </button>
-        </figure>
+    <motion.article
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.6, delay: id * 0.1 }}
+      className="group relative flex flex-col rounded-2xl overflow-hidden border border-primary-light/10 bg-primary-light/[0.03] backdrop-blur-sm hover:border-secondary-dark/50 transition-all duration-500 cursor-pointer"
+      onClick={handleClick}
+    >
+      <div className="relative aspect-[16/10] overflow-hidden">
+        <img
+          src={image}
+          alt={`${name} — product screenshot`}
+          loading="lazy"
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-primary-dark via-primary-dark/40 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+        {underDevelopment && (
+          <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-tertiary-light/95 text-primary-dark text-[10px] font-bold uppercase tracking-[0.18em] shadow-lg">
+            In Development
+          </span>
+        )}
+        {!underDevelopment && (
+          <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-secondary-dark/95 text-primary-light text-[10px] font-bold uppercase tracking-[0.18em] shadow-lg">
+            Live
+          </span>
+        )}
+      </div>
 
-        <header className="space-y-4">
-          <div className="flex items-center justify-between">
-            <h3 className={`${worksStyles.projectCard.title} text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-secondary-dark to-tertiary-light group-hover:scale-105 transition-transform duration-500`}>
-              {name}
-            </h3>
-
-          </div>
-          <p className={`${worksStyles.projectCard.description} text-primary-light/80 text-sm leading-relaxed line-clamp-3 group-hover:line-clamp-none transition-all duration-500 group-hover:text-primary-light`}>
-            {description}
-          </p>
-        </header>
-
-        <footer className={worksStyles.projectCard.tagsContainer}>
+      <div className="p-6 sm:p-8 flex flex-col gap-4">
+        <h3 className="text-2xl sm:text-[26px] font-bold text-primary-light tracking-tight">
+          {name}
+        </h3>
+        <p className="text-[14px] sm:text-[15px] leading-relaxed text-primary-light/70">
+          {description}
+        </p>
+        <div className="flex flex-wrap gap-2 mt-1">
           {tags.map((tag) => (
-            <span key={tag.name} className={`${worksStyles.projectCard.tag} ${tag.color}`}>
-              <span 
-                className="px-3 py-1 text-sm bg-gradient-to-r from-secondary-dark/20 to-tertiary-light/20 rounded-full text-primary-light/80 hover:text-white transition-all duration-500 hover:shadow-xl hover:from-secondary-dark/50 hover:to-tertiary-light/50 hover:scale-110"
-              >
-                #{tag.name}
-              </span>
+            <span
+              key={tag.name}
+              className="px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider rounded-md bg-secondary-dark/15 text-secondary-dark border border-secondary-dark/20"
+            >
+              {tag.name}
             </span>
           ))}
-        </footer>
-      </section>
-    </article>
+        </div>
+        <span className={`${uiStyles.btnGhost} mt-2`}>
+          See details
+          <ArrowRightIcon className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+        </span>
+      </div>
+    </motion.article>
   );
 });
+ProductCard.displayName = "ProductCard";
 
 const Services = () => {
   return (
     <main>
-      <header className="hidden md:block">
-        <motion.div variants={textVariant()}>
-          <h2 className={`
-            ${defaultSectionStyles.sectionHeadText} 
-            ${worksStyles.text.mainContent.h2}
-            text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-secondary-dark via-tertiary-light to-primary-light mb-8
-          `}>
-            {WORKS_TEXT.sectionHeading}
-          </h2>
-        </motion.div>
-      </header>
-
-      <header className="md:hidden">
-        <h2 className={`
-          ${defaultSectionStyles.sectionHeadText} 
-          ${worksStyles.text.mainContent.h2}
-          text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-secondary-dark via-tertiary-light to-primary-light mb-8
-        `}>
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="flex flex-col items-start gap-3 mb-12"
+      >
+        <span className={uiStyles.eyebrow}>
+          <span className={uiStyles.eyebrowDot} />
+          {WORKS_TEXT.sectionSubText}
+        </span>
+        <h2 className={uiStyles.sectionHeading}>
           {WORKS_TEXT.sectionHeading}
         </h2>
-      </header>
-
-      <section className="w-full flex mb-12">
-        <p className={`${worksStyles.text.mainContent.p} text-lg text-primary-light/80 leading-relaxed max-w-3xl`}>
+        <p className={uiStyles.sectionSubheading}>
           {WORKS_TEXT.description}
         </p>
-      </section>
-      
-      <section className={`${worksStyles.mainContent.projectsGrid} grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8`}>
+      </motion.div>
+
+      <section className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
         {projects.map((project, index) => (
-          <ServiceCard
+          <ProductCard
             key={`project-${index}`}
             {...project}
             id={index}
@@ -114,4 +103,4 @@ const Services = () => {
   );
 };
 
-export default SectionWrapper(Services, "");
+export default SectionWrapper(Services, "products");

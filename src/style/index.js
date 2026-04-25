@@ -1,7 +1,6 @@
 // src/style.js
 
 import classNames from 'classnames';
-import { NearestMipMapNearestFilter } from 'three';
 
 //! Theme Configuration
 export const themes = {
@@ -1050,5 +1049,124 @@ export const defaultSectionStyles = {
     'dark:text-primary-light',
     'uppercase',
     'tracking-wider'
+  )
+};
+
+/* --------------------------------------------------------------------------
+   Shared UI Utilities — eyebrow labels, buttons, stat display
+   Used by Hero, Process, Stats, Personas, Testimonials, Final CTA
+-------------------------------------------------------------------------- */
+export const uiStyles = {
+  // Orange-dot + monospaced uppercase eyebrow (matches benchmark rhythm)
+  eyebrow: classNames(
+    'inline-flex',
+    'items-center',
+    'gap-2',
+    'text-[11px]',
+    'sm:text-xs',
+    'uppercase',
+    'tracking-[0.25em]',
+    'font-semibold',
+    'text-secondary-dark'
+  ),
+  eyebrowDot: classNames(
+    'w-1.5',
+    'h-1.5',
+    'rounded-full',
+    'bg-secondary-dark',
+    'shrink-0'
+  ),
+  // Headings — larger than defaultSectionStyles.sectionHeadText, mixed case
+  sectionHeading: classNames(
+    'text-primary-light',
+    'font-bold',
+    'tracking-tight',
+    'leading-[1.1]',
+    'text-[32px]',
+    'sm:text-[44px]',
+    'md:text-[56px]'
+  ),
+  sectionSubheading: classNames(
+    'mt-5',
+    'text-[15px]',
+    'sm:text-[17px]',
+    'text-primary-light/70',
+    'leading-relaxed',
+    'max-w-2xl'
+  ),
+  // Buttons — primary (solid brand orange), secondary (ghost white)
+  btnPrimary: classNames(
+    'inline-flex',
+    'items-center',
+    'justify-center',
+    'gap-2',
+    'px-6',
+    'py-3',
+    'rounded-lg',
+    'bg-secondary-dark',
+    'hover:bg-secondary-dark/90',
+    'text-primary-light',
+    'text-sm',
+    'sm:text-[15px]',
+    'font-semibold',
+    'tracking-wide',
+    'shadow-[0_10px_30px_-10px_rgba(210,59,12,0.7)]',
+    'transition-all',
+    'duration-200',
+    'hover:scale-[1.02]',
+    'hover:shadow-[0_16px_40px_-10px_rgba(210,59,12,0.9)]'
+  ),
+  btnSecondary: classNames(
+    'inline-flex',
+    'items-center',
+    'justify-center',
+    'gap-2',
+    'px-6',
+    'py-3',
+    'rounded-lg',
+    'border',
+    'border-primary-light/25',
+    'bg-primary-light/5',
+    'hover:bg-primary-light/10',
+    'hover:border-primary-light/40',
+    'text-primary-light',
+    'text-sm',
+    'sm:text-[15px]',
+    'font-semibold',
+    'tracking-wide',
+    'backdrop-blur-sm',
+    'transition-all',
+    'duration-200'
+  ),
+  btnGhost: classNames(
+    'inline-flex',
+    'items-center',
+    'gap-1.5',
+    'text-sm',
+    'font-semibold',
+    'text-secondary-dark',
+    'hover:text-tertiary-light',
+    'transition-colors',
+    'duration-200'
+  ),
+  // Light-band section (cream bg for contrast against the dark page)
+  sectionLight: classNames(
+    'bg-[#f5efe7]',
+    'text-primary-dark'
+  ),
+  // Card base
+  card: classNames(
+    'relative',
+    'rounded-2xl',
+    'border',
+    'border-primary-light/10',
+    'bg-primary-light/[0.03]',
+    'backdrop-blur-sm',
+    'p-6',
+    'sm:p-8',
+    'transition-all',
+    'duration-300',
+    'hover:border-secondary-dark/40',
+    'hover:bg-primary-light/[0.05]'
   )
 };
