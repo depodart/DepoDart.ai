@@ -3,7 +3,6 @@ import { Suspense, lazy } from "react";
 import { appStyles } from "../../style";
 
 const Hero = lazy(() => import("./1_Hero"));
-const LogoBar = lazy(() => import("./_LogoBar"));
 const About = lazy(() => import("./2_About"));
 const Experience = lazy(() => import("./3_Experience"));
 const Services = lazy(() => import("./4_Services"));
@@ -19,7 +18,6 @@ const MainSpa = () => {
         <div className={appStyles.heroSection}>
           <Hero />
         </div>
-        <LogoBar />
         <About />
         <Experience />
         <Services />

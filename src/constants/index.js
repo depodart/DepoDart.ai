@@ -86,19 +86,6 @@ export const HERO_TEXT = {
   tagline: import.meta.env.VITE_HERO_TEXT_TAGLINE || "AI-Powered Mineral Exploration",
 };
 
-//! Logo Bar — replace placeholders with real partner/client logos when available
-export const LOGO_BAR = {
-  eyebrow: "TRUSTED BY EXPLORATION TEAMS",
-  note: "Early partners and research collaborators",
-  logos: [
-    { name: "Hemlo Mining Corporation", short: "HEMLO" },
-    { name: "Abitibi Research Network", short: "ABITIBI" },
-    { name: "University Partners", short: "ACADEMIA" },
-    { name: "Geological Survey Partners", short: "GSC" },
-    { name: "Exploration JV Program", short: "JV PROGRAM" },
-  ],
-};
-
 //! Services / value pillars (used under the Overview section)
 export const services = [
   {
