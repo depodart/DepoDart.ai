@@ -1,9 +1,9 @@
-// Footer.jsx
-import React, { memo } from "react";
+// 6_Contacts.jsx — footer contact cards with brutal styling
+import { memo } from "react";
 import { SectionWrapper } from "../../hoc";
 import { FOOTER_TEXT } from "../../constants";
 import { EnvelopeIcon, PhoneIcon, MapPinIcon } from "@heroicons/react/24/outline";
-import { defaultSectionStyles, footerStyles } from "../../style";
+import { uiStyles, brutal, footerStyles } from "../../style";
 
 export const FOOTER_CONTACT_SECTIONS = [
   {
@@ -25,45 +25,43 @@ export const FOOTER_CONTACT_SECTIONS = [
 
 const ContactCard = memo(({ title, content, icon }) => {
   return (
-    <div
-      className={`${footerStyles.contactCard.container} ${footerStyles.contactCard.default}`}
-    >
-      <div className={footerStyles.contactCard.header}>
-        <span className={footerStyles.contactCard.icon}>{icon}</span>
-        <h3 className={footerStyles.contactCard.title}>{title || ""}</h3>
+    <div className={`${brutal.card} flex flex-col gap-3`}>
+      <div className="flex items-center gap-3">
+        <span className="w-9 h-9 rounded-md border-2 border-secondary-dark bg-secondary-dark/15 text-secondary-dark flex items-center justify-center shrink-0">
+          {icon}
+        </span>
+        <h3 className="text-[11px] uppercase tracking-[0.22em] font-bold text-primary-light">
+          {title}
+        </h3>
       </div>
-      <dl className={footerStyles.contactCard.contentList}>
-        <div>
-          <dt className="sr-only">{title}</dt>
-          <dd>
-            <p className={`${footerStyles.contactCard.content} ${footerStyles.contactCard.contentDefault}`}>
-              {content || ""}
-            </p>
-          </dd>
-        </div>
-      </dl>
+      <p className="text-[15px] font-semibold text-primary-light/90 break-words">
+        {content}
+      </p>
     </div>
   );
 });
+ContactCard.displayName = "ContactCard";
 
 const Contacts = () => {
   return (
     <section className={footerStyles.container}>
       <div className={footerStyles.topSection}>
         <div className={footerStyles.innerWrapper}>
-          <div className={footerStyles.contentContainer}>
-            <div className={footerStyles.gridLayout}>
-              <div>
-                <h2 className={defaultSectionStyles.sectionHeadText}>Contacts</h2>
-                <p className={footerStyles.description}>
-                  Discover how innovative exploration companies are making breakthrough discoveries with DepoDart.
-                </p>
-              </div>
-              <div className={footerStyles.cardsGrid}>
-                {FOOTER_CONTACT_SECTIONS.map((section, index) => (
-                  <ContactCard key={index} {...section} />
-                ))}
-              </div>
+          <div className={footerStyles.gridLayout}>
+            <div className="flex flex-col gap-4 lg:col-span-1">
+              <span className={brutal.badgeOrange}>REACH US</span>
+              <h2 className={uiStyles.sectionHeading}>
+                Let's talk exploration.
+              </h2>
+              <p className="text-[15px] text-primary-light/70 leading-relaxed max-w-md">
+                We respond within two business days. Bring a project — we'll take a look.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 lg:col-span-2">
+              {FOOTER_CONTACT_SECTIONS.map((section, index) => (
+                <ContactCard key={index} {...section} />
+              ))}
             </div>
           </div>
         </div>

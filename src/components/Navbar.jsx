@@ -1,7 +1,7 @@
 // src/components/Navbar.jsx
 import { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { navbarStyles, defaultSectionStyles, uiStyles } from '../style';
+import { navbarStyles, defaultSectionStyles, brutal } from '../style';
 import { menu, close, Dart_1 } from '../assets';
 import { navLinks, PRIMARY_CTA } from '../constants';
 
@@ -87,7 +87,7 @@ const Navbar = () => {
           <button
             type="button"
             onClick={handlePrimaryCta}
-            className={uiStyles.btnPrimary}
+            className={brutal.btnPrimary}
           >
             {PRIMARY_CTA.text}
           </button>
@@ -119,7 +119,7 @@ const Navbar = () => {
                 <button
                   type="button"
                   onClick={handlePrimaryCta}
-                  className={`${uiStyles.btnPrimary} w-full`}
+                  className={`${brutal.btnPrimary} w-full`}
                 >
                   {PRIMARY_CTA.text}
                 </button>

@@ -1170,3 +1170,206 @@ export const uiStyles = {
     'hover:bg-primary-light/[0.05]'
   )
 };
+
+/* --------------------------------------------------------------------------
+   Brutal (Neobrutalism + Bauhaus) — visual language for the landing page.
+
+   Design rules:
+   - Borders: 2-3px flat, always visible (no opacity tricks).
+   - Shadows: solid offsets, zero blur. Offset is [4px, 4px] at rest, [0, 0]
+     on active hover, paired with a +2px +2px element translate for the
+     classic "press" feel.
+   - No gradients on interactive surfaces.
+   - Transitions fast (150ms) — brutalism is decisive.
+   - Works on both the dark primary bg and the cream sectionLight bg.
+-------------------------------------------------------------------------- */
+export const brutal = {
+  // Card on dark sections. Orange offset shadow against dark bg.
+  card: classNames(
+    'relative',
+    'rounded-xl',
+    'border-2',
+    'border-primary-light/80',
+    'bg-[#1a0f0a]',
+    'p-6',
+    'sm:p-8',
+    'shadow-[6px_6px_0_0_#D23B0C]'
+  ),
+  // Same as card but interactive — hover press effect.
+  cardInteractive: classNames(
+    'relative',
+    'rounded-xl',
+    'border-2',
+    'border-primary-light/80',
+    'bg-[#1a0f0a]',
+    'p-6',
+    'sm:p-8',
+    'shadow-[6px_6px_0_0_#D23B0C]',
+    'transition-all',
+    'duration-150',
+    'hover:-translate-y-0.5',
+    'hover:shadow-[8px_8px_0_0_#D23B0C]',
+    'active:translate-x-[4px]',
+    'active:translate-y-[4px]',
+    'active:shadow-[0_0_0_0_#D23B0C]',
+    'cursor-pointer'
+  ),
+  // Card on light (cream) sections — dark border + dark shadow.
+  cardLight: classNames(
+    'relative',
+    'rounded-xl',
+    'border-2',
+    'border-primary-dark',
+    'bg-[#faf6ee]',
+    'p-6',
+    'sm:p-8',
+    'shadow-[6px_6px_0_0_#110A07]'
+  ),
+  // Sticker-style badge — small chunky pill with offset shadow.
+  badge: classNames(
+    'inline-flex',
+    'items-center',
+    'gap-1.5',
+    'px-3',
+    'py-1',
+    'rounded-md',
+    'border-2',
+    'border-primary-light',
+    'bg-primary-dark',
+    'text-[10px]',
+    'sm:text-[11px]',
+    'font-bold',
+    'uppercase',
+    'tracking-[0.18em]',
+    'text-primary-light',
+    'shadow-[3px_3px_0_0_#D23B0C]'
+  ),
+  badgeOrange: classNames(
+    'inline-flex',
+    'items-center',
+    'gap-1.5',
+    'px-3',
+    'py-1',
+    'rounded-md',
+    'border-2',
+    'border-primary-dark',
+    'bg-secondary-dark',
+    'text-[10px]',
+    'sm:text-[11px]',
+    'font-bold',
+    'uppercase',
+    'tracking-[0.18em]',
+    'text-primary-light',
+    'shadow-[3px_3px_0_0_#110A07]'
+  ),
+  badgeGold: classNames(
+    'inline-flex',
+    'items-center',
+    'gap-1.5',
+    'px-3',
+    'py-1',
+    'rounded-md',
+    'border-2',
+    'border-primary-dark',
+    'bg-tertiary-light',
+    'text-[10px]',
+    'sm:text-[11px]',
+    'font-bold',
+    'uppercase',
+    'tracking-[0.18em]',
+    'text-primary-dark',
+    'shadow-[3px_3px_0_0_#110A07]'
+  ),
+  // Big sticker for step numbers — oversized, with slight rotation in JSX via rotate class.
+  numberSticker: classNames(
+    'inline-flex',
+    'items-center',
+    'justify-center',
+    'w-14',
+    'h-14',
+    'sm:w-16',
+    'sm:h-16',
+    'rounded-lg',
+    'border-2',
+    'border-primary-dark',
+    'bg-tertiary-light',
+    'text-primary-dark',
+    'text-xl',
+    'sm:text-2xl',
+    'font-black',
+    'font-mono',
+    'tracking-tight',
+    'shadow-[4px_4px_0_0_#110A07]'
+  ),
+  // Primary button — solid orange, thick dark border, offset dark shadow, press on hover.
+  btnPrimary: classNames(
+    'inline-flex',
+    'items-center',
+    'justify-center',
+    'gap-2',
+    'px-5',
+    'py-2.5',
+    'sm:px-6',
+    'sm:py-3',
+    'rounded-lg',
+    'border-2',
+    'border-primary-dark',
+    'bg-secondary-dark',
+    'text-primary-light',
+    'text-sm',
+    'sm:text-[15px]',
+    'font-bold',
+    'tracking-wide',
+    'uppercase',
+    'shadow-[4px_4px_0_0_#110A07]',
+    'transition-all',
+    'duration-150',
+    'hover:-translate-y-0.5',
+    'hover:shadow-[6px_6px_0_0_#110A07]',
+    'active:translate-x-[4px]',
+    'active:translate-y-[4px]',
+    'active:shadow-[0_0_0_0_#110A07]',
+    'disabled:opacity-60',
+    'disabled:cursor-not-allowed'
+  ),
+  // Secondary button — white bg, dark border, orange shadow.
+  btnSecondary: classNames(
+    'inline-flex',
+    'items-center',
+    'justify-center',
+    'gap-2',
+    'px-5',
+    'py-2.5',
+    'sm:px-6',
+    'sm:py-3',
+    'rounded-lg',
+    'border-2',
+    'border-primary-light',
+    'bg-transparent',
+    'text-primary-light',
+    'text-sm',
+    'sm:text-[15px]',
+    'font-bold',
+    'tracking-wide',
+    'uppercase',
+    'shadow-[4px_4px_0_0_#D23B0C]',
+    'transition-all',
+    'duration-150',
+    'hover:-translate-y-0.5',
+    'hover:shadow-[6px_6px_0_0_#D23B0C]',
+    'active:translate-x-[4px]',
+    'active:translate-y-[4px]',
+    'active:shadow-[0_0_0_0_#D23B0C]'
+  ),
+  // Divider — thick orange bar.
+  divider: classNames(
+    'h-1',
+    'w-full',
+    'bg-secondary-dark'
+  ),
+  // Thick top-border accent bar (e.g. footer or section break).
+  topAccent: classNames(
+    'border-t-4',
+    'border-secondary-dark'
+  )
+};

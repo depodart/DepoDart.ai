@@ -1,11 +1,11 @@
-// 4_Services.jsx — Products / platform cards
+// 4_Services.jsx — "Our Products" / brutal product cards
 import { memo } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import { SectionWrapper } from "../../hoc";
 import { projects, WORKS_TEXT } from "../../constants";
-import { uiStyles } from "../../style";
+import { uiStyles, brutal } from "../../style";
 
 const ProductCard = memo(({ id, name, description, tags, image, underDevelopment }) => {
   const navigate = useNavigate();
@@ -18,24 +18,23 @@ const ProductCard = memo(({ id, name, description, tags, image, underDevelopment
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.6, delay: id * 0.1 }}
-      className="group relative flex flex-col rounded-2xl overflow-hidden border border-primary-light/10 bg-primary-light/[0.03] backdrop-blur-sm hover:border-secondary-dark/50 transition-all duration-500 cursor-pointer"
       onClick={handleClick}
+      className={`${brutal.cardInteractive} flex flex-col p-0 overflow-hidden`}
     >
-      <div className="relative aspect-[16/10] overflow-hidden">
+      <div className="relative aspect-[16/10] overflow-hidden border-b-2 border-primary-light/80">
         <img
           src={image}
-          alt={`${name} — product screenshot`}
+          alt={`${name} — product visual`}
           loading="lazy"
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+          className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-primary-dark via-primary-dark/40 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
-        {underDevelopment && (
-          <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-tertiary-light/95 text-primary-dark text-[10px] font-bold uppercase tracking-[0.18em] shadow-lg">
+        <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/70 to-transparent" />
+        {underDevelopment ? (
+          <span className={`${brutal.badgeGold} absolute top-4 left-4 -rotate-3`}>
             In Development
           </span>
-        )}
-        {!underDevelopment && (
-          <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-secondary-dark/95 text-primary-light text-[10px] font-bold uppercase tracking-[0.18em] shadow-lg">
+        ) : (
+          <span className={`${brutal.badgeOrange} absolute top-4 left-4 -rotate-2`}>
             Live
           </span>
         )}
@@ -52,7 +51,7 @@ const ProductCard = memo(({ id, name, description, tags, image, underDevelopment
           {tags.map((tag) => (
             <span
               key={tag.name}
-              className="px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider rounded-md bg-secondary-dark/15 text-secondary-dark border border-secondary-dark/20"
+              className="px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider rounded-md border-2 border-secondary-dark/60 bg-secondary-dark/15 text-secondary-dark"
             >
               {tag.name}
             </span>
@@ -60,7 +59,7 @@ const ProductCard = memo(({ id, name, description, tags, image, underDevelopment
         </div>
         <span className={`${uiStyles.btnGhost} mt-2`}>
           See details
-          <ArrowRightIcon className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+          <ArrowRightIcon className="w-4 h-4" />
         </span>
       </div>
     </motion.article>
@@ -76,12 +75,9 @@ const Services = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="flex flex-col items-start gap-3 mb-12"
+        className="flex flex-col items-start gap-4 mb-12"
       >
-        <span className={uiStyles.eyebrow}>
-          <span className={uiStyles.eyebrowDot} />
-          {WORKS_TEXT.sectionSubText}
-        </span>
+        <span className={brutal.badge}>{WORKS_TEXT.sectionSubText}</span>
         <h2 className={uiStyles.sectionHeading}>
           {WORKS_TEXT.sectionHeading}
         </h2>
@@ -90,7 +86,7 @@ const Services = () => {
         </p>
       </motion.div>
 
-      <section className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+      <section className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10">
         {projects.map((project, index) => (
           <ProductCard
             key={`project-${index}`}

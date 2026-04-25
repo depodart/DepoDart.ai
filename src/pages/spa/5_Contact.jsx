@@ -7,7 +7,7 @@ import { SectionWrapper } from "../../hoc";
 import { slideIn } from "../../utils/motion";
 import "../../index.css";
 import { CONTACT_TEXT, INITIAL_FORM_STATE, navLinks } from "../../constants";
-import { contactStyles, uiStyles } from "../../style";
+import { contactStyles, uiStyles, brutal } from "../../style";
 import { isMobile } from "../../utils/screensize";
 
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -208,17 +208,14 @@ const Contact = () => {
         />
       </div>
 
-      {/* Contact Form */}
+      {/* Contact Form — brutal card panel */}
       <motion.div
         variants={slideIn("left", "tween", 0.2, 1)}
-        className={contactStyles.contactFormContainer}
-        style={{ maxWidth: "500px" }}
+        className={`${brutal.card} relative z-10 flex-1`}
+        style={{ maxWidth: "560px" }}
       >
-        <span className={uiStyles.eyebrow}>
-          <span className={uiStyles.eyebrowDot} />
-          {CONTACT_TEXT.sectionSubText}
-        </span>
-        <h2 className={`${uiStyles.sectionHeading} mt-3`}>{CONTACT_TEXT.sectionHeadText}</h2>
+        <span className={brutal.badgeOrange}>{CONTACT_TEXT.sectionSubText}</span>
+        <h2 className={`${uiStyles.sectionHeading} mt-4`}>{CONTACT_TEXT.sectionHeadText}</h2>
         <form ref={formRef} onSubmit={handleSubmit} className={contactStyles.contactForm}>
           <div className={contactStyles.formFieldsGrid}>
             <FormInput
@@ -298,7 +295,7 @@ const Contact = () => {
             <button
               type="submit"
               disabled={loading}
-              className={`${uiStyles.btnPrimary} w-full disabled:opacity-60 disabled:cursor-not-allowed`}
+              className={`${brutal.btnPrimary} w-full`}
             >
               {loading ? (CONTACT_TEXT.sendingButton || "Sending...") : (CONTACT_TEXT.sendButton || "Send message")}
             </button>

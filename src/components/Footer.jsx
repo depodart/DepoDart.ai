@@ -1,6 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { FOOTER_TEXT, PRIMARY_CTA } from '../constants';
-import { uiStyles } from '../style';
+import { brutal } from '../style';
 
 const Footer = () => {
   const navigate = useNavigate();
@@ -36,7 +36,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-primary-dark text-primary-light border-t border-primary-light/10">
+    <footer className="bg-primary-dark text-primary-light border-t-4 border-secondary-dark">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-14 sm:py-20">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-10 md:gap-12">
           {/* Brand block — spans 2 cols on md+ */}
@@ -55,7 +55,7 @@ const Footer = () => {
             <button
               type="button"
               onClick={() => handleNavigation(PRIMARY_CTA.path)}
-              className={`${uiStyles.btnPrimary} self-start mt-2`}
+              className={`${brutal.btnPrimary} self-start mt-2`}
             >
               {PRIMARY_CTA.text}
             </button>

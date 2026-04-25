@@ -3,7 +3,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRightIcon, BookOpenIcon } from "@heroicons/react/24/outline";
 import { FINAL_CTA } from "../../constants";
-import { uiStyles, defaultSectionStyles } from "../../style";
+import { brutal, defaultSectionStyles } from "../../style";
+import BauhausArt from "../../components/BauhausArt";
 
 const FinalCta = () => {
   const navigate = useNavigate();
@@ -29,17 +30,17 @@ const FinalCta = () => {
   return (
     <section
       aria-label="Get started"
-      className={`${defaultSectionStyles.paddingX} py-20 sm:py-32 relative overflow-hidden bg-[#0a0604]`}
+      className={`${defaultSectionStyles.paddingX} py-20 sm:py-32 relative overflow-hidden bg-[#0a0604] border-t-4 border-secondary-dark`}
     >
-      {/* Subtle ambient glow */}
+      {/* Bauhaus decorative composition */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 opacity-40 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse at 50% 0%, rgba(210,59,12,0.35), transparent 60%)",
-        }}
-      />
+        className="absolute inset-0 pointer-events-none flex items-center justify-center"
+      >
+        <div className="w-full max-w-5xl opacity-80">
+          <BauhausArt kind="finalCta" />
+        </div>
+      </div>
 
       <div className="relative max-w-4xl mx-auto flex flex-col items-center text-center gap-6">
         <motion.h2
@@ -57,7 +58,7 @@ const FinalCta = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="text-[15px] sm:text-[17px] leading-relaxed text-primary-light/70 max-w-2xl"
+          className="text-[15px] sm:text-[17px] leading-relaxed text-primary-light/75 max-w-2xl"
         >
           {FINAL_CTA.subheadline}
         </motion.p>
@@ -67,12 +68,12 @@ const FinalCta = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.25 }}
-          className="mt-4 flex flex-wrap items-center justify-center gap-3 sm:gap-4"
+          className="mt-4 flex flex-wrap items-center justify-center gap-4"
         >
           <button
             type="button"
             onClick={handlePrimary}
-            className={uiStyles.btnPrimary}
+            className={brutal.btnPrimary}
           >
             {FINAL_CTA.primary.text}
             <ArrowRightIcon className="w-4 h-4" />
@@ -80,7 +81,7 @@ const FinalCta = () => {
           <button
             type="button"
             onClick={handleSecondary}
-            className={uiStyles.btnSecondary}
+            className={brutal.btnSecondary}
           >
             <BookOpenIcon className="w-4 h-4" />
             {FINAL_CTA.secondary.text}
