@@ -6,6 +6,7 @@ import { ArrowRightIcon, PlayCircleIcon } from "@heroicons/react/24/outline";
 import GlobeComponentCanvas from "../../components/canvas/GlobeComponent";
 import CanvasLoader from "../../components/canvas/CanvasLoader";
 import { HERO_TEXT } from "../../constants";
+import { AGAUCU } from "../../assets";
 import { heroStyles, brutal, defaultSectionStyles } from "../../style";
 
 const scrollToHash = (hash) => (e) => {
@@ -18,44 +19,62 @@ const scrollToHash = (hash) => (e) => {
   }
 };
 
-// Bauhaus decorative accents for the hero — absolutely positioned
+// Bauhaus decorative accents — absolutely positioned across the hero
 const HeroAccents = () => (
   <>
-    {/* Top-left circle outline */}
     <div
       aria-hidden="true"
       className="hidden md:block absolute top-28 left-10 w-16 h-16 rounded-full border-2 border-secondary-dark/60 pointer-events-none"
     />
-    {/* Mid-left solid square */}
     <div
       aria-hidden="true"
       className="hidden md:block absolute top-1/2 left-[4%] w-4 h-4 bg-tertiary-light pointer-events-none rotate-12"
     />
-    {/* Bottom-left orange bar */}
     <div
       aria-hidden="true"
       className="hidden md:block absolute bottom-28 left-12 w-20 h-1 bg-secondary-dark pointer-events-none"
     />
-    {/* Top-right triangle (pure CSS) */}
-    <div
-      aria-hidden="true"
-      className="hidden md:block absolute top-36 right-14 pointer-events-none"
-      style={{
-        width: 0,
-        height: 0,
-        borderLeft: "14px solid transparent",
-        borderRight: "14px solid transparent",
-        borderBottom: "22px solid #D23B0C",
-        opacity: 0.7,
-      }}
-    />
   </>
+);
+
+// Platform preview — real product output (AGAUCU prospectivity map) in a brutal frame
+const PlatformPreview = () => (
+  <motion.div
+    initial={{ opacity: 0, x: 30, y: 20 }}
+    animate={{ opacity: 1, x: 0, y: 0 }}
+    transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
+    className="hidden lg:block absolute top-1/2 right-8 xl:right-16 -translate-y-1/2 z-10 w-[420px] xl:w-[500px] pointer-events-none"
+    aria-hidden="true"
+  >
+    <div className="rounded-xl border-2 border-primary-light/80 bg-[#1a0f0a] overflow-hidden shadow-[8px_8px_0_0_#D23B0C]">
+      {/* Faux browser chrome */}
+      <div className="flex items-center gap-2 px-4 py-2.5 border-b-2 border-primary-light/60 bg-primary-dark">
+        <span className="w-3 h-3 rounded-full bg-secondary-dark" />
+        <span className="w-3 h-3 rounded-full bg-tertiary-light" />
+        <span className="w-3 h-3 rounded-full bg-primary-light/30" />
+        <span className="ml-3 text-[10px] font-mono text-primary-light/50 tracking-wider uppercase">
+          DepoDart · Prospectivity Map
+        </span>
+      </div>
+      <img
+        src={AGAUCU}
+        alt="DepoDart prospectivity map output — Abitibi region"
+        className="w-full h-auto block"
+        loading="eager"
+      />
+    </div>
+    {/* Brutal sticker overlay */}
+    <span className={`${brutal.badgeOrange} absolute -top-3 -left-3 -rotate-3`}>
+      Real Output
+    </span>
+  </motion.div>
 );
 
 const Hero = () => {
   return (
     <section className={heroStyles.section} aria-label="Hero">
       <HeroAccents />
+      <PlatformPreview />
 
       <div className={heroStyles.contentWrapper}>
         <div className={`${heroStyles.mainContainer} ${defaultSectionStyles.paddingX}`}>
@@ -64,7 +83,7 @@ const Hero = () => {
             <div className={heroStyles.leftDecoration.line} />
           </div>
 
-          <div className="max-w-2xl">
+          <div className="max-w-2xl lg:max-w-xl">
             <motion.span
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
@@ -115,6 +134,7 @@ const Hero = () => {
         </div>
       </div>
 
+      {/* Globe stays as the deep background visual */}
       <Suspense fallback={<CanvasLoader />}>
         <GlobeComponentCanvas />
       </Suspense>

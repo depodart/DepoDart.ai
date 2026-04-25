@@ -75,7 +75,7 @@ const Services = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="flex flex-col items-start gap-4 mb-12"
+        className="flex flex-col items-start gap-4 mb-10"
       >
         <span className={brutal.badge}>{WORKS_TEXT.sectionSubText}</span>
         <h2 className={uiStyles.sectionHeading}>
@@ -84,6 +84,32 @@ const Services = () => {
         <p className={uiStyles.sectionSubheading}>
           {WORKS_TEXT.description}
         </p>
+      </motion.div>
+
+      {/* Methodology chips — restored from the team's own technical description */}
+      <motion.div
+        initial={{ opacity: 0, y: 12 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.15 }}
+        className="flex flex-wrap items-center gap-2 mb-12"
+      >
+        <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-primary-light/40 mr-2">
+          Built on
+        </span>
+        {[
+          "Autoencoders",
+          "Semi-supervised learning",
+          "Multi-source data fusion",
+          "Public + client datasets",
+        ].map((label) => (
+          <span
+            key={label}
+            className="px-3 py-1 text-[11px] font-bold uppercase tracking-wider rounded-md border-2 border-primary-light/30 bg-primary-light/[0.04] text-primary-light/85"
+          >
+            {label}
+          </span>
+        ))}
       </motion.div>
 
       <section className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10">
