@@ -62,10 +62,10 @@ export const ABOUT_TEXT = {
 
 //! Hero Text
 export const HERO_TEXT = {
-  eyebrow: "BUILT FOR EXPLORATION GEOLOGISTS",
-  headline: "Stop reformatting CSVs. Start interpreting geology.",
+  eyebrow: "",
+  headline: "Multi-source AI for mineral prospectivity.",
   subheadline:
-    "DepoDart unifies your geology, geophysics, and geochemistry layers into one prospectivity workspace. Less time on file conversions, more on the science.",
+    "DepoDart fuses geological, geophysical, and geochemical datasets into a single analytical workspace for exploration teams.",
   primaryCta: { text: "Book a Demo", path: "/contact" },
   secondaryCta: { text: "See the workflow", hash: "#process" },
   // kept for backward compatibility
